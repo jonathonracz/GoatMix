@@ -11,6 +11,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "DSP/Gain.h"
+
 
 //==============================================================================
 MobileMixAudioProcessor::MobileMixAudioProcessor()

@@ -12,6 +12,10 @@
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.MobileMix"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1">
   <MAINGROUP id="AIgys5" name="MobileMix">
+    <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="XUoylL" name="DSPKernel.h" compile="0" resource="0" file="Source/DSP/DSPKernel.h"/>
+      <FILE id="DWu1YS" name="Gain.h" compile="0" resource="0" file="Source/DSP/Gain.h"/>
+    </GROUP>
     <FILE id="yWfwu8" name="PluginProcessor.cpp" compile="1" resource="0"
           file="Source/PluginProcessor.cpp"/>
     <FILE id="PSMtAK" name="PluginProcessor.h" compile="0" resource="0"
@@ -21,7 +25,7 @@
     <FILE id="Gcq1FD" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"/>
@@ -39,9 +43,10 @@
         <MODULEPATH id="juce_audio_processors" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../external/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="portraitlandscape">
+    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"/>
@@ -59,6 +64,7 @@
         <MODULEPATH id="juce_audio_processors" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../external/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
   </EXPORTFORMATS>
@@ -72,6 +78,7 @@
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
