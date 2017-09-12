@@ -15,6 +15,7 @@
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
       <FILE id="XUoylL" name="DSPKernel.h" compile="0" resource="0" file="Source/DSP/DSPKernel.h"/>
       <FILE id="DWu1YS" name="Gain.h" compile="0" resource="0" file="Source/DSP/Gain.h"/>
+      <FILE id="lGoJbC" name="PhaseInvert.h" compile="0" resource="0" file="Source/DSP/PhaseInvert.h"/>
     </GROUP>
     <FILE id="yWfwu8" name="PluginProcessor.cpp" compile="1" resource="0"
           file="Source/PluginProcessor.cpp"/>
