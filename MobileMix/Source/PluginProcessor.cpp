@@ -12,6 +12,7 @@
 #include "PluginEditor.h"
 
 #include "DSP/Gain.h"
+#include "DSP/PitchShift.h"
 
 
 //==============================================================================
