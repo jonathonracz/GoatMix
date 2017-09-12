@@ -1,3 +1,6 @@
 [submodule "external/JUCE"]
 	path = external/JUCE
 	url = https://github.com/WeAreROLI/JUCE.git
+[submodule "external/readerwriterqueue"]
+	path = external/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue.git
