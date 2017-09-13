@@ -4,6 +4,9 @@
 [submodule "external/readerwriterqueue"]
 	path = external/readerwriterqueue
 	url = https://github.com/cameron314/readerwriterqueue.git
-[submodule "external/dynamic_ringbuffer"]
-	path = external/dynamic_ringbuffer
+[submodule "MobileMix/Source/External/readerwriterqueue"]
+	path = MobileMix/Source/External/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue
+[submodule "MobileMix/Source/External/dynamic_ringbuffer"]
+	path = MobileMix/Source/External/dynamic_ringbuffer
 	url = https://github.com/daltonwoodard/dynamic_ringbuffer.git

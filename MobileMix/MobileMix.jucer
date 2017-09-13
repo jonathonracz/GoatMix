@@ -13,6 +13,8 @@
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="HNoVzC" name="BufferSizeAdaptor.h" compile="0" resource="0"
+            file="Source/DSP/BufferSizeAdaptor.h"/>
       <FILE id="XUoylL" name="DSPKernel.h" compile="0" resource="0" file="Source/DSP/DSPKernel.h"/>
       <FILE id="DWu1YS" name="Gain.h" compile="0" resource="0" file="Source/DSP/Gain.h"/>
       <FILE id="BcpLCZ" name="Math.h" compile="0" resource="0" file="Source/DSP/Math.h"/>

@@ -4,13 +4,17 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 9223372036854775807,
-    "3197BA5A48F68A5DC6D2E2E328126BB84C2301F3" : 9223372036854775807
+    "E07D98F99BA6BBAEAE7515F791EA1C9C0D13B91B" : 9223372036854775807,
+    "3197BA5A48F68A5DC6D2E2E328126BB84C2301F3" : 9223372036854775807,
+    "8D742EBC7B47914FBB227437788ECF56AEFF3517" : 9223372036854775807,
+    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0AC6CC05-D7BD-4FD9-AA5D-55C60D304312",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : "MobileMix\/external\/JUCE\/",
-    "3197BA5A48F68A5DC6D2E2E328126BB84C2301F3" : "MobileMix\/"
+    "E07D98F99BA6BBAEAE7515F791EA1C9C0D13B91B" : "MobileMix\/MobileMix\/Source\/External\/readerwriterqueue\/",
+    "3197BA5A48F68A5DC6D2E2E328126BB84C2301F3" : "MobileMix\/",
+    "8D742EBC7B47914FBB227437788ECF56AEFF3517" : "MobileMix\/MobileMix\/Source\/External\/dynamic_ringbuffer\/",
+    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : "MobileMix\/external\/JUCE\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "MobileMix",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -22,9 +26,19 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3197BA5A48F68A5DC6D2E2E328126BB84C2301F3"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/daltonwoodard\/dynamic_ringbuffer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8D742EBC7B47914FBB227437788ECF56AEFF3517"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WeAreROLI\/JUCE.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cameron314\/readerwriterqueue",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E07D98F99BA6BBAEAE7515F791EA1C9C0D13B91B"
     }
   ]
 }
