@@ -4,3 +4,6 @@
 [submodule "MobileMix/Source/External/dynamic_ringbuffer"]
 	path = MobileMix/Source/External/dynamic_ringbuffer
 	url = https://github.com/daltonwoodard/dynamic_ringbuffer.git
+[submodule "External/JUCE"]
+	path = External/JUCE
+	url = https://github.com/WeAreROLI/JUCE.git
