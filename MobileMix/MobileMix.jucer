@@ -2,16 +2,36 @@
 
 <JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="com.yourcompany.MobileMix" includeBinaryInAppConfig="1"
+              bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="0" buildVST3="0" buildAU="0"
-              buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="0"
-              enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="yourcompany"
-              pluginManufacturerCode="Manu" pluginCode="Koui" pluginChannelConfigs=""
+              buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
+              enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="goataudio"
+              pluginManufacturerCode="Goat" pluginCode="Koui" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="MobileMixAU"
-              pluginRTASCategory="" aaxIdentifier="com.yourcompany.MobileMix"
+              pluginRTASCategory="" aaxIdentifier="com.goataudio.MobileMix"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.1">
   <MAINGROUP id="AIgys5" name="MobileMix">
+    <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
+      <FILE id="fu8vYk" name="GainProcessor.cpp" compile="1" resource="0"
+            file="Source/Processors/GainProcessor.cpp"/>
+      <FILE id="tmQBV6" name="GainProcessor.h" compile="0" resource="0" file="Source/Processors/GainProcessor.h"/>
+      <FILE id="xeq0eE" name="GainProcessorEditor.cpp" compile="1" resource="0"
+            file="Source/Processors/GainProcessorEditor.cpp"/>
+      <FILE id="mv3OFx" name="GainProcessorEditor.h" compile="0" resource="0"
+            file="Source/Processors/GainProcessorEditor.h"/>
+      <FILE id="nb34Up" name="SubProcessor.cpp" compile="1" resource="0"
+            file="Source/Processors/SubProcessor.cpp"/>
+      <FILE id="SEzyAb" name="SubProcessor.h" compile="0" resource="0" file="Source/Processors/SubProcessor.h"/>
+      <FILE id="ivEuyO" name="SubProcessorEditor.cpp" compile="1" resource="0"
+            file="Source/Processors/SubProcessorEditor.cpp"/>
+      <FILE id="u7DATN" name="SubProcessorEditor.h" compile="0" resource="0"
+            file="Source/Processors/SubProcessorEditor.h"/>
+    </GROUP>
+    <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
+      <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"
+            file="Source/Containers/SingleThreadRingBuffer.h"/>
+    </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
       <FILE id="HNoVzC" name="BufferSizeAdaptor.h" compile="0" resource="0"
             file="Source/DSP/BufferSizeAdaptor.h"/>

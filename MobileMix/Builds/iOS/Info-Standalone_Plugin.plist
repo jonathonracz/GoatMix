@@ -33,11 +33,25 @@
     <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
       <string>UIInterfaceOrientationLandscapeLeft</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>UIBackgroundModes</key>
     <array/>
+    <key>AudioComponents</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>goataudio: MobileMix</string>
+        <key>manufacturer</key>
+        <string>Goat</string>
+        <key>type</key>
+        <string>aurx</string>
+        <key>subtype</key>
+        <string>Koui</string>
+        <key>version</key>
+        <integer>65536</integer>
+      </dict>
+    </array>
   </dict>
 </plist>

@@ -37,13 +37,13 @@
         <array>
           <dict>
             <key>name</key>
-            <string>yourcompany: MobileMix</string>
+            <string>goataudio: MobileMix</string>
             <key>description</key>
             <string>MobileMix</string>
             <key>factoryFunction</key>
             <string>MobileMixAUFactoryAUv3</string>
             <key>manufacturer</key>
-            <string>Manu</string>
+            <string>Goat</string>
             <key>type</key>
             <string>aufx</string>
             <key>subtype</key>
