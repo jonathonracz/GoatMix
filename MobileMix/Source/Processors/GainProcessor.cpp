@@ -11,8 +11,7 @@
 #include "GainProcessor.h"
 #include "GainProcessorEditor.h"
 
-GainProcessor::GainProcessor(AudioProcessor& _parentProcessor) :
-    SubProcessor(_parentProcessor)
+GainProcessor::GainProcessor()
 {
 }
 
@@ -28,4 +27,14 @@ AudioProcessorEditor* GainProcessor::createEditor()
 const String GainProcessor::getName() const
 {
     return TRANS("Gain");
+}
+
+void GainProcessor::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+{
+
+}
+
+void GainProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+{
+
 }

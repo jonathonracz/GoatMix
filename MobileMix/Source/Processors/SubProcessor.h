@@ -20,7 +20,7 @@ class SubProcessor :
     public AudioProcessor
 {
 public:
-    SubProcessor(AudioProcessor& parentProcessor);
+    SubProcessor();
     ~SubProcessor();
 
     void releaseResources() override;
@@ -42,7 +42,6 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
 protected:
-    AudioProcessor& parentProcessor;
     AudioProcessorValueTreeState paramState;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SubProcessor)

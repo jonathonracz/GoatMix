@@ -10,11 +10,10 @@
 
 #include "SubProcessor.h"
 
-SubProcessor::SubProcessor(AudioProcessor& _parentProcessor) :
+SubProcessor::SubProcessor() :
     AudioProcessor(BusesProperties()
         .withInput("Input",  AudioChannelSet::stereo(), true)
         .withOutput("Output", AudioChannelSet::stereo(), true)),
-    parentProcessor(_parentProcessor),
     paramState(*this, nullptr)
 {
 
