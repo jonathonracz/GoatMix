@@ -14,8 +14,7 @@
 
 MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProcessor& p) :
     AudioProcessorEditor(&p),
-    processor(p),
-    editorTabView(TabbedButtonBar::Orientation::TabsAtBottom)
+    processor(p)
 {
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
