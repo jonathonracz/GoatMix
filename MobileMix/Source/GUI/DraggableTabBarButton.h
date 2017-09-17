@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    DraggableTab.h
+    DraggableTabBarButton.h
     Created: 16 Sep 2017 7:25:01pm
     Author:  Jonathon Racz
 
@@ -12,12 +12,12 @@
 
 #include <JuceHeader.h>
 
-class DraggableTab :
+class DraggableTabBarButton :
     public TabBarButton
 {
 public:
-    DraggableTab(const String& name, TabbedButtonBar& ownerBar);
-    ~DraggableTab();
+    DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar);
+    ~DraggableTabBarButton();
 
 protected:
     int getBestTabLength (int depth) override;

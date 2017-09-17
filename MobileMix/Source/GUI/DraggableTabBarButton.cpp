@@ -1,31 +1,31 @@
 /*
   ==============================================================================
 
-    DraggableTab.cpp
+    DraggableTabBarButton.cpp
     Created: 16 Sep 2017 7:25:01pm
     Author:  Jonathon Racz
 
   ==============================================================================
 */
 
-#include "DraggableTab.h"
+#include "DraggableTabBarButton.h"
 
-DraggableTab::DraggableTab(const String& name, TabbedButtonBar& ownerBar) :
+DraggableTabBarButton::DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar) :
     TabBarButton(name, ownerBar)
 {
     ownerConstrain.setMinimumOnscreenAmounts(INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 }
 
-DraggableTab::~DraggableTab()
+DraggableTabBarButton::~DraggableTabBarButton()
 {
 }
 
-int DraggableTab::getBestTabLength (int depth)
+int DraggableTabBarButton::getBestTabLength (int depth)
 {
     return owner.getWidth() / owner.getNumTabs();
 }
 
-void DraggableTab::mouseDown(const MouseEvent& e)
+void DraggableTabBarButton::mouseDown(const MouseEvent& e)
 {
     if (Desktop::getInstance().getAnimator().isAnimating(this))
         return;
@@ -37,7 +37,7 @@ void DraggableTab::mouseDown(const MouseEvent& e)
     dragger.startDraggingComponent(this, e);
 }
 
-void DraggableTab::mouseDrag(const MouseEvent& e)
+void DraggableTabBarButton::mouseDrag(const MouseEvent& e)
 {
     TabBarButton::mouseDrag(e);
     dragger.dragComponent(this, e, &ownerConstrain);
@@ -58,13 +58,13 @@ void DraggableTab::mouseDrag(const MouseEvent& e)
     }
 }
 
-void DraggableTab::mouseUp(const MouseEvent& e)
+void DraggableTabBarButton::mouseUp(const MouseEvent& e)
 {
     TabBarButton::mouseUp(e);
     Desktop::getInstance().getAnimator().animateComponent(this, getBoundsInParent().withX(triggerTabDownX), getAlpha(), 200, false, 3.0, 0.0);
 }
 
-void DraggableTab::setMoveTriggersFromTab(int index)
+void DraggableTabBarButton::setMoveTriggersFromTab(int index)
 {
     TabBarButton* button = owner.getTabButton(index);
     triggerTabUpX = button->getBoundsInParent().getRight();

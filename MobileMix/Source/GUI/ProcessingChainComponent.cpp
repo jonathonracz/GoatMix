@@ -9,7 +9,7 @@
 */
 
 #include "ProcessingChainComponent.h"
-#include "DraggableTab.h"
+#include "DraggableTabBarButton.h"
 
 ProcessingChainComponent::ProcessingChainComponent() :
     TabbedComponent(TabbedButtonBar::Orientation::TabsAtBottom)
@@ -27,5 +27,5 @@ ProcessingChainComponent::~ProcessingChainComponent()
 
 TabBarButton* ProcessingChainComponent::createTabButton(const String& tabName, int tabIndex)
 {
-    return new DraggableTab(tabName, getTabbedButtonBar());
+    return new DraggableTabBarButton(tabName, getTabbedButtonBar());
 }
