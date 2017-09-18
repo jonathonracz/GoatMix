@@ -24,3 +24,9 @@ void GainProcessorEditor::parameterChanged(const String &parameterID, float newV
 {
 
 }
+
+void GainProcessorEditor::paint(Graphics& g)
+{
+    g.setColour(Colours::green);
+    g.fillAll();
+}

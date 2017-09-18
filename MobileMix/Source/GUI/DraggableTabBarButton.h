@@ -11,16 +11,17 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "../Processors/LinearAudioProcessorGraphEditor.h"
 
 class DraggableTabBarButton :
     public TabBarButton
 {
 public:
-    DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar);
+    DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar, LinearAudioProcessorGraphEditor& modelView);
     ~DraggableTabBarButton();
 
 protected:
-    int getBestTabLength (int depth) override;
+    int getBestTabLength(int depth) override;
     void mouseDown(const MouseEvent& e) override;
     void mouseDrag(const MouseEvent& e) override;
     void mouseUp(const MouseEvent& e) override;
@@ -28,6 +29,7 @@ protected:
 private:
     ComponentDragger dragger;
     ComponentBoundsConstrainer ownerConstrain;
+    LinearAudioProcessorGraphEditor& modelView;
 
     void setMoveTriggersFromTab(int index);
     int triggerTabUpX;

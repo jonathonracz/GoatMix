@@ -10,8 +10,9 @@
 
 #include "DraggableTabBarButton.h"
 
-DraggableTabBarButton::DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar) :
-    TabBarButton(name, ownerBar)
+DraggableTabBarButton::DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar, LinearAudioProcessorGraphEditor& _modelView) :
+    TabBarButton(name, ownerBar),
+    modelView(_modelView)
 {
     ownerConstrain.setMinimumOnscreenAmounts(INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 }
@@ -44,7 +45,7 @@ void DraggableTabBarButton::mouseDrag(const MouseEvent& e)
     if (getBoundsInParent().getCentreX() > triggerTabUpX)
     {
         setMoveTriggersFromTab(getIndex() + 1);
-        owner.moveTab(getIndex() + 1, getIndex(), true);
+        modelView.moveTabWithModelUpdate(getIndex() + 1, getIndex(), true);
         // This (and the duplicated instance below) is a hack to prevent this
         // tab from moving (more like spazzing out) by attempting to animate
         // from the above moveTab call while we're still dragging it.
@@ -53,7 +54,7 @@ void DraggableTabBarButton::mouseDrag(const MouseEvent& e)
     else if (getBoundsInParent().getCentreX() < triggerTabDownX)
     {
         setMoveTriggersFromTab(getIndex() - 1);
-        owner.moveTab(getIndex() - 1, getIndex(), true);
+        modelView.moveTabWithModelUpdate(getIndex() - 1, getIndex(), true);
         Desktop::getInstance().getAnimator().cancelAnimation(this, false);
     }
 }

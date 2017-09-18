@@ -11,6 +11,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "Processors/LinearAudioProcessorGraph.h"
 
 /**
 */
@@ -46,18 +47,8 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
-    void incrementNodeAtOrderedIndex(int index);
-    void decrementNodeAtOrderedIndex(int index);
+    LinearAudioProcessorGraph linearGraph;
 
 private:
-    AudioProcessorGraph::Node* getNodeWithOrderedIndex(int index);
-    void moveNodeFromBetweenCurrentPairToBetweenNewPair(AudioProcessorGraph::Node* node,
-        AudioProcessorGraph::Node* newPrevious,
-        AudioProcessorGraph::Node* newNext);
-    void connect(AudioProcessorGraph::Node* src, AudioProcessorGraph::Node* dst);
-    void disconnect(AudioProcessorGraph::Node* src, AudioProcessorGraph::Node* dst);
-
-    AudioProcessorGraph graph;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

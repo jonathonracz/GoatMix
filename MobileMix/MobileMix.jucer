@@ -17,10 +17,6 @@
             file="Source/GUI/DraggableTabBarButton.cpp"/>
       <FILE id="aPXk1A" name="DraggableTabBarButton.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabBarButton.h"/>
-      <FILE id="dCbiKU" name="ProcessingChainComponent.cpp" compile="1" resource="0"
-            file="Source/GUI/ProcessingChainComponent.cpp"/>
-      <FILE id="rx9ejU" name="ProcessingChainComponent.h" compile="0" resource="0"
-            file="Source/GUI/ProcessingChainComponent.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
       <FILE id="fu8vYk" name="GainProcessor.cpp" compile="1" resource="0"
@@ -30,6 +26,14 @@
             file="Source/Processors/GainProcessorEditor.cpp"/>
       <FILE id="mv3OFx" name="GainProcessorEditor.h" compile="0" resource="0"
             file="Source/Processors/GainProcessorEditor.h"/>
+      <FILE id="XgLB1e" name="LinearAudioProcessorGraph.cpp" compile="1"
+            resource="0" file="Source/Processors/LinearAudioProcessorGraph.cpp"/>
+      <FILE id="nCwIHc" name="LinearAudioProcessorGraph.h" compile="0" resource="0"
+            file="Source/Processors/LinearAudioProcessorGraph.h"/>
+      <FILE id="yUWyus" name="LinearAudioProcessorGraphEditor.cpp" compile="1"
+            resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.cpp"/>
+      <FILE id="Zx86th" name="LinearAudioProcessorGraphEditor.h" compile="0"
+            resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.h"/>
       <FILE id="nb34Up" name="SubProcessor.cpp" compile="1" resource="0"
             file="Source/Processors/SubProcessor.cpp"/>
       <FILE id="SEzyAb" name="SubProcessor.h" compile="0" resource="0" file="Source/Processors/SubProcessor.h"/>

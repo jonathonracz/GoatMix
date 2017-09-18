@@ -12,7 +12,7 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "GUI/ProcessingChainComponent.h"
+#include "Processors/LinearAudioProcessorGraphEditor.h"
 
 /**
 */
@@ -28,8 +28,7 @@ public:
 
 private:
     MobileMixAudioProcessor& processor;
-
-    ProcessingChainComponent editorTabView;
+    LinearAudioProcessorGraphEditor* linearGraphEditor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };

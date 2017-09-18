@@ -21,6 +21,9 @@ public:
     GainProcessorEditor(SubProcessor& processor);
     ~GainProcessorEditor();
 
+protected:
+    void paint(Graphics& g) override;
+
 private:
     void parameterChanged(const String &parameterID, float newValue) override;
 

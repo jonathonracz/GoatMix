@@ -14,11 +14,11 @@
 
 MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProcessor& p) :
     AudioProcessorEditor(&p),
-    processor(p)
+    processor(p),
+    linearGraphEditor(static_cast<LinearAudioProcessorGraphEditor*>(p.linearGraph.createEditor()))
 {
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
-    addAndMakeVisible(editorTabView);
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -37,5 +37,4 @@ void MobileMixAudioProcessorEditor::paint(Graphics& g)
 
 void MobileMixAudioProcessorEditor::resized()
 {
-    editorTabView.setSize(getWidth(), getHeight());
 }
