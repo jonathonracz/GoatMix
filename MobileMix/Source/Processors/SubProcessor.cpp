@@ -12,8 +12,8 @@
 
 SubProcessor::SubProcessor() :
     AudioProcessor(BusesProperties()
-        .withInput("Input",  AudioChannelSet::stereo(), true)
-        .withOutput("Output", AudioChannelSet::stereo(), true)),
+        .withInput("Input",  AudioChannelSet::stereo())
+        .withOutput("Output", AudioChannelSet::stereo())),
     paramState(*this, nullptr)
 {
 

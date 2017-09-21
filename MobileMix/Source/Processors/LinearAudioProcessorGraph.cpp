@@ -10,19 +10,21 @@
 
 #include "LinearAudioProcessorGraph.h"
 #include "LinearAudioProcessorGraphEditor.h"
-#include "GainProcessor.h"
+//#include "GainProcessor.h"
 
 const char* orderedIndexProperty = "orderedIndex";
 
 LinearAudioProcessorGraph::LinearAudioProcessorGraph(AudioChannelSet channelLayout) :
-    acceptedChannelLayout(channelLayout)
+    AudioProcessor(BusesProperties()
+                   .withInput("Input",  AudioChannelSet::stereo())
+                   .withOutput("Output", AudioChannelSet::stereo()))
 {
     input = graph.addNode(new AudioProcessorGraph::AudioGraphIOProcessor(AudioProcessorGraph::AudioGraphIOProcessor::IODeviceType::audioInputNode));
     output = graph.addNode(new AudioProcessorGraph::AudioGraphIOProcessor(AudioProcessorGraph::AudioGraphIOProcessor::IODeviceType::audioOutputNode));
     connect(input, output);
 
-    addProcessor(new GainProcessor);
-    addProcessor(new GainProcessor);
+    //addProcessor(new GainProcessor);
+    //addProcessor(new GainProcessor);
 }
 
 LinearAudioProcessorGraph::~LinearAudioProcessorGraph()
