@@ -25,7 +25,9 @@ public:
     void removeProcessor(int index);
     void moveProcessor(int currentIndex, int newIndex);
     int getNumProcessors() const;
-    AudioProcessor* getAudioProcessorAtIndex(int index) const;
+    AudioProcessor* getProcessorAtIndex(int index) const;
+    String getDescription() const;
+    const AudioChannelSet acceptedChannelLayout;
 
     const String getName() const override;
     void prepareToPlay(double sampleRate, int blockSize) override;
@@ -43,8 +45,6 @@ public:
     void changeProgramName(int, const String&) override;
     void getStateInformation(juce::MemoryBlock& data) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
-
-    const AudioChannelSet acceptedChannelLayout;
 
 protected:
     bool isBusesLayoutSupported(const BusesLayout& layout) const override;

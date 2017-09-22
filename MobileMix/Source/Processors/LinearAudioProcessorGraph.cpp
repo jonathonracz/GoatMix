@@ -84,10 +84,10 @@ void LinearAudioProcessorGraph::moveProcessor(int currentIndex, int newIndex)
 
     AudioProcessorGraph::Node* newBeforeNode;
     AudioProcessorGraph::Node* newAfterNode;
-    if (currentIndex < newIndex)
+    if (newIndex > currentIndex)
     {
-        newBeforeNode = getNodeWithOrderedIndex(currentIndex);
-        newAfterNode = getNodeWithOrderedIndexIncludingIO(currentIndex + 1);
+        newBeforeNode = getNodeWithOrderedIndex(newIndex);
+        newAfterNode = getNodeWithOrderedIndexIncludingIO(newIndex + 1);
         for (int i = 0; i < graph.getNumNodes(); ++i)
         {
             AudioProcessorGraph::Node* currentNode = graph.getNode(i);
@@ -101,8 +101,8 @@ void LinearAudioProcessorGraph::moveProcessor(int currentIndex, int newIndex)
     }
     else
     {
-        newBeforeNode = getNodeWithOrderedIndexIncludingIO(currentIndex - 1);
-        newAfterNode = getNodeWithOrderedIndex(currentIndex);
+        newBeforeNode = getNodeWithOrderedIndexIncludingIO(newIndex - 1);
+        newAfterNode = getNodeWithOrderedIndex(newIndex);
         for (int i = 0; i < graph.getNumNodes(); ++i)
         {
             AudioProcessorGraph::Node* currentNode = graph.getNode(i);
@@ -114,9 +114,13 @@ void LinearAudioProcessorGraph::moveProcessor(int currentIndex, int newIndex)
             }
         }
     }
+    
+    movingNode->properties.set(orderedIndexProperty, newIndex);
+
     disconnect(newBeforeNode, newAfterNode);
     connect(newBeforeNode, movingNode);
     connect(movingNode, newAfterNode);
+    DBG(getDescription());
 }
 
 int LinearAudioProcessorGraph::getNumProcessors() const
@@ -124,9 +128,25 @@ int LinearAudioProcessorGraph::getNumProcessors() const
     return graph.getNumNodes() - 2;
 }
 
-AudioProcessor* LinearAudioProcessorGraph::getAudioProcessorAtIndex(int index) const
+AudioProcessor* LinearAudioProcessorGraph::getProcessorAtIndex(int index) const
 {
     return getNodeWithOrderedIndex(index)->getProcessor();
+}
+
+String LinearAudioProcessorGraph::getDescription() const
+{
+    String ret;
+    for (int i = 0; i < getNumProcessors(); ++i)
+    {
+        AudioProcessor* currentProcessor = getProcessorAtIndex(i);
+        String numInputChannels(currentProcessor->getMainBusNumInputChannels());
+        ret += StringRef("(") + String(currentProcessor->getMainBusNumInputChannels()) + StringRef(")");
+        ret += getProcessorAtIndex(i)->getName();
+        ret += StringRef("(") + String(currentProcessor->getMainBusNumOutputChannels()) + StringRef(")");
+        if (i != getNumProcessors() - 1)
+            ret += StringRef(" -> ");
+    }
+    return ret;
 }
 
 const String LinearAudioProcessorGraph::getName() const

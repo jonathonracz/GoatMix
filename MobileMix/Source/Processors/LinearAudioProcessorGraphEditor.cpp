@@ -17,12 +17,15 @@ LinearAudioProcessorGraphEditor::LinearAudioProcessorGraphEditor(LinearAudioProc
     tabs(TabbedButtonBar::Orientation::TabsAtBottom)
 {
     processor.addChangeListener(this);
+
+    for (int i = 0; i < processor.getNumProcessors(); ++i)
+    {
+        AudioProcessor* processorNode = processor.getProcessorAtIndex(i);
+        tabs.addTab(processorNode->getName(), Colours::white, processorNode->createEditor(), true);
+    }
+
     tabs.addListener(this);
     addAndMakeVisible(tabs);
-    tabs.addTabWithNotification("1", Colours::white, new TextEditor, true);
-    tabs.addTabWithNotification("2", Colours::white, new TextEditor, true);
-    tabs.addTabWithNotification("3", Colours::white, new TextEditor, true);
-    tabs.addTabWithNotification("4", Colours::white, new TextEditor, true);
 }
 
 LinearAudioProcessorGraphEditor::~LinearAudioProcessorGraphEditor()
@@ -32,7 +35,6 @@ LinearAudioProcessorGraphEditor::~LinearAudioProcessorGraphEditor()
 
 void LinearAudioProcessorGraphEditor::changeListenerCallback(ChangeBroadcaster* source)
 {
-
 }
 
 void LinearAudioProcessorGraphEditor::resized()
@@ -42,5 +44,6 @@ void LinearAudioProcessorGraphEditor::resized()
 
 void LinearAudioProcessorGraphEditor::tabMovedViaDrag(int fromIndex, int toIndex)
 {
+    processor.moveProcessor(fromIndex, toIndex);
     DBG("Tab dragged from " << fromIndex << " to " << toIndex);
 }
