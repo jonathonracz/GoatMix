@@ -10,10 +10,10 @@
 
 #include "SubProcessor.h"
 
-SubProcessor::SubProcessor() :
+SubProcessor::SubProcessor(AudioChannelSet channelLayout) :
     AudioProcessor(BusesProperties()
-        .withInput("Input",  AudioChannelSet::stereo())
-        .withOutput("Output", AudioChannelSet::stereo())),
+        .withInput("Input",  channelLayout)
+        .withOutput("Output", channelLayout)),
     paramState(*this, nullptr)
 {
 
@@ -29,8 +29,8 @@ void SubProcessor::releaseResources()
 
 bool SubProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
-    return (layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
-        (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo());
+    return (layouts.getMainInputChannelSet() == getBusesLayout().getMainInputChannelSet()) &&
+        (layouts.getMainOutputChannelSet() == getBusesLayout().getMainOutputChannelSet());
 }
 
 bool SubProcessor::hasEditor() const

@@ -10,21 +10,25 @@
 
 #include "LinearAudioProcessorGraph.h"
 #include "LinearAudioProcessorGraphEditor.h"
-//#include "GainProcessor.h"
+#include "GainProcessor.h"
 
 const char* orderedIndexProperty = "orderedIndex";
 
 LinearAudioProcessorGraph::LinearAudioProcessorGraph(AudioChannelSet channelLayout) :
     AudioProcessor(BusesProperties()
-                   .withInput("Input",  AudioChannelSet::stereo())
-                   .withOutput("Output", AudioChannelSet::stereo()))
+                   .withInput("Input",  channelLayout)
+                   .withOutput("Output", channelLayout))
 {
+    BusesLayout graphLayout;
+    graphLayout.inputBuses.add(channelLayout);
+    graphLayout.outputBuses.add(channelLayout);
+    graph.setBusesLayout(graphLayout);
     input = graph.addNode(new AudioProcessorGraph::AudioGraphIOProcessor(AudioProcessorGraph::AudioGraphIOProcessor::IODeviceType::audioInputNode));
     output = graph.addNode(new AudioProcessorGraph::AudioGraphIOProcessor(AudioProcessorGraph::AudioGraphIOProcessor::IODeviceType::audioOutputNode));
     connect(input, output);
 
-    //addProcessor(new GainProcessor);
-    //addProcessor(new GainProcessor);
+    addProcessor(new GainProcessor(channelLayout));
+    addProcessor(new GainProcessor(channelLayout));
 }
 
 LinearAudioProcessorGraph::~LinearAudioProcessorGraph()
@@ -33,7 +37,7 @@ LinearAudioProcessorGraph::~LinearAudioProcessorGraph()
 
 void LinearAudioProcessorGraph::addProcessor(AudioProcessor* processor, int insertIndex)
 {
-    AudioProcessorGraph::Node* beforeNode = getNodeWithOrderedIndexIncludingIO(getNumProcessors());
+    AudioProcessorGraph::Node* beforeNode = getNodeWithOrderedIndexIncludingIO(getNumProcessors() - 1);
     disconnect(beforeNode, output);
 
     int newOrderedProcessorIndex = getNumProcessors();
@@ -218,7 +222,7 @@ AudioProcessorGraph::Node* LinearAudioProcessorGraph::getNodeWithOrderedIndex(in
     for (int i = 0; i < graph.getNumNodes(); ++i)
     {
         AudioProcessorGraph::Node* potentialNode = graph.getNode(i);
-        if (potentialNode->properties[orderedIndexProperty].equals(i))
+        if (potentialNode->properties[orderedIndexProperty].equals(index))
         {
             return potentialNode;
         }

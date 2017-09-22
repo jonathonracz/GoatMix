@@ -11,10 +11,6 @@
 #include "GainProcessor.h"
 #include "GainProcessorEditor.h"
 
-GainProcessor::GainProcessor()
-{
-}
-
 GainProcessor::~GainProcessor()
 {
 }

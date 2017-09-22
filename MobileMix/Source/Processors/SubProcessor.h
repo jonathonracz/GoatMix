@@ -20,8 +20,8 @@ class SubProcessor :
     public AudioProcessor
 {
 public:
-    SubProcessor();
-    ~SubProcessor();
+    SubProcessor(AudioChannelSet channelLayout);
+    virtual ~SubProcessor();
 
     void releaseResources() override;
 

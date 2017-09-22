@@ -16,7 +16,7 @@ class GainProcessor :
     public SubProcessor
 {
 public:
-    GainProcessor();
+    using SubProcessor::SubProcessor;
     ~GainProcessor();
     AudioProcessorEditor* createEditor() override;
     const String getName() const override;
