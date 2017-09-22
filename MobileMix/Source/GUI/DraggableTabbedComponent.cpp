@@ -31,7 +31,10 @@ void DraggableTabbedComponent::removeTabWithNotification(int tabIndex)
 void DraggableTabbedComponent::moveTabWithNotification(int currentIndex, int newIndex, bool animate)
 {
     moveTab(currentIndex, newIndex, animate);
-    listeners.call(&Listener::tabMoved, currentIndex, newIndex);
+    // Note that here newIndex and currentIndex are switched, because otherwise
+    // this listener callback would be following the tab moved as a result of
+    // tab dragging rather than the dragged tab itself.
+    listeners.call(&Listener::tabMovedViaDrag, newIndex, currentIndex);
 }
 
 void DraggableTabbedComponent::addListener(Listener* listener)

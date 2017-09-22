@@ -16,7 +16,8 @@
 
 class LinearAudioProcessorGraphEditor :
     public AudioProcessorEditor,
-    public ChangeListener
+    public ChangeListener,
+    public DraggableTabbedComponent::Listener
 {
 public:
     LinearAudioProcessorGraphEditor(LinearAudioProcessorGraph& processor);
@@ -25,8 +26,8 @@ public:
 protected:
     LinearAudioProcessorGraph& processor;
     void changeListenerCallback(ChangeBroadcaster* source) override;
-    
     void resized() override;
+    void tabMovedViaDrag(int fromIndex, int toIndex) override;
 
 private:
     DraggableTabbedComponent tabs;

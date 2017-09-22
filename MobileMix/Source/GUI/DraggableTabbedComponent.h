@@ -23,7 +23,7 @@ public:
         virtual ~Listener() {}
         virtual void tabAdded(int index) {}
         virtual void tabRemoved(int index) {}
-        virtual void tabMoved(int fromIndex, int toIndex) {}
+        virtual void tabMovedViaDrag(int fromIndex, int toIndex) {}
     };
 
     void addTabWithNotification(const String& tabName,
