@@ -10,9 +10,9 @@
 
 #include "DraggableTabBarButton.h"
 
-DraggableTabBarButton::DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar, LinearAudioProcessorGraphEditor& _modelView) :
-    TabBarButton(name, ownerBar),
-    modelView(_modelView)
+DraggableTabBarButton::DraggableTabBarButton(const String& name, DraggableTabbedComponent& _owner) :
+    TabBarButton(name, _owner.getTabbedButtonBar()),
+    owner(_owner)
 {
     ownerConstrain.setMinimumOnscreenAmounts(INT_MAX, INT_MAX, INT_MAX, INT_MAX);
 }
@@ -33,7 +33,7 @@ void DraggableTabBarButton::mouseDown(const MouseEvent& e)
 
     TabBarButton::mouseDown(e);
     owner.setCurrentTabIndex(getIndex()); // Tab changes on mouseUp by default.
-    assert(&owner == getParentComponent());
+    assert(&owner.getTabbedButtonBar() == getParentComponent());
     setMoveTriggersFromTab(getIndex());
     dragger.startDraggingComponent(this, e);
 }
@@ -45,7 +45,7 @@ void DraggableTabBarButton::mouseDrag(const MouseEvent& e)
     if (getBoundsInParent().getCentreX() > triggerTabUpX)
     {
         setMoveTriggersFromTab(getIndex() + 1);
-        modelView.moveTabWithModelUpdate(getIndex() + 1, getIndex(), true);
+        owner.moveTabWithNotification(getIndex() + 1, getIndex(), true);
         // This (and the duplicated instance below) is a hack to prevent this
         // tab from moving (more like spazzing out) by attempting to animate
         // from the above moveTab call while we're still dragging it.
@@ -54,7 +54,7 @@ void DraggableTabBarButton::mouseDrag(const MouseEvent& e)
     else if (getBoundsInParent().getCentreX() < triggerTabDownX)
     {
         setMoveTriggersFromTab(getIndex() - 1);
-        modelView.moveTabWithModelUpdate(getIndex() - 1, getIndex(), true);
+        owner.moveTabWithNotification(getIndex() - 1, getIndex(), true);
         Desktop::getInstance().getAnimator().cancelAnimation(this, false);
     }
 }
@@ -67,7 +67,7 @@ void DraggableTabBarButton::mouseUp(const MouseEvent& e)
 
 void DraggableTabBarButton::setMoveTriggersFromTab(int index)
 {
-    TabBarButton* button = owner.getTabButton(index);
+    TabBarButton* button = owner.getTabbedButtonBar().getTabButton(index);
     triggerTabUpX = button->getBoundsInParent().getRight();
     triggerTabDownX = button->getBoundsInParent().getX();
 }

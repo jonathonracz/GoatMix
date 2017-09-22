@@ -11,13 +11,13 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "../Processors/LinearAudioProcessorGraphEditor.h"
+#include "DraggableTabbedComponent.h"
 
 class DraggableTabBarButton :
     public TabBarButton
 {
 public:
-    DraggableTabBarButton(const String& name, TabbedButtonBar& ownerBar, LinearAudioProcessorGraphEditor& modelView);
+    DraggableTabBarButton(const String& name, DraggableTabbedComponent& owner);
     ~DraggableTabBarButton();
 
 protected:
@@ -29,7 +29,7 @@ protected:
 private:
     ComponentDragger dragger;
     ComponentBoundsConstrainer ownerConstrain;
-    LinearAudioProcessorGraphEditor& modelView;
+    DraggableTabbedComponent& owner;
 
     void setMoveTriggersFromTab(int index);
     int triggerTabUpX;

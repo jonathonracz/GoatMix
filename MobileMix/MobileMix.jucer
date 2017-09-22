@@ -17,6 +17,10 @@
             file="Source/GUI/DraggableTabBarButton.cpp"/>
       <FILE id="aPXk1A" name="DraggableTabBarButton.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabBarButton.h"/>
+      <FILE id="jEKs5P" name="DraggableTabbedComponent.cpp" compile="1" resource="0"
+            file="Source/GUI/DraggableTabbedComponent.cpp"/>
+      <FILE id="ob1JOz" name="DraggableTabbedComponent.h" compile="0" resource="0"
+            file="Source/GUI/DraggableTabbedComponent.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
       <FILE id="fu8vYk" name="GainProcessor.cpp" compile="1" resource="0"

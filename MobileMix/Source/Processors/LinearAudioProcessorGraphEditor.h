@@ -12,9 +12,9 @@
 
 #include <JuceHeader.h>
 #include "LinearAudioProcessorGraph.h"
+#include "../GUI/DraggableTabbedComponent.h"
 
 class LinearAudioProcessorGraphEditor :
-    public TabbedComponent,
     public AudioProcessorEditor,
     public ChangeListener
 {
@@ -22,13 +22,12 @@ public:
     LinearAudioProcessorGraphEditor(LinearAudioProcessorGraph& processor);
     ~LinearAudioProcessorGraphEditor();
 
-    void removeTabWithModelUpdate(int tabIndex);
-    void moveTabWithModelUpdate(int currentIndex, int newIndex, bool animate = false);
-
-    TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
-
-    void changeListenerCallback(ChangeBroadcaster* source) override;
-
 protected:
     LinearAudioProcessorGraph& processor;
+    void changeListenerCallback(ChangeBroadcaster* source) override;
+    
+    void resized() override;
+
+private:
+    DraggableTabbedComponent tabs;
 };

@@ -19,6 +19,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
 {
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
+    addAndMakeVisible(linearGraphEditor.get());
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -37,4 +38,5 @@ void MobileMixAudioProcessorEditor::paint(Graphics& g)
 
 void MobileMixAudioProcessorEditor::resized()
 {
+    linearGraphEditor->setSize(getWidth(), getHeight());
 }

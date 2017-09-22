@@ -28,7 +28,7 @@ public:
 
 private:
     MobileMixAudioProcessor& processor;
-    LinearAudioProcessorGraphEditor* linearGraphEditor;
+    std::unique_ptr<LinearAudioProcessorGraphEditor> linearGraphEditor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };
