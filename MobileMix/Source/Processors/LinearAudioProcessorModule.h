@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    SubProcessor.h
+    LinearAudioProcessorModule.h
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
@@ -16,12 +16,12 @@
  Sub-processor for the main processor. This represents the backend of one of the
  tabs of our main view.
  */
-class SubProcessor :
+class LinearAudioProcessorModule :
     public AudioProcessor
 {
 public:
-    SubProcessor(AudioChannelSet channelLayout);
-    virtual ~SubProcessor();
+    LinearAudioProcessorModule(AudioChannelSet channelLayout);
+    virtual ~LinearAudioProcessorModule();
 
     void releaseResources() override;
 
@@ -44,5 +44,5 @@ public:
 protected:
     AudioProcessorValueTreeState paramState;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SubProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LinearAudioProcessorModule)
 };

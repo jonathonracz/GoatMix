@@ -38,13 +38,14 @@
             resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.cpp"/>
       <FILE id="Zx86th" name="LinearAudioProcessorGraphEditor.h" compile="0"
             resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.h"/>
-      <FILE id="nb34Up" name="SubProcessor.cpp" compile="1" resource="0"
-            file="Source/Processors/SubProcessor.cpp"/>
-      <FILE id="SEzyAb" name="SubProcessor.h" compile="0" resource="0" file="Source/Processors/SubProcessor.h"/>
-      <FILE id="ivEuyO" name="SubProcessorEditor.cpp" compile="1" resource="0"
-            file="Source/Processors/SubProcessorEditor.cpp"/>
-      <FILE id="u7DATN" name="SubProcessorEditor.h" compile="0" resource="0"
-            file="Source/Processors/SubProcessorEditor.h"/>
+      <FILE id="nb34Up" name="LinearAudioProcessorModule.cpp" compile="1"
+            resource="0" file="Source/Processors/LinearAudioProcessorModule.cpp"/>
+      <FILE id="SEzyAb" name="LinearAudioProcessorModule.h" compile="0" resource="0"
+            file="Source/Processors/LinearAudioProcessorModule.h"/>
+      <FILE id="ivEuyO" name="LinearAudioProcessorModuleEditor.cpp" compile="1"
+            resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.cpp"/>
+      <FILE id="u7DATN" name="LinearAudioProcessorModuleEditor.h" compile="0"
+            resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.h"/>
     </GROUP>
     <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
       <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"
