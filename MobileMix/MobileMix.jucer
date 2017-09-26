@@ -46,6 +46,18 @@
             resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.cpp"/>
       <FILE id="u7DATN" name="LinearAudioProcessorModuleEditor.h" compile="0"
             resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.h"/>
+      <FILE id="Q4J3R4" name="MobileMixAudioProcessorFormat.cpp" compile="1"
+            resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.cpp"/>
+      <FILE id="YMh06h" name="MobileMixAudioProcessorFormat.h" compile="0"
+            resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.h"/>
+      <FILE id="hLbybd" name="NestedAudioProcessorFormat.cpp" compile="1"
+            resource="0" file="Source/Processors/NestedAudioProcessorFormat.cpp"/>
+      <FILE id="hFdD8D" name="NestedAudioProcessorFormat.h" compile="0" resource="0"
+            file="Source/Processors/NestedAudioProcessorFormat.h"/>
+      <FILE id="cVnBD4" name="NestedAudioProcessorInstance.cpp" compile="1"
+            resource="0" file="Source/Processors/NestedAudioProcessorInstance.cpp"/>
+      <FILE id="kzBbdx" name="NestedAudioProcessorInstance.h" compile="0"
+            resource="0" file="Source/Processors/NestedAudioProcessorInstance.h"/>
     </GROUP>
     <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
       <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"
