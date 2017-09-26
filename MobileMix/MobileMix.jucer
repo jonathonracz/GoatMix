@@ -23,6 +23,10 @@
             file="Source/GUI/DraggableTabbedComponent.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
+      <FILE id="m06dSA" name="AudioProcessorChain.cpp" compile="1" resource="0"
+            file="Source/Processors/AudioProcessorChain.cpp"/>
+      <FILE id="Ert5aG" name="AudioProcessorChain.h" compile="0" resource="0"
+            file="Source/Processors/AudioProcessorChain.h"/>
       <FILE id="fu8vYk" name="GainProcessor.cpp" compile="1" resource="0"
             file="Source/Processors/GainProcessor.cpp"/>
       <FILE id="tmQBV6" name="GainProcessor.h" compile="0" resource="0" file="Source/Processors/GainProcessor.h"/>
@@ -50,14 +54,14 @@
             resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.cpp"/>
       <FILE id="YMh06h" name="MobileMixAudioProcessorFormat.h" compile="0"
             resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.h"/>
-      <FILE id="hLbybd" name="NestedAudioProcessorFormat.cpp" compile="1"
-            resource="0" file="Source/Processors/NestedAudioProcessorFormat.cpp"/>
-      <FILE id="hFdD8D" name="NestedAudioProcessorFormat.h" compile="0" resource="0"
-            file="Source/Processors/NestedAudioProcessorFormat.h"/>
-      <FILE id="cVnBD4" name="NestedAudioProcessorInstance.cpp" compile="1"
-            resource="0" file="Source/Processors/NestedAudioProcessorInstance.cpp"/>
-      <FILE id="kzBbdx" name="NestedAudioProcessorInstance.h" compile="0"
-            resource="0" file="Source/Processors/NestedAudioProcessorInstance.h"/>
+      <FILE id="hLbybd" name="InternalAudioProcessorFormat.cpp" compile="1"
+            resource="0" file="Source/Processors/InternalAudioProcessorFormat.cpp"/>
+      <FILE id="hFdD8D" name="InternalAudioProcessorFormat.h" compile="0"
+            resource="0" file="Source/Processors/InternalAudioProcessorFormat.h"/>
+      <FILE id="cVnBD4" name="NestedAudioProcessor.cpp" compile="1" resource="0"
+            file="Source/Processors/NestedAudioProcessor.cpp"/>
+      <FILE id="kzBbdx" name="NestedAudioProcessor.h" compile="0" resource="0"
+            file="Source/Processors/NestedAudioProcessor.h"/>
     </GROUP>
     <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
       <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"

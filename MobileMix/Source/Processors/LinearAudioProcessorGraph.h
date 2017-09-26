@@ -12,7 +12,6 @@
 
 #include <JuceHeader.h>
 
-
 class LinearAudioProcessorGraph :
     public AudioProcessor,
     public ChangeBroadcaster
