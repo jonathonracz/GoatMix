@@ -48,22 +48,27 @@ int AudioProcessorChain::getNumProcessors() const
     return chain.size();
 }
 
+AudioProcessorChain::Node::Ref AudioProcessorChain::getProcessorAtIndex(int index) const
+{
+    return chain[index];
+}
+
 void AudioProcessorChain::prepareToPlay(double sampleRate, int blockSize)
 {
-    for (AudioProcessor *processor : chain)
-        processor->prepareToPlay(sampleRate, blockSize);
+    for (Node::Ref node : chain)
+        node->getProcessor()->prepareToPlay(sampleRate, blockSize);
 }
 
 void AudioProcessorChain::releaseResources()
 {
-    for (AudioProcessor *processor : chain)
-        processor->releaseResources();
+    for (Node::Ref node : chain)
+        node->getProcessor()->releaseResources();
 }
 
 void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    for (AudioProcessor *processor : chain)
-        processor->processBlock(buffer, midiMessages);
+    for (Node::Ref node : chain)
+        node->getProcessor()->processBlock(buffer, midiMessages);
 
     if (!isTransitioning && commandQueue.size_approx())
     {
@@ -83,7 +88,7 @@ void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& m
                     // Adding another processor would cause allocation on the audio thread!
                     assert(chain.size() < maxNumProcessors);
                     if (chain.size() < maxNumProcessors)
-                        chain.insert(currentCommand.index1, currentCommand.newProcessor);
+                        chain.insert(currentCommand.index1, std::make_shared<Node>(currentCommand.newProcessor));
                     break;
                 }
                 case remove:
@@ -114,8 +119,8 @@ void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& m
 double AudioProcessorChain::getTailLengthSeconds() const
 {
     double longestTailLength = 0.0;
-    for (AudioProcessor *processor : chain)
-        longestTailLength = std::max(processor->getTailLengthSeconds(), longestTailLength);
+    for (Node::Ref node : chain)
+        longestTailLength = std::max(node->getProcessor()->getTailLengthSeconds(), longestTailLength);
 
     return longestTailLength;
 }

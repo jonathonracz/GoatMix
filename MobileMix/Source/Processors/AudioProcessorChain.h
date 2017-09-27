@@ -21,11 +21,24 @@ public:
     AudioProcessorChain(int maxNumProcessors);
     ~AudioProcessorChain();
 
+    class Node
+    {
+    public:
+        AudioProcessor* getProcessor() const { return processor.get(); }
+        typedef std::shared_ptr<Node> Ref;
+    private:
+        friend class AudioProcessorChain;
+        std::unique_ptr<AudioProcessor> processor;
+        Node(AudioProcessor* _processor) :
+            processor(processor) {}
+    };
+
     // These can all be called off the audio thread.
     void addProcessor(AudioProcessor* processor, int insertIndex = -1);
     void removeProcessor(int index);
     void moveProcessor(int currentIndex, int newIndex);
     int getNumProcessors() const;
+    Node::Ref getProcessorAtIndex(int index) const;
 
     String getName() { return ""; }
     void prepareToPlay(double sampleRate, int blockSize) override;
@@ -58,7 +71,7 @@ private:
     };
 
     bool isTransitioning;
-    OwnedArray<AudioProcessor> chain;
+    Array<Node::Ref> chain;
     const int maxNumProcessors;
     moodycamel::ReaderWriterQueue<ModifyCommand> commandQueue;
 
