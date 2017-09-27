@@ -10,8 +10,9 @@
 
 #include "AudioProcessorChain.h"
 
-AudioProcessorChain::AudioProcessorChain(int maxNumProcessors) :
+AudioProcessorChain::AudioProcessorChain(int _maxNumProcessors) :
     isTransitioning(false),
+    maxNumProcessors(_maxNumProcessors),
     commandQueue(64)
 {
     chain.ensureStorageAllocated(maxNumProcessors);
@@ -23,22 +24,28 @@ AudioProcessorChain::~AudioProcessorChain()
 
 void AudioProcessorChain::addProcessor(AudioProcessor* processor, int insertIndex)
 {
+    // If you hit this assertion, then the command queue is overflowed and
+    // should be made larger.
     assert(commandQueue.try_enqueue(ModifyCommand{add, processor, insertIndex, 0}));
 }
 
 void AudioProcessorChain::removeProcessor(int index)
 {
+    // If you hit this assertion, then the command queue is overflowed and
+    // should be made larger.
     assert(commandQueue.try_enqueue(ModifyCommand{remove, nullptr, index, 0}));
 }
 
 void AudioProcessorChain::moveProcessor(int currentIndex, int newIndex)
 {
+    // If you hit this assertion, then the command queue is overflowed and
+    // should be made larger.
     assert(commandQueue.try_enqueue(ModifyCommand{move, nullptr, currentIndex, newIndex}));
 }
 
 int AudioProcessorChain::getNumProcessors() const
 {
-    return numProcessors;
+    return chain.size();
 }
 
 void AudioProcessorChain::prepareToPlay(double sampleRate, int blockSize)
@@ -66,12 +73,17 @@ void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& m
         ModifyCommand currentCommand;
         for (size_t i = 0; i < commandQueue.size_approx(); ++i)
         {
-            commandQueue.try_dequeue(currentCommand);
+            if (!commandQueue.try_dequeue(currentCommand))
+                break;
+
             switch (currentCommand.action)
             {
                 case add:
                 {
-                    chain.insert(currentCommand.index1, currentCommand.newProcessor);
+                    // Adding another processor would cause allocation on the audio thread!
+                    assert(chain.size() < maxNumProcessors);
+                    if (chain.size() < maxNumProcessors)
+                        chain.insert(currentCommand.index1, currentCommand.newProcessor);
                     break;
                 }
                 case remove:

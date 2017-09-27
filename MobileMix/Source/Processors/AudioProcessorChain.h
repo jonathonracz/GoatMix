@@ -59,7 +59,7 @@ private:
 
     bool isTransitioning;
     OwnedArray<AudioProcessor> chain;
-    std::atomic<int> numProcessors;
+    const int maxNumProcessors;
     moodycamel::ReaderWriterQueue<ModifyCommand> commandQueue;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioProcessorChain)
