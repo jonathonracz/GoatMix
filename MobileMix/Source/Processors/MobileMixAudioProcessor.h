@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    LinearAudioProcessorModule.h
+    MobileMixAudioProcessor.h
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
@@ -11,20 +11,18 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "NestedAudioProcessorState.h"
 
-/**
- Sub-processor for the main processor. This represents the backend of one of the
- tabs of our main view.
- */
-class LinearAudioProcessorModule :
-    public AudioProcessor
+class MobileMixAudioProcessor :
+    public AudioPluginInstance
 {
 public:
-    LinearAudioProcessorModule(AudioChannelSet channelLayout);
-    virtual ~LinearAudioProcessorModule();
+    MobileMixAudioProcessor(AudioProcessor& rootProcessor,
+                            AudioProcessorValueTreeState& parentState);
+    virtual ~MobileMixAudioProcessor();
 
+    void fillInPluginDescription(PluginDescription &description) const override;
     void releaseResources() override;
-
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
     bool hasEditor() const override;
     bool acceptsMidi() const override;
@@ -39,7 +37,6 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
 protected:
-    AudioProcessorValueTreeState paramState;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LinearAudioProcessorModule)
+    NestedAudioProcessorState state;
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

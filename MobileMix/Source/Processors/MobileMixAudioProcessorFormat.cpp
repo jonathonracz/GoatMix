@@ -10,6 +10,11 @@
 
 #include "MobileMixAudioProcessorFormat.h"
 
+MobileMixAudioProcessorFormat::MobileMixAudioProcessorFormat()
+{
+    
+}
+
 void MobileMixAudioProcessorFormat::createPluginInstance(const PluginDescription&,
                                                          double initialSampleRate,
                                                          int initialBufferSize,

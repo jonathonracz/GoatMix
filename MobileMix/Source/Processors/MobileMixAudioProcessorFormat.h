@@ -16,6 +16,9 @@ class MobileMixAudioProcessorFormat :
     public InternalAudioProcessorFormat
 {
 public:
+    MobileMixAudioProcessorFormat();
+    ~MobileMixAudioProcessorFormat() {}
+
     PluginDescription gainDesc;
 
 private:
@@ -24,6 +27,6 @@ private:
                               int initialBufferSize,
                               void* userData,
                               void (*callback)(void*, AudioPluginInstance*, const String&)) override;
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorFormat)
 };

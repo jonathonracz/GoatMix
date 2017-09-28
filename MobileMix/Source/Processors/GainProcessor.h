@@ -10,14 +10,17 @@
 
 #pragma once
 
-#include "SubProcessor.h"
+#include <JuceHeader.h>
+#include "MobileMixAudioProcessor.h"
 
 class GainProcessor :
-    public SubProcessor
+    public MobileMixAudioProcessor
 {
 public:
-    using SubProcessor::SubProcessor;
-    ~GainProcessor();
+    GainProcessor(AudioProcessor& rootProcessor,
+                  AudioProcessorValueTreeState& parentState);
+    ~GainProcessor() {}
+
     AudioProcessorEditor* createEditor() override;
     const String getName() const override;
 

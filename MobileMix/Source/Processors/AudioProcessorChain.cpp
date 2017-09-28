@@ -10,117 +10,97 @@
 
 #include "AudioProcessorChain.h"
 
-AudioProcessorChain::AudioProcessorChain(int _maxNumProcessors) :
-    isTransitioning(false),
-    maxNumProcessors(_maxNumProcessors),
-    commandQueue(64)
+void AudioProcessorChain::clear()
 {
-    chain.ensureStorageAllocated(maxNumProcessors);
+    Array<Node::Ptr> emptyChain;
+    const ScopedLock lock(getCallbackLock());
+    chain.swapWith(emptyChain);
 }
 
-AudioProcessorChain::~AudioProcessorChain()
+AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processor, int insertIndex)
 {
+    Array<Node::Ptr> newChain(chain);
+    Node::Ptr newNode = std::make_shared<Node>(processor);
+    chain.insert(insertIndex, newNode);
+    {
+        const ScopedLock lock(getCallbackLock());
+        chain.swapWith(newChain);
+    }
+    return newNode.get();
 }
 
-void AudioProcessorChain::addProcessor(AudioProcessor* processor, int insertIndex)
+struct RemoveRawPointerPredicate
 {
-    // If you hit this assertion, then the command queue is overflowed and
-    // should be made larger.
-    assert(commandQueue.try_enqueue(ModifyCommand{add, processor, insertIndex, 0}));
+    AudioProcessorChain::Node* rawNode;
+    bool operator==(const AudioProcessorChain::Node::Ptr& node) const
+    {
+        return node.get() == rawNode;
+    }
+};
+
+bool AudioProcessorChain::removeNode(Node* node)
+{
+    Array<Node::Ptr> newChain(chain);
+    int numRemoved = newChain.removeIf(RemoveRawPointerPredicate{node});
+    {
+        const ScopedLock lock(getCallbackLock());
+        chain.swapWith(newChain);
+    }
+    return (numRemoved);
 }
 
-void AudioProcessorChain::removeProcessor(int index)
+void AudioProcessorChain::moveNode(int fromIndex, int toIndex)
 {
-    // If you hit this assertion, then the command queue is overflowed and
-    // should be made larger.
-    assert(commandQueue.try_enqueue(ModifyCommand{remove, nullptr, index, 0}));
-}
-
-void AudioProcessorChain::moveProcessor(int currentIndex, int newIndex)
-{
-    // If you hit this assertion, then the command queue is overflowed and
-    // should be made larger.
-    assert(commandQueue.try_enqueue(ModifyCommand{move, nullptr, currentIndex, newIndex}));
-}
-
-int AudioProcessorChain::getNumProcessors() const
-{
-    return chain.size();
-}
-
-AudioProcessorChain::Node::Ref AudioProcessorChain::getProcessorAtIndex(int index) const
-{
-    return chain[index];
+    const ScopedLock lock(getCallbackLock());
+    chain.swap(fromIndex, toIndex);
 }
 
 void AudioProcessorChain::prepareToPlay(double sampleRate, int blockSize)
 {
-    for (Node::Ref node : chain)
+    for (Node::Ptr node : chain)
         node->getProcessor()->prepareToPlay(sampleRate, blockSize);
 }
 
 void AudioProcessorChain::releaseResources()
 {
-    for (Node::Ref node : chain)
+    for (Node::Ptr node : chain)
         node->getProcessor()->releaseResources();
 }
 
 void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    for (Node::Ref node : chain)
+    for (Node::Ptr node : chain)
         node->getProcessor()->processBlock(buffer, midiMessages);
-
-    if (!isTransitioning && commandQueue.size_approx())
-    {
-        isTransitioning = true;
-        buffer.applyGainRamp(0, buffer.getNumSamples(), 1.0f, 0.0f);
-        // Apply all our pending changes to the chain.
-        ModifyCommand currentCommand;
-        for (size_t i = 0; i < commandQueue.size_approx(); ++i)
-        {
-            if (!commandQueue.try_dequeue(currentCommand))
-                break;
-
-            switch (currentCommand.action)
-            {
-                case add:
-                {
-                    // Adding another processor would cause allocation on the audio thread!
-                    assert(chain.size() < maxNumProcessors);
-                    if (chain.size() < maxNumProcessors)
-                        chain.insert(currentCommand.index1, std::make_shared<Node>(currentCommand.newProcessor));
-                    break;
-                }
-                case remove:
-                {
-                    chain.remove(currentCommand.index1);
-                    break;
-                }
-                case move:
-                {
-                    chain.move(currentCommand.index1, currentCommand.index2);
-                    break;
-                }
-                default:
-                {
-                    assert(false);
-                    break;
-                }
-            }
-        }
-    }
-    else if (isTransitioning)
-    {
-        buffer.applyGainRamp(0, buffer.getNumSamples(), 0.0f, 1.0f);
-        isTransitioning = false;
-    }
 }
 
 double AudioProcessorChain::getTailLengthSeconds() const
 {
     double longestTailLength = 0.0;
-    for (Node::Ref node : chain)
+    for (Node::Ptr node : chain)
         longestTailLength = std::max(node->getProcessor()->getTailLengthSeconds(), longestTailLength);
 
     return longestTailLength;
+}
+
+void AudioProcessorChain::reset()
+{
+    const ScopedLock lock(getCallbackLock());
+    for (Node::Ptr node : chain)
+        node->getProcessor()->reset();
+}
+
+void AudioProcessorChain::setNonRealtime(bool isProcessingNonRealtime) noexcept
+{
+    const ScopedLock lock(getCallbackLock());
+    AudioProcessor::setNonRealtime(isProcessingNonRealtime);
+    for (Node::Ptr node : chain)
+        node->getProcessor()->reset();
+}
+
+void AudioProcessorChain::setPlayHead(AudioPlayHead* playhead)
+{
+    const ScopedLock lock(getCallbackLock());
+    AudioProcessor::setPlayHead(playhead);
+    for (Node::Ptr node : chain)
+        node->getProcessor()->setPlayHead(playhead);
 }

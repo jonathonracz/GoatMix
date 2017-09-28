@@ -11,7 +11,9 @@
 #include "GainProcessor.h"
 #include "GainProcessorEditor.h"
 
-GainProcessor::~GainProcessor()
+GainProcessor::GainProcessor(AudioProcessor& rootProcessor,
+                             AudioProcessorValueTreeState& parentState) :
+    MobileMixAudioProcessor(rootProcessor, parentState)
 {
 }
 

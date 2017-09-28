@@ -16,6 +16,9 @@ class InternalAudioProcessorFormat :
     public AudioPluginFormat
 {
 public:
+    InternalAudioProcessorFormat() {}
+    ~InternalAudioProcessorFormat() {}
+
     String getName() const override                                                     { return "Internal"; }
     bool fileMightContainThisPluginType(const String&) override                         { return true; }
     FileSearchPath getDefaultLocationsToSearch() override                               { return {}; }

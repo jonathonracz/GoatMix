@@ -23,6 +23,10 @@
             file="Source/GUI/DraggableTabbedComponent.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
+      <FILE id="A0iUUo" name="MobileMixAudioProcessor.cpp" compile="1" resource="0"
+            file="Source/Processors/MobileMixAudioProcessor.cpp"/>
+      <FILE id="iVCyOZ" name="MobileMixAudioProcessor.h" compile="0" resource="0"
+            file="Source/Processors/MobileMixAudioProcessor.h"/>
       <FILE id="m06dSA" name="AudioProcessorChain.cpp" compile="1" resource="0"
             file="Source/Processors/AudioProcessorChain.cpp"/>
       <FILE id="Ert5aG" name="AudioProcessorChain.h" compile="0" resource="0"
@@ -34,22 +38,6 @@
             file="Source/Processors/GainProcessorEditor.cpp"/>
       <FILE id="mv3OFx" name="GainProcessorEditor.h" compile="0" resource="0"
             file="Source/Processors/GainProcessorEditor.h"/>
-      <FILE id="XgLB1e" name="LinearAudioProcessorGraph.cpp" compile="1"
-            resource="0" file="Source/Processors/LinearAudioProcessorGraph.cpp"/>
-      <FILE id="nCwIHc" name="LinearAudioProcessorGraph.h" compile="0" resource="0"
-            file="Source/Processors/LinearAudioProcessorGraph.h"/>
-      <FILE id="yUWyus" name="LinearAudioProcessorGraphEditor.cpp" compile="1"
-            resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.cpp"/>
-      <FILE id="Zx86th" name="LinearAudioProcessorGraphEditor.h" compile="0"
-            resource="0" file="Source/Processors/LinearAudioProcessorGraphEditor.h"/>
-      <FILE id="nb34Up" name="LinearAudioProcessorModule.cpp" compile="1"
-            resource="0" file="Source/Processors/LinearAudioProcessorModule.cpp"/>
-      <FILE id="SEzyAb" name="LinearAudioProcessorModule.h" compile="0" resource="0"
-            file="Source/Processors/LinearAudioProcessorModule.h"/>
-      <FILE id="ivEuyO" name="LinearAudioProcessorModuleEditor.cpp" compile="1"
-            resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.cpp"/>
-      <FILE id="u7DATN" name="LinearAudioProcessorModuleEditor.h" compile="0"
-            resource="0" file="Source/Processors/LinearAudioProcessorModuleEditor.h"/>
       <FILE id="Q4J3R4" name="MobileMixAudioProcessorFormat.cpp" compile="1"
             resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.cpp"/>
       <FILE id="YMh06h" name="MobileMixAudioProcessorFormat.h" compile="0"
@@ -58,10 +46,10 @@
             resource="0" file="Source/Processors/InternalAudioProcessorFormat.cpp"/>
       <FILE id="hFdD8D" name="InternalAudioProcessorFormat.h" compile="0"
             resource="0" file="Source/Processors/InternalAudioProcessorFormat.h"/>
-      <FILE id="cVnBD4" name="NestedAudioProcessor.cpp" compile="1" resource="0"
-            file="Source/Processors/NestedAudioProcessor.cpp"/>
-      <FILE id="kzBbdx" name="NestedAudioProcessor.h" compile="0" resource="0"
-            file="Source/Processors/NestedAudioProcessor.h"/>
+      <FILE id="cVnBD4" name="NestedAudioProcessorState.cpp" compile="1"
+            resource="0" file="Source/Processors/NestedAudioProcessorState.cpp"/>
+      <FILE id="kzBbdx" name="NestedAudioProcessorState.h" compile="0" resource="0"
+            file="Source/Processors/NestedAudioProcessorState.h"/>
     </GROUP>
     <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
       <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"

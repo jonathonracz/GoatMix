@@ -10,17 +10,12 @@
 
 #include "GainProcessorEditor.h"
 
-GainProcessorEditor::GainProcessorEditor(SubProcessor& processor) :
-    SubProcessorEditor(processor)
+GainProcessorEditor::GainProcessorEditor(GainProcessor& processor) :
+    AudioProcessorEditor(processor)
 {
 }
 
 GainProcessorEditor::~GainProcessorEditor()
-{
-
-}
-
-void GainProcessorEditor::parameterChanged(const String &parameterID, float newValue)
 {
 
 }
