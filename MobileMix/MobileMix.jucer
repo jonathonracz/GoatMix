@@ -25,10 +25,10 @@
             file="Source/GUI/ScreenResolutionConstants.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
-      <FILE id="A0iUUo" name="MobileMixAudioProcessor.cpp" compile="1" resource="0"
-            file="Source/Processors/MobileMixAudioProcessor.cpp"/>
-      <FILE id="iVCyOZ" name="MobileMixAudioProcessor.h" compile="0" resource="0"
-            file="Source/Processors/MobileMixAudioProcessor.h"/>
+      <FILE id="A0iUUo" name="MobileMixSubAudioProcessor.cpp" compile="1"
+            resource="0" file="Source/Processors/MobileMixSubAudioProcessor.cpp"/>
+      <FILE id="iVCyOZ" name="MobileMixSubAudioProcessor.h" compile="0" resource="0"
+            file="Source/Processors/MobileMixSubAudioProcessor.h"/>
       <FILE id="m06dSA" name="AudioProcessorChain.cpp" compile="1" resource="0"
             file="Source/Processors/AudioProcessorChain.cpp"/>
       <FILE id="Ert5aG" name="AudioProcessorChain.h" compile="0" resource="0"
@@ -66,13 +66,14 @@
       <FILE id="lGoJbC" name="PhaseInvert.h" compile="0" resource="0" file="Source/DSP/PhaseInvert.h"/>
       <FILE id="oWIQE2" name="PitchShift.h" compile="0" resource="0" file="Source/DSP/PitchShift.h"/>
     </GROUP>
-    <FILE id="yWfwu8" name="PluginProcessor.cpp" compile="1" resource="0"
-          file="Source/PluginProcessor.cpp"/>
-    <FILE id="PSMtAK" name="PluginProcessor.h" compile="0" resource="0"
-          file="Source/PluginProcessor.h"/>
-    <FILE id="zrnZFj" name="PluginEditor.cpp" compile="1" resource="0"
-          file="Source/PluginEditor.cpp"/>
-    <FILE id="Gcq1FD" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    <FILE id="yWfwu8" name="MobileMixPluginProcessor.cpp" compile="1" resource="0"
+          file="Source/MobileMixPluginProcessor.cpp"/>
+    <FILE id="PSMtAK" name="MobileMixPluginProcessor.h" compile="0" resource="0"
+          file="Source/MobileMixPluginProcessor.h"/>
+    <FILE id="zrnZFj" name="MobileMixPluginEditor.cpp" compile="1" resource="0"
+          file="Source/MobileMixPluginEditor.cpp"/>
+    <FILE id="Gcq1FD" name="MobileMixPluginEditor.h" compile="0" resource="0"
+          file="Source/MobileMixPluginEditor.h"/>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="">

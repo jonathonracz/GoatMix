@@ -8,18 +8,16 @@
   ==============================================================================
 */
 
-#include "PluginProcessor.h"
-#include "PluginEditor.h"
-#include "ScreenResolutionConstants.h"
+#include "MobileMixPluginProcessor.h"
+#include "MobileMixPluginEditor.h"
+#include "GUI/ScreenResolutionConstants.h"
 
 MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProcessor& p) :
     AudioProcessorEditor(&p),
-    processor(p),
-    linearGraphEditor(static_cast<LinearAudioProcessorGraphEditor*>(p.linearGraph.createEditor()))
+    processor(p)
 {
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
-    addAndMakeVisible(linearGraphEditor.get());
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -38,5 +36,4 @@ void MobileMixAudioProcessorEditor::paint(Graphics& g)
 
 void MobileMixAudioProcessorEditor::resized()
 {
-    linearGraphEditor->setSize(getWidth(), getHeight());
 }

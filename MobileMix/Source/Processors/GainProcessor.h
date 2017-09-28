@@ -11,10 +11,10 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "MobileMixAudioProcessor.h"
+#include "MobileMixSubAudioProcessor.h"
 
 class GainProcessor :
-    public MobileMixAudioProcessor
+    public MobileMixSubAudioProcessor
 {
 public:
     GainProcessor(AudioProcessor& rootProcessor,

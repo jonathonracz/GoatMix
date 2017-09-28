@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    MobileMixAudioProcessor.h
+    MobileMixSubAudioProcessor.h
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
@@ -13,13 +13,13 @@
 #include <JuceHeader.h>
 #include "NestedAudioProcessorState.h"
 
-class MobileMixAudioProcessor :
+class MobileMixSubAudioProcessor :
     public AudioPluginInstance
 {
 public:
-    MobileMixAudioProcessor(AudioProcessor& rootProcessor,
+    MobileMixSubAudioProcessor(AudioProcessor& rootProcessor,
                             AudioProcessorValueTreeState& parentState);
-    virtual ~MobileMixAudioProcessor();
+    virtual ~MobileMixSubAudioProcessor();
 
     void fillInPluginDescription(PluginDescription &description) const override;
     void releaseResources() override;
@@ -38,5 +38,5 @@ public:
 
 protected:
     NestedAudioProcessorState state;
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixSubAudioProcessor)
 };

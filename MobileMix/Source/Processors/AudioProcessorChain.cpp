@@ -20,7 +20,7 @@ void AudioProcessorChain::clear()
 AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processor, int insertIndex)
 {
     Array<Node::Ptr> newChain(chain);
-    Node::Ptr newNode = std::make_shared<Node>(processor);
+    Node::Ptr newNode = std::shared_ptr<Node>(new Node(processor));
     chain.insert(insertIndex, newNode);
     {
         const ScopedLock lock(getCallbackLock());
@@ -32,7 +32,7 @@ AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processo
 struct RemoveRawPointerPredicate
 {
     AudioProcessorChain::Node* rawNode;
-    bool operator==(const AudioProcessorChain::Node::Ptr& node) const
+    bool operator()(AudioProcessorChain::Node::Ptr node) const
     {
         return node.get() == rawNode;
     }

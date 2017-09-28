@@ -1,16 +1,16 @@
 /*
   ==============================================================================
 
-    MobileMixAudioProcessor.cpp
+    MobileMixSubAudioProcessor.cpp
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
   ==============================================================================
 */
 
-#include "MobileMixAudioProcessor.h"
+#include "MobileMixSubAudioProcessor.h"
 
-MobileMixAudioProcessor::MobileMixAudioProcessor(AudioProcessor& rootProcessor,
+MobileMixSubAudioProcessor::MobileMixSubAudioProcessor(AudioProcessor& rootProcessor,
                                                  AudioProcessorValueTreeState& parentState) :
     AudioPluginInstance(BusesProperties()
                         .withInput("Input",  AudioChannelSet::stereo())
@@ -19,11 +19,11 @@ MobileMixAudioProcessor::MobileMixAudioProcessor(AudioProcessor& rootProcessor,
 {
 }
 
-MobileMixAudioProcessor::~MobileMixAudioProcessor()
+MobileMixSubAudioProcessor::~MobileMixSubAudioProcessor()
 {
 }
 
-void MobileMixAudioProcessor::fillInPluginDescription(PluginDescription &description) const
+void MobileMixSubAudioProcessor::fillInPluginDescription(PluginDescription &description) const
 {
     description.name = getName();
     description.uid = description.name.hashCode();
@@ -33,63 +33,63 @@ void MobileMixAudioProcessor::fillInPluginDescription(PluginDescription &descrip
     description.isInstrument = false;
 }
 
-void MobileMixAudioProcessor::releaseResources()
+void MobileMixSubAudioProcessor::releaseResources()
 {
 }
 
-bool MobileMixAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+bool MobileMixSubAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     return (layouts.getMainInputChannelSet() == getBusesLayout().getMainInputChannelSet()) &&
         (layouts.getMainOutputChannelSet() == getBusesLayout().getMainOutputChannelSet());
 }
 
-bool MobileMixAudioProcessor::hasEditor() const
+bool MobileMixSubAudioProcessor::hasEditor() const
 {
     return true;
 }
 
-bool MobileMixAudioProcessor::acceptsMidi() const
+bool MobileMixSubAudioProcessor::acceptsMidi() const
 {
     return false;
 }
 
-bool MobileMixAudioProcessor::producesMidi() const
+bool MobileMixSubAudioProcessor::producesMidi() const
 {
     return false;
 }
 
-double MobileMixAudioProcessor::getTailLengthSeconds() const
+double MobileMixSubAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int MobileMixAudioProcessor::getNumPrograms()
+int MobileMixSubAudioProcessor::getNumPrograms()
 {
     return 1; // Required by some hosts (as opposed to 0)
 }
 
-int MobileMixAudioProcessor::getCurrentProgram()
+int MobileMixSubAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void MobileMixAudioProcessor::setCurrentProgram(int index)
+void MobileMixSubAudioProcessor::setCurrentProgram(int index)
 {
 }
 
-const String MobileMixAudioProcessor::getProgramName(int index)
+const String MobileMixSubAudioProcessor::getProgramName(int index)
 {
     return {};
 }
 
-void MobileMixAudioProcessor::changeProgramName(int index, const String& newName)
+void MobileMixSubAudioProcessor::changeProgramName(int index, const String& newName)
 {
 }
 
-void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
+void MobileMixSubAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
 }
 
-void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
+void MobileMixSubAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
 }

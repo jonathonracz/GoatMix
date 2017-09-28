@@ -13,7 +13,7 @@
 
 GainProcessor::GainProcessor(AudioProcessor& rootProcessor,
                              AudioProcessorValueTreeState& parentState) :
-    MobileMixAudioProcessor(rootProcessor, parentState)
+    MobileMixSubAudioProcessor(rootProcessor, parentState)
 {
 }
 

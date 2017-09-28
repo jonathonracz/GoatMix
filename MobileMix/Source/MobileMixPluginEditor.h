@@ -11,8 +11,7 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "PluginProcessor.h"
-#include "Processors/LinearAudioProcessorGraphEditor.h"
+#include "MobileMixPluginProcessor.h"
 
 /**
 */
@@ -28,7 +27,6 @@ public:
 
 private:
     MobileMixAudioProcessor& processor;
-    std::unique_ptr<LinearAudioProcessorGraphEditor> linearGraphEditor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };

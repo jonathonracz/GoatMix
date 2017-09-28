@@ -12,7 +12,6 @@
 
 #include <JuceHeader.h>
 #include <vector>
-#include "../External/readerwriterqueue/readerwriterqueue.h"
 
 class AudioProcessorChain :
     public AudioProcessor
@@ -28,9 +27,9 @@ public:
         typedef std::shared_ptr<Node> Ptr;
     private:
         friend class AudioProcessorChain;
+        friend class std::shared_ptr<Node>;
         std::unique_ptr<AudioProcessor> processor;
-        Node(AudioProcessor* _processor) :
-            processor(_processor) {}
+        Node(AudioProcessor* _processor) : processor(_processor) {}
     };
 
     /* These should all be called on the message thread. */
