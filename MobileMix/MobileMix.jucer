@@ -21,6 +21,8 @@
             file="Source/GUI/DraggableTabbedComponent.cpp"/>
       <FILE id="ob1JOz" name="DraggableTabbedComponent.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabbedComponent.h"/>
+      <FILE id="IgF1w3" name="ScreenResolutionConstants.h" compile="0" resource="0"
+            file="Source/GUI/ScreenResolutionConstants.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
       <FILE id="A0iUUo" name="MobileMixAudioProcessor.cpp" compile="1" resource="0"
@@ -71,8 +73,6 @@
     <FILE id="zrnZFj" name="PluginEditor.cpp" compile="1" resource="0"
           file="Source/PluginEditor.cpp"/>
     <FILE id="Gcq1FD" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-    <FILE id="kLPDKV" name="ScreenResolutionConstants.h" compile="0" resource="0"
-          file="Source/ScreenResolutionConstants.h"/>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="">
