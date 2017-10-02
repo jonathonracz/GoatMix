@@ -25,10 +25,10 @@
             file="Source/GUI/ScreenResolutionConstants.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Processors">
-      <FILE id="A0iUUo" name="MobileMixSubAudioProcessor.cpp" compile="1"
-            resource="0" file="Source/Processors/MobileMixSubAudioProcessor.cpp"/>
-      <FILE id="iVCyOZ" name="MobileMixSubAudioProcessor.h" compile="0" resource="0"
-            file="Source/Processors/MobileMixSubAudioProcessor.h"/>
+      <FILE id="A0iUUo" name="MobileMixPluginInstance.cpp" compile="1" resource="0"
+            file="Source/Processors/MobileMixPluginInstance.cpp"/>
+      <FILE id="iVCyOZ" name="MobileMixPluginInstance.h" compile="0" resource="0"
+            file="Source/Processors/MobileMixPluginInstance.h"/>
       <FILE id="m06dSA" name="AudioProcessorChain.cpp" compile="1" resource="0"
             file="Source/Processors/AudioProcessorChain.cpp"/>
       <FILE id="Ert5aG" name="AudioProcessorChain.h" compile="0" resource="0"
@@ -40,14 +40,10 @@
             file="Source/Processors/GainProcessorEditor.cpp"/>
       <FILE id="mv3OFx" name="GainProcessorEditor.h" compile="0" resource="0"
             file="Source/Processors/GainProcessorEditor.h"/>
-      <FILE id="Q4J3R4" name="MobileMixAudioProcessorFormat.cpp" compile="1"
-            resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.cpp"/>
-      <FILE id="YMh06h" name="MobileMixAudioProcessorFormat.h" compile="0"
-            resource="0" file="Source/Processors/MobileMixAudioProcessorFormat.h"/>
-      <FILE id="hLbybd" name="InternalAudioProcessorFormat.cpp" compile="1"
-            resource="0" file="Source/Processors/InternalAudioProcessorFormat.cpp"/>
-      <FILE id="hFdD8D" name="InternalAudioProcessorFormat.h" compile="0"
-            resource="0" file="Source/Processors/InternalAudioProcessorFormat.h"/>
+      <FILE id="Q4J3R4" name="MobileMixPluginFormat.cpp" compile="1" resource="0"
+            file="Source/Processors/MobileMixPluginFormat.cpp"/>
+      <FILE id="YMh06h" name="MobileMixPluginFormat.h" compile="0" resource="0"
+            file="Source/Processors/MobileMixPluginFormat.h"/>
       <FILE id="cVnBD4" name="NestedAudioProcessorState.cpp" compile="1"
             resource="0" file="Source/Processors/NestedAudioProcessorState.cpp"/>
       <FILE id="kzBbdx" name="NestedAudioProcessorState.h" compile="0" resource="0"

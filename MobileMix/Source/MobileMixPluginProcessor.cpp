@@ -11,16 +11,17 @@
 #include "MobileMixPluginProcessor.h"
 #include "MobileMixPluginEditor.h"
 
-#include "DSP/Gain.h"
-#include "DSP/PitchShift.h"
-#include "DSP/BufferSizeAdaptor.h"
-
+#include "Processors/MobileMixPluginFormat.h"
 #include "Processors/GainProcessor.h"
 
-const char* orderedIndexValueKey = "orderedIndex";
-
-MobileMixAudioProcessor::MobileMixAudioProcessor()
+MobileMixAudioProcessor::MobileMixAudioProcessor() :
+    chainTree("CHAIN"),
+    params(*this, nullptr)
 {
+    params.state = ValueTree("ROOT");
+    params.state.addChild(chainTree, -1, nullptr);
+    
+    formatManager.addFormat(new MobileMixPluginFormat(*this, chainTree));
 }
 
 MobileMixAudioProcessor::~MobileMixAudioProcessor()
@@ -42,7 +43,7 @@ bool MobileMixAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts)
         (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo());
 }
 
-void MobileMixAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
+void MobileMixAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
 }
 

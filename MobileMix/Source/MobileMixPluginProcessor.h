@@ -50,5 +50,9 @@ public:
     AudioProcessorChain chain;
 
 private:
+    ValueTree chainTree;
+    AudioPluginFormatManager formatManager;
+    AudioProcessorValueTreeState params;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

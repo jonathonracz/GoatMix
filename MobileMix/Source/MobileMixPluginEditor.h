@@ -12,11 +12,13 @@
 
 #include <JuceHeader.h>
 #include "MobileMixPluginProcessor.h"
+#include "GUI/DraggableTabbedComponent.h"
 
 /**
 */
 class MobileMixAudioProcessorEditor :
-    public AudioProcessorEditor
+    public AudioProcessorEditor,
+    public DraggableTabbedComponent::Listener
 {
 public:
     MobileMixAudioProcessorEditor(MobileMixAudioProcessor&);
@@ -26,7 +28,10 @@ public:
     void resized() override;
 
 private:
+    void tabMovedViaDrag(int fromIndex, int toIndex) override;
+    
     MobileMixAudioProcessor& processor;
+    DraggableTabbedComponent tabs;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };

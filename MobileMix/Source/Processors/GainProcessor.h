@@ -11,14 +11,15 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "MobileMixSubAudioProcessor.h"
+#include "MobileMixPluginInstance.h"
 
 class GainProcessor :
-    public MobileMixSubAudioProcessor
+    public MobileMixPluginInstance
 {
 public:
     GainProcessor(AudioProcessor& rootProcessor,
-                  AudioProcessorValueTreeState& parentState);
+                  ValueTree& parentState,
+                  bool retrievingDescriptionOnly = false);
     ~GainProcessor() {}
 
     AudioProcessorEditor* createEditor() override;

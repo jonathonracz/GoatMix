@@ -16,18 +16,19 @@ class NestedAudioProcessorState
 {
 public:
     NestedAudioProcessorState(AudioProcessor& rootProcessor,
-                              AudioProcessorValueTreeState& parentState);
+                              ValueTree& parentState);
     virtual ~NestedAudioProcessorState() {}
+
+    AudioProcessorValueTreeState state;
 
 private:
     AudioProcessor& root;
-    AudioProcessorValueTreeState& parent;
+    ValueTree& parent;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NestedAudioProcessorState)
 
 protected:
     void finalizeParametersAndAddToParent(const Identifier& rootId);
 
-    AudioProcessorValueTreeState state;
     UndoManager undo;
 };

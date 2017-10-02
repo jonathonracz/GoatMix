@@ -12,8 +12,9 @@
 #include "GainProcessorEditor.h"
 
 GainProcessor::GainProcessor(AudioProcessor& rootProcessor,
-                             AudioProcessorValueTreeState& parentState) :
-    MobileMixSubAudioProcessor(rootProcessor, parentState)
+                             ValueTree& parentState,
+                             bool retrievingDescriptionOnly) :
+    MobileMixPluginInstance(rootProcessor, parentState, retrievingDescriptionOnly)
 {
 }
 
@@ -24,7 +25,7 @@ AudioProcessorEditor* GainProcessor::createEditor()
 
 const String GainProcessor::getName() const
 {
-    return TRANS("Gain");
+    return NEEDS_TRANS("Gain");
 }
 
 void GainProcessor::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)

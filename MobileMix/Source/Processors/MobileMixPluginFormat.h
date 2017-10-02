@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    InternalAudioProcessorFormat.h
-    Created: 24 Sep 2017 11:50:40pm
+    MobileMixPluginFormat.h
+    Created: 25 Sep 2017 12:34:59am
     Author:  Jonathon Racz
 
   ==============================================================================
@@ -12,13 +12,14 @@
 
 #include <JuceHeader.h>
 
-class InternalAudioProcessorFormat :
+class MobileMixPluginFormat :
     public AudioPluginFormat
 {
 public:
-    InternalAudioProcessorFormat() {}
-    ~InternalAudioProcessorFormat() {}
-
+    MobileMixPluginFormat(AudioProcessor& rootProcessor,
+                          ValueTree& parentState);
+    ~MobileMixPluginFormat() {}
+    
     String getName() const override                                                     { return "Internal"; }
     bool fileMightContainThisPluginType(const String&) override                         { return true; }
     FileSearchPath getDefaultLocationsToSearch() override                               { return {}; }
@@ -29,7 +30,18 @@ public:
     bool pluginNeedsRescanning(const PluginDescription&) override                       { return false; }
     StringArray searchPathsForPlugins(const FileSearchPath&, bool, bool) override       { return {}; }
 
+    PluginDescription gainDesc;
+
 private:
     bool requiresUnblockedMessageThreadDuringCreation(const PluginDescription&) const noexcept override { return false; }
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(InternalAudioProcessorFormat)
+    void createPluginInstance(const PluginDescription& desc,
+                              double initialSampleRate,
+                              int initialBufferSize,
+                              void* userData,
+                              void (*callback)(void*, AudioPluginInstance*, const String&)) override;
+
+    AudioProcessor& root;
+    ValueTree& parent;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginFormat)
 };
