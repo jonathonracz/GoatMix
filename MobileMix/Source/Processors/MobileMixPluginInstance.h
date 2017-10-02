@@ -22,6 +22,13 @@ public:
                             bool retrievingDescriptionOnly = false);
     virtual ~MobileMixPluginInstance();
 
+    /** Override this to add your own parameters to the state tree. Be sure to
+        call this base class instance first and
+        state.finalizeParametersAndAddToParent() when finshed!
+        (TODO: This design kinda sucks.)
+    */
+    virtual void registerParameters();
+
     void fillInPluginDescription(PluginDescription &description) const override;
     void releaseResources() override;
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;

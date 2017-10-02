@@ -18,20 +18,21 @@ MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessor& rootProcessor,
                         .withOutput("Output", AudioChannelSet::stereo())),
     state(rootProcessor, parentState)
 {
-    if (!retrievingDescriptionOnly)
-    {
-        state.state.createAndAddParameter(addPrefixToParameterName("Bypass"),
-                                          addPrefixToParameterName("Bypass"),
-                                          "",
-                                          NormalisableRange<float>(),
-                                          0.0f,
-                                          [](float value){ return (value != 1.0f) ? TRANS("False") : TRANS("True"); },
-                                          nullptr);
-    }
 }
 
 MobileMixPluginInstance::~MobileMixPluginInstance()
 {
+}
+
+void MobileMixPluginInstance::registerParameters()
+{
+    state.state.createAndAddParameter(addPrefixToParameterName("Bypass"),
+                                      addPrefixToParameterName("Bypass"),
+                                      "",
+                                      NormalisableRange<float>(),
+                                      0.0f,
+                                      [](float value){ return (value != 1.0f) ? TRANS("False") : TRANS("True"); },
+                                      nullptr);
 }
 
 void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &description) const

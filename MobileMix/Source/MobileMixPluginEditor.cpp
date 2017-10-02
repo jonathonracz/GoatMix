@@ -1,9 +1,9 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
+    MobileMixPluginEditor.cpp
+    Created: 11 Sep 2017 2:45:04pm
+    Author:  Jonathon Racz
 
   ==============================================================================
 */

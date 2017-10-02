@@ -19,16 +19,15 @@ public:
                               ValueTree& parentState);
     virtual ~NestedAudioProcessorState() {}
 
+    /** Call this once you've finished adding all your parameters. */
+    void finalizeParametersAndAddToParent(const Identifier& rootId);
+
     AudioProcessorValueTreeState state;
 
 private:
     AudioProcessor& root;
     ValueTree& parent;
+    UndoManager undo;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NestedAudioProcessorState)
-
-protected:
-    void finalizeParametersAndAddToParent(const Identifier& rootId);
-
-    UndoManager undo;
 };

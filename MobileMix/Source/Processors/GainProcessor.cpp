@@ -18,6 +18,15 @@ GainProcessor::GainProcessor(AudioProcessor& rootProcessor,
 {
 }
 
+void GainProcessor::registerParameters()
+{
+    MobileMixPluginInstance::registerParameters();
+
+    // Add parameters here via createParameter...
+
+    state.finalizeParametersAndAddToParent(getName());
+}
+
 AudioProcessorEditor* GainProcessor::createEditor()
 {
     return new GainProcessorEditor(*this);

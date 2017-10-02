@@ -1,9 +1,9 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
+    MobileMixPluginProcessor.h
+    Created: 11 Sep 2017 2:45:04pm
+    Author:  Jonathon Racz
 
   ==============================================================================
 */
@@ -50,6 +50,9 @@ public:
     AudioProcessorChain chain;
 
 private:
+    static XmlElement* nodeToXML(AudioProcessorChain::Node* const node);
+    void xmlToNode(const XmlElement& xml);
+
     ValueTree chainTree;
     AudioPluginFormatManager formatManager;
     AudioProcessorValueTreeState params;

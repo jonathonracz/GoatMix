@@ -22,6 +22,8 @@ public:
                   bool retrievingDescriptionOnly = false);
     ~GainProcessor() {}
 
+    void registerParameters() override;
+
     AudioProcessorEditor* createEditor() override;
     const String getName() const override;
 
