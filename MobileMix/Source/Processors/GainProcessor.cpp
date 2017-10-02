@@ -12,9 +12,8 @@
 #include "GainProcessorEditor.h"
 
 GainProcessor::GainProcessor(AudioProcessor& rootProcessor,
-                             ValueTree& parentState,
-                             bool retrievingDescriptionOnly) :
-    MobileMixPluginInstance(rootProcessor, parentState, retrievingDescriptionOnly)
+                             ValueTree& parentState) :
+    MobileMixPluginInstance(rootProcessor, parentState)
 {
 }
 

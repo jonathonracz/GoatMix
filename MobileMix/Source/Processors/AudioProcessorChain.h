@@ -31,7 +31,7 @@ public:
         Node(AudioProcessor* _processor) : processor(_processor) {}
     };
 
-    /* These should all be called on the message thread. */
+    /** These should all be called on the message thread. */
     void clear();
     int getNumNodes() const noexcept { return chain.size(); };
     Node* getNode(int index) const noexcept { return chain[index].get(); }
@@ -39,7 +39,7 @@ public:
     bool removeNode(Node* node);
     void moveNode(int fromIndex, int toIndex);
 
-    /* AudioProcessor overrides. */
+    /** AudioProcessor overrides. */
     const String getName() const override { return ""; }
     void prepareToPlay(double sampleRate, int blockSize) override;
     void releaseResources() override;

@@ -17,7 +17,7 @@ MobileMixPluginFormat::MobileMixPluginFormat(AudioProcessor& rootProcessor,
     root(rootProcessor),
     parent(parentState)
 {
-    gainDesc = GainProcessor(root, parent, true).getPluginDescription();
+    gainDesc = GainProcessor(root, parent).getPluginDescription();
 }
 
 void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,

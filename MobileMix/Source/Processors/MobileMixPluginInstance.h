@@ -18,8 +18,7 @@ class MobileMixPluginInstance :
 {
 public:
     MobileMixPluginInstance(AudioProcessor& rootProcessor,
-                            ValueTree& parentState,
-                            bool retrievingDescriptionOnly = false);
+                            ValueTree& parentState);
     virtual ~MobileMixPluginInstance();
 
     /** Override this to add your own parameters to the state tree. Be sure to

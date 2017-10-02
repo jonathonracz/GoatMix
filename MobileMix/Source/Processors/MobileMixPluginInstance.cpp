@@ -11,8 +11,7 @@
 #include "MobileMixPluginInstance.h"
 
 MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessor& rootProcessor,
-                                                 ValueTree& parentState,
-                                                 bool retrievingDescriptionOnly) :
+                                                 ValueTree& parentState) :
     AudioPluginInstance(BusesProperties()
                         .withInput("Input",  AudioChannelSet::stereo())
                         .withOutput("Output", AudioChannelSet::stereo())),

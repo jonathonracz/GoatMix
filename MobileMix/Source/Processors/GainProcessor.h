@@ -18,8 +18,7 @@ class GainProcessor :
 {
 public:
     GainProcessor(AudioProcessor& rootProcessor,
-                  ValueTree& parentState,
-                  bool retrievingDescriptionOnly = false);
+                  ValueTree& parentState);
     ~GainProcessor() {}
 
     void registerParameters() override;
