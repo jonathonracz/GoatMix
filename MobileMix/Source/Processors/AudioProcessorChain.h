@@ -27,7 +27,6 @@ public:
         typedef std::shared_ptr<Node> Ptr;
     private:
         friend class AudioProcessorChain;
-        friend class std::shared_ptr<Node>;
         std::unique_ptr<AudioProcessor> processor;
         Node(AudioProcessor* _processor) : processor(_processor) {}
     };
