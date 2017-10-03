@@ -29,7 +29,7 @@ public:
 
 private:
     void tabMovedViaDrag(int fromIndex, int toIndex) override;
-    
+
     MobileMixAudioProcessor& processor;
     DraggableTabbedComponent tabs;
 

@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    GainProcessor.h
+    MMGainPlugin.h
     Created: 15 Sep 2017 11:01:31am
     Author:  Jonathon Racz
 
@@ -11,15 +11,14 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "MobileMixPluginInstance.h"
+#include "../Core/MobileMixPluginInstance.h"
 
-class GainProcessor :
+class MMGainPlugin :
     public MobileMixPluginInstance
 {
 public:
-    GainProcessor(AudioProcessor& rootProcessor,
-                  ValueTree& parentState);
-    ~GainProcessor() {}
+    MMGainPlugin(AudioProcessor& rootProcessor, ValueTree& parentState);
+    ~MMGainPlugin() {}
 
     void registerParameters() override;
 
@@ -30,5 +29,7 @@ public:
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GainProcessor)
+    dsp::ProcessorDuplicator<dsp::Gain<float>, <#typename StateType#>>
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

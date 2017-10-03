@@ -11,8 +11,8 @@
 #include "MobileMixPluginProcessor.h"
 #include "MobileMixPluginEditor.h"
 
-#include "Processors/MobileMixPluginFormat.h"
-#include "Processors/GainProcessor.h"
+#include "Core/MobileMixPluginFormat.h"
+#include "Internal Plugins/MMGainPlugin.h"
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
     chainTree("CHAIN"),
@@ -20,7 +20,7 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
 {
     params.state = ValueTree("ROOT");
     params.state.addChild(chainTree, -1, nullptr);
-    
+
     formatManager.addFormat(new MobileMixPluginFormat(*this, chainTree));
 }
 

@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    GainProcessorEditor.h
+    MMGainPluginEditor.h
     Created: 15 Sep 2017 11:01:59am
     Author:  Jonathon Racz
 
@@ -11,19 +11,19 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "GainProcessor.h"
+#include "MMGainPlugin.h"
 
-class GainProcessorEditor :
+class MMGainPluginEditor :
     public AudioProcessorEditor
 {
 public:
-    GainProcessorEditor(GainProcessor& processor);
-    ~GainProcessorEditor();
+    MMGainPluginEditor(MMGainPlugin& processor);
+    ~MMGainPluginEditor();
 
 protected:
     void paint(Graphics& g) override;
 
 private:
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GainProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPluginEditor)
 };

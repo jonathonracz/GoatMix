@@ -19,7 +19,7 @@ public:
     MobileMixPluginFormat(AudioProcessor& rootProcessor,
                           ValueTree& parentState);
     ~MobileMixPluginFormat() {}
-    
+
     String getName() const override                                                     { return "Internal"; }
     bool fileMightContainThisPluginType(const String&) override                         { return true; }
     FileSearchPath getDefaultLocationsToSearch() override                               { return {}; }
@@ -29,6 +29,8 @@ public:
     String getNameOfPluginFromIdentifier(const String& fileOrIdentifier) override       { return fileOrIdentifier; }
     bool pluginNeedsRescanning(const PluginDescription&) override                       { return false; }
     StringArray searchPathsForPlugins(const FileSearchPath&, bool, bool) override       { return {}; }
+
+    void getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array);
 
     PluginDescription gainDesc;
 

@@ -1,26 +1,26 @@
 /*
   ==============================================================================
 
-    GainProcessorEditor.cpp
+    MMGainPluginEditor.cpp
     Created: 15 Sep 2017 11:01:59am
     Author:  Jonathon Racz
 
   ==============================================================================
 */
 
-#include "GainProcessorEditor.h"
+#include "MMGainPluginEditor.h"
 
-GainProcessorEditor::GainProcessorEditor(GainProcessor& processor) :
+MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     AudioProcessorEditor(processor)
 {
 }
 
-GainProcessorEditor::~GainProcessorEditor()
+MMGainPluginEditor::~MMGainPluginEditor()
 {
 
 }
 
-void GainProcessorEditor::paint(Graphics& g)
+void MMGainPluginEditor::paint(Graphics& g)
 {
     g.setColour(Colours::green);
     g.fillAll();

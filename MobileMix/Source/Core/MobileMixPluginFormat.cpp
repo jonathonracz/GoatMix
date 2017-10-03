@@ -10,14 +10,19 @@
 
 #include "MobileMixPluginFormat.h"
 
-#include "GainProcessor.h"
+#include "../Internal Plugins/MMGainPlugin.h"
 
 MobileMixPluginFormat::MobileMixPluginFormat(AudioProcessor& rootProcessor,
                                              ValueTree& parentState) :
     root(rootProcessor),
     parent(parentState)
 {
-    gainDesc = GainProcessor(root, parent).getPluginDescription();
+    gainDesc = MMGainPlugin(root, parent).getPluginDescription();
+}
+
+void MobileMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array)
+{
+    array.add(new PluginDescription(gainDesc));
 }
 
 void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,
@@ -27,5 +32,5 @@ void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,
                                                  void (*callback)(void*, AudioPluginInstance*, const String&))
 {
     if (desc.isDuplicateOf(gainDesc))
-        callback(userData, new GainProcessor(root, parent), String());
+        callback(userData, new MMGainPlugin(root, parent), String());
 }
