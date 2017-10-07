@@ -141,7 +141,10 @@ void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
 
 void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
-    AudioProcessor::getXmlFromBinary(data, sizeInBytes);
+    std::unique_ptr<XmlElement> xml(AudioProcessor::getXmlFromBinary(data, sizeInBytes));
+    ValueTree newState = ValueTree::fromXml(*xml);
+    if (newState.isValid())
+        params.state = newState;
 }
 
 int MobileMixAudioProcessor::indexOfNodeWithName(String name) const
