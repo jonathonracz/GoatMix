@@ -18,8 +18,12 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
     chainTree("CHAIN"),
     params(*this, nullptr)
 {
+    // Add top-level parameters here (currently none).
+
     params.state = ValueTree("ROOT");
     params.state.addChild(chainTree, -1, nullptr);
+
+    params.state.addListener(this);
 
     // We only need the format manager to create the plugins once at load time.
     // They will remain until unload, so we can free them afterward (as opposed
@@ -37,6 +41,7 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         // static cast will succeed.
         MobileMixPluginInstance* instance = static_cast<MobileMixPluginInstance*>(formatManager.createPluginInstance(*mobileMixPluginList[i], 0, 0, errorMessage));
         assert(instance && errorMessage.isEmpty());
+        instance->MobileMixPluginInstance::registerParameters();
         instance->registerParameters();
         instance->finalizeParametersAndAddToParentState();
         chain.addNode(instance);
@@ -130,101 +135,59 @@ void MobileMixAudioProcessor::changeProgramName(int index, const String& newName
 
 void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
-    XmlElement stateXML("STATE");
-    XmlElement* chainXML = new XmlElement("CHAIN");
-    stateXML.addChildElement(chainXML);
-    for (int i = 0; i < chain.getNumNodes(); ++i)
-    {
-        AudioPluginInstance* instance = dynamic_cast<AudioPluginInstance*>(chain.getNode(i)->getProcessor());
-        assert(instance); // Otherwise something is very wrong with our state...
-
-        XmlElement* chainNodeXML = new XmlElement("NODE");
-        chainXML->addChildElement(chainNodeXML);
-
-        XmlElement* nodeDescriptionXML = new XmlElement("DESCRIPTION");
-        chainNodeXML->addChildElement(nodeDescriptionXML);
-        nodeDescriptionXML->addChildElement(instance->getPluginDescription().createXml());
-
-        XmlElement* nodeStateXML = new XmlElement("STATE");
-        chainNodeXML->addChildElement(nodeStateXML);
-        MemoryBlock stateBlock;
-        instance->getStateInformation(stateBlock);
-        nodeStateXML->addTextElement(stateBlock.toBase64Encoding());
-    }
-
-    AudioProcessor::copyXmlToBinary(stateXML, destData);
+    std::unique_ptr<XmlElement> xml(params.state.createXml());
+    AudioProcessor::copyXmlToBinary(*xml, destData);
 }
 
 void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
-    std::unique_ptr<XmlElement> stateXML(AudioProcessor::getXmlFromBinary(data, sizeInBytes));
-    XmlElement* chainXML = stateXML->getChildByName("CHAIN");
-    assert(chainXML);
-    if (!chainXML)
-        return;
-
-    for (int i = 0; i < chainXML->getNumChildElements(); ++i)
-    {
-        XmlElement* nodeFilterXML = chainXML->getChildElement(i);
-        assert(nodeFilterXML->getTagName() == "NODE");
-        //XmlElement*
-    }
+    AudioProcessor::getXmlFromBinary(data, sizeInBytes);
 }
 
-static XmlElement* nodeToXML(AudioProcessorChain::Node* const node)
-{
-    AudioPluginInstance* instance = dynamic_cast<AudioPluginInstance*>(node->getProcessor());
-    assert(instance); // Otherwise something is very wrong with our state...
-    XmlElement* nodeXML = new XmlElement("FILTER");
-    nodeXML->addChildElement(instance->getPluginDescription().createXml());
-
-    XmlElement* stateXML = new XmlElement("STATE");
-    MemoryBlock stateBlock;
-    instance->getStateInformation(stateBlock);
-    stateXML->addTextElement(stateBlock.toBase64Encoding());
-    nodeXML->addChildElement(stateXML);
-
-    // We could also save bus state here too, but since we're doing strictly
-    // stereo-only we're going to ignore it.
-    return nodeXML;
-}
-
-void MobileMixAudioProcessor::xmlToNode(const XmlElement& xml)
-{
-    PluginDescription description;
-    forEachXmlChildElement(xml, element)
-    {
-        if (description.loadFromXml(*element))
-            break;
-    }
-
-    /*
-    String error;
-    AudioPluginInstance* instance;
-    for (int i = 0; i <
-    assert(instance); // This should never occur because all our plugins are built-in and already instantiated!
-
-    AudioProcessorChain::Node* node = chain.addNode(instance);
-    const XmlElement* const state = xml.getChildByName("STATE");
-    assert(state); // Possibly deformed XML document...
-    MemoryBlock stateBlock;
-    stateBlock.fromBase64Encoding(state->getAllSubText());
-    node->getProcessor()->setStateInformation(stateBlock.getData(), static_cast<int>(stateBlock.getSize()));
-     */
-}
-
-int MobileMixAudioProcessor::indexOfNodeWithPluginDescription(const PluginDescription& desc) const
+int MobileMixAudioProcessor::indexOfNodeWithName(String name) const
 {
     for (int i = 0; i < chain.getNumNodes(); ++i)
-    {
-        if (static_cast<AudioPluginInstance*>(chain.getNode(i)->getProcessor())->getPluginDescription().isDuplicateOf(desc))
-        {
+        if (chain.getNode(i)->getProcessor()->getName() == name)
             return i;
-        }
-    }
 
     assert(false);
     return -1;
+}
+
+void MobileMixAudioProcessor::valueTreeChildOrderChanged(ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex)
+{
+    assert(parentTreeWhoseChildrenHaveMoved == chainTree);
+    if (parentTreeWhoseChildrenHaveMoved == chainTree)
+    {
+        assert(chainTree.getChild(newIndex).getType() == Identifier(chain.getNode(oldIndex)->getProcessor()->getName()));
+        chain.moveNode(oldIndex, newIndex);
+    }
+}
+
+void MobileMixAudioProcessor::valueTreeRedirected(ValueTree &treeWhichHasBeenChanged)
+{
+    if (treeWhichHasBeenChanged == params.state)
+    {
+        assert(params.state.isValid());
+        chainTree = params.state.getChildWithName("CHAIN"); // Will trigger this again with the below condition.
+    }
+    else if (treeWhichHasBeenChanged == chainTree)
+    {
+        assert(chainTree.isValid());
+        // If we ever add nodes and need backwards compatibility, this will need to be removed.
+        assert(chainTree.getNumChildren() == chain.getNumNodes());
+        for (int i = 0; i < chainTree.getNumChildren(); ++i)
+        {
+            ValueTree chainNodeTree = chainTree.getChild(i);
+            int currentNodeIndex = indexOfNodeWithName(chainNodeTree.getType().toString());
+            if (currentNodeIndex > -1)
+            {
+                static_cast<MobileMixPluginInstance*>(chain.getNode(currentNodeIndex)->getProcessor())->getParameterState().state = chainNodeTree;
+                if (currentNodeIndex != i)
+                    chain.moveNode(currentNodeIndex, i);
+            }
+        }
+    }
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

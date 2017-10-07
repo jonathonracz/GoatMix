@@ -25,7 +25,7 @@ public:
     AudioProcessorValueTreeState& getParameterState();
 
     /** Override this to add your own parameters to the state tree. */
-    virtual void registerParameters() = 0;
+    virtual void registerParameters();
 
     /** If you override this, be sure to call this base implementation! */
     void parameterChanged(const String& parameterID, float newValue) override;

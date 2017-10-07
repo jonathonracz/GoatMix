@@ -21,7 +21,7 @@ AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processo
 {
     Array<Node::Ptr> newChain(chain);
     Node::Ptr newNode = std::shared_ptr<Node>(new Node(processor));
-    chain.insert(insertIndex, newNode);
+    newChain.insert(insertIndex, newNode);
     {
         const ScopedLock lock(getCallbackLock());
         chain.swapWith(newChain);

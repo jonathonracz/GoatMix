@@ -19,6 +19,7 @@
 class MobileMixAudioProcessorEditor :
     public AudioProcessorEditor,
     public DraggableTabbedComponent::Listener,
+    public ValueTree::Listener,
     public Timer
 {
 public:
@@ -29,8 +30,17 @@ public:
     void resized() override;
 
 private:
+    int getIndexOfTabWithName(String name);
+
     void tabMovedViaDrag(int fromIndex, int toIndex) override;
     void timerCallback() override;
+
+    void valueTreePropertyChanged(ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
+    void valueTreeChildAdded(ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {};
+    void valueTreeChildRemoved(ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {}
+    void valueTreeChildOrderChanged(ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override;
+    void valueTreeParentChanged(ValueTree& treeWhoseParentHasChanged) override {}
+    void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
     MobileMixAudioProcessor& processor;
     DraggableTabbedComponent tabs;

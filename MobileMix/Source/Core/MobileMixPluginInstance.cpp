@@ -17,14 +17,6 @@ MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessor& rootProcessor,
                         .withOutput("Output", AudioChannelSet::stereo())),
     state(rootProcessor, parentState)
 {
-    paramBypass = getParameterState().createAndAddParameter(addPrefixToParameterName("Bypass"),
-                                                            addPrefixToParameterName("Bypass"),
-                                                            "",
-                                                            NormalisableRange<float>(0.0f, 1.0f, 1.0f),
-                                                            0.0f,
-                                                            [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
-                                                            nullptr);
-    
 }
 
 MobileMixPluginInstance::~MobileMixPluginInstance()
@@ -34,6 +26,17 @@ MobileMixPluginInstance::~MobileMixPluginInstance()
 AudioProcessorValueTreeState& MobileMixPluginInstance::getParameterState()
 {
     return state.state;
+}
+
+void MobileMixPluginInstance::registerParameters()
+{
+    paramBypass = getParameterState().createAndAddParameter(addPrefixToParameterName("Bypass"),
+                                                            addPrefixToParameterName("Bypass"),
+                                                            "",
+                                                            NormalisableRange<float>(0.0f, 1.0f, 1.0f),
+                                                            0.0f,
+                                                            [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
+                                                            nullptr);
 }
 
 void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)

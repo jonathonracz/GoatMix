@@ -17,7 +17,8 @@
 /**
 */
 class MobileMixAudioProcessor :
-    public AudioProcessor
+    public AudioProcessor,
+    public ValueTree::Listener
 {
 public:
     MobileMixAudioProcessor();
@@ -49,15 +50,18 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
     AudioProcessorChain chain;
-
-private:
-    static XmlElement* nodeToXML(AudioProcessorChain::Node* const node);
-    void xmlToNode(const XmlElement& xml);
-
-    int indexOfNodeWithPluginDescription(const PluginDescription& desc) const;
-
     ValueTree chainTree;
     AudioProcessorValueTreeState params;
+
+private:
+    int indexOfNodeWithName(String name) const;
+
+    void valueTreePropertyChanged(ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
+    void valueTreeChildAdded(ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {};
+    void valueTreeChildRemoved(ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {}
+    void valueTreeChildOrderChanged(ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override;
+    void valueTreeParentChanged(ValueTree& treeWhoseParentHasChanged) override {}
+    void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };
