@@ -19,12 +19,12 @@ public:
                               ValueTree& parentState);
     virtual ~NestedAudioProcessorState() {}
 
-    /** Call this once you've finished adding all your parameters. */
-    void finalizeParametersAndAddToParent(const Identifier& rootId);
-
     AudioProcessorValueTreeState state;
 
 private:
+    friend class MobileMixPluginInstance;
+    void finalizeParametersAndAddToParent(const Identifier& rootId);
+
     AudioProcessor& root;
     ValueTree& parent;
     UndoManager undo;

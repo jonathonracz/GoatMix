@@ -27,6 +27,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
 
     tabs.addListener(this);
     addAndMakeVisible(tabs);
+    startTimerHz(30); // 30 FPS refresh rate.
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -54,4 +55,9 @@ void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
     assert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
     processor.chain.moveNode(fromIndex, toIndex);
     DBG("Tab " << fromIndex << " moved to " << toIndex);
+}
+
+void MobileMixAudioProcessorEditor::timerCallback()
+{
+    repaint();
 }

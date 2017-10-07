@@ -29,7 +29,5 @@ public:
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
 private:
-    dsp::ProcessorDuplicator<dsp::Gain<float>, <#typename StateType#>>
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

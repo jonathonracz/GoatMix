@@ -17,21 +17,32 @@ MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessor& rootProcessor,
                         .withOutput("Output", AudioChannelSet::stereo())),
     state(rootProcessor, parentState)
 {
+    paramBypass = getParameterState().createAndAddParameter(addPrefixToParameterName("Bypass"),
+                                                            addPrefixToParameterName("Bypass"),
+                                                            "",
+                                                            NormalisableRange<float>(0.0f, 1.0f, 1.0f),
+                                                            0.0f,
+                                                            [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
+                                                            nullptr);
+    
 }
 
 MobileMixPluginInstance::~MobileMixPluginInstance()
 {
 }
 
-void MobileMixPluginInstance::registerParameters()
+AudioProcessorValueTreeState& MobileMixPluginInstance::getParameterState()
 {
-    state.state.createAndAddParameter(addPrefixToParameterName("Bypass"),
-                                      addPrefixToParameterName("Bypass"),
-                                      "",
-                                      NormalisableRange<float>(),
-                                      0.0f,
-                                      [](float value){ return (value != 1.0f) ? TRANS("False") : TRANS("True"); },
-                                      nullptr);
+    return state.state;
+}
+
+void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)
+{
+    if (parameterID == paramBypass->paramID)
+    {
+        assert(newValue == 0.0f || newValue == 1.0f);
+        (newValue == 1.0f) ? suspendProcessing(true) : suspendProcessing(false);
+    }
 }
 
 void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &description) const
@@ -99,7 +110,7 @@ void MobileMixPluginInstance::changeProgramName(int index, const String& newName
 
 void MobileMixPluginInstance::getStateInformation(MemoryBlock& destData)
 {
-    std::unique_ptr<XmlElement> xml(state.state.state.createXml());
+    std::unique_ptr<XmlElement> xml(getParameterState().state.createXml());
     assert(xml);
     copyXmlToBinary(*xml, destData);
 }
@@ -108,10 +119,15 @@ void MobileMixPluginInstance::setStateInformation(const void* data, int sizeInBy
 {
     std::unique_ptr<XmlElement> xml(getXmlFromBinary(data, sizeInBytes));
     assert(xml);
-    state.state.state = ValueTree::fromXml(*xml);
+    getParameterState().state = ValueTree::fromXml(*xml);
 }
 
 const String MobileMixPluginInstance::addPrefixToParameterName(StringRef name) const
 {
     return getName() + ": " + name;
+}
+
+void MobileMixPluginInstance::finalizeParametersAndAddToParentState()
+{
+    state.finalizeParametersAndAddToParent(getName());
 }

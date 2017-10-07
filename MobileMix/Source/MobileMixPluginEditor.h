@@ -18,7 +18,8 @@
 */
 class MobileMixAudioProcessorEditor :
     public AudioProcessorEditor,
-    public DraggableTabbedComponent::Listener
+    public DraggableTabbedComponent::Listener,
+    public Timer
 {
 public:
     MobileMixAudioProcessorEditor(MobileMixAudioProcessor&);
@@ -29,6 +30,7 @@ public:
 
 private:
     void tabMovedViaDrag(int fromIndex, int toIndex) override;
+    void timerCallback() override;
 
     MobileMixAudioProcessor& processor;
     DraggableTabbedComponent tabs;

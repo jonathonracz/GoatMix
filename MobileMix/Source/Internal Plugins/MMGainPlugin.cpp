@@ -19,11 +19,7 @@ MMGainPlugin::MMGainPlugin(AudioProcessor& rootProcessor,
 
 void MMGainPlugin::registerParameters()
 {
-    MobileMixPluginInstance::registerParameters();
-
     // Add parameters here via createParameter...
-
-    state.finalizeParametersAndAddToParent(getName());
 }
 
 AudioProcessorEditor* MMGainPlugin::createEditor()

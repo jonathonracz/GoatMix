@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "Core/AudioProcessorChain.h"
+#include "Core/MobileMixPluginFormat.h"
 
 /**
 */
@@ -53,8 +54,9 @@ private:
     static XmlElement* nodeToXML(AudioProcessorChain::Node* const node);
     void xmlToNode(const XmlElement& xml);
 
+    int indexOfNodeWithPluginDescription(const PluginDescription& desc) const;
+
     ValueTree chainTree;
-    AudioPluginFormatManager formatManager;
     AudioProcessorValueTreeState params;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
