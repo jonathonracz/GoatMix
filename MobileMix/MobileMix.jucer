@@ -38,6 +38,10 @@
             file="Source/Core/AudioProcessorChain.cpp"/>
       <FILE id="VrIKhm" name="AudioProcessorChain.h" compile="0" resource="0"
             file="Source/Core/AudioProcessorChain.h"/>
+      <FILE id="ryocJ2" name="MobileMixPluginEditor.cpp" compile="1" resource="0"
+            file="Source/Core/MobileMixPluginEditor.cpp"/>
+      <FILE id="Cx2VV4" name="MobileMixPluginEditor.h" compile="0" resource="0"
+            file="Source/Core/MobileMixPluginEditor.h"/>
       <FILE id="qtCbyB" name="MobileMixPluginFormat.cpp" compile="1" resource="0"
             file="Source/Core/MobileMixPluginFormat.cpp"/>
       <FILE id="ZEkRSG" name="MobileMixPluginFormat.h" compile="0" resource="0"

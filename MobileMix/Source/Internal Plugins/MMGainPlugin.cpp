@@ -20,6 +20,13 @@ MMGainPlugin::MMGainPlugin(AudioProcessor& rootProcessor,
 void MMGainPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
+    paramGain = getParameterState().createAndAddParameter(addPrefixToParameterName("Gain"),
+                                                          addPrefixToParameterName("Gain"),
+                                                          "",
+                                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                                          1.0f,
+                                                          nullptr,
+                                                          nullptr);
 }
 
 AudioProcessorEditor* MMGainPlugin::createEditor()
@@ -29,7 +36,7 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
 
 const String MMGainPlugin::getName() const
 {
-    return NEEDS_TRANS("Gain");
+    return "Gain";
 }
 
 void MMGainPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)

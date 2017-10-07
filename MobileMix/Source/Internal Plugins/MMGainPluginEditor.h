@@ -10,11 +10,11 @@
 
 #pragma once
 
-#include <JuceHeader.h>
 #include "MMGainPlugin.h"
+#include "../Core/MobileMixPluginEditor.h"
 
 class MMGainPluginEditor :
-    public AudioProcessorEditor
+    public MobileMixPluginEditor
 {
 public:
     MMGainPluginEditor(MMGainPlugin& processor);
@@ -22,8 +22,12 @@ public:
 
 protected:
     void paint(Graphics& g) override;
+    void resized() override;
 
 private:
+    MMSliderAttachment gainSliderAttachment;
+
+    Slider gainSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPluginEditor)
 };
