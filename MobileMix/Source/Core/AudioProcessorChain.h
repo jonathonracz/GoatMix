@@ -11,7 +11,6 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include <vector>
 
 class AudioProcessorChain :
     public AudioProcessor
