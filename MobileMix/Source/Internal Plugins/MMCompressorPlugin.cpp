@@ -11,16 +11,15 @@
 #include "MMCompressorPlugin.h"
 #include "MMCompressorPluginEditor.h"
 
-MMCompressorPlugin::MMCompressorPlugin(AudioProcessor& rootProcessor,
-                           ValueTree& parentState) :
-    MobileMixPluginInstance(rootProcessor, parentState)
+MMCompressorPlugin::MMCompressorPlugin(AudioProcessorValueTreeState& state) :
+    MobileMixPluginInstance(state)
 {
 }
 
 void MMCompressorPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
-    paramCompressor = getParameterState().createAndAddParameter(addPrefixToParameterName("Compressor"),
+    paramCompressor = state.createAndAddParameter(addPrefixToParameterName("Compressor"),
                                                           addPrefixToParameterName("Compressor"),
                                                           "",
                                                           NormalisableRange<float>(0.0f, 1.0f, 0.1f),

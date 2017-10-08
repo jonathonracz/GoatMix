@@ -63,5 +63,7 @@ private:
     void valueTreeParentChanged(ValueTree& treeWhoseParentHasChanged) override {}
     void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
+    UndoManager undo;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

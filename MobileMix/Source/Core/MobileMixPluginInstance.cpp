@@ -10,12 +10,11 @@
 
 #include "MobileMixPluginInstance.h"
 
-MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessor& rootProcessor,
-                                                 ValueTree& parentState) :
+MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessorValueTreeState& _state) :
     AudioPluginInstance(BusesProperties()
                         .withInput("Input",  AudioChannelSet::stereo())
                         .withOutput("Output", AudioChannelSet::stereo())),
-    state(rootProcessor, parentState)
+    state(_state)
 {
 }
 
@@ -23,20 +22,15 @@ MobileMixPluginInstance::~MobileMixPluginInstance()
 {
 }
 
-AudioProcessorValueTreeState& MobileMixPluginInstance::getParameterState()
-{
-    return state.state;
-}
-
 void MobileMixPluginInstance::registerParameters()
 {
-    paramBypass = getParameterState().createAndAddParameter(addPrefixToParameterName("Bypass"),
-                                                            addPrefixToParameterName("Bypass"),
-                                                            "",
-                                                            NormalisableRange<float>(0.0f, 1.0f, 1.0f),
-                                                            0.0f,
-                                                            [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
-                                                            nullptr);
+    paramBypass = state.createAndAddParameter(addPrefixToParameterName("Bypass"),
+                                              addPrefixToParameterName("Bypass"),
+                                              "",
+                                              NormalisableRange<float>(0.0f, 1.0f, 1.0f),
+                                              0.0f,
+                                              [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
+                                              nullptr);
 }
 
 void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)
@@ -113,24 +107,13 @@ void MobileMixPluginInstance::changeProgramName(int index, const String& newName
 
 void MobileMixPluginInstance::getStateInformation(MemoryBlock& destData)
 {
-    std::unique_ptr<XmlElement> xml(getParameterState().state.createXml());
-    assert(xml);
-    copyXmlToBinary(*xml, destData);
 }
 
 void MobileMixPluginInstance::setStateInformation(const void* data, int sizeInBytes)
 {
-    std::unique_ptr<XmlElement> xml(getXmlFromBinary(data, sizeInBytes));
-    assert(xml);
-    getParameterState().state = ValueTree::fromXml(*xml);
 }
 
 const String MobileMixPluginInstance::addPrefixToParameterName(StringRef name) const
 {
     return getName() + ": " + name;
-}
-
-void MobileMixPluginInstance::finalizeParametersAndAddToParentState()
-{
-    state.finalizeParametersAndAddToParent(getName());
 }

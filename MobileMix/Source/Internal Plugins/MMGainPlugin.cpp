@@ -11,16 +11,15 @@
 #include "MMGainPlugin.h"
 #include "MMGainPluginEditor.h"
 
-MMGainPlugin::MMGainPlugin(AudioProcessor& rootProcessor,
-                           ValueTree& parentState) :
-    MobileMixPluginInstance(rootProcessor, parentState)
+MMGainPlugin::MMGainPlugin(AudioProcessorValueTreeState& state) :
+    MobileMixPluginInstance(state)
 {
 }
 
 void MMGainPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
-    paramGain = getParameterState().createAndAddParameter(addPrefixToParameterName("Gain"),
+    paramGain = state.createAndAddParameter(addPrefixToParameterName("Gain"),
                                                           addPrefixToParameterName("Gain"),
                                                           "",
                                                           NormalisableRange<float>(0.0f, 1.0f, 0.1f),

@@ -16,20 +16,15 @@
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
     chainTree("CHAIN"),
-    params(*this, nullptr)
+    params(*this, &undo)
 {
     // Add top-level parameters here (currently none).
-
-    params.state = ValueTree("ROOT");
-    params.state.addChild(chainTree, -1, nullptr);
-
-    params.state.addListener(this);
 
     // We only need the format manager to create the plugins once at load time.
     // They will remain until unload, so we can free them afterward (as opposed
     // to keeping them around as members).
     AudioPluginFormatManager formatManager;
-    MobileMixPluginFormat* pluginFormat = new MobileMixPluginFormat(*this, chainTree);
+    MobileMixPluginFormat* pluginFormat = new MobileMixPluginFormat(params);
     formatManager.addFormat(pluginFormat);
 
     OwnedArray<PluginDescription> mobileMixPluginList;
@@ -43,9 +38,14 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         assert(instance && errorMessage.isEmpty());
         instance->MobileMixPluginInstance::registerParameters();
         instance->registerParameters();
-        instance->finalizeParametersAndAddToParentState();
         chain.addNode(instance);
+        chainTree.getOrCreateChildWithName(instance->getName(), nullptr);
     }
+
+    params.state = ValueTree("ROOT");
+    params.state.addChild(chainTree, -1, nullptr);
+    params.state.addListener(this);
+    chainTree.addListener(this);
 }
 
 MobileMixAudioProcessor::~MobileMixAudioProcessor()
@@ -162,7 +162,6 @@ void MobileMixAudioProcessor::valueTreeChildOrderChanged(ValueTree& parentTreeWh
     assert(parentTreeWhoseChildrenHaveMoved == chainTree);
     if (parentTreeWhoseChildrenHaveMoved == chainTree)
     {
-        assert(chainTree.getChild(newIndex).getType() == Identifier(chain.getNode(oldIndex)->getProcessor()->getName()));
         chain.moveNode(oldIndex, newIndex);
     }
 }
@@ -183,11 +182,9 @@ void MobileMixAudioProcessor::valueTreeRedirected(ValueTree &treeWhichHasBeenCha
         {
             ValueTree chainNodeTree = chainTree.getChild(i);
             int currentNodeIndex = indexOfNodeWithName(chainNodeTree.getType().toString());
-            if (currentNodeIndex > -1)
+            if (currentNodeIndex > -1 && currentNodeIndex != i)
             {
-                static_cast<MobileMixPluginInstance*>(chain.getNode(currentNodeIndex)->getProcessor())->getParameterState().state = chainNodeTree;
-                if (currentNodeIndex != i)
-                    chain.moveNode(currentNodeIndex, i);
+                chain.moveNode(currentNodeIndex, i);
             }
         }
     }

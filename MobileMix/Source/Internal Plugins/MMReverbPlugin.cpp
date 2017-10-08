@@ -11,16 +11,15 @@
 #include "MMReverbPlugin.h"
 #include "MMReverbPluginEditor.h"
 
-MMReverbPlugin::MMReverbPlugin(AudioProcessor& rootProcessor,
-                           ValueTree& parentState) :
-    MobileMixPluginInstance(rootProcessor, parentState)
+MMReverbPlugin::MMReverbPlugin(AudioProcessorValueTreeState& state) :
+    MobileMixPluginInstance(state)
 {
 }
 
 void MMReverbPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
-    paramReverb = getParameterState().createAndAddParameter(addPrefixToParameterName("Reverb"),
+    paramReverb = state.createAndAddParameter(addPrefixToParameterName("Reverb"),
                                                           addPrefixToParameterName("Reverb"),
                                                           "",
                                                           NormalisableRange<float>(0.0f, 1.0f, 0.1f),

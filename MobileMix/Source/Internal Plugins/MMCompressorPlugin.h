@@ -17,7 +17,7 @@ class MMCompressorPlugin :
     public MobileMixPluginInstance
 {
 public:
-    MMCompressorPlugin(AudioProcessor& rootProcessor, ValueTree& parentState);
+    MMCompressorPlugin(AudioProcessorValueTreeState& state);
     ~MMCompressorPlugin() {}
 
     void registerParameters() override;

@@ -17,7 +17,7 @@ class MMGainPlugin :
     public MobileMixPluginInstance
 {
 public:
-    MMGainPlugin(AudioProcessor& rootProcessor, ValueTree& parentState);
+    MMGainPlugin(AudioProcessorValueTreeState& state);
     ~MMGainPlugin() {}
 
     void registerParameters() override;

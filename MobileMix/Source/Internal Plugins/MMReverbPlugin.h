@@ -17,7 +17,7 @@ class MMReverbPlugin :
     public MobileMixPluginInstance
 {
 public:
-    MMReverbPlugin(AudioProcessor& rootProcessor, ValueTree& parentState);
+    MMReverbPlugin(AudioProcessorValueTreeState& state);
     ~MMReverbPlugin() {}
 
     void registerParameters() override;

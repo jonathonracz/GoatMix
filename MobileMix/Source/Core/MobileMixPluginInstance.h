@@ -11,18 +11,14 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "NestedAudioProcessorState.h"
 
 class MobileMixPluginInstance :
     public AudioPluginInstance,
     public AudioProcessorValueTreeState::Listener
 {
 public:
-    MobileMixPluginInstance(AudioProcessor& rootProcessor,
-                            ValueTree& parentState);
+    MobileMixPluginInstance(AudioProcessorValueTreeState& state);
     virtual ~MobileMixPluginInstance();
-
-    AudioProcessorValueTreeState& getParameterState();
 
     /** Override this to add your own parameters to the state tree. You do NOT
         need to call this base class implementation.
@@ -47,14 +43,12 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
+    AudioProcessorValueTreeState& state;
+
 protected:
     const String addPrefixToParameterName(StringRef name) const;
 
 private:
-    friend class MobileMixAudioProcessor;
-    void finalizeParametersAndAddToParentState();
-
-    NestedAudioProcessorState state;
     AudioProcessorParameterWithID* paramBypass;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)

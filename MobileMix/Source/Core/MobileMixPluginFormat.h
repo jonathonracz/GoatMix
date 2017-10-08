@@ -16,8 +16,7 @@ class MobileMixPluginFormat :
     public AudioPluginFormat
 {
 public:
-    MobileMixPluginFormat(AudioProcessor& rootProcessor,
-                          ValueTree& parentState);
+    MobileMixPluginFormat(AudioProcessorValueTreeState& state);
     ~MobileMixPluginFormat() {}
 
     String getName() const override                                                     { return "Internal"; }
@@ -42,8 +41,7 @@ private:
                               void* userData,
                               void (*callback)(void*, AudioPluginInstance*, const String&)) override;
 
-    AudioProcessor& root;
-    ValueTree& parent;
+    AudioProcessorValueTreeState& state;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginFormat)
 };

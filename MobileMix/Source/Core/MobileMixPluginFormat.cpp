@@ -12,14 +12,12 @@
 
 #include "../Internal Plugins/MMPlugins.h"
 
-MobileMixPluginFormat::MobileMixPluginFormat(AudioProcessor& rootProcessor,
-                                             ValueTree& parentState) :
-    root(rootProcessor),
-    parent(parentState)
+MobileMixPluginFormat::MobileMixPluginFormat(AudioProcessorValueTreeState& _state) :
+    state(_state)
 {
-    gainDesc = MMGainPlugin(root, parent).getPluginDescription();
-    compressorDesc = MMCompressorPlugin(root, parent).getPluginDescription();
-    reverbDesc = MMReverbPlugin(root, parent).getPluginDescription();
+    gainDesc = MMGainPlugin(state).getPluginDescription();
+    compressorDesc = MMCompressorPlugin(state).getPluginDescription();
+    reverbDesc = MMReverbPlugin(state).getPluginDescription();
 }
 
 void MobileMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array)
@@ -36,9 +34,9 @@ void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,
                                                  void (*callback)(void*, AudioPluginInstance*, const String&))
 {
     if (desc.isDuplicateOf(gainDesc))
-        callback(userData, new MMGainPlugin(root, parent), String());
+        callback(userData, new MMGainPlugin(state), String());
     else if (desc.isDuplicateOf(compressorDesc))
-        callback(userData, new MMCompressorPlugin(root, parent), String());
+        callback(userData, new MMCompressorPlugin(state), String());
     else if (desc.isDuplicateOf(reverbDesc))
-        callback(userData, new MMReverbPlugin(root, parent), String());
+        callback(userData, new MMReverbPlugin(state), String());
 }

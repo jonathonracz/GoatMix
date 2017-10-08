@@ -18,15 +18,15 @@ MobileMixPluginEditor::MobileMixPluginEditor(MobileMixPluginInstance& _processor
 
 MobileMixPluginEditor::MMButtonAttachment MobileMixPluginEditor::createButtonAttachment(String parameterID, Button& buttonToControl)
 {
-    return MMButtonAttachment(new AudioProcessorValueTreeState::ButtonAttachment(processor.getParameterState(), parameterID, buttonToControl));
+    return MMButtonAttachment(new AudioProcessorValueTreeState::ButtonAttachment(processor.state, parameterID, buttonToControl));
 }
 
 MobileMixPluginEditor::MMComboBoxAttachment MobileMixPluginEditor::createComboBoxAttachment(String parameterID, ComboBox& comboBoxToControl)
 {
-    return MMComboBoxAttachment(new AudioProcessorValueTreeState::ComboBoxAttachment(processor.getParameterState(), parameterID, comboBoxToControl));
+    return MMComboBoxAttachment(new AudioProcessorValueTreeState::ComboBoxAttachment(processor.state, parameterID, comboBoxToControl));
 }
 
 MobileMixPluginEditor::MMSliderAttachment MobileMixPluginEditor::createSliderAttachment(String parameterID, Slider& sliderToControl)
 {
-    return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.getParameterState(), parameterID, sliderToControl));
+    return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.state, parameterID, sliderToControl));
 }

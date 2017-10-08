@@ -20,6 +20,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
     processor.params.state.addListener(this);
+    processor.chainTree.addListener(this);
     for (int i = 0; i < processor.chain.getNumNodes(); ++i)
     {
         assert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
@@ -85,7 +86,7 @@ void MobileMixAudioProcessorEditor::valueTreeChildOrderChanged(ValueTree& parent
         // it (otherwise we get the same tab moving twice).
         if (Identifier(tabs.getTabbedButtonBar().getTabButton(newIndex)->getName()) != processor.chainTree.getChild(newIndex).getType())
         {
-            tabs.moveTab(oldIndex, newIndex);
+            tabs.moveTab(oldIndex, newIndex, true);
         }
     }
 }
@@ -100,7 +101,7 @@ void MobileMixAudioProcessorEditor::valueTreeRedirected(ValueTree &treeWhichHasB
             int currentTabIndex = getIndexOfTabWithName(processor.chainTree.getChild(i).getType().toString());
             if (currentTabIndex > -1 && currentTabIndex != i)
             {
-                tabs.moveTab(currentTabIndex, i);
+                tabs.moveTab(currentTabIndex, i, true);
             }
         }
     }
