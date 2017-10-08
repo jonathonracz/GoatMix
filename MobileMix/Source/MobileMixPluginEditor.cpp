@@ -23,7 +23,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     processor.chainTree.addListener(this);
     for (int i = 0; i < processor.chain.getNumNodes(); ++i)
     {
-        assert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
+        jassert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
         AudioProcessor* currentProcessor = processor.chain.getNode(i)->getProcessor();
         tabs.addTab(currentProcessor->getName(), Colours::white, currentProcessor->createEditor(), true);
     }
@@ -60,15 +60,15 @@ int MobileMixAudioProcessorEditor::getIndexOfTabWithName(String name)
         if (bar.getTabButton(i)->getName() == name)
             return i;
 
-    assert(false);
+    jassert(false);
     return -1;
 }
 
 void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
 {
     // Attempting to move tabs representing processor indices which don't exist...
-    assert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
-    assert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
+    jassert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
+    jassert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
     processor.chainTree.moveChild(fromIndex, toIndex, nullptr);
 }
 

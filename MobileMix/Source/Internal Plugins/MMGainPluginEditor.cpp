@@ -11,7 +11,7 @@
 #include "MMGainPluginEditor.h"
 
 MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
-    MobileMixPluginEditor(processor)
+    MobileMixPluginInstanceEditor(processor)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramGain->paramID, gainSlider);

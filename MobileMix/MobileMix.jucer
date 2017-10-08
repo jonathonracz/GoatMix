@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="1" reportAppUsage="1"
+<JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="0" reportAppUsage="0"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="0" buildVST3="0" buildAU="0"
@@ -69,10 +69,10 @@
             file="Source/Core/AudioProcessorChain.cpp"/>
       <FILE id="VrIKhm" name="AudioProcessorChain.h" compile="0" resource="0"
             file="Source/Core/AudioProcessorChain.h"/>
-      <FILE id="ryocJ2" name="MobileMixPluginEditor.cpp" compile="1" resource="0"
-            file="Source/Core/MobileMixPluginEditor.cpp"/>
-      <FILE id="Cx2VV4" name="MobileMixPluginEditor.h" compile="0" resource="0"
-            file="Source/Core/MobileMixPluginEditor.h"/>
+      <FILE id="ryocJ2" name="MobileMixPluginInstanceEditor.cpp" compile="1"
+            resource="0" file="Source/Core/MobileMixPluginInstanceEditor.cpp"/>
+      <FILE id="Cx2VV4" name="MobileMixPluginInstanceEditor.h" compile="0"
+            resource="0" file="Source/Core/MobileMixPluginInstanceEditor.h"/>
       <FILE id="qtCbyB" name="MobileMixPluginFormat.cpp" compile="1" resource="0"
             file="Source/Core/MobileMixPluginFormat.cpp"/>
       <FILE id="ZEkRSG" name="MobileMixPluginFormat.h" compile="0" resource="0"
@@ -149,9 +149,9 @@
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+        <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="MobileMix"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+        <CONFIGURATION name="Release" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
                        isDebug="0" optimisation="3" targetName="MobileMix"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

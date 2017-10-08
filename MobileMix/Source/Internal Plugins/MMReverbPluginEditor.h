@@ -11,10 +11,10 @@
 #pragma once
 
 #include "MMReverbPlugin.h"
-#include "../Core/MobileMixPluginEditor.h"
+#include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMReverbPluginEditor :
-    public MobileMixPluginEditor
+    public MobileMixPluginInstanceEditor
 {
 public:
     MMReverbPluginEditor(MMReverbPlugin& processor);

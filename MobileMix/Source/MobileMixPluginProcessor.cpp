@@ -35,7 +35,7 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         // We only have one plugin type registered, so we can be guaranteed this
         // static cast will succeed.
         MobileMixPluginInstance* instance = static_cast<MobileMixPluginInstance*>(formatManager.createPluginInstance(*mobileMixPluginList[i], 0, 0, errorMessage));
-        assert(instance && errorMessage.isEmpty());
+        jassert(instance && errorMessage.isEmpty());
         instance->MobileMixPluginInstance::registerParameters();
         instance->registerParameters();
         chain.addNode(instance);
@@ -153,13 +153,13 @@ int MobileMixAudioProcessor::indexOfNodeWithName(String name) const
         if (chain.getNode(i)->getProcessor()->getName() == name)
             return i;
 
-    assert(false);
+    jassert(false);
     return -1;
 }
 
 void MobileMixAudioProcessor::valueTreeChildOrderChanged(ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex)
 {
-    assert(parentTreeWhoseChildrenHaveMoved == chainTree);
+    jassert(parentTreeWhoseChildrenHaveMoved == chainTree);
     if (parentTreeWhoseChildrenHaveMoved == chainTree)
     {
         chain.moveNode(oldIndex, newIndex);
@@ -170,14 +170,14 @@ void MobileMixAudioProcessor::valueTreeRedirected(ValueTree &treeWhichHasBeenCha
 {
     if (treeWhichHasBeenChanged == params.state)
     {
-        assert(params.state.isValid());
+        jassert(params.state.isValid());
         chainTree = params.state.getChildWithName("CHAIN"); // Will trigger this again with the below condition.
     }
     else if (treeWhichHasBeenChanged == chainTree)
     {
-        assert(chainTree.isValid());
+        jassert(chainTree.isValid());
         // If we ever add nodes and need backwards compatibility, this will need to be removed.
-        assert(chainTree.getNumChildren() == chain.getNumNodes());
+        jassert(chainTree.getNumChildren() == chain.getNumNodes());
         for (int i = 0; i < chainTree.getNumChildren(); ++i)
         {
             ValueTree chainNodeTree = chainTree.getChild(i);

@@ -33,7 +33,7 @@ void DraggableTabBarButton::mouseDown(const MouseEvent& e)
 
     TabBarButton::mouseDown(e);
     owner.setCurrentTabIndex(getIndex()); // Tab changes on mouseUp by default.
-    assert(&owner.getTabbedButtonBar() == getParentComponent());
+    jassert(&owner.getTabbedButtonBar() == getParentComponent());
     setMoveTriggersFromTab(getIndex());
     dragger.startDraggingComponent(this, e);
 }

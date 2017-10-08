@@ -11,7 +11,7 @@
 #include "MMCompressorPluginEditor.h"
 
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
-    MobileMixPluginEditor(processor)
+    MobileMixPluginInstanceEditor(processor)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramCompressor->paramID, gainSlider);

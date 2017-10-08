@@ -11,10 +11,10 @@
 #pragma once
 
 #include "MMEQPlugin.h"
-#include "../Core/MobileMixPluginEditor.h"
+#include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMEQPluginEditor :
-    public MobileMixPluginEditor
+    public MobileMixPluginInstanceEditor
 {
 public:
     MMEQPluginEditor(MMEQPlugin& processor);

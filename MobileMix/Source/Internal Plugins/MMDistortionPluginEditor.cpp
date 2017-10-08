@@ -11,7 +11,7 @@
 #include "MMDistortionPluginEditor.h"
 
 MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor) :
-    MobileMixPluginEditor(processor)
+    MobileMixPluginInstanceEditor(processor)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramDistortion->paramID, gainSlider);

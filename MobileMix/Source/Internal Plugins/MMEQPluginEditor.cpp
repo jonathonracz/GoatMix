@@ -11,7 +11,7 @@
 #include "MMEQPluginEditor.h"
 
 MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
-    MobileMixPluginEditor(processor)
+    MobileMixPluginInstanceEditor(processor)
 {
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramEQ->paramID, gainSlider);

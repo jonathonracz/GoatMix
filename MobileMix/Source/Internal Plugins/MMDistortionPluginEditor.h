@@ -11,10 +11,10 @@
 #pragma once
 
 #include "MMDistortionPlugin.h"
-#include "../Core/MobileMixPluginEditor.h"
+#include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMDistortionPluginEditor :
-    public MobileMixPluginEditor
+    public MobileMixPluginInstanceEditor
 {
 public:
     MMDistortionPluginEditor(MMDistortionPlugin& processor);

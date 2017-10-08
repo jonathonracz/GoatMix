@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    MobileMixPluginEditor.h
+    MobileMixPluginInstanceEditor.h
     Created: 7 Oct 2017 5:17:49pm
     Author:  Jonathon Racz
 
@@ -12,12 +12,12 @@
 
 #include "MobileMixPluginInstance.h"
 
-class MobileMixPluginEditor :
+class MobileMixPluginInstanceEditor :
     public AudioProcessorEditor
 {
 protected:
-    MobileMixPluginEditor(MobileMixPluginInstance& processor);
-    virtual ~MobileMixPluginEditor() {}
+    MobileMixPluginInstanceEditor(MobileMixPluginInstance& processor);
+    virtual ~MobileMixPluginInstanceEditor() {}
 
     /** Convenience methods + definitions for creating attachment points for
         editor UI elements.

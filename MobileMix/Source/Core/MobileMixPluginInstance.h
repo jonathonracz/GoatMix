@@ -49,7 +49,7 @@ protected:
     const String addPrefixToParameterName(StringRef name) const;
 
 private:
-    friend class MobileMixPluginEditor;
+    friend class MobileMixPluginInstanceEditor;
     AudioProcessorParameterWithID* paramBypass;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)

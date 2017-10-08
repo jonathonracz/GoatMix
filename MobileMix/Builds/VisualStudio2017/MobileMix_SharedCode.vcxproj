@@ -80,7 +80,7 @@
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -120,7 +120,7 @@
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -158,7 +158,7 @@
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp"/>
-    <ClCompile Include="..\..\Source\Core\MobileMixPluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\Core\MobileMixPluginInstanceEditor.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginFormat.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginInstance.cpp"/>
     <ClCompile Include="..\..\Source\MobileMixPluginProcessor.cpp"/>
@@ -1855,7 +1855,7 @@
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
-    <ClInclude Include="..\..\Source\Core\MobileMixPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
     <ClInclude Include="..\..\Source\Containers\SingleThreadRingBuffer.h"/>

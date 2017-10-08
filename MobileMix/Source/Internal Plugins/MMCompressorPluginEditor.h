@@ -11,10 +11,10 @@
 #pragma once
 
 #include "MMCompressorPlugin.h"
-#include "../Core/MobileMixPluginEditor.h"
+#include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMCompressorPluginEditor :
-    public MobileMixPluginEditor
+    public MobileMixPluginInstanceEditor
 {
 public:
     MMCompressorPluginEditor(MMCompressorPlugin& processor);

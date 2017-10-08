@@ -427,7 +427,7 @@
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
       <Filter>MobileMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\MobileMixPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Core\MobileMixPluginInstanceEditor.cpp">
       <Filter>MobileMix\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginFormat.cpp">
@@ -2307,7 +2307,7 @@
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\MobileMixPluginEditor.h">
+    <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h">

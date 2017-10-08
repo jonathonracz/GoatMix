@@ -37,7 +37,7 @@ void MobileMixPluginInstance::parameterChanged(const String& parameterID, float 
 {
     if (parameterID == paramBypass->paramID)
     {
-        assert(newValue == 0.0f || newValue == 1.0f);
+        jassert(newValue == 0.0f || newValue == 1.0f);
         (newValue == 1.0f) ? suspendProcessing(true) : suspendProcessing(false);
     }
 }
