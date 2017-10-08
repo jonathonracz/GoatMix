@@ -10,3 +10,6 @@
 [submodule "External/AudioFilePlayerPlugin"]
 	path = External/AudioFilePlayerPlugin
 	url = https://github.com/jonathonracz/AudioFilePlayerPlugin.git
+[submodule "External/vst3sdk"]
+	path = External/vst3sdk
+	url = https://github.com/steinbergmedia/vst3sdk.git
