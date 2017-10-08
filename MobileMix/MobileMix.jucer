@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="0" reportAppUsage="0"
+<JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
-              cppLanguageStandard="latest" buildVST="0" buildVST3="0" buildAU="0"
+              cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="0"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="goataudio"
-              pluginManufacturerCode="Goat" pluginCode="Koui" pluginChannelConfigs=""
+              pluginManufacturerCode="Goat" pluginCode="Gomm" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="MobileMixAU"
               pluginRTASCategory="" aaxIdentifier="com.goataudio.MobileMix"

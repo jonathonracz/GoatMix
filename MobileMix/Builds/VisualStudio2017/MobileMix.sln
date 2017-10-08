@@ -6,6 +6,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MobileMix - Standalone Plug
 		{CA8C2596-2164-C707-4C74-A76EED6ED02C} = {CA8C2596-2164-C707-4C74-A76EED6ED02C}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MobileMix - VST", "MobileMix_VST.vcxproj", "{CCDDFEED-EDCA-4414-6243-286FD49B30DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CA8C2596-2164-C707-4C74-A76EED6ED02C} = {CA8C2596-2164-C707-4C74-A76EED6ED02C}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MobileMix - Shared Code", "MobileMix_SharedCode.vcxproj", "{CA8C2596-2164-C707-4C74-A76EED6ED02C}"
 EndProject
 Global
@@ -14,6 +19,10 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCDDFEED-EDCA-4414-6243-286FD49B30DB}.Debug|x64.ActiveCfg = Debug|x64
+		{CCDDFEED-EDCA-4414-6243-286FD49B30DB}.Debug|x64.Build.0 = Debug|x64
+		{CCDDFEED-EDCA-4414-6243-286FD49B30DB}.Release|x64.ActiveCfg = Release|x64
+		{CCDDFEED-EDCA-4414-6243-286FD49B30DB}.Release|x64.Build.0 = Release|x64
 		{8C486A3B-C779-74E3-6533-210FB2976870}.Debug|x64.ActiveCfg = Debug|x64
 		{8C486A3B-C779-74E3-6533-210FB2976870}.Debug|x64.Build.0 = Debug|x64
 		{8C486A3B-C779-74E3-6533-210FB2976870}.Release|x64.ActiveCfg = Release|x64
