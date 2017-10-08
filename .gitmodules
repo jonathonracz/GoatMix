@@ -7,3 +7,6 @@
 [submodule "External/JUCE"]
 	path = External/JUCE
 	url = https://github.com/WeAreROLI/JUCE.git
+[submodule "External/AudioFilePlayerPlugin"]
+	path = External/AudioFilePlayerPlugin
+	url = https://github.com/jonathonracz/AudioFilePlayerPlugin.git
