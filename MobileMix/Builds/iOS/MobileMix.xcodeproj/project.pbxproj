@@ -22,8 +22,12 @@
 		814C4F7E2BC187872BEE32C6 = {isa = PBXBuildFile; fileRef = CE1374D090C1A97FB22C91EC; };
 		ACFA5AF6247A3BC97444E7BA = {isa = PBXBuildFile; fileRef = 2A70057675E8ACEC230116B7; };
 		7EE6AEE9BE4EC518FB9A8413 = {isa = PBXBuildFile; fileRef = 4051D78BEC8C7E6B5999D9A2; };
+		6DEFA2DAEE083117BDAE7184 = {isa = PBXBuildFile; fileRef = 28392ECCD834E6C087D1D81F; };
+		C71C057134F615CCD6297E0E = {isa = PBXBuildFile; fileRef = 2FE7A6E725C9F03B4AF80B73; };
 		E73D7E2B8223681E83E531C2 = {isa = PBXBuildFile; fileRef = A3121FDD816FC9F6E8319559; };
 		95B812551D80AD940FEABA66 = {isa = PBXBuildFile; fileRef = 26276D9E280D035DF91BD8E4; };
+		3F50E1B404F1118F651F212A = {isa = PBXBuildFile; fileRef = E45B0C0B7677DC5AA532B3D7; };
+		E99CE710D6D5543CE6385C3D = {isa = PBXBuildFile; fileRef = D9202C03745D5CEC2E50B4DF; };
 		8BC345901C20E57AF4C52534 = {isa = PBXBuildFile; fileRef = AE5DF13685823D2C2E0ED725; };
 		B941A465F72D920CB3016260 = {isa = PBXBuildFile; fileRef = 1D524B6D39072D34BC91141A; };
 		B395EC2F3B124BA563F622D3 = {isa = PBXBuildFile; fileRef = 31A6E38E9B8370DC0AA1EF8A; };
@@ -56,6 +60,8 @@
 		0E612246CB98589478B4A1FC = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMGainPluginEditor.h; path = "../../Source/Internal Plugins/MMGainPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		12C2589A0A02556B3B26D958 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_events"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_events"; sourceTree = "<absolute>"; };
 		1338D22AE82635D06B82FB26 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		13DE466BEE841E78FF4CDA56 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPlugin.h; path = "../../Source/Internal Plugins/MMReverbPlugin.h"; sourceTree = "SOURCE_ROOT"; };
+		1706236431A29C759CCC2639 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMCompressorPluginEditor.h; path = "../../Source/Internal Plugins/MMCompressorPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		1A3ABC6BCA017EC0E10B697A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScreenResolutionConstants.h; path = ../../Source/GUI/ScreenResolutionConstants.h; sourceTree = "SOURCE_ROOT"; };
 		1A58ACD1145D9EF0BEC04DA9 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_formats"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_audio_formats"; sourceTree = "<absolute>"; };
 		1AD4117AA9B9FA705BE5E1AD = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_utils"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_audio_utils"; sourceTree = "<absolute>"; };
@@ -64,9 +70,11 @@
 		2349D44D286DC25B7AB0EEF9 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		236A5AD49079F60087967583 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_data_structures.mm"; path = "../../JuceLibraryCode/include_juce_data_structures.mm"; sourceTree = "SOURCE_ROOT"; };
 		26276D9E280D035DF91BD8E4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMGainPluginEditor.cpp; path = "../../Source/Internal Plugins/MMGainPluginEditor.cpp"; sourceTree = "SOURCE_ROOT"; };
+		28392ECCD834E6C087D1D81F = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMCompressorPlugin.cpp; path = "../../Source/Internal Plugins/MMCompressorPlugin.cpp"; sourceTree = "SOURCE_ROOT"; };
 		2878ECDF2A4A42AD3257CB1F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MobileMixPluginFormat.h; path = ../../Source/Core/MobileMixPluginFormat.h; sourceTree = "SOURCE_ROOT"; };
 		29C83D6D1468B1E68A8261F3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginEditor.cpp; path = ../../Source/Core/MobileMixPluginEditor.cpp; sourceTree = "SOURCE_ROOT"; };
 		2A70057675E8ACEC230116B7 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2FE7A6E725C9F03B4AF80B73 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMCompressorPluginEditor.cpp; path = "../../Source/Internal Plugins/MMCompressorPluginEditor.cpp"; sourceTree = "SOURCE_ROOT"; };
 		31A6E38E9B8370DC0AA1EF8A = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AudioProcessorChain.cpp; path = ../../Source/Core/AudioProcessorChain.cpp; sourceTree = "SOURCE_ROOT"; };
 		340029BC088A8071F29CF7CB = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Math.h; path = ../../Source/DSP/Math.h; sourceTree = "SOURCE_ROOT"; };
 		357295632C6873C1E0C126FD = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DraggableTabbedComponent.h; path = ../../Source/GUI/DraggableTabbedComponent.h; sourceTree = "SOURCE_ROOT"; };
@@ -90,6 +98,7 @@
 		7FF109EAD24E45C4ECF3DB55 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_data_structures"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_data_structures"; sourceTree = "<absolute>"; };
 		867D2EBA31CD3A1E911A1986 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MobileMix.entitlements; path = MobileMix.entitlements; sourceTree = "SOURCE_ROOT"; };
 		87AF76DD1351DB2DFC5B7C60 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8B5DFB9ABB75C63AC5F9665F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPluginEditor.h; path = "../../Source/Internal Plugins/MMReverbPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		8C4F88F02A12498AB30BBBDD = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_graphics"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_graphics"; sourceTree = "<absolute>"; };
 		8CFE702877EB4D887DF48FDF = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhaseInvert.h; path = ../../Source/DSP/PhaseInvert.h; sourceTree = "SOURCE_ROOT"; };
 		8EA9203723DCCC46FB62A1B0 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -101,24 +110,28 @@
 		9D24DA9B29DA0E294C2570A2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PitchShift.h; path = ../../Source/DSP/PitchShift.h; sourceTree = "SOURCE_ROOT"; };
 		A00E1E5A0E31924CAC7A09D9 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_processors"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_audio_processors"; sourceTree = "<absolute>"; };
 		A3121FDD816FC9F6E8319559 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMGainPlugin.cpp; path = "../../Source/Internal Plugins/MMGainPlugin.cpp"; sourceTree = "SOURCE_ROOT"; };
-		AB174FBFF6D0BF832083BD70 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DSPKernel.h; path = ../../Source/DSP/DSPKernel.h; sourceTree = "SOURCE_ROOT"; };
 		AB4293AF63BD54B609E2F78E = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-AUv3_AppExtension.plist"; path = "Info-AUv3_AppExtension.plist"; sourceTree = "SOURCE_ROOT"; };
 		AE5DF13685823D2C2E0ED725 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DraggableTabBarButton.cpp; path = ../../Source/GUI/DraggableTabBarButton.cpp; sourceTree = "SOURCE_ROOT"; };
 		AE6C5854DE71A92A43C92341 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginInstance.cpp; path = ../../Source/Core/MobileMixPluginInstance.cpp; sourceTree = "SOURCE_ROOT"; };
+		CFD4C3771AB388DC1B7B45DA = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMix.app; sourceTree = "BUILT_PRODUCTS_DIR"; };
+		7349A6C36738586589E65738 = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobileMix.a; sourceTree = "BUILT_PRODUCTS_DIR"; };
+		AB174FBFF6D0BF832083BD70 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DSPKernel.h; path = ../../Source/DSP/DSPKernel.h; sourceTree = "SOURCE_ROOT"; };
 		B1FEB49DBA9BA3DE6C1E2197 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gain.h; path = ../../Source/DSP/Gain.h; sourceTree = "SOURCE_ROOT"; };
 		B6B8B3E06080CD4844443316 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginFormat.cpp; path = ../../Source/Core/MobileMixPluginFormat.cpp; sourceTree = "SOURCE_ROOT"; };
 		B8C7ABBA273135847BF31331 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_audio_plugin_client_AUv3.mm"; path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AUv3.mm"; sourceTree = "SOURCE_ROOT"; };
 		BFD2B1F3C5870267C5E7A4AC = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_plugin_client"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_audio_plugin_client"; sourceTree = "<absolute>"; };
-		CFD4C3771AB388DC1B7B45DA = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMix.app; sourceTree = "BUILT_PRODUCTS_DIR"; };
-		7349A6C36738586589E65738 = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobileMix.a; sourceTree = "BUILT_PRODUCTS_DIR"; };
 		C0F68137C08CD8CF6650CF51 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		C8322E20F8F98B690607ABF7 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_gui_basics"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_gui_basics"; sourceTree = "<absolute>"; };
 		CB5A9AE9C8B226D5021D8874 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = NestedAudioProcessorState.cpp; path = ../../Source/Core/NestedAudioProcessorState.cpp; sourceTree = "SOURCE_ROOT"; };
 		CE1374D090C1A97FB22C91EC = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D241A766EB76F90BC870EEE2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMPlugins.h; path = "../../Source/Internal Plugins/MMPlugins.h"; sourceTree = "SOURCE_ROOT"; };
 		D4E00E6457D936E72AAEB274 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "include_juce_audio_plugin_client_Standalone.cpp"; path = "../../JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp"; sourceTree = "SOURCE_ROOT"; };
 		D7FE6DE28CC7A72B2F1DFCA5 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_devices"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_audio_devices"; sourceTree = "<absolute>"; };
 		D8C2DA40D780813E27F8699F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMGainPlugin.h; path = "../../Source/Internal Plugins/MMGainPlugin.h"; sourceTree = "SOURCE_ROOT"; };
+		D9202C03745D5CEC2E50B4DF = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMReverbPluginEditor.cpp; path = "../../Source/Internal Plugins/MMReverbPluginEditor.cpp"; sourceTree = "SOURCE_ROOT"; };
 		E30DE61866DBA90076460139 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_gui_extra.mm"; path = "../../JuceLibraryCode/include_juce_gui_extra.mm"; sourceTree = "SOURCE_ROOT"; };
+		E45B0C0B7677DC5AA532B3D7 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMReverbPlugin.cpp; path = "../../Source/Internal Plugins/MMReverbPlugin.cpp"; sourceTree = "SOURCE_ROOT"; };
+		E5261ED527DA1153BB682346 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMCompressorPlugin.h; path = "../../Source/Internal Plugins/MMCompressorPlugin.h"; sourceTree = "SOURCE_ROOT"; };
 		EC6AA9884203BFFD1A7C81FE = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_core"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_core"; sourceTree = "<absolute>"; };
 		EFAE43C1EBC42B22781F7FFF = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_dsp"; path = "/Users/jonathon/Projects/MobileMix/External/JUCE/modules/juce_dsp"; sourceTree = "<absolute>"; };
 		F00E10573277B3703A82E052 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,10 +143,19 @@
 		FE6847B3D788F06B76159E4A = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Standalone_Plugin.plist"; path = "Info-Standalone_Plugin.plist"; sourceTree = "SOURCE_ROOT"; };
 		FE8D15768A891CA48EE2D5A8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MobileMixPluginEditor.h; path = ../../Source/MobileMixPluginEditor.h; sourceTree = "SOURCE_ROOT"; };
 		488270A71C4342ECADF32635 = {isa = PBXGroup; children = (
+					28392ECCD834E6C087D1D81F,
+					E5261ED527DA1153BB682346,
+					2FE7A6E725C9F03B4AF80B73,
+					1706236431A29C759CCC2639,
 					A3121FDD816FC9F6E8319559,
 					D8C2DA40D780813E27F8699F,
 					26276D9E280D035DF91BD8E4,
-					0E612246CB98589478B4A1FC, ); name = "Internal Plugins"; sourceTree = "<group>"; };
+					0E612246CB98589478B4A1FC,
+					D241A766EB76F90BC870EEE2,
+					E45B0C0B7677DC5AA532B3D7,
+					13DE466BEE841E78FF4CDA56,
+					D9202C03745D5CEC2E50B4DF,
+					8B5DFB9ABB75C63AC5F9665F, ); name = "Internal Plugins"; sourceTree = "<group>"; };
 		86887FC76D731EA22F920835 = {isa = PBXGroup; children = (
 					AE5DF13685823D2C2E0ED725,
 					94F14ECF4920362D5DD2CAE2,
@@ -622,8 +644,12 @@
 					8B3C641BCFE23881FD87F302,
 					6E457C7B7EDB45E174E6AE63, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
 		C32068B8C57A3586A3EE00D1 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+					6DEFA2DAEE083117BDAE7184,
+					C71C057134F615CCD6297E0E,
 					E73D7E2B8223681E83E531C2,
 					95B812551D80AD940FEABA66,
+					3F50E1B404F1118F651F212A,
+					E99CE710D6D5543CE6385C3D,
 					8BC345901C20E57AF4C52534,
 					B941A465F72D920CB3016260,
 					B395EC2F3B124BA563F622D3,

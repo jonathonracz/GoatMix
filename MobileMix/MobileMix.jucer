@@ -13,6 +13,14 @@
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{1AF3964E-6248-F78E-70BD-E857B85AF851}" name="Internal Plugins">
+      <FILE id="vKDJOp" name="MMCompressorPlugin.cpp" compile="1" resource="0"
+            file="Source/Internal Plugins/MMCompressorPlugin.cpp"/>
+      <FILE id="ZEjUmr" name="MMCompressorPlugin.h" compile="0" resource="0"
+            file="Source/Internal Plugins/MMCompressorPlugin.h"/>
+      <FILE id="EtSk16" name="MMCompressorPluginEditor.cpp" compile="1" resource="0"
+            file="Source/Internal Plugins/MMCompressorPluginEditor.cpp"/>
+      <FILE id="Y04RLl" name="MMCompressorPluginEditor.h" compile="0" resource="0"
+            file="Source/Internal Plugins/MMCompressorPluginEditor.h"/>
       <FILE id="JwrjjO" name="MMGainPlugin.cpp" compile="1" resource="0"
             file="Source/Internal Plugins/MMGainPlugin.cpp"/>
       <FILE id="ZLBY76" name="MMGainPlugin.h" compile="0" resource="0" file="Source/Internal Plugins/MMGainPlugin.h"/>
@@ -20,6 +28,15 @@
             file="Source/Internal Plugins/MMGainPluginEditor.cpp"/>
       <FILE id="WjD7GL" name="MMGainPluginEditor.h" compile="0" resource="0"
             file="Source/Internal Plugins/MMGainPluginEditor.h"/>
+      <FILE id="birMml" name="MMPlugins.h" compile="0" resource="0" file="Source/Internal Plugins/MMPlugins.h"/>
+      <FILE id="YyPTka" name="MMReverbPlugin.cpp" compile="1" resource="0"
+            file="Source/Internal Plugins/MMReverbPlugin.cpp"/>
+      <FILE id="uv8OeJ" name="MMReverbPlugin.h" compile="0" resource="0"
+            file="Source/Internal Plugins/MMReverbPlugin.h"/>
+      <FILE id="KZCVvs" name="MMReverbPluginEditor.cpp" compile="1" resource="0"
+            file="Source/Internal Plugins/MMReverbPluginEditor.cpp"/>
+      <FILE id="dT2ceV" name="MMReverbPluginEditor.h" compile="0" resource="0"
+            file="Source/Internal Plugins/MMReverbPluginEditor.h"/>
     </GROUP>
     <GROUP id="{B2F66E59-BD00-48F2-9564-90C467568A38}" name="GUI">
       <FILE id="OnXZF5" name="DraggableTabBarButton.cpp" compile="1" resource="0"

@@ -81,7 +81,12 @@ void MobileMixAudioProcessorEditor::valueTreeChildOrderChanged(ValueTree& parent
 {
     if (parentTreeWhoseChildrenHaveMoved == processor.chainTree)
     {
-        tabs.moveTab(oldIndex, newIndex);
+        // Check if the tab actually needs to be moved before attempting to move
+        // it (otherwise we get the same tab moving twice).
+        if (Identifier(tabs.getTabbedButtonBar().getTabButton(newIndex)->getName()) != processor.chainTree.getChild(newIndex).getType())
+        {
+            tabs.moveTab(oldIndex, newIndex);
+        }
     }
 }
 
