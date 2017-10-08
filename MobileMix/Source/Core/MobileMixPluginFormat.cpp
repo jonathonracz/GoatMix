@@ -18,6 +18,8 @@ MobileMixPluginFormat::MobileMixPluginFormat(AudioProcessorValueTreeState& _stat
     gainDesc = MMGainPlugin(state).getPluginDescription();
     compressorDesc = MMCompressorPlugin(state).getPluginDescription();
     reverbDesc = MMReverbPlugin(state).getPluginDescription();
+    distortionDesc = MMDistortionPlugin(state).getPluginDescription();
+    eqDesc = MMEQPlugin(state).getPluginDescription();
 }
 
 void MobileMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array)
@@ -25,6 +27,8 @@ void MobileMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<Plu
     array.add(new PluginDescription(gainDesc));
     array.add(new PluginDescription(compressorDesc));
     array.add(new PluginDescription(reverbDesc));
+    array.add(new PluginDescription(distortionDesc));
+    array.add(new PluginDescription(eqDesc));
 }
 
 void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,
@@ -39,4 +43,8 @@ void MobileMixPluginFormat::createPluginInstance(const PluginDescription& desc,
         callback(userData, new MMCompressorPlugin(state), String());
     else if (desc.isDuplicateOf(reverbDesc))
         callback(userData, new MMReverbPlugin(state), String());
+    else if (desc.isDuplicateOf(distortionDesc))
+        callback(userData, new MMDistortionPlugin(state), String());
+    else if (desc.isDuplicateOf(eqDesc))
+        callback(userData, new MMEQPlugin(state), String());
 }

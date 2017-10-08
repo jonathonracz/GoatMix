@@ -14,4 +14,5 @@
 #include "MMGainPlugin.h"
 #include "MMCompressorPlugin.h"
 #include "MMReverbPlugin.h"
-
+#include "MMDistortionPlugin.h"
+#include "MMEQPlugin.h"

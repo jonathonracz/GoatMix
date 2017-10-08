@@ -31,7 +31,7 @@ public:
 
     void getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array);
 
-    PluginDescription gainDesc, compressorDesc, reverbDesc;
+    PluginDescription gainDesc, compressorDesc, reverbDesc, distortionDesc, eqDesc;
 
 private:
     bool requiresUnblockedMessageThreadDuringCreation(const PluginDescription&) const noexcept override { return false; }
