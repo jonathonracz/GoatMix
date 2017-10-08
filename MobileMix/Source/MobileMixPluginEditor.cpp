@@ -70,7 +70,6 @@ void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
     assert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
     assert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
     processor.chainTree.moveChild(fromIndex, toIndex, nullptr);
-    DBG("Tab " << fromIndex << " moved to " << toIndex);
 }
 
 void MobileMixAudioProcessorEditor::timerCallback()

@@ -14,6 +14,7 @@ MobileMixPluginEditor::MobileMixPluginEditor(MobileMixPluginInstance& _processor
     AudioProcessorEditor(_processor),
     processor(_processor)
 {
+    bypassButtonAttachment = createButtonAttachment(processor.paramBypass->paramID, bypassButton);
 }
 
 MobileMixPluginEditor::MMButtonAttachment MobileMixPluginEditor::createButtonAttachment(String parameterID, Button& buttonToControl)
