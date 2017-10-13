@@ -25,10 +25,19 @@ public:
     */
     virtual void registerParameters();
 
+    /** Call this in your derived processBlock() and avoid actually doing
+        anything to the signal if you're bypassed.
+    */
+    bool isBypassed() const;
+
     /** If you override this, be sure to call this base implementation! */
     void parameterChanged(const String& parameterID, float newValue) override;
 
     void fillInPluginDescription(PluginDescription &description) const override;
+    
+    /** This MUST be called at the end of your derived processBlock! */
+    void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+    
     void releaseResources() override;
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
     bool hasEditor() const override;
@@ -44,14 +53,13 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
     AudioProcessorValueTreeState& state;
+    std::array<std::atomic<float>, 2> peakLevel = { 0.0f, 0.0f };
+    AudioProcessorParameterWithID* paramBypass;
 
 protected:
     const String addPrefixToParameterName(StringRef name) const;
 
 private:
-    friend class MobileMixPluginInstanceEditor;
-    AudioProcessorParameterWithID* paramBypass;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)
 
 };

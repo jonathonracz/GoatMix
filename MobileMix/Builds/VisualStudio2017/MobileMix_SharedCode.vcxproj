@@ -157,6 +157,8 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginInstanceEditor.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginFormat.cpp"/>
@@ -1853,6 +1855,8 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
+    <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h"/>
+    <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>

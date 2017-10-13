@@ -424,6 +424,12 @@
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
       <Filter>MobileMix\Core</Filter>
     </ClCompile>
@@ -2299,6 +2305,12 @@
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h">

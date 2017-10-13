@@ -24,8 +24,8 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     for (int i = 0; i < processor.chain.getNumNodes(); ++i)
     {
         jassert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
-        AudioProcessor* currentProcessor = processor.chain.getNode(i)->getProcessor();
-        tabs.addTab(currentProcessor->getName(), Colours::white, currentProcessor->createEditor(), true);
+        MobileMixPluginInstance* currentProcessor = static_cast<MobileMixPluginInstance*>(processor.chain.getNode(i)->getProcessor());
+        tabs.addTabForPlugin(currentProcessor);
     }
 
     tabs.addListener(this);

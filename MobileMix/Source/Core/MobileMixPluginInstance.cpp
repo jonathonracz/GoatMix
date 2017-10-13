@@ -33,6 +33,12 @@ void MobileMixPluginInstance::registerParameters()
                                               nullptr);
 }
 
+bool MobileMixPluginInstance::isBypassed() const
+{
+    jassert(paramBypass->getValue() == 0.0f || paramBypass->getValue() == 1.0f);
+    return static_cast<bool>(paramBypass->getValue());
+}
+
 void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)
 {
     if (parameterID == paramBypass->paramID)
@@ -50,6 +56,13 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
     description.manufacturerName = JucePlugin_Manufacturer;
     description.version = JucePlugin_VersionString;
     description.isInstrument = false;
+}
+
+void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+{
+    jassert(peakLevel.size() == static_cast<size_t>(buffer.getNumChannels()));
+    peakLevel[0] = buffer.getMagnitude(0, 0, buffer.getNumSamples());
+    peakLevel[1] = buffer.getMagnitude(1, 0, buffer.getNumSamples());
 }
 
 void MobileMixPluginInstance::releaseResources()

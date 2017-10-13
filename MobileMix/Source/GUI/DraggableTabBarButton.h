@@ -21,15 +21,15 @@ public:
     ~DraggableTabBarButton();
 
 protected:
-    int getBestTabLength(int depth) override;
     void mouseDown(const MouseEvent& e) override;
     void mouseDrag(const MouseEvent& e) override;
     void mouseUp(const MouseEvent& e) override;
+    
+    DraggableTabbedComponent& owner;
 
 private:
     ComponentDragger dragger;
     ComponentBoundsConstrainer ownerConstrain;
-    DraggableTabbedComponent& owner;
 
     void setMoveTriggersFromTab(int index);
     int triggerTabUpX;

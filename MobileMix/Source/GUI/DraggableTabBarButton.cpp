@@ -21,11 +21,6 @@ DraggableTabBarButton::~DraggableTabBarButton()
 {
 }
 
-int DraggableTabBarButton::getBestTabLength (int depth)
-{
-    return owner.getWidth() / owner.getNumTabs();
-}
-
 void DraggableTabBarButton::mouseDown(const MouseEvent& e)
 {
     if (Desktop::getInstance().getAnimator().isAnimating(this))
