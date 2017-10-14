@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FILTERGRAPH>
+  <FILTER uid="1" x="0.5" y="0.10000000000000000555">
+    <PLUGIN name="Audio Input" descriptiveName="" format="Internal" category="I/O devices"
+            manufacturer="ROLI Ltd." version="1.0" file="" uid="246006c0"
+            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="0"
+            numOutputs="2" isShell="0"/>
+    <STATE>0.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="disabled"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="L R"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <FILTER uid="2" x="0.25" y="0.10000000000000000555">
+    <PLUGIN name="Midi Input" descriptiveName="" format="Internal" category="I/O devices"
+            manufacturer="ROLI Ltd." version="1.0" file="" uid="cb5fde0b"
+            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="0"
+            numOutputs="0" isShell="0"/>
+    <STATE>0.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="disabled"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="disabled"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <FILTER uid="3" x="0.5" y="0.9000000000000000222">
+    <PLUGIN name="Audio Output" descriptiveName="" format="Internal" category="I/O devices"
+            manufacturer="ROLI Ltd." version="1.0" file="" uid="724248cb"
+            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="2"
+            numOutputs="0" isShell="0"/>
+    <STATE>0.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="L R"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="disabled"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <FILTER uid="4" x="0.4812500000000000111" y="0.55555555555555558023"
+          uiLastX_Normal="246" uiLastY_Normal="627" uiopen_Normal="1">
+    <PLUGIN name="MobileMix" format="VST" category="Effect" manufacturer="GoatAudio"
+            version="V1.0.0" file="/Users/jonathon/Library/Audio/Plug-Ins/VST/MobileMix.vst"
+            uid="476f6d6d" isInstrument="0" fileTime="15f1449a6a0" infoUpdateTime="15f14516068"
+            numInputs="2" numOutputs="2" isShell="0"/>
+    <STATE>630.CMlaKA....fQBMDZ....Abzas0F....Y....A.............................................................................................................................................................................P.Va0PxDRyA...7H0SOQkO7.UPRETSfjFY8HxQgkla5.hP4AWXyMmHfXWXrUWY8HBLh7hO7.UPRETSfjFY8HxQgkla5.xQgklah.hcgwVck0iHwHxK9vCTAIUPMARZj0iHC8VavIWYyM2axoCHBkGbgM2bh.hcgwVck0iHvHxK9vCTAIUPMARZj0iHC8VavIWYyM2axoCHC8VavIWYyM2axIBH1EFa0UVOhDiHu3COPEjTA0DHoQVOhHUY1UlbhoCHBkGbgM2bh.hcgwVck0iHvHxK9vCTAIUPMARZj0iHRUlckImX5.hTkYWYxIlHfXWXrUWY8HRLh7hO7.UPRETSfjFY8HBQoMGcuIGco8la5.hP4AWXyMmHfXWXrUWY8HBLh7hO7.UPRETSfjFY8HBQoMGcuIGco8la5.BQoMGcuIGco8lah.hcgwVck0iHwHxK9vCTAIUPMARZj0iHEEkNfHTdvE1byIBH1EFa0UVOh.iHu3COPEjTA0DHoQVOhTTT5.RQQIBH1EFa0UVOhDiHu3COCgTPI4jO7bTXo41K9viTkYWYxI1K9vyPu0FbxU1by8lbu3CODk1bz8lbzk1at8hO7TTTu3COuLDRAkjS9vyKR8zST4C.</STATE>
+    <LAYOUT>
+      <INPUTS>
+        <BUS index="0" layout="L R"/>
+      </INPUTS>
+      <OUTPUTS>
+        <BUS index="0" layout="L R"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <FILTER uid="5" x="0.46750000000000002665" y="0.32962962962962960578"
+          uiLastX_Normal="918" uiLastY_Normal="228" uiopen_Normal="1">
+    <PLUGIN name="AudioFilePlayer" format="VST" category="Synth" manufacturer="NTwelve"
+            version="V1.0.0" file="/Users/jonathon/Library/Audio/Plug-Ins/VST/AudioFilePlayer.vst"
+            uid="4e54506c" isInstrument="1" fileTime="15f144d5408" infoUpdateTime="15f14516068"
+            numInputs="0" numOutputs="2" isShell="0"/>
+    <STATE>200.CMlaKA....fQBMDZ....A3DUPwF....Y....A...............................................................................................................................................................................nX0PxDxG....7.Ga0cVZt0xbkQGco41YyARX0QVZuYVZrUVOhHxK9..</STATE>
+    <LAYOUT>
+      <INPUTS/>
+      <OUTPUTS>
+        <BUS index="0" layout="L R"/>
+      </OUTPUTS>
+    </LAYOUT>
+  </FILTER>
+  <CONNECTION srcFilter="4" srcChannel="0" dstFilter="3" dstChannel="0"/>
+  <CONNECTION srcFilter="4" srcChannel="1" dstFilter="3" dstChannel="1"/>
+  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="4" dstChannel="0"/>
+  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="4" dstChannel="1"/>
+</FILTERGRAPH>

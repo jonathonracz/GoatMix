@@ -424,6 +424,9 @@
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\LevelMeter.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -2305,6 +2308,9 @@
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\LevelMeter.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">

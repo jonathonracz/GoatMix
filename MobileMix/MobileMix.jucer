@@ -5,7 +5,7 @@
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="0"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="goataudio"
+              enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="GoatAudio"
               pluginManufacturerCode="Goat" pluginCode="Gomm" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="MobileMixAU"
@@ -61,6 +61,8 @@
             file="Source/GUI/DraggableTabbedComponent.cpp"/>
       <FILE id="ob1JOz" name="DraggableTabbedComponent.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabbedComponent.h"/>
+      <FILE id="hvY2Xc" name="LevelMeter.cpp" compile="1" resource="0" file="Source/GUI/LevelMeter.cpp"/>
+      <FILE id="aMC32V" name="LevelMeter.h" compile="0" resource="0" file="Source/GUI/LevelMeter.h"/>
       <FILE id="jtbfje" name="MMTabBarButton.cpp" compile="1" resource="0"
             file="Source/GUI/MMTabBarButton.cpp"/>
       <FILE id="TFEZ52" name="MMTabBarButton.h" compile="0" resource="0"
@@ -113,7 +115,7 @@
           file="Source/MobileMixPluginEditor.h"/>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="" vst3Folder="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"/>
@@ -134,7 +136,8 @@
         <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks="">
+    <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
+                  vst3Folder="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"/>

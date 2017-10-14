@@ -37,7 +37,7 @@
         <array>
           <dict>
             <key>name</key>
-            <string>goataudio: MobileMix</string>
+            <string>GoatAudio: MobileMix</string>
             <key>description</key>
             <string>MobileMix</string>
             <key>factoryFunction</key>

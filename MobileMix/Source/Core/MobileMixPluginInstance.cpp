@@ -41,11 +41,6 @@ bool MobileMixPluginInstance::isBypassed() const
 
 void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)
 {
-    if (parameterID == paramBypass->paramID)
-    {
-        jassert(newValue == 0.0f || newValue == 1.0f);
-        (newValue == 1.0f) ? suspendProcessing(true) : suspendProcessing(false);
-    }
 }
 
 void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &description) const
@@ -61,8 +56,8 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
 void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     jassert(peakLevel.size() == static_cast<size_t>(buffer.getNumChannels()));
-    peakLevel[0] = buffer.getMagnitude(0, 0, buffer.getNumSamples());
-    peakLevel[1] = buffer.getMagnitude(1, 0, buffer.getNumSamples());
+    peakLevel[0].store(buffer.getMagnitude(0, 0, buffer.getNumSamples()), std::memory_order::memory_order_relaxed);
+    peakLevel[1].store(buffer.getMagnitude(1, 0, buffer.getNumSamples()), std::memory_order::memory_order_relaxed);
 }
 
 void MobileMixPluginInstance::releaseResources()

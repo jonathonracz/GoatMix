@@ -311,7 +311,7 @@
  #define JucePlugin_Desc                   "MobileMix"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "goataudio"
+ #define JucePlugin_Manufacturer           "GoatAudio"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
  #define JucePlugin_ManufacturerWebsite    ""
@@ -413,5 +413,5 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "goataudio: MobileMix"
+ #define JucePlugin_IAAName                "GoatAudio: MobileMix"
 #endif
