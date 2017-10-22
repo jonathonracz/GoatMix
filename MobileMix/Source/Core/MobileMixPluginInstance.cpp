@@ -39,10 +39,6 @@ bool MobileMixPluginInstance::isBypassed() const
     return static_cast<bool>(paramBypass->getValue());
 }
 
-void MobileMixPluginInstance::parameterChanged(const String& parameterID, float newValue)
-{
-}
-
 void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &description) const
 {
     description.name = getName();

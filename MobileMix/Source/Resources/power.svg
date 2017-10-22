@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Power Symbol</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mix" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Power-Symbol" fill="#00FFFF">
+            <path d="M12,4.68282283 C7.33923051,6.33016846 4,10.7751247 4,16 C4,22.627417 9.372583,28 16,28 C22.627417,28 28,22.627417 28,16 C28,10.7751247 24.6607695,6.33016846 20,4.68282283 L20,9.07025756 C22.3912055,10.4534952 24,13.0388706 24,16 C24,20.418278 20.418278,24 16,24 C11.581722,24 8,20.418278 8,16 C8,13.0388706 9.60879452,10.4534952 12,9.07025756 L12,4.68282283 Z" id="Combined-Shape"></path>
+            <rect id="Rectangle-5" x="14" y="2" width="4" height="16"></rect>
+        </g>
+    </g>
+</svg>

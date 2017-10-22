@@ -13,8 +13,7 @@
 #include <JuceHeader.h>
 
 class MobileMixPluginInstance :
-    public AudioPluginInstance,
-    public AudioProcessorValueTreeState::Listener
+    public AudioPluginInstance
 {
 public:
     MobileMixPluginInstance(AudioProcessorValueTreeState& state);
@@ -29,9 +28,6 @@ public:
         anything to the signal if you're bypassed.
     */
     bool isBypassed() const;
-
-    /** If you override this, be sure to call this base implementation! */
-    void parameterChanged(const String& parameterID, float newValue) override;
 
     void fillInPluginDescription(PluginDescription &description) const override;
     

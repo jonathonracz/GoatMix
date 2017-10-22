@@ -12,27 +12,24 @@
 
 MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPluginInstance& _representedPlugin) :
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
-    bypassButton(_representedPlugin.getName() + "BypassButton", Colours::green, Colours::blue, Colours::red),
+    bypassButton(_representedPlugin.getName() + "BypassButton"),
+    bypassButtonAttachment(_representedPlugin.state, _representedPlugin.paramBypass->paramID, bypassButton),
     representedPlugin(_representedPlugin)
 {
-    representedPlugin.addListener(this);
+    bypassButton.setClickingTogglesState(true); // Make it a toggle
     addAndMakeVisible(bypassButton);
 }
 
 MMTabBarButton::~MMTabBarButton()
 {
-    representedPlugin.removeListener(this);
+}
+
+void MMTabBarButton::resized()
+{
+    bypassButton.setBounds(getLocalBounds().removeFromRight(getWidth() / 2));
 }
 
 int MMTabBarButton::getBestTabLength(int depth)
 {
     return owner.getWidth() / owner.getNumTabs();
-}
-
-void MMTabBarButton::audioProcessorParameterChanged(AudioProcessor *processor, int parameterIndex, float newValue)
-{
-    if (parameterIndex == representedPlugin.paramBypass->getParameterIndex())
-    {
-        bypassButton.setToggleState(representedPlugin.isBypassed(), NotificationType::dontSendNotification);
-    }
 }

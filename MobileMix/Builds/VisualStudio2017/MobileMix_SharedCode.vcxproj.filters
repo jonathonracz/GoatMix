@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MobileMix\Resources">
+      <UniqueIdentifier>{338E3C31-1123-77EA-3F3C-70AAFEFBF1B2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MobileMix\Internal Plugins">
       <UniqueIdentifier>{CE787283-9636-8026-F934-20F1BCDEDF5B}</UniqueIdentifier>
     </Filter>
@@ -431,6 +434,9 @@
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\MMTopBar.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
@@ -2230,6 +2236,9 @@
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\juce_gui_extra.mm">
       <Filter>Juce Modules\juce_gui_extra</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2313,10 +2322,16 @@
     <ClInclude Include="..\..\Source\GUI\LevelMeter.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMButtonAppearances.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMTopBar.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h">
@@ -4305,11 +4320,29 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>Juce Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\filter.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\goataudio.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\mutebuttonbackground.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\power.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\undoredo.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>
     </None>

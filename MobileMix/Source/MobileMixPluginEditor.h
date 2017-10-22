@@ -13,6 +13,7 @@
 #include <JuceHeader.h>
 #include "MobileMixPluginProcessor.h"
 #include "GUI/MMTabbedComponent.h"
+#include "GUI/MMTopBar.h"
 
 /**
 */
@@ -43,6 +44,7 @@ private:
     void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
     MobileMixAudioProcessor& processor;
+    MMTopBar topBar;
     MMTabbedComponent tabs;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)

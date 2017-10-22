@@ -28,6 +28,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
         tabs.addTabForPlugin(currentProcessor);
     }
 
+    addAndMakeVisible(topBar);
     tabs.addListener(this);
     addAndMakeVisible(tabs);
     startTimerHz(30); // 30 FPS refresh rate.
@@ -41,16 +42,21 @@ MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
 void MobileMixAudioProcessorEditor::paint(Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-
-    g.setColour(Colours::white);
-    g.setFont(15.0f);
-    g.drawFittedText("Hello World!", getLocalBounds(), Justification::centred, 1);
+    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
 }
 
 void MobileMixAudioProcessorEditor::resized()
 {
-    tabs.setBounds(getBounds());
+    FlexBox layout;
+    layout.flexDirection = FlexBox::Direction::column;
+
+    layout.items.add(FlexItem(topBar).withFlex(0.10f));
+    layout.items.add(FlexItem(tabs).withFlex(1.0f));
+
+    layout.performLayout(getLocalBounds());
+
+    // Manual hack since we aren't laying out the tabbedButtonBar directly...
+    tabs.setTabBarDepth(topBar.getHeight());
 }
 
 int MobileMixAudioProcessorEditor::getIndexOfTabWithName(String name)
