@@ -22,10 +22,13 @@ public:
 
 protected:
     void resized() override;
+    void paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown) override;
 
 private:
     int getBestTabLength(int depth) override;
 
+    std::unique_ptr<Drawable> shadow;
+    std::unique_ptr<Drawable> muteButtonBg;
     TextButton bypassButton;
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
     MobileMixPluginInstance& representedPlugin;

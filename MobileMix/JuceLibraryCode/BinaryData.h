@@ -8,6 +8,12 @@
 
 namespace BinaryData
 {
+    extern const char*   mutebuttonbg_svg;
+    const int            mutebuttonbg_svgSize = 607;
+
+    extern const char*   tabshadow_svg;
+    const int            tabshadow_svgSize = 870;
+
     extern const char*   redo_svg;
     const int            redo_svgSize = 873;
 
@@ -20,9 +26,6 @@ namespace BinaryData
     extern const char*   goataudio_svg;
     const int            goataudio_svgSize = 8256;
 
-    extern const char*   mutebuttonbackground_svg;
-    const int            mutebuttonbackground_svgSize = 868;
-
     extern const char*   power_svg;
     const int            power_svgSize = 996;
 
@@ -30,7 +33,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 6;
+    const int namedResourceListSize = 7;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

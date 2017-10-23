@@ -2322,9 +2322,6 @@
     <ClInclude Include="..\..\Source\GUI\LevelMeter.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMButtonAppearances.h">
-      <Filter>MobileMix\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -4328,6 +4325,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\mutebuttonbg.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\tabshadow.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\redo.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
@@ -4338,9 +4341,6 @@
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\goataudio.svg">
-      <Filter>MobileMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\mutebuttonbackground.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\power.svg">

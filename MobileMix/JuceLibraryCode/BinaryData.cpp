@@ -7,8 +7,47 @@
 namespace BinaryData
 {
 
-//================== redo.svg ==================
+//================== mutebuttonbg.svg ==================
 static const unsigned char temp_binary_data_0[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Rectangle</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs></defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Mute-Button-Background-No-Border\" fill=\"#7F7F7F\">\n"
+"            <polygon id=\"Rectangle\" points=\"0 0 48 0 64 32 48 64 0 64\"></polygon>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* mutebuttonbg_svg = (const char*) temp_binary_data_0;
+
+//================== tabshadow.svg ==================
+static const unsigned char temp_binary_data_1[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Tab Shadow</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs>\n"
+"        <linearGradient x1=\"50%\" y1=\"0%\" x2=\"50%\" y2=\"100%\" id=\"linearGradient-1\">\n"
+"            <stop stop-color=\"#000000\" stop-opacity=\"0.319859601\" offset=\"0%\"></stop>\n"
+"            <stop stop-color=\"#000000\" stop-opacity=\"0\" offset=\"100%\"></stop>\n"
+"        </linearGradient>\n"
+"    </defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Tab-Shadow\" fill=\"url(#linearGradient-1)\">\n"
+"            <rect id=\"Shadow\" x=\"0\" y=\"0\" width=\"64\" height=\"64\"></rect>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* tabshadow_svg = (const char*) temp_binary_data_1;
+
+//================== redo.svg ==================
+static const unsigned char temp_binary_data_2[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -24,10 +63,10 @@ static const unsigned char temp_binary_data_0[] =
 "    </g>\n"
 "</svg>";
 
-const char* redo_svg = (const char*) temp_binary_data_0;
+const char* redo_svg = (const char*) temp_binary_data_2;
 
 //================== undo.svg ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_3[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -43,10 +82,10 @@ static const unsigned char temp_binary_data_1[] =
 "    </g>\n"
 "</svg>";
 
-const char* undo_svg = (const char*) temp_binary_data_1;
+const char* undo_svg = (const char*) temp_binary_data_3;
 
 //================== filter.svg ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_4[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -60,10 +99,10 @@ static const unsigned char temp_binary_data_2[] =
 "    </g>\n"
 "</svg>";
 
-const char* filter_svg = (const char*) temp_binary_data_2;
+const char* filter_svg = (const char*) temp_binary_data_4;
 
 //================== goataudio.svg ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_5[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
 "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 1428 188\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;st"
@@ -110,32 +149,10 @@ static const unsigned char temp_binary_data_3[] =
 "    </g>\n"
 "</svg>\n";
 
-const char* goataudio_svg = (const char*) temp_binary_data_3;
-
-//================== mutebuttonbackground.svg ==================
-static const unsigned char temp_binary_data_4[] =
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-"<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
-"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
-"    <title>Mute Button Background</title>\n"
-"    <desc>Created with Sketch.</desc>\n"
-"    <defs>\n"
-"        <polygon id=\"path-1\" points=\"0 0 48 0 64 32 48 64 0 64\"></polygon>\n"
-"    </defs>\n"
-"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
-"        <g id=\"Mute-Button-Background\">\n"
-"            <g id=\"Rectangle\">\n"
-"                <use fill=\"#7F7F7F\" fill-rule=\"evenodd\" xlink:href=\"#path-1\"></use>\n"
-"                <path stroke=\"#000000\" stroke-width=\"1\" d=\"M0.5,0.5 L0.5,63.5 L47.690983,63.5 L63.440983,32 L47.690983,0.5 L0.5,0.5 Z\"></path>\n"
-"            </g>\n"
-"        </g>\n"
-"    </g>\n"
-"</svg>";
-
-const char* mutebuttonbackground_svg = (const char*) temp_binary_data_4;
+const char* goataudio_svg = (const char*) temp_binary_data_5;
 
 //================== power.svg ==================
-static const unsigned char temp_binary_data_5[] =
+static const unsigned char temp_binary_data_6[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -151,7 +168,7 @@ static const unsigned char temp_binary_data_5[] =
 "    </g>\n"
 "</svg>";
 
-const char* power_svg = (const char*) temp_binary_data_5;
+const char* power_svg = (const char*) temp_binary_data_6;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -164,11 +181,12 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0xe007bdb5:  numBytes = 607; return mutebuttonbg_svg;
+        case 0xc06ae01a:  numBytes = 870; return tabshadow_svg;
         case 0xd20918a3:  numBytes = 873; return redo_svg;
         case 0xe5c4b489:  numBytes = 886; return undo_svg;
         case 0xa3733d1d:  numBytes = 638; return filter_svg;
         case 0x73e9fdc0:  numBytes = 8256; return goataudio_svg;
-        case 0x2bcdef1e:  numBytes = 868; return mutebuttonbackground_svg;
         case 0x32656c2a:  numBytes = 996; return power_svg;
         default: break;
     }
@@ -179,11 +197,12 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "mutebuttonbg_svg",
+    "tabshadow_svg",
     "redo_svg",
     "undo_svg",
     "filter_svg",
     "goataudio_svg",
-    "mutebuttonbackground_svg",
     "power_svg"
 };
 

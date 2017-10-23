@@ -71,12 +71,16 @@ int MobileMixAudioProcessorEditor::getIndexOfTabWithName(String name)
     return -1;
 }
 
+void MobileMixAudioProcessorEditor::tabDragStarted(int atIndex)
+{
+    processor.undoManager.beginNewTransaction("Tab move");
+}
+
 void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
 {
     // Attempting to move tabs representing processor indices which don't exist...
     jassert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
     jassert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
-    processor.undoManager.beginNewTransaction("Tab move");
     processor.chainTree.moveChild(fromIndex, toIndex, &processor.undoManager);
 }
 

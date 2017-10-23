@@ -51,3 +51,13 @@ TabBarButton* DraggableTabbedComponent::createTabButton(const String& tabName, i
 {
     return new DraggableTabBarButton(tabName, *this);
 }
+
+void DraggableTabbedComponent::sendTabDragStarted(int atIndex)
+{
+    listeners.call(&Listener::tabDragStarted, atIndex);
+}
+
+void DraggableTabbedComponent::sendTabDragEnded(int atIndex)
+{
+    listeners.call(&Listener::tabDragEnded, atIndex);
+}

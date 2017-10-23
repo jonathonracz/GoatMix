@@ -33,6 +33,7 @@ public:
 private:
     int getIndexOfTabWithName(String name);
 
+    void tabDragStarted(int atIndex) override;
     void tabMovedViaDrag(int fromIndex, int toIndex) override;
     void timerCallback() override;
 

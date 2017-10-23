@@ -23,6 +23,8 @@ public:
         virtual ~Listener() {}
         virtual void tabAdded(int index) {}
         virtual void tabRemoved(int index) {}
+        virtual void tabDragStarted(int atIndex) {}
+        virtual void tabDragEnded(int atIndex) {}
         virtual void tabMovedViaDrag(int fromIndex, int toIndex) {}
     };
 
@@ -40,5 +42,9 @@ public:
     TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
 
 private:
+    friend class DraggableTabBarButton;
+    void sendTabDragStarted(int atIndex);
+    void sendTabDragEnded(int atIndex);
+
     ListenerList<Listener> listeners;
 };

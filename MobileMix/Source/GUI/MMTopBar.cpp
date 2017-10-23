@@ -76,7 +76,7 @@ void MMTopBar::buttonClicked(Button* button)
 
 void MMTopBar::changeListenerCallback(ChangeBroadcaster* source)
 {
-    // See declaration comment for reasoning behind this.
+    // See declaration comment for the bad reasoning behind this.
     if (!processor.paramUndoRedoCleanedUp)
     {
         processor.undoManager.clearUndoHistory();

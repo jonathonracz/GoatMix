@@ -1859,7 +1859,6 @@
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\LevelMeter.h"/>
-    <ClInclude Include="..\..\Source\GUI\MMButtonAppearances.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h"/>
@@ -2529,11 +2528,12 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\mutebuttonbg.svg"/>
+    <None Include="..\..\Source\Resources\tabshadow.svg"/>
     <None Include="..\..\Source\Resources\redo.svg"/>
     <None Include="..\..\Source\Resources\undo.svg"/>
     <None Include="..\..\Source\Resources\filter.svg"/>
     <None Include="..\..\Source\Resources\goataudio.svg"/>
-    <None Include="..\..\Source\Resources\mutebuttonbackground.svg"/>
     <None Include="..\..\Source\Resources\power.svg"/>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>

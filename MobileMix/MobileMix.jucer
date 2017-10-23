@@ -13,12 +13,13 @@
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <FILE id="Dn2IgD" name="mutebuttonbg.svg" compile="0" resource="1"
+            file="Source/Resources/mutebuttonbg.svg"/>
+      <FILE id="h6vFP7" name="tabshadow.svg" compile="0" resource="1" file="Source/Resources/tabshadow.svg"/>
       <FILE id="nDrTbu" name="redo.svg" compile="0" resource="1" file="Source/Resources/redo.svg"/>
       <FILE id="kl2zHn" name="undo.svg" compile="0" resource="1" file="Source/Resources/undo.svg"/>
       <FILE id="yarKOs" name="filter.svg" compile="0" resource="1" file="Source/Resources/filter.svg"/>
       <FILE id="abZZmF" name="goataudio.svg" compile="0" resource="1" file="Source/Resources/goataudio.svg"/>
-      <FILE id="N2mXTP" name="mutebuttonbackground.svg" compile="0" resource="1"
-            file="Source/Resources/mutebuttonbackground.svg"/>
       <FILE id="zJWfQV" name="power.svg" compile="0" resource="1" file="Source/Resources/power.svg"/>
     </GROUP>
     <GROUP id="{1AF3964E-6248-F78E-70BD-E857B85AF851}" name="Internal Plugins">
@@ -72,8 +73,6 @@
             file="Source/GUI/DraggableTabbedComponent.h"/>
       <FILE id="hvY2Xc" name="LevelMeter.cpp" compile="1" resource="0" file="Source/GUI/LevelMeter.cpp"/>
       <FILE id="aMC32V" name="LevelMeter.h" compile="0" resource="0" file="Source/GUI/LevelMeter.h"/>
-      <FILE id="gLPBp9" name="MMButtonAppearances.h" compile="0" resource="0"
-            file="Source/GUI/MMButtonAppearances.h"/>
       <FILE id="jtbfje" name="MMTabBarButton.cpp" compile="1" resource="0"
             file="Source/GUI/MMTabBarButton.cpp"/>
       <FILE id="TFEZ52" name="MMTabBarButton.h" compile="0" resource="0"
