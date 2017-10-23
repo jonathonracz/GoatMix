@@ -194,6 +194,10 @@ void MobileMixAudioProcessor::valueTreeRedirected(ValueTree &treeWhichHasBeenCha
 
 void MobileMixAudioProcessor::audioProcessorParameterChangeGestureBegin(AudioProcessor* processor, int parameterIndex)
 {
+    // Even though this is called from the audio thread without a lock we're
+    // going to call this "close enough" given the amount of time left to
+    // complete this project. It's not allocating or anything, just creating
+    // a minor race condition.
     undoManager.beginNewTransaction("Parameter change");
 }
 

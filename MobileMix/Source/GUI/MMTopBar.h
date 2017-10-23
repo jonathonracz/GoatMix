@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "../MobileMixPluginProcessor.h"
+#include "SVGButton.h"
 
 class MMTopBar :
     public Component,
@@ -28,8 +29,8 @@ private:
     void changeListenerCallback(ChangeBroadcaster* source) override;
 
     MobileMixAudioProcessor& processor;
-    DrawableButton undoButton;
-    DrawableButton redoButton;
+    SVGButton undoButton;
+    SVGButton redoButton;
     std::unique_ptr<Drawable> logoSVG;
     std::unique_ptr<Drawable> undoSVG;
     std::unique_ptr<Drawable> redoSVG;

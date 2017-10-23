@@ -85,6 +85,7 @@
       <FILE id="CSAXEv" name="MMTopBar.h" compile="0" resource="0" file="Source/GUI/MMTopBar.h"/>
       <FILE id="IgF1w3" name="ScreenResolutionConstants.h" compile="0" resource="0"
             file="Source/GUI/ScreenResolutionConstants.h"/>
+      <FILE id="jO6PRk" name="SVGButton.h" compile="0" resource="0" file="Source/GUI/SVGButton.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Core">
       <FILE id="VJ12Rh" name="AudioProcessorChain.cpp" compile="1" resource="0"

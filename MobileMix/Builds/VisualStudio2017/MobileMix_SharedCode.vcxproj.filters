@@ -2334,6 +2334,9 @@
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SVGButton.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
