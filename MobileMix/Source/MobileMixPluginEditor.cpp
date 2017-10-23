@@ -15,6 +15,7 @@
 MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProcessor& p) :
     AudioProcessorEditor(&p),
     processor(p),
+    topBar(p),
     tabs(TabbedButtonBar::Orientation::TabsAtBottom)
 {
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
@@ -75,7 +76,8 @@ void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
     // Attempting to move tabs representing processor indices which don't exist...
     jassert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
     jassert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
-    processor.chainTree.moveChild(fromIndex, toIndex, nullptr);
+    processor.undoManager.beginNewTransaction("Tab move");
+    processor.chainTree.moveChild(fromIndex, toIndex, &processor.undoManager);
 }
 
 void MobileMixAudioProcessorEditor::timerCallback()

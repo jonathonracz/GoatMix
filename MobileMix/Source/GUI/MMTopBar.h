@@ -11,20 +11,26 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "MMButtonAppearances.h"
+#include "../MobileMixPluginProcessor.h"
 
 class MMTopBar :
-    public Component
+    public Component,
+    public Button::Listener,
+    public ChangeListener
 {
 public:
-    MMTopBar();
+    MMTopBar(MobileMixAudioProcessor& processor);
     ~MMTopBar() {}
 
 private:
-    void resized();
+    void resized() override;
+    void buttonClicked(Button* button) override;
+    void changeListenerCallback(ChangeBroadcaster* source) override;
 
+    MobileMixAudioProcessor& processor;
     DrawableButton undoButton;
     DrawableButton redoButton;
-    std::unique_ptr<DrawableComposite> logo;
-    MMStaticButton buttonAppearance;
+    std::unique_ptr<Drawable> logoSVG;
+    std::unique_ptr<Drawable> undoSVG;
+    std::unique_ptr<Drawable> redoSVG;
 };

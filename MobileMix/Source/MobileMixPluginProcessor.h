@@ -18,7 +18,8 @@
 */
 class MobileMixAudioProcessor :
     public AudioProcessor,
-    public ValueTree::Listener
+    public ValueTree::Listener,
+    public AudioProcessorListener
 {
 public:
     MobileMixAudioProcessor();
@@ -52,6 +53,12 @@ public:
     AudioProcessorChain chain;
     ValueTree chainTree;
     AudioProcessorValueTreeState params;
+    UndoManager undoManager;
+
+    // Dumb hack because for whatever reason AudioProcessorValueTreeState is
+    // leaking a transaction at the end of initialization (from what I can glean
+    // after wasting hours trying to debug it).
+    std::atomic<bool> paramUndoRedoCleanedUp = false;
 
 private:
     int indexOfNodeWithName(String name) const;
@@ -63,7 +70,10 @@ private:
     void valueTreeParentChanged(ValueTree& treeWhoseParentHasChanged) override {}
     void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
-    UndoManager undo;
+    void audioProcessorParameterChanged(AudioProcessor* processor, int parameterIndex, float newValue) override {}
+    void audioProcessorChanged(AudioProcessor* processor) override {}
+    void audioProcessorParameterChangeGestureBegin(AudioProcessor* processor, int parameterIndex) override;
+    void audioProcessorParameterChangeGestureEnd(AudioProcessor* processor, int parameterIndex) override;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

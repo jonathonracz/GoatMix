@@ -4328,6 +4328,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\redo.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\undo.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\filter.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
@@ -4338,9 +4344,6 @@
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\power.svg">
-      <Filter>MobileMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\undoredo.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

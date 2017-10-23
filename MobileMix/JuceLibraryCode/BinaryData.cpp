@@ -7,8 +7,46 @@
 namespace BinaryData
 {
 
-//================== filter.svg ==================
+//================== redo.svg ==================
 static const unsigned char temp_binary_data_0[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Redo</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs></defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Redo\" fill=\"#000000\">\n"
+"            <g id=\"Undo/Redo-Thicker\" transform=\"translate(16.000000, 16.000000) rotate(-315.000000) translate(-16.000000, -16.000000) \">\n"
+"                <path d=\"M16,2 C8.2680135,2 2,8.2680135 2,16 C2,23.7319865 8.2680135,30 16,30 L16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 L16,2 Z M26,5 L16,10 L16,0 L26,5 Z\" id=\"Combined-Shape\"></path>\n"
+"            </g>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* redo_svg = (const char*) temp_binary_data_0;
+
+//================== undo.svg ==================
+static const unsigned char temp_binary_data_1[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Undo</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs></defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Undo\" fill=\"#000000\">\n"
+"            <g id=\"Undo/Redo-Thicker\" transform=\"translate(16.000000, 16.000000) scale(-1, 1) rotate(-315.000000) translate(-16.000000, -16.000000) \">\n"
+"                <path d=\"M16,2 C8.2680135,2 2,8.2680135 2,16 C2,23.7319865 8.2680135,30 16,30 L16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 L16,2 Z M26,5 L16,10 L16,0 L26,5 Z\" id=\"Combined-Shape\"></path>\n"
+"            </g>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* undo_svg = (const char*) temp_binary_data_1;
+
+//================== filter.svg ==================
+static const unsigned char temp_binary_data_2[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -22,10 +60,10 @@ static const unsigned char temp_binary_data_0[] =
 "    </g>\n"
 "</svg>";
 
-const char* filter_svg = (const char*) temp_binary_data_0;
+const char* filter_svg = (const char*) temp_binary_data_2;
 
 //================== goataudio.svg ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_3[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
 "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 1428 188\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;st"
@@ -72,10 +110,10 @@ static const unsigned char temp_binary_data_1[] =
 "    </g>\n"
 "</svg>\n";
 
-const char* goataudio_svg = (const char*) temp_binary_data_1;
+const char* goataudio_svg = (const char*) temp_binary_data_3;
 
 //================== mutebuttonbackground.svg ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_4[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -94,10 +132,10 @@ static const unsigned char temp_binary_data_2[] =
 "    </g>\n"
 "</svg>";
 
-const char* mutebuttonbackground_svg = (const char*) temp_binary_data_2;
+const char* mutebuttonbackground_svg = (const char*) temp_binary_data_4;
 
 //================== power.svg ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_5[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -113,24 +151,7 @@ static const unsigned char temp_binary_data_3[] =
 "    </g>\n"
 "</svg>";
 
-const char* power_svg = (const char*) temp_binary_data_3;
-
-//================== undoredo.svg ==================
-static const unsigned char temp_binary_data_4[] =
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-"<svg width=\"24px\" height=\"34px\" viewBox=\"0 0 24 34\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
-"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
-"    <title>Undo/Redo</title>\n"
-"    <desc>Created with Sketch.</desc>\n"
-"    <defs></defs>\n"
-"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
-"        <g id=\"Undo/Redo\" fill=\"#000000\">\n"
-"            <path d=\"M16,2 C7.163444,2 0,9.163444 0,18 C0,26.836556 7.163444,34 16,34 L16,28 C10.4771525,28 6,23.5228475 6,18 C6,12.4771525 10.4771525,8 16,8 L16,2 Z M24,5 L16,10 L16,0 L24,5 Z\" id=\"Combined-Shape\"></path>\n"
-"        </g>\n"
-"    </g>\n"
-"</svg>";
-
-const char* undoredo_svg = (const char*) temp_binary_data_4;
+const char* power_svg = (const char*) temp_binary_data_5;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -143,11 +164,12 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0xd20918a3:  numBytes = 873; return redo_svg;
+        case 0xe5c4b489:  numBytes = 886; return undo_svg;
         case 0xa3733d1d:  numBytes = 638; return filter_svg;
         case 0x73e9fdc0:  numBytes = 8256; return goataudio_svg;
         case 0x2bcdef1e:  numBytes = 868; return mutebuttonbackground_svg;
         case 0x32656c2a:  numBytes = 996; return power_svg;
-        case 0x06dacd87:  numBytes = 724; return undoredo_svg;
         default: break;
     }
 
@@ -157,11 +179,12 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "redo_svg",
+    "undo_svg",
     "filter_svg",
     "goataudio_svg",
     "mutebuttonbackground_svg",
-    "power_svg",
-    "undoredo_svg"
+    "power_svg"
 };
 
 }

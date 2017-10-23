@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Redo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mix" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Redo" fill="#000000">
+            <g id="Undo/Redo-Thicker" transform="translate(16.000000, 16.000000) rotate(-315.000000) translate(-16.000000, -16.000000) ">
+                <path d="M16,2 C8.2680135,2 2,8.2680135 2,16 C2,23.7319865 8.2680135,30 16,30 L16,24 C11.581722,24 8,20.418278 8,16 C8,11.581722 11.581722,8 16,8 L16,2 Z M26,5 L16,10 L16,0 L26,5 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

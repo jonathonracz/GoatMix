@@ -16,7 +16,7 @@
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
     chainTree("CHAIN"),
-    params(*this, &undo)
+    params(*this, &undoManager)
 {
     // Add top-level parameters here (currently none).
 
@@ -42,10 +42,11 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         chainTree.getOrCreateChildWithName(instance->getName(), nullptr);
     }
 
+    chainTree.addListener(this);
     params.state = ValueTree("ROOT");
     params.state.addChild(chainTree, -1, nullptr);
     params.state.addListener(this);
-    chainTree.addListener(this);
+    addListener(this);
 }
 
 MobileMixAudioProcessor::~MobileMixAudioProcessor()
@@ -145,6 +146,7 @@ void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBy
     ValueTree newState = ValueTree::fromXml(*xml);
     if (newState.isValid())
         params.state = newState;
+    undoManager.clearUndoHistory();
 }
 
 int MobileMixAudioProcessor::indexOfNodeWithName(String name) const
@@ -188,6 +190,15 @@ void MobileMixAudioProcessor::valueTreeRedirected(ValueTree &treeWhichHasBeenCha
             }
         }
     }
+}
+
+void MobileMixAudioProcessor::audioProcessorParameterChangeGestureBegin(AudioProcessor* processor, int parameterIndex)
+{
+    undoManager.beginNewTransaction("Parameter change");
+}
+
+void MobileMixAudioProcessor::audioProcessorParameterChangeGestureEnd(AudioProcessor* processor, int parameterIndex)
+{
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

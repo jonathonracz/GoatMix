@@ -11,14 +11,3 @@
 #pragma once
 
 #include <JuceHeader.h>
-
-// Used for undo/redo, preset bar chevrons
-class MMStaticButton :
-    public LookAndFeel_V4
-{
-    void drawDrawableButton(Graphics& g, DrawableButton& button, bool isMouseOverButton,
-        bool isButtonDown) override
-    {
-
-    }
-};
