@@ -13,6 +13,8 @@
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <FILE id="V19T5d" name="about.txt" compile="0" resource="1" file="Source/Resources/about.txt"/>
+      <FILE id="mXelQp" name="info.svg" compile="0" resource="1" file="Source/Resources/info.svg"/>
       <FILE id="Dn2IgD" name="mutebuttonbg.svg" compile="0" resource="1"
             file="Source/Resources/mutebuttonbg.svg"/>
       <FILE id="h6vFP7" name="tabshadow.svg" compile="0" resource="1" file="Source/Resources/tabshadow.svg"/>
@@ -71,6 +73,8 @@
             file="Source/GUI/DraggableTabbedComponent.cpp"/>
       <FILE id="ob1JOz" name="DraggableTabbedComponent.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabbedComponent.h"/>
+      <FILE id="m9sTzn" name="LongDialogPopup.h" compile="0" resource="0"
+            file="Source/GUI/LongDialogPopup.h"/>
       <FILE id="V0JXud" name="MMLookAndFeel.h" compile="0" resource="0" file="Source/GUI/MMLookAndFeel.h"/>
       <FILE id="XQ2mXj" name="MMMuteButton.h" compile="0" resource="0" file="Source/GUI/MMMuteButton.h"/>
       <FILE id="jtbfje" name="MMTabBarButton.cpp" compile="1" resource="0"

@@ -9,29 +9,28 @@
 */
 
 #include "MMTopBar.h"
-#include "../MobileMixPluginEditor.h"
 
 MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     processor(_processor),
     undoButton("undoButton", DrawableButton::ButtonStyle::ImageFitted),
     redoButton("redoButton", DrawableButton::ButtonStyle::ImageFitted),
-    logoSVG(Drawable::createFromImageData(BinaryData::goataudio_svg, BinaryData::goataudio_svgSize)),
-    undoSVG(Drawable::createFromImageData(BinaryData::undo_svg, BinaryData::undo_svgSize)),
-    redoSVG(Drawable::createFromImageData(BinaryData::redo_svg, BinaryData::redo_svgSize))
+    infoButton("infoButton", DrawableButton::ButtonStyle::ImageFitted),
+    logoSVG(Drawable::createFromImageData(BinaryData::goataudio_svg, BinaryData::goataudio_svgSize))
 {
     assert(logoSVG);
-    assert(undoSVG);
-    assert(redoSVG);
 
-    undoButton.setImages(undoSVG.get());
-    redoButton.setImages(redoSVG.get());
+    undoButton.setImages(Drawable::createFromImageData(BinaryData::undo_svg, BinaryData::undo_svgSize));
+    redoButton.setImages(Drawable::createFromImageData(BinaryData::redo_svg, BinaryData::redo_svgSize));
+    infoButton.setImages(Drawable::createFromImageData(BinaryData::info_svg, BinaryData::info_svgSize));
 
     undoButton.addListener(this);
     redoButton.addListener(this);
+    infoButton.addListener(this);
     processor.undoManager.addChangeListener(this);
 
     addAndMakeVisible(undoButton);
     addAndMakeVisible(redoButton);
+    addAndMakeVisible(infoButton);
     addAndMakeVisible(*logoSVG);
 }
 
@@ -45,6 +44,7 @@ void MMTopBar::resized()
 
     layout.items.add(FlexItem(undoButton).withFlex(1.0f));
     layout.items.add(FlexItem(redoButton).withFlex(1.0f));
+    layout.items.add(FlexItem(infoButton).withFlex(1.0f));
 
     layout.performLayout(getLocalBounds());
 
@@ -64,13 +64,18 @@ void MMTopBar::resized()
 
 void MMTopBar::buttonClicked(Button* button)
 {
+    BailOutChecker checker(this);
     if (button == &undoButton)
     {
-        processor.undoManager.undo();
+        listeners.callChecked(checker, &Listener::undoClicked, this);
     }
     else if (button == &redoButton)
     {
-        processor.undoManager.redo();
+        listeners.callChecked(checker, &Listener::redoClicked, this);
+    }
+    else if (button == &infoButton)
+    {
+        listeners.callChecked(checker, &Listener::infoClicked, this);
     }
 }
 

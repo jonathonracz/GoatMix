@@ -24,5 +24,7 @@ public:
 
     ~MMLookAndFeel() {}
 
+    const float borderThickness = 2.0f;
+
     #include "ff_meters/ff_meters_LookAndFeelMethods.h" // Dear lord
 };

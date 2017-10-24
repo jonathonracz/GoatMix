@@ -23,4 +23,5 @@ public:
     
 private:
     MobileMixPluginInstance* lastPluginTabAddedFor = nullptr;
+
 };

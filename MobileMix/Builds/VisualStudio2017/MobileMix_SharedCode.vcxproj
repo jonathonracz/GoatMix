@@ -1861,6 +1861,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
+    <ClInclude Include="..\..\Source\GUI\LongDialogPopup.h"/>
     <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\GUI\MMMuteButton.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h"/>
@@ -2539,6 +2540,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\about.txt"/>
+    <None Include="..\..\Source\Resources\info.svg"/>
     <None Include="..\..\Source\Resources\mutebuttonbg.svg"/>
     <None Include="..\..\Source\Resources\tabshadow.svg"/>
     <None Include="..\..\Source\Resources\redo.svg"/>

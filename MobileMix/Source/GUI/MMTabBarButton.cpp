@@ -38,6 +38,7 @@ void MMTabBarButton::resized()
     shadow->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::yTop | RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::stretchToFit);
     bypassButton.setBounds(muteButtonBg->getBoundsInParent());
     meter.setBoundsRelative(0.9f, 0.5f, 0.1f, 0.9f);
+    meter.setCentrePosition(meter.getX(), meter.getY());
 }
 
 void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown)

@@ -15,13 +15,16 @@
 #include "GUI/MMTabbedComponent.h"
 #include "GUI/MMTopBar.h"
 #include "GUI/MMLookAndFeel.h"
+#include "GUI/LongDialogPopup.h"
 
 /**
 */
 class MobileMixAudioProcessorEditor :
     public AudioProcessorEditor,
     public DraggableTabbedComponent::Listener,
-    public ValueTree::Listener
+    public ValueTree::Listener,
+    public MMTopBar::Listener,
+    public LongDialogPopup::Listener
 {
 public:
     MobileMixAudioProcessorEditor(MobileMixAudioProcessor&);
@@ -43,10 +46,17 @@ private:
     void valueTreeParentChanged(ValueTree& treeWhoseParentHasChanged) override {}
     void valueTreeRedirected(ValueTree &treeWhichHasBeenChanged) override;
 
+    void undoClicked(MMTopBar* bar) override { processor.undoManager.undo(); }
+    void redoClicked(MMTopBar* bar) override { processor.undoManager.redo(); }
+    void infoClicked(MMTopBar* bar) override;
+
+    void closeButtonClicked(LongDialogPopup* dialog) override;
+
     MobileMixAudioProcessor& processor;
     MMTopBar topBar;
     MMTabbedComponent tabs;
     MMLookAndFeel lookAndFeel;
+    LongDialogPopup aboutDialog;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };
