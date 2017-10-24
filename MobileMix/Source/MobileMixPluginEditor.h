@@ -14,14 +14,14 @@
 #include "MobileMixPluginProcessor.h"
 #include "GUI/MMTabbedComponent.h"
 #include "GUI/MMTopBar.h"
+#include "GUI/MMLookAndFeel.h"
 
 /**
 */
 class MobileMixAudioProcessorEditor :
     public AudioProcessorEditor,
     public DraggableTabbedComponent::Listener,
-    public ValueTree::Listener,
-    public Timer
+    public ValueTree::Listener
 {
 public:
     MobileMixAudioProcessorEditor(MobileMixAudioProcessor&);
@@ -35,7 +35,6 @@ private:
 
     void tabDragStarted(int atIndex) override;
     void tabMovedViaDrag(int fromIndex, int toIndex) override;
-    void timerCallback() override;
 
     void valueTreePropertyChanged(ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
     void valueTreeChildAdded(ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {};
@@ -47,6 +46,7 @@ private:
     MobileMixAudioProcessor& processor;
     MMTopBar topBar;
     MMTabbedComponent tabs;
+    MMLookAndFeel lookAndFeel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };

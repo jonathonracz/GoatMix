@@ -23,6 +23,9 @@
     <Filter Include="MobileMix">
       <UniqueIdentifier>{334EF2DC-E48E-B2D7-ACDD-E021326568A6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\ff_meters">
+      <UniqueIdentifier>{91A9611E-CDAA-E38E-BD54-A491802C8971}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_audio_basics\audio_play_head">
       <UniqueIdentifier>{52045BA8-DF89-5074-688D-A0977F25B09C}</UniqueIdentifier>
     </Filter>
@@ -427,9 +430,6 @@
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\LevelMeter.cpp">
-      <Filter>MobileMix\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -456,6 +456,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\MobileMixPluginEditor.cpp">
       <Filter>MobileMix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.cpp">
+      <Filter>Juce Modules\ff_meters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2239,6 +2242,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_ff_meters_LevelMeter.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2319,7 +2325,10 @@
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\LevelMeter.h">
+    <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMMuteButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
@@ -2375,6 +2384,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\MobileMixPluginEditor.h">
       <Filter>MobileMix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.h">
+      <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LevelMeterSource.h">
+      <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LookAndFeel.h">
+      <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LookAndFeelMethods.h">
+      <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_OutlineBuffer.h">
+      <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters.h">
+      <Filter>Juce Modules\ff_meters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>Juce Modules\juce_audio_basics\audio_play_head</Filter>

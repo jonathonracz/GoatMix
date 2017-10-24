@@ -12,6 +12,7 @@
 
 #include "DraggableTabBarButton.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "MMMuteButton.h"
 
 class MMTabBarButton :
     public DraggableTabBarButton
@@ -29,7 +30,8 @@ private:
 
     std::unique_ptr<Drawable> shadow;
     std::unique_ptr<Drawable> muteButtonBg;
-    TextButton bypassButton;
+    MMMuteButton bypassButton;
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
     MobileMixPluginInstance& representedPlugin;
+    FFAU::LevelMeter meter;
 };

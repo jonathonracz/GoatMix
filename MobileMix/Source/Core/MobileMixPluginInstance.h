@@ -30,11 +30,15 @@ public:
     bool isBypassed() const;
 
     void fillInPluginDescription(PluginDescription &description) const override;
-    
+
+    /** This MUST be called at the end of your derived prepareToPlay! */
+    void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
+
+    void releaseResources() override;
+
     /** This MUST be called at the end of your derived processBlock! */
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
-    
-    void releaseResources() override;
+
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
     bool hasEditor() const override;
     bool acceptsMidi() const override;
@@ -49,8 +53,8 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override;
 
     AudioProcessorValueTreeState& state;
-    std::array<std::atomic<float>, 2> peakLevel = { 0.0f, 0.0f };
     AudioProcessorParameterWithID* paramBypass;
+    FFAU::LevelMeterSource meterSource;
 
 protected:
     const String addPrefixToParameterName(StringRef name) const;

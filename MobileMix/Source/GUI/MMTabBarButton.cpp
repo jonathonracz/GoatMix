@@ -19,9 +19,12 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     representedPlugin(_representedPlugin)
 {
     assert(shadow);
-    bypassButton.setClickingTogglesState(true); // Make it a toggle
+    bypassButton.addMouseListener(this, false);
+    meter.setMeterSource(&representedPlugin.meterSource);
     addAndMakeVisible(shadow.get());
+    addAndMakeVisible(muteButtonBg.get());
     addAndMakeVisible(bypassButton);
+    addAndMakeVisible(meter);
 }
 
 MMTabBarButton::~MMTabBarButton()
@@ -30,12 +33,11 @@ MMTabBarButton::~MMTabBarButton()
 
 void MMTabBarButton::resized()
 {
+    muteButtonBg->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::yTop);
     shadow->setBounds(getLocalBounds());
-    muteButtonBg->setBounds(getLocalBounds());
-
     shadow->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::yTop | RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::stretchToFit);
-
-    bypassButton.setBounds(getLocalBounds().removeFromRight(getWidth() / 2));
+    bypassButton.setBounds(muteButtonBg->getBoundsInParent());
+    meter.setBoundsRelative(0.9f, 0.5f, 0.1f, 0.9f);
 }
 
 void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown)
@@ -44,7 +46,6 @@ void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isBut
 
     g.fillAll(getTabBackgroundColour());
     g.drawText(getName(), getTextArea(), Justification::centred);
-    muteButtonBg->drawWithin(g, getLocalBounds().toFloat(), RectanglePlacement::Flags::yTop | RectanglePlacement::Flags::xLeft, 1.0f);
 
     float borderThickness = 4.0f;
 

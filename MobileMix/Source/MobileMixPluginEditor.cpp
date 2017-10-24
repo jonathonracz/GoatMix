@@ -18,6 +18,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     topBar(p),
     tabs(TabbedButtonBar::Orientation::TabsAtBottom)
 {
+    setLookAndFeel(&lookAndFeel);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
     processor.params.state.addListener(this);
@@ -32,7 +33,6 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     addAndMakeVisible(topBar);
     tabs.addListener(this);
     addAndMakeVisible(tabs);
-    startTimerHz(30); // 30 FPS refresh rate.
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -82,11 +82,6 @@ void MobileMixAudioProcessorEditor::tabMovedViaDrag(int fromIndex, int toIndex)
     jassert(fromIndex < processor.chain.getNumNodes() && toIndex < processor.chain.getNumNodes());
     jassert(fromIndex < processor.chainTree.getNumChildren() && toIndex < processor.chainTree.getNumChildren());
     processor.chainTree.moveChild(fromIndex, toIndex, &processor.undoManager);
-}
-
-void MobileMixAudioProcessorEditor::timerCallback()
-{
-    repaint();
 }
 
 void MobileMixAudioProcessorEditor::valueTreeChildOrderChanged(ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex)

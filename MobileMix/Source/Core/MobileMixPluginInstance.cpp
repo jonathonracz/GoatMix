@@ -49,15 +49,18 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
     description.isInstrument = false;
 }
 
-void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void MobileMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    jassert(peakLevel.size() == static_cast<size_t>(buffer.getNumChannels()));
-    peakLevel[0].store(buffer.getMagnitude(0, 0, buffer.getNumSamples()), std::memory_order::memory_order_relaxed);
-    peakLevel[1].store(buffer.getMagnitude(1, 0, buffer.getNumSamples()), std::memory_order::memory_order_relaxed);
+    meterSource.resize(getMainBusNumOutputChannels(), 0);
 }
 
 void MobileMixPluginInstance::releaseResources()
 {
+}
+
+void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+{
+    meterSource.measureBlock(buffer);
 }
 
 bool MobileMixPluginInstance::isBusesLayoutSupported(const BusesLayout& layouts) const
