@@ -56,8 +56,8 @@ public:
     AudioProcessorParameterWithID* paramBypass;
     FFAU::LevelMeterSource meterSource;
 
-protected:
     const String addPrefixToParameterName(StringRef name) const;
+    static const String stripPrefixFromParameterName(const String& name);
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)

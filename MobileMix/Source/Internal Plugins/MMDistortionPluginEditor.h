@@ -27,7 +27,7 @@ protected:
 private:
     MMSliderAttachment gainSliderAttachment;
 
-    Slider gainSlider;
+    MMParameterSlider gainSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPluginEditor)
 };

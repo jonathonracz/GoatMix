@@ -13,7 +13,6 @@
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramCompressor->paramID, gainSlider);
     addAndMakeVisible(gainSlider);
 }

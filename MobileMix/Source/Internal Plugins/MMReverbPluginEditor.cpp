@@ -13,7 +13,6 @@
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramReverb->paramID, gainSlider);
     addAndMakeVisible(gainSlider);
 }

@@ -27,7 +27,8 @@ MobileMixPluginInstanceEditor::MMComboBoxAttachment MobileMixPluginInstanceEdito
     return MMComboBoxAttachment(new AudioProcessorValueTreeState::ComboBoxAttachment(processor.state, parameterID, comboBoxToControl));
 }
 
-MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor::createSliderAttachment(String parameterID, Slider& sliderToControl)
+MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor::createSliderAttachment(String parameterID, MMParameterSlider& sliderToControl)
 {
+    sliderToControl.setRepresentedParameter(processor.state.getParameter(parameterID));
     return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.state, parameterID, sliderToControl));
 }

@@ -58,7 +58,7 @@ public:
     // Dumb hack because for whatever reason AudioProcessorValueTreeState is
     // leaking a transaction at the end of initialization (from what I can glean
     // after wasting hours trying to debug it).
-    std::atomic<bool> paramUndoRedoCleanedUp = false;
+    std::atomic<bool> paramUndoRedoCleanedUp{false};
 
 private:
     int indexOfNodeWithName(String name) const;

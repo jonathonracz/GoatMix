@@ -11,6 +11,7 @@
 #pragma once
 
 #include "MobileMixPluginInstance.h"
+#include "../GUI/MMParameterSlider.h"
 
 class MobileMixPluginInstanceEditor :
     public AudioProcessorEditor
@@ -28,7 +29,7 @@ protected:
 
     MMButtonAttachment createButtonAttachment(String parameterID, Button& buttonToControl);
     MMComboBoxAttachment createComboBoxAttachment(String parameterID, ComboBox& comboBoxToControl);
-    MMSliderAttachment createSliderAttachment(String parameterID, Slider& sliderToControl);
+    MMSliderAttachment createSliderAttachment(String parameterID, MMParameterSlider& sliderToControl);
 
     MobileMixPluginInstance& processor;
 

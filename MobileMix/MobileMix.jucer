@@ -92,6 +92,8 @@
       <FILE id="IgF1w3" name="ScreenResolutionConstants.h" compile="0" resource="0"
             file="Source/GUI/ScreenResolutionConstants.h"/>
       <FILE id="jO6PRk" name="SVGButton.h" compile="0" resource="0" file="Source/GUI/SVGButton.h"/>
+      <FILE id="CN1skm" name="ValueStringFuncs.h" compile="0" resource="0"
+            file="Source/GUI/ValueStringFuncs.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Core">
       <FILE id="VJ12Rh" name="AudioProcessorChain.cpp" compile="1" resource="0"
@@ -222,4 +224,7 @@
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
 </JUCERPROJECT>

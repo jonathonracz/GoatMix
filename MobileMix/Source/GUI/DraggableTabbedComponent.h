@@ -18,6 +18,8 @@ class DraggableTabbedComponent :
 public:
     using TabbedComponent::TabbedComponent;
 
+    ~DraggableTabbedComponent() {}
+
     struct Listener
     {
         virtual ~Listener() {}

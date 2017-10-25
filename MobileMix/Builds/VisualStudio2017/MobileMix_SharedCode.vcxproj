@@ -1870,6 +1870,7 @@
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h"/>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
     <ClInclude Include="..\..\Source\GUI\SVGButton.h"/>
+    <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>

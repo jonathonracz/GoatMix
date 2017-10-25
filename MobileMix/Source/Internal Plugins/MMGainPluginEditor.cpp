@@ -32,6 +32,7 @@ void MMGainPluginEditor::paint(Graphics& g)
 
 void MMGainPluginEditor::resized()
 {
-    gainSlider.setTransform(AffineTransform::translation(-gainSlider.getBounds().getCentreX(), -gainSlider.getBounds().getCentreY()));
-    gainSlider.setBounds(10, 10, getWidth() / 10, getHeight() - 20);
+    gainSlider.setSize(getHeight() - 20, getWidth() / 10);
+    gainSlider.setCentrePosition(0, 0);
+    gainSlider.setTransform(AffineTransform::rotation(-MathConstants<float>::pi / 2).translated(50.0f, 50.0f));
 }

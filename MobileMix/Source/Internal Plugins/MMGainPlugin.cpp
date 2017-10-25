@@ -10,6 +10,7 @@
 
 #include "MMGainPlugin.h"
 #include "MMGainPluginEditor.h"
+#include "../GUI/ValueStringFuncs.h"
 
 MMGainPlugin::MMGainPlugin(AudioProcessorValueTreeState& state) :
     MobileMixPluginInstance(state)
@@ -20,12 +21,12 @@ void MMGainPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
     paramGain = state.createAndAddParameter(addPrefixToParameterName("Gain"),
-                                                          addPrefixToParameterName("Gain"),
-                                                          "",
-                                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                          1.0f,
-                                                          nullptr,
-                                                          nullptr);
+                                            addPrefixToParameterName("Gain"),
+                                            ValueStringFuncs::Gain::unit,
+                                            NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                            1.0f,
+                                            ValueStringFuncs::Gain::valueToText,
+                                            ValueStringFuncs::Gain::textToValue);
 }
 
 AudioProcessorEditor* MMGainPlugin::createEditor()

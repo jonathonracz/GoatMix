@@ -124,3 +124,8 @@ const String MobileMixPluginInstance::addPrefixToParameterName(StringRef name) c
 {
     return getName() + ": " + name;
 }
+
+const String MobileMixPluginInstance::stripPrefixFromParameterName(const String& name)
+{
+    return name.substring(name.indexOf(": ") + 2);
+}
