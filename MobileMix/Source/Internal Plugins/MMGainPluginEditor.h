@@ -12,6 +12,7 @@
 
 #include "MMGainPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
+#include "../GUI/MMParameterSlider.h"
 
 class MMGainPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -27,7 +28,7 @@ protected:
 private:
     MMSliderAttachment gainSliderAttachment;
 
-    Slider gainSlider;
+    MMParameterSlider gainSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPluginEditor)
 };

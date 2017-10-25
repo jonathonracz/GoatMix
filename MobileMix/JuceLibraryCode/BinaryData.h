@@ -9,7 +9,7 @@
 namespace BinaryData
 {
     extern const char*   about_txt;
-    const int            about_txtSize = 72482;
+    const int            about_txtSize = 72474;
 
     extern const char*   info_svg;
     const int            info_svgSize = 1039;

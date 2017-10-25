@@ -13,7 +13,6 @@
 MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSliderAttachment = createSliderAttachment(processor.paramGain->paramID, gainSlider);
     addAndMakeVisible(gainSlider);
 }
@@ -33,5 +32,6 @@ void MMGainPluginEditor::paint(Graphics& g)
 
 void MMGainPluginEditor::resized()
 {
+    gainSlider.setTransform(AffineTransform::translation(-gainSlider.getBounds().getCentreX(), -gainSlider.getBounds().getCentreY()));
     gainSlider.setBounds(10, 10, getWidth() / 10, getHeight() - 20);
 }

@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include <JuceHeader.h>
+#include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 
 class MMCompressorPlugin :

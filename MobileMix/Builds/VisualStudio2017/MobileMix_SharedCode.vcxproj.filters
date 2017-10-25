@@ -2334,6 +2334,9 @@
     <ClInclude Include="..\..\Source\GUI\MMMuteButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMParameterSlider.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>

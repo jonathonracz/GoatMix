@@ -21,6 +21,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     aboutDialog(String::createStringFromData(BinaryData::about_txt, BinaryData::about_txtSize))
 {
     setLookAndFeel(&lookAndFeel);
+    setResizable(true, true);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
     processor.params.state.addListener(this);

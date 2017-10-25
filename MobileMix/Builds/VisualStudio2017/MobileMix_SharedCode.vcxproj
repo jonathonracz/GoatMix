@@ -1864,6 +1864,7 @@
     <ClInclude Include="..\..\Source\GUI\LongDialogPopup.h"/>
     <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\GUI\MMMuteButton.h"/>
+    <ClInclude Include="..\..\Source\GUI\MMParameterSlider.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h"/>

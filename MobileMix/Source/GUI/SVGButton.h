@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include <JuceHeader.h>
+#include "JuceHeader.h"
 
 class SVGButton :
     public DrawableButton
@@ -20,7 +20,9 @@ public:
 
     Rectangle<float> getImageBounds() const
     {
+        //return getLocalBounds().toFloat();
         DrawableComposite* svg = static_cast<DrawableComposite*>(getCurrentImage());
         return svg->getDrawableBounds();
+        //return svg->getContentArea().to;
     }
 };

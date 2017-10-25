@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include <JuceHeader.h>
+#include "JuceHeader.h"
 #include "MobileMixPluginProcessor.h"
 #include "GUI/MMTabbedComponent.h"
 #include "GUI/MMTopBar.h"
