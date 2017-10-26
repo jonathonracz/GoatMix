@@ -45,6 +45,7 @@
 		A2A8F9DE5D64C4E1DB39F1CB = {isa = PBXBuildFile; fileRef = 06D7B554EAE0D3E3DE62E2D8; };
 		3F3A1C262E9AE359427EA191 = {isa = PBXBuildFile; fileRef = CE1BAF956A6C005064AE9683; };
 		1FC3EB146BFA2D7EEDEF1EA3 = {isa = PBXBuildFile; fileRef = 6871A06934DB903A6FABD144; };
+		01C6C665606EEBA1083BA4DD = {isa = PBXBuildFile; fileRef = 74FC7807AFB3D1945FC5942E; };
 		827E201552C8CD48DE44D8DE = {isa = PBXBuildFile; fileRef = 3FDC65187ACF73BB3E3E9F24; };
 		58160057CBC79CFEC95A2B48 = {isa = PBXBuildFile; fileRef = 011B429FDDE04A0ED66C49BC; };
 		2730CEEEA9C32E6D9847A404 = {isa = PBXBuildFile; fileRef = 99A1E06AB96B59C211D41F38; };
@@ -116,6 +117,7 @@
 		71BCD2FC4FE84527816AA53F = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_dsp"; path = "../../../external/JUCE/modules/juce_dsp"; sourceTree = "SOURCE_ROOT"; };
 		72E3CF42AA3CE814ABB68A95 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = tabshadow.svg; path = ../../Source/Resources/tabshadow.svg; sourceTree = "SOURCE_ROOT"; };
 		744DD89013408294BC7D6E3A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MobileMixPluginInstance.h; path = ../../Source/Core/MobileMixPluginInstance.h; sourceTree = "SOURCE_ROOT"; };
+		74FC7807AFB3D1945FC5942E = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_jcf_debug.mm"; path = "../../JuceLibraryCode/include_jcf_debug.mm"; sourceTree = "SOURCE_ROOT"; };
 		7573461C793F1FD8BCBDCE8C = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		7CAE4A61BE7D379CF0A1AF27 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMLookAndFeel.h; path = ../../Source/GUI/MMLookAndFeel.h; sourceTree = "SOURCE_ROOT"; };
 		7F7A9A126FB36F65FBAD6049 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTopBar.h; path = ../../Source/GUI/MMTopBar.h; sourceTree = "SOURCE_ROOT"; };
@@ -150,6 +152,7 @@
 		B6B8B3E06080CD4844443316 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginFormat.cpp; path = ../../Source/Core/MobileMixPluginFormat.cpp; sourceTree = "SOURCE_ROOT"; };
 		B8C7ABBA273135847BF31331 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_audio_plugin_client_AUv3.mm"; path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AUv3.mm"; sourceTree = "SOURCE_ROOT"; };
 		C0F68137C08CD8CF6650CF51 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		C20101EDC1EE3255FA265C36 = {isa = PBXFileReference; lastKnownFileType = file; name = "jcf_debug"; path = "../../Source/External/juce-toys/jcf_debug"; sourceTree = "SOURCE_ROOT"; };
 		C4ED7D4DCBA81341D82E3444 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CenteredEditableLabel.h; path = ../../Source/External/CenteredEditableLabel/CenteredEditableLabel.h; sourceTree = "SOURCE_ROOT"; };
 		C8C596BE0D31C2C630E8D707 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LongDialogPopup.h; path = ../../Source/GUI/LongDialogPopup.h; sourceTree = "SOURCE_ROOT"; };
 		CE1374D090C1A97FB22C91EC = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -270,6 +273,7 @@
 					FE8D15768A891CA48EE2D5A8, ); name = MobileMix; sourceTree = "<group>"; };
 		A04B39CCE227B9A9F14E8281 = {isa = PBXGroup; children = (
 					9356AAA43B367E8F50F18D5C,
+					C20101EDC1EE3255FA265C36,
 					97E7103D1902B3A27A5528A2,
 					08A9FF91EA17C3E650A59858,
 					43A2FC2E7FBBC728FAE30A72,
@@ -288,6 +292,7 @@
 					CE1BAF956A6C005064AE9683,
 					EE8F07D87283B19D574101E9,
 					6871A06934DB903A6FABD144,
+					74FC7807AFB3D1945FC5942E,
 					3FDC65187ACF73BB3E3E9F24,
 					011B429FDDE04A0ED66C49BC,
 					99A1E06AB96B59C211D41F38,
@@ -358,7 +363,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				OTHER_LDFLAGS = "-lMobileMix";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goataudio.MobileMix;
 				USE_HEADERMAP = NO; }; name = Debug; };
@@ -387,7 +392,7 @@
 					"JucePlugin_Build_Standalone=0", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				OTHER_LDFLAGS = "-lMobileMix";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goataudio.MobileMix;
 				USE_HEADERMAP = NO; }; name = Release; };
@@ -415,7 +420,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
 				INFOPLIST_PREPROCESS = NO;
 				OTHER_LDFLAGS = "-lMobileMix";
@@ -446,7 +451,7 @@
 					"JucePlugin_Build_Standalone=0", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
 				INFOPLIST_PREPROCESS = NO;
 				OTHER_LDFLAGS = "-lMobileMix";
@@ -477,7 +482,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
 				INFOPLIST_PREPROCESS = NO;
 				OTHER_LDFLAGS = "-lMobileMix";
@@ -509,7 +514,7 @@
 					"JucePlugin_Build_Standalone=1", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
 				INFOPLIST_PREPROCESS = NO;
 				OTHER_LDFLAGS = "-lMobileMix";
@@ -540,7 +545,7 @@
 					"JucePlugin_Build_Standalone=1",
 					"JUCE_SHARED_CODE=1", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INSTALL_PATH = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goataudio.MobileMix;
 				USE_HEADERMAP = NO; }; name = Debug; };
@@ -570,7 +575,7 @@
 					"JUCE_SHARED_CODE=1", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
+				HEADER_SEARCH_PATHS = ("../../JuceLibraryCode", "../../Source/External", "../../Source/External/juce-toys", "../../../external/JUCE/modules", "../../../external/JUCE/modules/juce_audio_plugin_client", "$(inherited)");
 				INSTALL_PATH = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goataudio.MobileMix;
 				USE_HEADERMAP = NO; }; name = Release; };
@@ -747,6 +752,7 @@
 					A2A8F9DE5D64C4E1DB39F1CB,
 					3F3A1C262E9AE359427EA191,
 					1FC3EB146BFA2D7EEDEF1EA3,
+					01C6C665606EEBA1083BA4DD,
 					827E201552C8CD48DE44D8DE,
 					58160057CBC79CFEC95A2B48,
 					2730CEEEA9C32E6D9847A404,

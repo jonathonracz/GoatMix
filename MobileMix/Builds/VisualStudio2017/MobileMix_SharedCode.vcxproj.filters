@@ -32,6 +32,12 @@
     <Filter Include="Juce Modules\ff_meters">
       <UniqueIdentifier>{91A9611E-CDAA-E38E-BD54-A491802C8971}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\jcf_debug\source">
+      <UniqueIdentifier>{F20D7C22-B12B-31E7-8D40-D1FC54845FC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\jcf_debug">
+      <UniqueIdentifier>{1B0BB018-D50F-19E7-3551-352A2F70AED3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_audio_basics\audio_play_head">
       <UniqueIdentifier>{52045BA8-DF89-5074-688D-A0977F25B09C}</UniqueIdentifier>
     </Filter>
@@ -465,6 +471,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.cpp">
       <Filter>Juce Modules\ff_meters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.cpp">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\component_debugger.cpp">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\font_and_colour_designer.cpp">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\value_tree_debugger.cpp">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\jcf_debug.cpp">
+      <Filter>Juce Modules\jcf_debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\jcf_debug.mm">
+      <Filter>Juce Modules\jcf_debug</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2194,6 +2218,9 @@
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_PreferencesPanel.cpp">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_PushNotifications.cpp">
+      <Filter>Juce Modules\juce_gui_extra\misc</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_RecentlyOpenedFilesList.cpp">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
     </ClCompile>
@@ -2203,7 +2230,13 @@
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_SystemTrayIconComponent.cpp">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\native\juce_android_PushNotifications.cpp">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\native\juce_android_WebBrowserComponent.cpp">
+      <Filter>Juce Modules\juce_gui_extra\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\native\juce_ios_PushNotifications.cpp">
       <Filter>Juce Modules\juce_gui_extra\native</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\native\juce_ios_UIViewComponent.mm">
@@ -2249,6 +2282,9 @@
       <Filter>Juce Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_ff_meters_LevelMeter.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\include_jcf_debug.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
@@ -2423,6 +2459,24 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters.h">
       <Filter>Juce Modules\ff_meters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\advanced_leak_detector.h">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.h">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\component_debugger.h">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\font_and_colour_designer.h">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\value_tree_debugger.h">
+      <Filter>Juce Modules\jcf_debug\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\jcf_debug.h">
+      <Filter>Juce Modules\jcf_debug</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>Juce Modules\juce_audio_basics\audio_play_head</Filter>
@@ -4345,6 +4399,9 @@
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_PreferencesPanel.h">
+      <Filter>Juce Modules\juce_gui_extra\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_PushNotifications.h">
       <Filter>Juce Modules\juce_gui_extra\misc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_RecentlyOpenedFilesList.h">
