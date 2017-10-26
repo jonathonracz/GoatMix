@@ -129,15 +129,3 @@ const String MobileMixPluginInstance::stripPrefixFromParameterName(const String&
 {
     return name.substring(name.indexOf(": ") + 2);
 }
-
-// From https://forum.juce.com/t/best-way-of-rotating-components/17750/2
-void MobileMixPluginInstance::setVerticalRotatedWithBounds(Component* component, bool clockwise, Rectangle<int> verticalBounds)
-{
-    float angle = MathConstants<float>::pi / 2.0f;
-    if (!clockwise)
-        angle *= -1.0f;
-
-    component->setSize(verticalBounds.getHeight(), verticalBounds.getWidth());
-    component->setCentrePosition(0, 0);
-    component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getCentreX(), verticalBounds.getCentreY()));
-}

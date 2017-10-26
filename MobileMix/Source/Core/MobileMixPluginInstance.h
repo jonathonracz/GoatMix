@@ -59,8 +59,6 @@ public:
     const String addPrefixToParameterName(StringRef name) const;
     static const String stripPrefixFromParameterName(const String& name);
 
-    static void setVerticalRotatedWithBounds(Component* component, bool clockwise, Rectangle<int> verticalBounds);
-
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)
 

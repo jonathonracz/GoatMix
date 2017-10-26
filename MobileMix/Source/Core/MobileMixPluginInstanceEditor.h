@@ -31,6 +31,8 @@ protected:
     MMComboBoxAttachment createComboBoxAttachment(String parameterID, ComboBox& comboBoxToControl);
     MMSliderAttachment createSliderAttachment(String parameterID, MMParameterSlider& sliderToControl);
 
+    static void setVerticalRotatedWithBounds(Component* component, Rectangle<int> verticalBounds, bool clockwise = false);
+
     MobileMixPluginInstance& processor;
 
 private:
