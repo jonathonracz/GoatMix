@@ -49,4 +49,6 @@ private:
     void sendTabDragEnded(int atIndex);
 
     ListenerList<Listener> listeners;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DraggableTabbedComponent);
 };

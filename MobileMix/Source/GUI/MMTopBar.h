@@ -46,4 +46,6 @@ private:
     SVGButton redoButton;
     SVGButton infoButton;
     std::unique_ptr<Drawable> logoSVG;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMTopBar)
 };

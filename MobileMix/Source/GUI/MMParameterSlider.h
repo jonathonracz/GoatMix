@@ -13,7 +13,8 @@
 #include "JuceHeader.h"
 
 class MMParameterSlider :
-    public Slider
+    public Slider,
+    public Label::Listener
 {
 public:
     MMParameterSlider() :
@@ -45,5 +46,18 @@ private:
         return Slider::getTextFromValue(value);
     }
 
+    void labelTextChanged(Label* labelThatHasChanged) override {}
+
+    void editorShown(Label* label, TextEditor& editor) override
+    {
+        editor.setText(String(editor.getText().getFloatValue()));
+    }
+
+    void editorHidden(Label* label, TextEditor& editor) override
+    {
+    }
+
     AudioProcessorParameterWithID* representedParameter = nullptr;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMParameterSlider)
 };

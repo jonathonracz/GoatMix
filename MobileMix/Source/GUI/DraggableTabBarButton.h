@@ -34,4 +34,6 @@ private:
     void setMoveTriggersFromTab(int index);
     int triggerTabUpX;
     int triggerTabDownX;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DraggableTabBarButton)
 };

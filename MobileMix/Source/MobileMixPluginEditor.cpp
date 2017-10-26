@@ -20,7 +20,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     tabs(TabbedButtonBar::Orientation::TabsAtBottom),
     aboutDialog(String::createStringFromData(BinaryData::about_txt, BinaryData::about_txtSize))
 {
-    setLookAndFeel(&lookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setResizable(true, true);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
