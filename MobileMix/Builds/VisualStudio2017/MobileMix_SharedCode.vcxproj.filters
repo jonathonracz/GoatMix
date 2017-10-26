@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MobileMix\External\CenteredEditableLabel">
+      <UniqueIdentifier>{80F3CA64-E8DA-DFCB-A831-019795855248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MobileMix\External">
+      <UniqueIdentifier>{90D88CF2-CA44-196F-068A-1BA3A560A72B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MobileMix\Resources">
       <UniqueIdentifier>{338E3C31-1123-77EA-3F3C-70AAFEFBF1B2}</UniqueIdentifier>
     </Filter>
@@ -2286,6 +2292,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredEditableLabel.h">
+      <Filter>MobileMix\External\CenteredEditableLabel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredTextEditor.h">
+      <Filter>MobileMix\External\CenteredEditableLabel</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Internal Plugins\MMCompressorPlugin.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>

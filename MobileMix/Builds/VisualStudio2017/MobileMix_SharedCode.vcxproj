@@ -1848,6 +1848,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredEditableLabel.h"/>
+    <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredTextEditor.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMCompressorPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMCompressorPluginEditor.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMDistortionPlugin.h"/>

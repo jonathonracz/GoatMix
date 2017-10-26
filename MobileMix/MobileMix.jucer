@@ -12,6 +12,14 @@
               pluginRTASCategory="" aaxIdentifier="com.goataudio.MobileMix"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.2">
   <MAINGROUP id="AIgys5" name="MobileMix">
+    <GROUP id="{620A2A96-A068-7CBB-C477-632E4BD0B217}" name="External">
+      <GROUP id="{865C58D6-30CC-F474-2260-71EB8FE84350}" name="CenteredEditableLabel">
+        <FILE id="GOr5tN" name="CenteredEditableLabel.h" compile="0" resource="0"
+              file="Source/External/CenteredEditableLabel/CenteredEditableLabel.h"/>
+        <FILE id="twsZie" name="CenteredTextEditor.h" compile="0" resource="0"
+              file="Source/External/CenteredEditableLabel/CenteredTextEditor.h"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
       <FILE id="V19T5d" name="about.txt" compile="0" resource="1" file="Source/Resources/about.txt"/>
       <FILE id="mXelQp" name="info.svg" compile="0" resource="1" file="Source/Resources/info.svg"/>
