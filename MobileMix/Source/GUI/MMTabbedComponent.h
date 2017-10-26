@@ -11,16 +11,18 @@
 #pragma once
 
 #include "DraggableTabbedComponent.h"
-#include "../Core/MobileMixPluginInstance.h"
+
+class MobileMixPluginInstance;
+class MobileMixPluginInstanceEditor;
 
 class MMTabbedComponent :
     public DraggableTabbedComponent
 {
 public:
     using DraggableTabbedComponent::DraggableTabbedComponent;
-    void addTabForPlugin(MobileMixPluginInstance* plugin);
+    void addTabForPlugin(MobileMixPluginInstance* plugin, MobileMixPluginInstanceEditor* editor);
     TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
-    
+
 private:
     MobileMixPluginInstance* lastPluginTabAddedFor = nullptr;
 

@@ -16,6 +16,7 @@
 #include "GUI/MMTopBar.h"
 #include "GUI/MMLookAndFeel.h"
 #include "GUI/LongDialogPopup.h"
+#include "Core/MobileMixPluginInstanceEditor.h"
 
 /**
 */
@@ -52,6 +53,7 @@ private:
 
     void closeButtonClicked(LongDialogPopup* dialog) override;
 
+    OwnedArray<MobileMixPluginInstanceEditor> subEditors;
     MobileMixAudioProcessor& processor;
     MMTopBar topBar;
     MMTabbedComponent tabs;

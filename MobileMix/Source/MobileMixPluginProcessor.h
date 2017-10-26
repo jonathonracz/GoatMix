@@ -50,10 +50,10 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
+    UndoManager undoManager;
     AudioProcessorChain chain;
     ValueTree chainTree;
     AudioProcessorValueTreeState params;
-    UndoManager undoManager;
 
     // Dumb hack because for whatever reason AudioProcessorValueTreeState is
     // leaking a transaction at the end of initialization (from what I can glean

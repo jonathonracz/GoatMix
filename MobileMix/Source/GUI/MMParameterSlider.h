@@ -11,6 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "../Core/MobileMixPluginInstance.h"
 
 class MMParameterSlider :
     public Slider,

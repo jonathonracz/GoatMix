@@ -10,11 +10,13 @@
 
 #include "MMTabbedComponent.h"
 #include "MMTabBarButton.h"
+#include "../Core/MobileMixPluginInstance.h"
+#include "../Core/MobileMixPluginInstanceEditor.h"
 
-void MMTabbedComponent::addTabForPlugin(MobileMixPluginInstance* plugin)
+void MMTabbedComponent::addTabForPlugin(MobileMixPluginInstance* plugin, MobileMixPluginInstanceEditor* editor)
 {
     lastPluginTabAddedFor = plugin;
-    addTab(plugin->getName(), Colours::white, plugin->createEditor(), true);
+    addTab(plugin->getName(), Colours::white, editor, false);
 }
 
 TabBarButton* MMTabbedComponent::createTabButton(const String& tabName, int tabIndex)

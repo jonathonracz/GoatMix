@@ -31,7 +31,7 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     addAndMakeVisible(undoButton);
     addAndMakeVisible(redoButton);
     addAndMakeVisible(infoButton);
-    addAndMakeVisible(*logoSVG);
+    addAndMakeVisible(logoSVG.get());
 }
 
 void MMTopBar::resized()

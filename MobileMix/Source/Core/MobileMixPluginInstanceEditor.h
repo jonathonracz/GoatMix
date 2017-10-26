@@ -16,9 +16,11 @@
 class MobileMixPluginInstanceEditor :
     public AudioProcessorEditor
 {
+public:
+    virtual ~MobileMixPluginInstanceEditor() {}
+
 protected:
     MobileMixPluginInstanceEditor(MobileMixPluginInstance& processor);
-    virtual ~MobileMixPluginInstanceEditor() {}
 
     /** Convenience methods + definitions for creating attachment points for
         editor UI elements.

@@ -19,7 +19,8 @@ public:
     MMMuteButton(const String& name) :
         ShapeButton(name, Colour(0xff00ffff), Colour(0xff00ffff), Colour(0xff007f7f))
     {
-        Path bypassShape = Drawable::createFromImageData(BinaryData::power_svg, BinaryData::power_svgSize)->getOutlineAsPath();
+        std::unique_ptr<Drawable> bypassDrawable(Drawable::createFromImageData(BinaryData::power_svg, BinaryData::power_svgSize));
+        Path bypassShape = bypassDrawable->getOutlineAsPath();
         setShape(bypassShape, false, true, false);
         setClickingTogglesState(true); // Make it toggle
     }
