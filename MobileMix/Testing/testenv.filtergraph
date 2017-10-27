@@ -50,9 +50,9 @@
           uiLastX_Normal="918" uiLastY_Normal="228" uiopen_Normal="1">
     <PLUGIN name="AudioFilePlayer" format="VST" category="Synth" manufacturer="NTwelve"
             version="0.1.0.0" file="/Users/jonathon/Library/Audio/Plug-Ins/VST/AudioFilePlayer.vst"
-            uid="4e54506c" isInstrument="1" fileTime="15f144d5408" infoUpdateTime="15f5c1bbe4d"
+            uid="4e54506c" isInstrument="1" fileTime="15f144d5408" infoUpdateTime="15f5c2522ff"
             numInputs="0" numOutputs="2" isShell="0"/>
-    <STATE>200.CMlaKA....fQBMDZ....A3DUPwF....Y....A...............................................................................................................................................................................nX0PxDxG....7.Ga0cVZt0xbkQGco41YyARX0QVZuYVZrUVOhHxK9..</STATE>
+    <STATE>274.CMlaKA....fQBMDZ....A3DUPwF....Y....A...............................................................................................................................................................................xY0PxDRZ....7.Ga0cVZt0xbkQGco41YyARX0QVZuYVZrUVOh7RUyUlby8hZu4VXzg1at8BTx8lZkMFcy8RSuIVZrUVSog2KDU1boclauPUYyQWP0QVZu8BUnUFHBUVXigFHHElbjE1cgkmKsQSXh7hO..</STATE>
     <LAYOUT>
       <INPUTS/>
       <OUTPUTS>
@@ -64,7 +64,7 @@
           uiLastX_Normal="78" uiLastY_Normal="386" uiopen_Normal="1">
     <PLUGIN name="MobileMix" format="VST" category="Effect" manufacturer="GoatAudio"
             version="1.0.0.0" file="/Users/jonathon/Library/Audio/Plug-Ins/VST/MobileMix.vst"
-            uid="476f6d6d" isInstrument="0" fileTime="15f5c1b1298" infoUpdateTime="15f5c1bbe4d"
+            uid="476f6d6d" isInstrument="0" fileTime="15f5c24d2b0" infoUpdateTime="15f5c2522ff"
             numInputs="2" numOutputs="2" isShell="0"/>
     <STATE>630.CMlaKA....fQBMDZ....Abzas0F.A.......A.............................................................................................................................................................................P.Va0PxDRyA...7H0SOQkO7.UPRETSfjFY8HxQgkla5.hP4AWXyMmHfXWXrUWY8HBLh7hO7.UPRETSfjFY8HxQgkla5.xQgklah.hcgwVck0iHwHxK9vCTAIUPMARZj0iHC8VavIWYyM2axoCHBkGbgM2bh.hcgwVck0iHvHxK9vCTAIUPMARZj0iHC8VavIWYyM2axoCHC8VavIWYyM2axIBH1EFa0UVOhDiHu3COPEjTA0DHoQVOhHUY1UlbhoCHBkGbgM2bh.hcgwVck0iHvHxK9vCTAIUPMARZj0iHRUlckImX5.hTkYWYxIlHfXWXrUWY8HRLh7hO7.UPRETSfjFY8HBQoMGcuIGco8la5.hP4AWXyMmHfXWXrUWY8HBLh7hO7.UPRETSfjFY8HBQoMGcuIGco8la5.BQoMGcuIGco8lah.hcgwVck0iHwHxK9vCTAIUPMARZj0iHEEkNfHTdvE1byIBH1EFa0UVOh.iHu3COPEjTA0DHoQVOhTTT5.RQQIBH1EFa0UVOhDiHu3COCgTPI4jO7bTXo41K9vyPu0FbxU1by8lbu3CORUlckImXu3CODk1bz8lbzk1at8hO7TTTu3COuLDRAkjS9vyKR8zST4C.</STATE>
     <LAYOUT>

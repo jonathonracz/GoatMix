@@ -51,10 +51,13 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
 
 MobileMixAudioProcessor::~MobileMixAudioProcessor()
 {
+    chainTree.removeListener(this);
+    params.state.removeListener(this);
 }
 
 void MobileMixAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock)
 {
+    chain.prepareToPlay(sampleRate, samplesPerBlock);
 }
 
 void MobileMixAudioProcessor::releaseResources()
@@ -70,6 +73,7 @@ bool MobileMixAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts)
 
 void MobileMixAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
+    chain.processBlock(buffer, midiMessages);
 }
 
 AudioProcessorEditor* MobileMixAudioProcessor::createEditor()

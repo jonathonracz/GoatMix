@@ -41,10 +41,10 @@ const String MMGainPlugin::getName() const
 
 void MMGainPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-
+    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
 void MMGainPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-
+    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }
