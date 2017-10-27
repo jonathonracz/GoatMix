@@ -20,7 +20,7 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
 {
     assert(shadow);
     bypassButton.addMouseListener(this, false);
-    meter.setMeterSource(&representedPlugin.meterSource);
+    meter.setSource(&representedPlugin.meterSource);
     addAndMakeVisible(shadow.get());
     addAndMakeVisible(muteButtonBg.get());
     addAndMakeVisible(bypassButton);

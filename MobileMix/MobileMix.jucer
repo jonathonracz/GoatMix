@@ -100,6 +100,10 @@
       <FILE id="CSAXEv" name="MMTopBar.h" compile="0" resource="0" file="Source/GUI/MMTopBar.h"/>
       <FILE id="IgF1w3" name="ScreenResolutionConstants.h" compile="0" resource="0"
             file="Source/GUI/ScreenResolutionConstants.h"/>
+      <FILE id="BTBxSp" name="SimpleLevelMeter.h" compile="0" resource="0"
+            file="Source/GUI/SimpleLevelMeter.h"/>
+      <FILE id="dTNgQS" name="SimpleMultiLevelMeter.h" compile="0" resource="0"
+            file="Source/GUI/SimpleMultiLevelMeter.h"/>
       <FILE id="jO6PRk" name="SVGButton.h" compile="0" resource="0" file="Source/GUI/SVGButton.h"/>
       <FILE id="CN1skm" name="ValueStringFuncs.h" compile="0" resource="0"
             file="Source/GUI/ValueStringFuncs.h"/>

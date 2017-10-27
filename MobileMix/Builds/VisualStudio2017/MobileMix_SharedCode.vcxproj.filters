@@ -2400,6 +2400,12 @@
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SimpleLevelMeter.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\SVGButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>

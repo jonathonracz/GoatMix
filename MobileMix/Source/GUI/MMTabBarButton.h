@@ -13,6 +13,7 @@
 #include "DraggableTabBarButton.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "MMMuteButton.h"
+#include "SimpleMultiLevelMeter.h"
 
 class MMTabBarButton :
     public DraggableTabBarButton
@@ -33,7 +34,7 @@ private:
     MMMuteButton bypassButton;
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
     MobileMixPluginInstance& representedPlugin;
-    FFAU::LevelMeter meter;
+    SimpleMultiLevelMeter meter;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMTabBarButton)
 };

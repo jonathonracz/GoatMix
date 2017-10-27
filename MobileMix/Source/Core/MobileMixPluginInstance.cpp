@@ -16,6 +16,7 @@ MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessorValueTreeState& _
                         .withOutput("Output", AudioChannelSet::stereo())),
     state(_state)
 {
+    meterSource.resize(getMainBusNumOutputChannels(), 0);
 }
 
 MobileMixPluginInstance::~MobileMixPluginInstance()
@@ -51,7 +52,6 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
 
 void MobileMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    meterSource.resize(getMainBusNumOutputChannels(), 0);
 }
 
 void MobileMixPluginInstance::releaseResources()

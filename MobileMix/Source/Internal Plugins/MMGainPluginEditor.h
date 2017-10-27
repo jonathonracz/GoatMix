@@ -26,8 +26,9 @@ protected:
     void resized() override;
 
 private:
-    MMSliderAttachment gainSliderAttachment;
+    FFAU::LevelMeter testMeter;
 
+    MMSliderAttachment gainSliderAttachment;
     MMParameterSlider gainSlider;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPluginEditor)

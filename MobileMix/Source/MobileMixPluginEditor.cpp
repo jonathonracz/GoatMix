@@ -18,7 +18,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     processor(p),
     topBar(p),
     tabs(TabbedButtonBar::Orientation::TabsAtBottom),
-    aboutDialog(String::createStringFromData(BinaryData::about_txt, BinaryData::about_txtSize))
+    aboutDialog("About")
 {
     LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setResizable(true, true);

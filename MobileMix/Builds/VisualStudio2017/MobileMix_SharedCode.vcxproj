@@ -1898,6 +1898,8 @@
     <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h"/>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
+    <ClInclude Include="..\..\Source\GUI\SimpleLevelMeter.h"/>
+    <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h"/>
     <ClInclude Include="..\..\Source\GUI\SVGButton.h"/>
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>

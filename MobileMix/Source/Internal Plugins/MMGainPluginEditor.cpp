@@ -15,6 +15,9 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
 {
     gainSliderAttachment = createSliderAttachment(processor.paramGain->paramID, gainSlider);
     addAndMakeVisible(gainSlider);
+
+    testMeter.setMeterSource(&processor.meterSource);
+    addAndMakeVisible(testMeter);
 }
 
 MMGainPluginEditor::~MMGainPluginEditor()
@@ -34,4 +37,6 @@ void MMGainPluginEditor::resized()
 {
     gainSlider.setSize(getWidth() / 10, getHeight() - 20);
     MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(&gainSlider, gainSlider.getBounds());
+
+    testMeter.setBounds(getLocalBounds().getWidth() / 2.0f, getLocalBounds().getHeight() / 2.0f, getLocalBounds().getWidth() / 2.0f, getLocalBounds().getHeight() / 2.0f);
 }
