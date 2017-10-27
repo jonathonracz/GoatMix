@@ -30,9 +30,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     {
         jassert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
         MobileMixPluginInstance* currentProcessor = static_cast<MobileMixPluginInstance*>(processor.chain.getNode(i)->getProcessor());
-        MobileMixPluginInstanceEditor* newEditor = static_cast<MobileMixPluginInstanceEditor*>(currentProcessor->createEditor());
-        tabs.addTabForPlugin(currentProcessor, newEditor);
-        subEditors.add(newEditor);
+        tabs.addTabForPlugin(currentProcessor);
     }
 
     aboutDialog.addListener(this);

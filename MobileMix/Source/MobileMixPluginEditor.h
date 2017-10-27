@@ -53,7 +53,6 @@ private:
 
     void closeButtonClicked(LongDialogPopup* dialog) override;
 
-    OwnedArray<MobileMixPluginInstanceEditor> subEditors;
     MobileMixAudioProcessor& processor;
     MMTopBar topBar;
     MMTabbedComponent tabs;

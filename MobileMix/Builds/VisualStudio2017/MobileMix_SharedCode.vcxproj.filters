@@ -32,6 +32,9 @@
     <Filter Include="Juce Modules\ff_meters">
       <UniqueIdentifier>{91A9611E-CDAA-E38E-BD54-A491802C8971}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\jcf_advanced_leak_detector">
+      <UniqueIdentifier>{932B21C8-88D9-833B-5E76-3D22BD78C642}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\jcf_debug\source">
       <UniqueIdentifier>{F20D7C22-B12B-31E7-8D40-D1FC54845FC9}</UniqueIdentifier>
     </Filter>
@@ -2460,8 +2463,8 @@
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters.h">
       <Filter>Juce Modules\ff_meters</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\advanced_leak_detector.h">
-      <Filter>Juce Modules\jcf_debug\source</Filter>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_advanced_leak_detector\jcf_advanced_leak_detector.h">
+      <Filter>Juce Modules\jcf_advanced_leak_detector</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.h">
       <Filter>Juce Modules\jcf_debug\source</Filter>

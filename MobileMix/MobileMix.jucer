@@ -165,6 +165,7 @@
         <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
+        <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
@@ -189,6 +190,7 @@
         <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
+        <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017">
@@ -214,11 +216,14 @@
         <MODULEPATH id="juce_audio_basics" path="../external/JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
+        <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="ff_meters" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="jcf_advanced_leak_detector" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="0"/>
     <MODULE id="jcf_debug" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

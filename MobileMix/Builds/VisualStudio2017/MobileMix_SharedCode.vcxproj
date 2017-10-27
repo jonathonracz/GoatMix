@@ -1917,7 +1917,7 @@
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LookAndFeelMethods.h"/>
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_OutlineBuffer.h"/>
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters.h"/>
-    <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\advanced_leak_detector.h"/>
+    <ClInclude Include="..\..\Source\External\juce-toys\jcf_advanced_leak_detector\jcf_advanced_leak_detector.h"/>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.h"/>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\component_debugger.h"/>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_debug\source\font_and_colour_designer.h"/>

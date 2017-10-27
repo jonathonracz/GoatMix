@@ -20,7 +20,7 @@ class MMTabbedComponent :
 {
 public:
     using DraggableTabbedComponent::DraggableTabbedComponent;
-    void addTabForPlugin(MobileMixPluginInstance* plugin, MobileMixPluginInstanceEditor* editor);
+    void addTabForPlugin(MobileMixPluginInstance* plugin);
     TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
 
 private:

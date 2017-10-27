@@ -19,9 +19,9 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
 {
     assert(logoSVG);
 
-    undoButton.setImages(Drawable::createFromImageData(BinaryData::undo_svg, BinaryData::undo_svgSize));
-    redoButton.setImages(Drawable::createFromImageData(BinaryData::redo_svg, BinaryData::redo_svgSize));
-    infoButton.setImages(Drawable::createFromImageData(BinaryData::info_svg, BinaryData::info_svgSize));
+    undoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::undo_svg, BinaryData::undo_svgSize)).get());
+    redoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::redo_svg, BinaryData::redo_svgSize)).get());
+    infoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::info_svg, BinaryData::info_svgSize)).get());
 
     undoButton.addListener(this);
     redoButton.addListener(this);
