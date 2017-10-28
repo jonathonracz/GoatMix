@@ -19,7 +19,8 @@ class MMTabbedComponent :
     public DraggableTabbedComponent
 {
 public:
-    using DraggableTabbedComponent::DraggableTabbedComponent;
+    MMTabbedComponent(TabbedButtonBar::Orientation orientation);
+    ~MMTabbedComponent() {}
     void addTabForPlugin(MobileMixPluginInstance* plugin);
     TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
 

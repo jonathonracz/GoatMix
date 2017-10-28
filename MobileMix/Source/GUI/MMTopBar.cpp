@@ -36,15 +36,30 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
 
 void MMTopBar::resized()
 {
-    FlexBox layout;
+    FlexBox layout(FlexBox::Direction::row,
+                   FlexBox::Wrap::noWrap,
+                   FlexBox::AlignContent::stretch,
+                   FlexBox::AlignItems::stretch,
+                   FlexBox::JustifyContent::center);
+
+    FlexBox left;
+    layout.items.add(FlexItem(left).withFlex(1.0f));
+
+    FlexBox right;
+    layout.items.add(FlexItem(right).withFlex(1.0f));
+    right.justifyContent = FlexBox::JustifyContent::flexEnd;
 
     FlexItem::Margin logoMargin(getHeight() * 0.2f);
     logoMargin.bottom += logoMargin.bottom * 0.4f; // Squish the bottom to make it look more balanced
-    layout.items.add(FlexItem(*logoSVG).withFlex(1.0f).withMargin(logoMargin));
+    left.items.add(FlexItem(*logoSVG).withFlex(1.0f).withMargin(logoMargin));
 
-    layout.items.add(FlexItem(undoButton).withFlex(1.0f));
-    layout.items.add(FlexItem(redoButton).withFlex(1.0f));
-    layout.items.add(FlexItem(infoButton).withFlex(1.0f));
+    FlexItem::Margin buttonMargin;
+    buttonMargin.left = getHeight() / 4;
+    buttonMargin.right = getHeight() / 4;
+
+    right.items.add(FlexItem(undoButton).withFlex(1.0f).withMaxWidth(getHeight()).withMargin(buttonMargin));
+    right.items.add(FlexItem(redoButton).withFlex(1.0f).withMaxWidth(getHeight()).withMargin(buttonMargin));
+    right.items.add(FlexItem(infoButton).withFlex(1.0f).withMaxWidth(getHeight()).withMargin(buttonMargin));
 
     layout.performLayout(getLocalBounds());
 
@@ -58,7 +73,7 @@ void MMTopBar::resized()
     // ignored when setting the drawable's rendering bounds, but get added when
     // the drawable is actually rendered. My workaround was to eliminate all
     // empty space around the logo to get predictable behavior.
-    logoSVG->setTransformToFit(logoSVG->getBoundsInParent().toFloat(),
+    logoSVG->setTransformToFit(logoSVG->getBounds().toFloat(),
         RectanglePlacement(RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::yMid));
 }
 

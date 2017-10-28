@@ -54,7 +54,6 @@ void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isBut
 {
     shadow->setVisible(!isFrontTab());
 
-    g.fillAll(getTabBackgroundColour());
     g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], getTextArea(), Justification::centred);
 
     float borderThickness = 4.0f;

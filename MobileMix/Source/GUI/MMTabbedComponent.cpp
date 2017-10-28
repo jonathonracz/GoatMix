@@ -13,6 +13,13 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 
+MMTabbedComponent::MMTabbedComponent(TabbedButtonBar::Orientation orientation) :
+    DraggableTabbedComponent(orientation)
+{
+    setOutline(0);
+    setIndent(0);
+}
+
 void MMTabbedComponent::addTabForPlugin(MobileMixPluginInstance* plugin)
 {
     lastPluginTabAddedFor = plugin;

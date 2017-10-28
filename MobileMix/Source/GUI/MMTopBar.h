@@ -12,7 +12,6 @@
 
 #include "JuceHeader.h"
 #include "../MobileMixPluginProcessor.h"
-#include "SVGButton.h"
 
 class MMTopBar :
     public Component,
@@ -42,9 +41,9 @@ private:
     ListenerList<Listener> listeners;
 
     MobileMixAudioProcessor& processor;
-    SVGButton undoButton;
-    SVGButton redoButton;
-    SVGButton infoButton;
+    DrawableButton undoButton;
+    DrawableButton redoButton;
+    DrawableButton infoButton;
     std::unique_ptr<Drawable> logoSVG;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMTopBar)
