@@ -13,6 +13,7 @@
 #include "MMGainPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 #include "../GUI/MMParameterSlider.h"
+#include "../GUI/SimpleMultiLevelMeter.h"
 
 class MMGainPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -27,6 +28,7 @@ protected:
 
 private:
     FFAU::LevelMeter testMeter;
+    SimpleMultiLevelMeter testMeter2;
 
     MMSliderAttachment gainSliderAttachment;
     MMParameterSlider gainSlider;

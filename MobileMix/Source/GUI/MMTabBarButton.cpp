@@ -20,6 +20,7 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
 {
     assert(shadow);
     bypassButton.addMouseListener(this, false);
+    meter.setMaxGainDisplayValue(1.1f);
     meter.setSource(&representedPlugin.meterSource);
     addAndMakeVisible(shadow.get());
     addAndMakeVisible(muteButtonBg.get());
@@ -37,7 +38,7 @@ void MMTabBarButton::resized()
     shadow->setBounds(getLocalBounds());
     shadow->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::yTop | RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::stretchToFit);
     bypassButton.setBounds(muteButtonBg->getBoundsInParent());
-    meter.setBoundsRelative(0.9f, 0.5f, 0.1f, 0.9f);
+    meter.setBoundsRelative(0.9f, 0.5f, 0.1f, 0.7f);
     meter.setCentrePosition(meter.getX(), meter.getY());
 }
 

@@ -18,6 +18,9 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
 
     testMeter.setMeterSource(&processor.meterSource);
     addAndMakeVisible(testMeter);
+    testMeter2.setMaxGainDisplayValue(1.1f);
+    testMeter2.setSource(&processor.meterSource);
+    addAndMakeVisible(testMeter2);
 }
 
 MMGainPluginEditor::~MMGainPluginEditor()
@@ -39,4 +42,5 @@ void MMGainPluginEditor::resized()
     MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(&gainSlider, gainSlider.getBounds());
 
     testMeter.setBounds(getLocalBounds().getWidth() / 2.0f, getLocalBounds().getHeight() / 2.0f, getLocalBounds().getWidth() / 2.0f, getLocalBounds().getHeight() / 2.0f);
+    testMeter2.setBounds(testMeter.getBounds());
 }

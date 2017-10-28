@@ -33,7 +33,7 @@ public:
     }
 
     float getChannel() const { return channel; }
-    void setChannel(int _channel) { channel = _channel; needsGradientRegen = true; }
+    void setChannel(int _channel) { channel = _channel; }
     float getMinGainDisplayValue() const { return minGainDisplayValue; }
     void setMinGainDisplayValue(float value) { minGainDisplayValue = value; needsGradientRegen = true; }
     float getMaxGainDisplayValue() const { return maxGainDisplayValue; }
@@ -44,15 +44,28 @@ private:
     {
         regenerateGradientIfNeeded();
         g.fillAll(Colours::black);
-
         if (source)
         {
-            float proportionOfMeterFilled = (source->getMaxLevel(channel) - minGainDisplayValue) / (maxGainDisplayValue - minGainDisplayValue);
-            Rectangle<int> activeMeterArea = Rectangle<int>(getHeight() * (1.0 - proportionOfMeterFilled),
-                                                            0,
-                                                            getWidth(),
-                                                            getHeight());
-            g.drawImage(gradient.getClippedImage(activeMeterArea), activeMeterArea.toFloat());
+            float gainBoundsDelta = ((maxGainDisplayValue - minGainDisplayValue) > 0) ? (maxGainDisplayValue - minGainDisplayValue) : 0;
+
+            {
+                float proportionOfRMSMeterFilled = (source->getRMSLevel(channel) - minGainDisplayValue) / gainBoundsDelta;
+                Rectangle<int> activeRMSMeterArea = Rectangle<int>(0,
+                                                                   getHeight() * (1.0 - proportionOfRMSMeterFilled),
+                                                                   getWidth(),
+                                                                   getHeight());
+                g.drawImage(gradient.getClippedImage(activeRMSMeterArea), activeRMSMeterArea.toFloat());
+            }
+
+            {
+                float proportionOfMaxMeterFilled = (source->getMaxLevel(channel) - minGainDisplayValue) / gainBoundsDelta;
+                int maxMeterStartPos = getHeight() * (1.0 - proportionOfMaxMeterFilled);
+                Rectangle<int> activeMaxMeterArea = Rectangle<int>(0,
+                                                                   maxMeterStartPos,
+                                                                   getWidth(),
+                                                                   1);
+                g.drawImage(gradient.getClippedImage(activeMaxMeterArea), activeMaxMeterArea.toFloat());
+            }
         }
     }
 
@@ -78,23 +91,22 @@ private:
                                        0.0f,
                                        1.0f,
                                        false);
-
-            float gradientTopY = getHeight() * (1.0f - maxGainDisplayValue);
-            float gradientBottomY = getHeight();
+            float maxGainPos = maxGainDisplayValue - 1.0f;
+            float minGainPos = 1.0f - minGainDisplayValue;
             gradientGen.setGradientFill(ColourGradient(barGradient.getColourAtPosition(0.0),
                                                        0.0f,
-                                                       static_cast<float>(gradientTopY),
-                                                       barGradient.getColourAtPosition(minGainDisplayValue),
+                                                       getHeight() * maxGainPos,
+                                                       barGradient.getColourAtPosition(1.0),
                                                        0.0f,
-                                                       gradientBottomY,
+                                                       getHeight() * minGainPos,
                                                        false));
             gradientGen.fillAll();
             gradientGen.setColour(Colour(255, 10, 10));
-            gradientGen.fillRect(0, 0, getWidth(), static_cast<int>(gradientTopY));
+            gradientGen.fillRect(0, 0, getWidth(), static_cast<int>(std::ceil(getHeight() * maxGainPos)));
         }
     }
 
-    FFAU::LevelMeterSource* source = nullptr;
+    WeakReference<FFAU::LevelMeterSource> source;
     int channel = 0;
     float minGainDisplayValue = 0.0f;
     float maxGainDisplayValue = 1.0f;
