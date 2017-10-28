@@ -33,17 +33,12 @@ AudioProcessorEditor* MMCompressorPlugin::createEditor()
     return new MMCompressorPluginEditor(*this);
 }
 
-const String MMCompressorPlugin::getName() const
-{
-    return "Compressor";
-}
-
 void MMCompressorPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-
+    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
 void MMCompressorPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-
+    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

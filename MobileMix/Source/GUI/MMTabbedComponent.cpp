@@ -16,7 +16,7 @@
 void MMTabbedComponent::addTabForPlugin(MobileMixPluginInstance* plugin)
 {
     lastPluginTabAddedFor = plugin;
-    addTab(plugin->getName(), Colours::white, plugin->createEditor(), true);
+    addTab(plugin->getDisplayName(), Colours::white, plugin->createEditor(), true);
 }
 
 TabBarButton* MMTabbedComponent::createTabButton(const String& tabName, int tabIndex)

@@ -34,11 +34,6 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
     return new MMGainPluginEditor(*this);
 }
 
-const String MMGainPlugin::getName() const
-{
-    return "Gain";
-}
-
 void MMGainPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
     MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);

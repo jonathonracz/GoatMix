@@ -24,6 +24,8 @@ public:
     */
     virtual void registerParameters();
 
+    virtual const String getDisplayName() const { return "NO DISPLAY NAME"; };
+
     /** Call this in your derived processBlock() and avoid actually doing
         anything to the signal if you're bypassed.
     */

@@ -33,17 +33,12 @@ AudioProcessorEditor* MMReverbPlugin::createEditor()
     return new MMReverbPluginEditor(*this);
 }
 
-const String MMReverbPlugin::getName() const
-{
-    return "Reverb";
-}
-
 void MMReverbPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-
+    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
 void MMReverbPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-
+    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

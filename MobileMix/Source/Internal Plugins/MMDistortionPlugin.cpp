@@ -33,17 +33,12 @@ AudioProcessorEditor* MMDistortionPlugin::createEditor()
     return new MMDistortionPluginEditor(*this);
 }
 
-const String MMDistortionPlugin::getName() const
-{
-    return "Distortion";
-}
-
 void MMDistortionPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-
+    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
 void MMDistortionPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-
+    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

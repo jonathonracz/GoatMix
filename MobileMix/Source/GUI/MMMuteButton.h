@@ -21,7 +21,7 @@ public:
     {
         std::unique_ptr<Drawable> bypassDrawable(Drawable::createFromImageData(BinaryData::power_svg, BinaryData::power_svgSize));
         Path bypassShape = bypassDrawable->getOutlineAsPath();
-        setShape(bypassShape, false, true, false);
+        setShape(bypassShape, false, false, false);
         setClickingTogglesState(true); // Make it toggle
     }
 
@@ -29,6 +29,7 @@ public:
 
     void paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown) override
     {
+
         ShapeButton::paintButton(g, false, getToggleState());
     }
 };

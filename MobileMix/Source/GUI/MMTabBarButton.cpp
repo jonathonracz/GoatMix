@@ -22,10 +22,15 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     bypassButton.addMouseListener(this, false);
     meter.setMaxGainDisplayValue(1.1f);
     meter.setSource(&representedPlugin.meterSource);
+    meter.addMouseListener(this, true);
     addAndMakeVisible(shadow.get());
-    addAndMakeVisible(muteButtonBg.get());
     addAndMakeVisible(bypassButton);
     addAndMakeVisible(meter);
+
+    // Notice we don't make this visible, so that we can get the transform
+    // ease-of-use benefits of being a child component, while being able to
+    // paint manually with a border in the paint callback.
+    addChildComponent(muteButtonBg.get());
 }
 
 MMTabBarButton::~MMTabBarButton()
@@ -37,7 +42,10 @@ void MMTabBarButton::resized()
     muteButtonBg->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::yTop);
     shadow->setBounds(getLocalBounds());
     shadow->setTransformToFit(getLocalBounds().toFloat(), RectanglePlacement::Flags::yTop | RectanglePlacement::Flags::xLeft | RectanglePlacement::Flags::stretchToFit);
-    bypassButton.setBounds(muteButtonBg->getBoundsInParent());
+    Rectangle<int> bypassButtonBounds = muteButtonBg->getBoundsInParent();
+    bypassButtonBounds.reduce(muteButtonBg->getWidth() * 0.1f, muteButtonBg->getHeight() * 0.1f);
+    bypassButtonBounds.setCentre(bypassButtonBounds.getCentreX() * 0.95f, bypassButtonBounds.getCentreY());
+    bypassButton.setBounds(bypassButtonBounds);
     meter.setBoundsRelative(0.9f, 0.5f, 0.1f, 0.7f);
     meter.setCentrePosition(meter.getX(), meter.getY());
 }
@@ -47,11 +55,12 @@ void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isBut
     shadow->setVisible(!isFrontTab());
 
     g.fillAll(getTabBackgroundColour());
-    g.drawText(getName(), getTextArea(), Justification::centred);
+    g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], getTextArea(), Justification::centred);
 
     float borderThickness = 4.0f;
 
     g.setColour(Colours::black);
+    muteButtonBg->draw(g, 1.0f);
     Path muteButtonBgBorder = muteButtonBg->getOutlineAsPath();
     muteButtonBgBorder.applyTransform(muteButtonBgBorder.getTransformToScaleToFit(getLocalBounds().toFloat(), true, Justification::topLeft));
 

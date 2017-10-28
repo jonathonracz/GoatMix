@@ -23,7 +23,8 @@ public:
     void registerParameters() override;
 
     AudioProcessorEditor* createEditor() override;
-    const String getName() const override;
+    const String getName() const override { return "Compressor"; }
+    const String getDisplayName() const override { return NEEDS_TRANS("Compress"); }
 
     void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
