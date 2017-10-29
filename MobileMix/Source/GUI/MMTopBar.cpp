@@ -29,11 +29,26 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     addAndMakeVisible(redoButton);
     addAndMakeVisible(infoButton);
     addAndMakeVisible(logoSVG.get());
+
+    refreshUndoRedoButtonState();
 }
 
 MMTopBar::~MMTopBar()
 {
     processor.undoManager.removeChangeListener(this);
+}
+
+void MMTopBar::refreshUndoRedoButtonState()
+{
+    if (processor.undoManager.canUndo())
+        undoButton.setAlpha(1.0f);
+    else
+        undoButton.setAlpha(0.25f);
+
+    if (processor.undoManager.canRedo())
+        redoButton.setAlpha(1.0f);
+    else
+        redoButton.setAlpha(0.25f);
 }
 
 void MMTopBar::resized()
@@ -100,28 +115,5 @@ void MMTopBar::buttonClicked(Button* button)
 
 void MMTopBar::changeListenerCallback(ChangeBroadcaster* source)
 {
-    // See declaration comment for the bad reasoning behind this.
-    if (!processor.paramUndoRedoCleanedUp)
-    {
-        processor.undoManager.clearUndoHistory();
-        processor.paramUndoRedoCleanedUp = true;
-    }
-
-    if (processor.undoManager.canUndo())
-    {
-        undoButton.setAlpha(1.0f);
-    }
-    else
-    {
-        undoButton.setAlpha(0.25f);
-    }
-
-    if (processor.undoManager.canRedo())
-    {
-        redoButton.setAlpha(1.0f);
-    }
-    else
-    {
-        redoButton.setAlpha(0.25f);
-    }
+    refreshUndoRedoButtonState();
 }

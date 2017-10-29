@@ -35,6 +35,8 @@ public:
     void removeListener(Listener* listener) { listeners.remove(listener); }
 
 private:
+    void refreshUndoRedoButtonState();
+
     void resized() override;
     void buttonClicked(Button* button) override;
     void changeListenerCallback(ChangeBroadcaster* source) override;
