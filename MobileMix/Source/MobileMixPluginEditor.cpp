@@ -45,6 +45,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
 {
+    setLookAndFeel(nullptr); // Prevent assertion on quit
     processor.params.state.removeListener(this);
 }
 
