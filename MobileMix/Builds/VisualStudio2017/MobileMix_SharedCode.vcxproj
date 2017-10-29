@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\MMLookAndFeel.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTopBar.cpp"/>
@@ -1900,7 +1901,6 @@
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
     <ClInclude Include="..\..\Source\GUI\SimpleLevelMeter.h"/>
     <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h"/>
-    <ClInclude Include="..\..\Source\GUI\SVGButton.h"/>
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>

@@ -11,6 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "MMLookAndFeel.h"
 
 class SimpleLevelMeter :
     public Component,
@@ -83,11 +84,12 @@ private:
         {
             gradient = Image(Image::PixelFormat::RGB, getWidth(), getHeight(), false);
             Graphics gradientGen(gradient);
+            MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
-            ColourGradient barGradient(Colour::fromRGB(196, 248, 100),
+            ColourGradient barGradient(lf.findColour(MMLookAndFeel::ColourIds::meterGradientTop),
                                        0.0f,
                                        0.0f,
-                                       Colour::fromRGB(11, 248, 100),
+                                       lf.findColour(MMLookAndFeel::ColourIds::meterGradientBottom),
                                        0.0f,
                                        1.0f,
                                        false);
@@ -101,7 +103,7 @@ private:
                                                        getHeight() * minGainPos,
                                                        false));
             gradientGen.fillAll();
-            gradientGen.setColour(Colour(255, 10, 10));
+            gradientGen.setColour(lf.findColour(MMLookAndFeel::ColourIds::meterClip));
             gradientGen.fillRect(0, 0, getWidth(), static_cast<int>(std::ceil(getHeight() * maxGainPos)));
         }
     }

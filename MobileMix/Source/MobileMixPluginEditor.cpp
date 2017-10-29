@@ -49,8 +49,10 @@ MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
 
 void MobileMixAudioProcessorEditor::paint(Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
+    g.fillAll(static_cast<MMLookAndFeel&>(getLookAndFeel()).findColour(MMLookAndFeel::ColourIds::background));
+    ColourGradient gradient(ColourGradient(Colour(0x00000000), 0, 0, Colour(0x18000000), 0, getHeight(), false));
+    g.setGradientFill(gradient);
+    g.fillAll();
 }
 
 void MobileMixAudioProcessorEditor::resized()

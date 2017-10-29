@@ -84,6 +84,8 @@
             file="Source/GUI/DraggableTabbedComponent.h"/>
       <FILE id="m9sTzn" name="LongDialogPopup.h" compile="0" resource="0"
             file="Source/GUI/LongDialogPopup.h"/>
+      <FILE id="XTv3fG" name="MMLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/GUI/MMLookAndFeel.cpp"/>
       <FILE id="V0JXud" name="MMLookAndFeel.h" compile="0" resource="0" file="Source/GUI/MMLookAndFeel.h"/>
       <FILE id="XQ2mXj" name="MMMuteButton.h" compile="0" resource="0" file="Source/GUI/MMMuteButton.h"/>
       <FILE id="xjmLbM" name="MMParameterSlider.h" compile="0" resource="0"
@@ -104,7 +106,6 @@
             file="Source/GUI/SimpleLevelMeter.h"/>
       <FILE id="dTNgQS" name="SimpleMultiLevelMeter.h" compile="0" resource="0"
             file="Source/GUI/SimpleMultiLevelMeter.h"/>
-      <FILE id="jO6PRk" name="SVGButton.h" compile="0" resource="0" file="Source/GUI/SVGButton.h"/>
       <FILE id="CN1skm" name="ValueStringFuncs.h" compile="0" resource="0"
             file="Source/GUI/ValueStringFuncs.h"/>
     </GROUP>

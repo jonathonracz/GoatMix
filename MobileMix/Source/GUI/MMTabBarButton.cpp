@@ -9,6 +9,7 @@
 */
 
 #include "MMTabBarButton.h"
+#include "MMLookAndFeel.h"
 
 MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPluginInstance& _representedPlugin) :
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
@@ -53,21 +54,22 @@ void MMTabBarButton::resized()
 void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown)
 {
     shadow->setVisible(!isFrontTab());
+    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
-    g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], getTextArea(), Justification::centred);
+    float borderThickness = lf.borderThickness;
 
-    float borderThickness = 4.0f;
-
-    g.setColour(Colours::black);
-    muteButtonBg->draw(g, 1.0f);
     Path muteButtonBgBorder = muteButtonBg->getOutlineAsPath();
     muteButtonBgBorder.applyTransform(muteButtonBgBorder.getTransformToScaleToFit(getLocalBounds().toFloat(), true, Justification::topLeft));
 
     Path border;
     border.addRectangle(getLocalBounds());
 
-    g.strokePath(muteButtonBgBorder, PathStrokeType(borderThickness / 2.0f));
-    g.strokePath(border, PathStrokeType(borderThickness));
+    g.setColour(lf.findColour(MMLookAndFeel::ColourIds::muteButtonBg));
+    g.fillPath(muteButtonBgBorder);
+    g.setColour(lf.findColour(MMLookAndFeel::ColourIds::outline));
+    g.strokePath(muteButtonBgBorder, PathStrokeType(borderThickness));
+    g.strokePath(border, PathStrokeType(borderThickness * 2.0f));
+    g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], getTextArea(), Justification::centred);
 }
 
 int MMTabBarButton::getBestTabLength(int depth)

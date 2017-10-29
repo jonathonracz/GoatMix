@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "MMLookAndFeel.h"
 
 class MMParameterSlider :
     public Slider,
@@ -31,6 +32,17 @@ public:
     }
 
 private:
+    void paint(Graphics& g) override
+    {
+        MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+        g.fillAll(lf.findColour(MMLookAndFeel::ColourIds::sliderBackground));
+        Slider::paint(g);
+        Path border;
+        border.addRectangle(getLocalBounds());
+        g.setColour(lf.findColour(MMLookAndFeel::ColourIds::outline));
+        g.strokePath(border, PathStrokeType(lf.borderThickness * 2.0f));
+    }
+
     double getValueFromText(const String &text) override
     {
         if (representedParameter)
