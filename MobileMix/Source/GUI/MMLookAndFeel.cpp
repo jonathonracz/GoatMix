@@ -10,6 +10,7 @@
 
 #include "MMLookAndFeel.h"
 #include "MMParameterSlider.h"
+#include <array>
 
 MMLookAndFeel::MMLookAndFeel()
 {
@@ -32,13 +33,18 @@ MMLookAndFeel::MMLookAndFeel()
         muteButtonBg,       0xff606060,
     };
 
-    for (int i = 0; i < numElementsInArray(colors); i += 2)
-        setColour(static_cast<int>(colors[i]), Colour(colors[i + 1]));
+    setColorsFromArray(colors, sizeof(colors) / sizeof(uint32));
 
-    setColour(Slider::ColourIds::trackColourId, findColour(sliderForeground));
-    setColour(Slider::ColourIds::textBoxBackgroundColourId, findColour(sliderBackground));
-    setColour(Slider::ColourIds::textBoxTextColourId, findColour(sliderText));
-    setColour(Slider::ColourIds::textBoxOutlineColourId, findColour(outline));
+    const uint32 juceColors[] = {
+        Slider::ColourIds::trackColourId, findColour(sliderForeground).getARGB(),
+        Slider::ColourIds::textBoxBackgroundColourId, findColour(sliderBackground).getARGB(),
+        Slider::ColourIds::textBoxTextColourId, findColour(sliderText).getARGB(),
+        Slider::ColourIds::textBoxOutlineColourId, findColour(outline).getARGB(),
+        TextButton::ColourIds::textColourOnId, findColour(background).getARGB(),
+        TextButton::ColourIds::textColourOffId, findColour(outline).getARGB(),
+    };
+
+    setColorsFromArray(juceColors, sizeof(juceColors) / sizeof(uint32));
 }
 
 Label* MMLookAndFeel::createSliderTextBox(Slider& slider)
@@ -72,3 +78,21 @@ Label* MMLookAndFeel::createSliderTextBox(Slider& slider)
     return LookAndFeel_V4::createSliderTextBox(slider);
 }
 
+void MMLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool isMouseOverButton, bool isButtonDown)
+{
+    if (isButtonDown || button.getToggleState())
+        g.fillAll(findColour(ColourIds::sliderForeground));
+    else
+        g.fillAll(findColour(ColourIds::background));
+
+    Path outline;
+    outline.addRectangle(button.getLocalBounds());
+    g.setColour(findColour(ColourIds::outline));
+    g.strokePath(outline, PathStrokeType(borderThickness * 2.0f));
+}
+
+void MMLookAndFeel::setColorsFromArray(const uint32* colors, size_t num)
+{
+    for (size_t i = 0; i < num; i += 2)
+        setColour(static_cast<int>(colors[i]), Colour(colors[i + 1]));
+}

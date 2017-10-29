@@ -40,10 +40,28 @@ public:
     MMLookAndFeel();
     ~MMLookAndFeel() {}
 
+    FlexBox getFlexBox() const
+    {
+        return FlexBox(FlexBox::Direction::row,
+                       FlexBox::Wrap::noWrap,
+                       FlexBox::AlignContent::center,
+                       FlexBox::AlignItems::stretch,
+                       FlexBox::JustifyContent::center);
+    }
+
+    template<class FlexRecipient>
+    FlexItem getFlexItem(const Component& parent, FlexRecipient& recipient) const
+    {
+        return FlexItem(recipient).withMargin(std::max(parent.getWidth(), parent.getHeight()) * 0.025f).withFlex(1.0f);
+    }
+
     Label* createSliderTextBox(Slider& slider) override;
+    void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool isMouseOverButton, bool isButtonDown) override;
 
     const float borderThickness = 2.0f;
 
 private:
+    void setColorsFromArray(const uint32* colors, size_t num);
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMLookAndFeel)
 };

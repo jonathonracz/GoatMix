@@ -23,6 +23,14 @@ MMGainPluginEditor::~MMGainPluginEditor()
 
 void MMGainPluginEditor::resized()
 {
-    gainSlider.setSize(getWidth() / 10, getHeight() - 20);
+    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+
+    FlexBox layout;
+
+    layout.items.add(lf.getFlexItem(*this, gainSlider));
+
+    layout.performLayout(getLocalBounds());
+
+    //gainSlider.setSize(getWidth() / 10, getHeight() - 20);
     MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(&gainSlider, gainSlider.getBounds());
 }

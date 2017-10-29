@@ -42,5 +42,6 @@ void MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(Component* comp
 
     component->setSize(verticalBounds.getHeight(), verticalBounds.getWidth());
     component->setCentrePosition(0, 0);
-    component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getWidth() / 2.0f, verticalBounds.getHeight() / 2.0f));
+    component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getX() + (verticalBounds.getWidth() / 2.0f),
+                                                                        verticalBounds.getY() + (verticalBounds.getHeight() / 2.0f)));
 }

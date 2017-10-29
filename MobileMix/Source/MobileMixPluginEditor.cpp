@@ -20,7 +20,6 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     tabs(TabbedButtonBar::Orientation::TabsAtBottom),
     aboutDialog("About")
 {
-    LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setResizable(true, true);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
@@ -40,6 +39,8 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     tabs.addListener(this);
     addAndMakeVisible(tabs);
     addChildComponent(aboutDialog);
+
+    setLookAndFeel(&lookAndFeel);
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()

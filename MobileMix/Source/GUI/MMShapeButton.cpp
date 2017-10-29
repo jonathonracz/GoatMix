@@ -35,40 +35,27 @@ void MMShapeButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButt
 {
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
-    if (hasBackground)
+    if (isButtonDown || getToggleState())
     {
-        if (isButtonDown || getToggleState())
+        if (hasBackground)
         {
-            g.fillAll(lf.findColour(MMLookAndFeel::ColourIds::sliderForeground));
+            lf.drawButtonBackground(g, *this, lf.findColour(MMLookAndFeel::ColourIds::sliderForeground), isMouseOverButton, isButtonDown);
             g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::sliderText));
         }
         else
         {
-            g.fillAll(lf.findColour(MMLookAndFeel::ColourIds::background));
-            g.setColour(lf.findColour((upColorId) ? upColorId : MMLookAndFeel::ColourIds::outline));
+            g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::outline));
         }
     }
     else
     {
-        if (isButtonDown || getToggleState())
-        {
-            g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::outline));
-        }
-        else
-        {
-            g.setColour(lf.findColour((upColorId) ? upColorId : MMLookAndFeel::ColourIds::outline));
-        }
+        if (hasBackground)
+            lf.drawButtonBackground(g, *this, lf.findColour(MMLookAndFeel::ColourIds::background), isMouseOverButton, isButtonDown);
+
+        g.setColour(lf.findColour((upColorId) ? upColorId : MMLookAndFeel::ColourIds::outline));
     }
 
     Rectangle<int> bounds = (shapeBounds.isEmpty()) ? getLocalBounds() : shapeBounds;
     shape.scaleToFit(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight(), true);
     g.fillPath(shape);
-
-    if (hasBackground)
-    {
-        Path outline;
-        outline.addRectangle(getLocalBounds());
-        g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::outline));
-        g.strokePath(outline, PathStrokeType(lf.borderThickness * 2.0f));
-    }
 }
