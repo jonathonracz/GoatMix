@@ -12,7 +12,7 @@
 
 #include "DraggableTabBarButton.h"
 #include "../Core/MobileMixPluginInstance.h"
-#include "MMMuteButton.h"
+#include "MMShapeButton.h"
 #include "SimpleMultiLevelMeter.h"
 
 class MMTabBarButton :
@@ -31,7 +31,7 @@ private:
 
     std::unique_ptr<Drawable> shadow;
     std::unique_ptr<Drawable> muteButtonBg;
-    MMMuteButton bypassButton;
+    MMShapeButton bypassButton;
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
     MobileMixPluginInstance& representedPlugin;
     SimpleMultiLevelMeter meter;

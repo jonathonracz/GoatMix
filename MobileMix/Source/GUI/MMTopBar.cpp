@@ -9,19 +9,16 @@
 */
 
 #include "MMTopBar.h"
+#include "MMLookAndFeel.h"
 
 MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     processor(_processor),
-    undoButton("undoButton", DrawableButton::ButtonStyle::ImageFitted),
-    redoButton("redoButton", DrawableButton::ButtonStyle::ImageFitted),
-    infoButton("infoButton", DrawableButton::ButtonStyle::ImageFitted),
+    undoButton("undoButton", BinaryData::undo_svg, BinaryData::undo_svgSize, false, false),
+    redoButton("redoButton", BinaryData::redo_svg, BinaryData::redo_svgSize, false, false),
+    infoButton("infoButton", BinaryData::info_svg, BinaryData::info_svgSize, false, false),
     logoSVG(Drawable::createFromImageData(BinaryData::goataudio_svg, BinaryData::goataudio_svgSize))
 {
     assert(logoSVG);
-
-    undoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::undo_svg, BinaryData::undo_svgSize)).get());
-    redoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::redo_svg, BinaryData::redo_svgSize)).get());
-    infoButton.setImages(std::unique_ptr<Drawable>(Drawable::createFromImageData(BinaryData::info_svg, BinaryData::info_svgSize)).get());
 
     undoButton.addListener(this);
     redoButton.addListener(this);
@@ -62,6 +59,8 @@ void MMTopBar::resized()
     right.items.add(FlexItem(infoButton).withFlex(1.0f).withMaxWidth(getHeight()).withMargin(buttonMargin));
 
     layout.performLayout(getLocalBounds());
+
+    infoButton.setInternalShapeBounds(infoButton.getLocalBounds().reduced(infoButton.getWidth() * 0.05f, infoButton.getHeight() * 0.05f));
 
     // Stupid hack because of the way SVG drawing works in JUCE. We have to
     // manually set the drawable bounds even though the documentation encourages

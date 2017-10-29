@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../MobileMixPluginProcessor.h"
+#include "MMShapeButton.h"
 
 class MMTopBar :
     public Component,
@@ -41,9 +42,9 @@ private:
     ListenerList<Listener> listeners;
 
     MobileMixAudioProcessor& processor;
-    DrawableButton undoButton;
-    DrawableButton redoButton;
-    DrawableButton infoButton;
+    MMShapeButton undoButton;
+    MMShapeButton redoButton;
+    MMShapeButton infoButton;
     std::unique_ptr<Drawable> logoSVG;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMTopBar)

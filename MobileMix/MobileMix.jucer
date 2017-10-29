@@ -87,9 +87,11 @@
       <FILE id="XTv3fG" name="MMLookAndFeel.cpp" compile="1" resource="0"
             file="Source/GUI/MMLookAndFeel.cpp"/>
       <FILE id="V0JXud" name="MMLookAndFeel.h" compile="0" resource="0" file="Source/GUI/MMLookAndFeel.h"/>
-      <FILE id="XQ2mXj" name="MMMuteButton.h" compile="0" resource="0" file="Source/GUI/MMMuteButton.h"/>
       <FILE id="xjmLbM" name="MMParameterSlider.h" compile="0" resource="0"
             file="Source/GUI/MMParameterSlider.h"/>
+      <FILE id="CUUm6C" name="MMShapeButton.cpp" compile="1" resource="0"
+            file="Source/GUI/MMShapeButton.cpp"/>
+      <FILE id="EtnMp1" name="MMShapeButton.h" compile="0" resource="0" file="Source/GUI/MMShapeButton.h"/>
       <FILE id="jtbfje" name="MMTabBarButton.cpp" compile="1" resource="0"
             file="Source/GUI/MMTabBarButton.cpp"/>
       <FILE id="TFEZ52" name="MMTabBarButton.h" compile="0" resource="0"

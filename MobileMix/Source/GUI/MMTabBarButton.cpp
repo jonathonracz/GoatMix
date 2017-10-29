@@ -15,12 +15,17 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
     shadow(Drawable::createFromImageData(BinaryData::tabshadow_svg, BinaryData::tabshadow_svgSize)),
     muteButtonBg(Drawable::createFromImageData(BinaryData::mutebuttonbg_svg, BinaryData::mutebuttonbg_svgSize)),
-    bypassButton(_representedPlugin.getName() + "BypassButton"),
+    bypassButton(_representedPlugin.getName() + "BypassButton",
+                 BinaryData::power_svg,
+                 BinaryData::power_svgSize,
+                 true,
+                 false),
     bypassButtonAttachment(_representedPlugin.state, _representedPlugin.paramBypass->paramID, bypassButton),
     representedPlugin(_representedPlugin)
 {
     assert(shadow);
     bypassButton.addMouseListener(this, false);
+    bypassButton.setOverrideColors(MMLookAndFeel::ColourIds::muteButtonOn, MMLookAndFeel::ColourIds::muteButtonOff);
     meter.setMaxGainDisplayValue(1.1f);
     meter.setSource(&representedPlugin.meterSource);
     meter.addMouseListener(this, true);
