@@ -21,7 +21,6 @@ public:
     ~MMReverbPluginEditor();
 
 protected:
-    void paint(Graphics& g) override;
     void resized() override;
 
 private:

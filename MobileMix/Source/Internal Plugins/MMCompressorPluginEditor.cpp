@@ -22,14 +22,6 @@ MMCompressorPluginEditor::~MMCompressorPluginEditor()
 
 }
 
-void MMCompressorPluginEditor::paint(Graphics& g)
-{
-    g.setColour(Colours::blue);
-    g.fillAll();
-    g.setColour(Colours::green);
-    g.drawRect(10, 10, getWidth() - 20, getHeight() - 20);
-}
-
 void MMCompressorPluginEditor::resized()
 {
     gainSlider.setBounds(10, 10, getWidth() / 10, getHeight() - 20);

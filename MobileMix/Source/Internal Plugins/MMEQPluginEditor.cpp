@@ -22,14 +22,6 @@ MMEQPluginEditor::~MMEQPluginEditor()
 
 }
 
-void MMEQPluginEditor::paint(Graphics& g)
-{
-    g.setColour(Colours::green);
-    g.fillAll();
-    g.setColour(Colours::red);
-    g.drawRect(10, 10, getWidth() - 20, getHeight() - 20);
-}
-
 void MMEQPluginEditor::resized()
 {
     gainSlider.setBounds(10, 10, getWidth() / 10, getHeight() - 20);

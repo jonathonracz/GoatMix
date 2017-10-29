@@ -22,14 +22,6 @@ MMReverbPluginEditor::~MMReverbPluginEditor()
 
 }
 
-void MMReverbPluginEditor::paint(Graphics& g)
-{
-    g.setColour(Colours::red);
-    g.fillAll();
-    g.setColour(Colours::blue);
-    g.drawRect(10, 10, getWidth() - 20, getHeight() - 20);
-}
-
 void MMReverbPluginEditor::resized()
 {
     gainSlider.setBounds(10, 10, getWidth() / 10, getHeight() - 20);
