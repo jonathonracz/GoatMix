@@ -13,7 +13,7 @@
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSliderAttachment = createSliderAttachment(processor.paramCompressor->paramID, gainSlider);
+    gainSliderAttachment = createSliderAttachment(processor.paramCompressor, gainSlider);
     addAndMakeVisible(gainSlider);
 }
 

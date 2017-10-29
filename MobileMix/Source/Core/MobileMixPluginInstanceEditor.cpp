@@ -14,23 +14,23 @@ MobileMixPluginInstanceEditor::MobileMixPluginInstanceEditor(MobileMixPluginInst
     AudioProcessorEditor(_processor),
     processor(_processor)
 {
-    bypassButtonAttachment = createButtonAttachment(processor.paramBypass->paramID, bypassButton);
+    bypassButtonAttachment = createButtonAttachment(processor.paramBypass, bypassButton);
 }
 
-MobileMixPluginInstanceEditor::MMButtonAttachment MobileMixPluginInstanceEditor::createButtonAttachment(String parameterID, Button& buttonToControl)
+MobileMixPluginInstanceEditor::MMButtonAttachment MobileMixPluginInstanceEditor::createButtonAttachment(AudioProcessorParameterWithID* parameter, Button& buttonToControl)
 {
-    return MMButtonAttachment(new AudioProcessorValueTreeState::ButtonAttachment(processor.state, parameterID, buttonToControl));
+    return MMButtonAttachment(new AudioProcessorValueTreeState::ButtonAttachment(processor.state, parameter->paramID, buttonToControl));
 }
 
-MobileMixPluginInstanceEditor::MMComboBoxAttachment MobileMixPluginInstanceEditor::createComboBoxAttachment(String parameterID, ComboBox& comboBoxToControl)
+MobileMixPluginInstanceEditor::MMComboBoxAttachment MobileMixPluginInstanceEditor::createComboBoxAttachment(AudioProcessorParameterWithID* parameter, ComboBox& comboBoxToControl)
 {
-    return MMComboBoxAttachment(new AudioProcessorValueTreeState::ComboBoxAttachment(processor.state, parameterID, comboBoxToControl));
+    return MMComboBoxAttachment(new AudioProcessorValueTreeState::ComboBoxAttachment(processor.state, parameter->paramID, comboBoxToControl));
 }
 
-MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor::createSliderAttachment(String parameterID, MMParameterSlider& sliderToControl)
+MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor::createSliderAttachment(AudioProcessorParameterWithID* parameter, MMParameterSlider& sliderToControl)
 {
-    sliderToControl.setRepresentedParameter(processor.state.getParameter(parameterID));
-    return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.state, parameterID, sliderToControl));
+    sliderToControl.setRepresentedParameter(parameter);
+    return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.state, parameter->paramID, sliderToControl));
 }
 
 // From https://forum.juce.com/t/best-way-of-rotating-components/17750/2

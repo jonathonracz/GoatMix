@@ -29,9 +29,9 @@ protected:
     typedef std::unique_ptr<AudioProcessorValueTreeState::ComboBoxAttachment> MMComboBoxAttachment;
     typedef std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> MMSliderAttachment;
 
-    MMButtonAttachment createButtonAttachment(String parameterID, Button& buttonToControl);
-    MMComboBoxAttachment createComboBoxAttachment(String parameterID, ComboBox& comboBoxToControl);
-    MMSliderAttachment createSliderAttachment(String parameterID, MMParameterSlider& sliderToControl);
+    MMButtonAttachment createButtonAttachment(AudioProcessorParameterWithID* parameter, Button& buttonToControl);
+    MMComboBoxAttachment createComboBoxAttachment(AudioProcessorParameterWithID* parameter, ComboBox& comboBoxToControl);
+    MMSliderAttachment createSliderAttachment(AudioProcessorParameterWithID* parameter, MMParameterSlider& sliderToControl);
 
     static void setVerticalRotatedWithBounds(Component* component, Rectangle<int> verticalBounds, bool clockwise = false);
 

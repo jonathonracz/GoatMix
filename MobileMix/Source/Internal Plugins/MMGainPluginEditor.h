@@ -13,6 +13,7 @@
 #include "MMGainPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 #include "../GUI/MMParameterSlider.h"
+#include "../GUI/MMShapeButton.h"
 #include "../GUI/SimpleMultiLevelMeter.h"
 
 class MMGainPluginEditor :
@@ -26,8 +27,23 @@ protected:
     void resized() override;
 
 private:
-    MMSliderAttachment gainSliderAttachment;
-    MMParameterSlider gainSlider;
+    MMParameterSlider sliderGain;
+    MMParameterSlider sliderGainL;
+    MMParameterSlider sliderGainR;
+    MMParameterSlider sliderPan;
+    MMParameterSlider sliderPhaseDelayL;
+    MMParameterSlider sliderPhaseDelayR;
+    MMShapeButton buttonPhaseInvertL;
+    MMShapeButton buttonPhaseInvertR;
+
+    MMSliderAttachment attachGain;
+    MMSliderAttachment attachGainL;
+    MMSliderAttachment attachGainR;
+    MMSliderAttachment attachPan;
+    MMSliderAttachment attachPhaseDelayL;
+    MMSliderAttachment attachPhaseDelayR;
+    MMButtonAttachment attachPhaseInvertL;
+    MMButtonAttachment attachPhaseInvertR;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPluginEditor)
 };

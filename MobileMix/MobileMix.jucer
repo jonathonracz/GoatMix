@@ -22,6 +22,7 @@
       </GROUP>
     </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <FILE id="r0l0iz" name="phaseinvert.svg" compile="0" resource="1" file="Source/Resources/phaseinvert.svg"/>
       <FILE id="V19T5d" name="about.txt" compile="0" resource="1" file="Source/Resources/about.txt"/>
       <FILE id="mXelQp" name="info.svg" compile="0" resource="1" file="Source/Resources/info.svg"/>
       <FILE id="Dn2IgD" name="mutebuttonbg.svg" compile="0" resource="1"

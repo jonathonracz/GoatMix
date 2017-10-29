@@ -15,11 +15,11 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
     shadow(Drawable::createFromImageData(BinaryData::tabshadow_svg, BinaryData::tabshadow_svgSize)),
     muteButtonBg(Drawable::createFromImageData(BinaryData::mutebuttonbg_svg, BinaryData::mutebuttonbg_svgSize)),
-    bypassButton(_representedPlugin.getName() + "BypassButton",
-                 BinaryData::power_svg,
+    bypassButton(BinaryData::power_svg,
                  BinaryData::power_svgSize,
                  true,
-                 false),
+                 false,
+                 _representedPlugin.getName() + "BypassButton"),
     bypassButtonAttachment(_representedPlugin.state, _representedPlugin.paramBypass->paramID, bypassButton),
     representedPlugin(_representedPlugin)
 {

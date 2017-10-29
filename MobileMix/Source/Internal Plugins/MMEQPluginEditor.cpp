@@ -13,7 +13,7 @@
 MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSliderAttachment = createSliderAttachment(processor.paramEQ->paramID, gainSlider);
+    gainSliderAttachment = createSliderAttachment(processor.paramEQ, gainSlider);
     addAndMakeVisible(gainSlider);
 }
 

@@ -16,7 +16,7 @@ class MMShapeButton :
     public Button
 {
 public:
-    MMShapeButton(const String& name, const void* svgData, size_t svgSize, bool isToggle = true, bool hasBackground = true);
+    MMShapeButton(const void* svgData, size_t svgSize, bool isToggle = true, bool hasBackground = true, const String& name = {});
     ~MMShapeButton() {}
 
     void setOverrideColors(uint32 upColorId, uint32 downColorId);

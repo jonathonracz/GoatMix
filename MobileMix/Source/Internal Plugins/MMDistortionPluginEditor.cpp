@@ -13,7 +13,7 @@
 MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSliderAttachment = createSliderAttachment(processor.paramDistortion->paramID, gainSlider);
+    gainSliderAttachment = createSliderAttachment(processor.paramDistortion, gainSlider);
     addAndMakeVisible(gainSlider);
 }
 

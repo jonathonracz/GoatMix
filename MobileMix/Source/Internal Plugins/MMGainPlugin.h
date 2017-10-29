@@ -30,6 +30,13 @@ public:
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
     AudioProcessorParameterWithID* paramGain;
+    AudioProcessorParameterWithID* paramGainL;
+    AudioProcessorParameterWithID* paramGainR;
+    AudioProcessorParameterWithID* paramPan;
+    AudioProcessorParameterWithID* paramPhaseDelayL;
+    AudioProcessorParameterWithID* paramPhaseDelayR;
+    AudioProcessorParameterWithID* paramPhaseInvertL;
+    AudioProcessorParameterWithID* paramPhaseInvertR;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)

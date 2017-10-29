@@ -8,6 +8,9 @@
 
 namespace BinaryData
 {
+    extern const char*   phaseinvert_svg;
+    const int            phaseinvert_svgSize = 1026;
+
     extern const char*   about_txt;
     const int            about_txtSize = 73914;
 
@@ -39,7 +42,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 9;
+    const int namedResourceListSize = 10;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

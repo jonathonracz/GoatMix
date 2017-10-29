@@ -13,7 +13,7 @@
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor)
 {
-    gainSliderAttachment = createSliderAttachment(processor.paramReverb->paramID, gainSlider);
+    gainSliderAttachment = createSliderAttachment(processor.paramReverb, gainSlider);
     addAndMakeVisible(gainSlider);
 }
 

@@ -11,7 +11,7 @@
 #include "MMShapeButton.h"
 #include "MMLookAndFeel.h"
 
-MMShapeButton::MMShapeButton(const String& name, const void* svgData, size_t svgSize, bool isToggle, bool _hasBackground) :
+MMShapeButton::MMShapeButton(const void* svgData, size_t svgSize, bool isToggle, bool _hasBackground, const String& name) :
     Button(name),
     hasBackground(_hasBackground)
 {
