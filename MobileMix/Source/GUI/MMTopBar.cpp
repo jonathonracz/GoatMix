@@ -31,6 +31,11 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     addAndMakeVisible(logoSVG.get());
 }
 
+MMTopBar::~MMTopBar()
+{
+    processor.undoManager.removeChangeListener(this);
+}
+
 void MMTopBar::resized()
 {
     FlexBox layout(FlexBox::Direction::row,

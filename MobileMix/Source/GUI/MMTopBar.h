@@ -21,7 +21,7 @@ class MMTopBar :
 {
 public:
     MMTopBar(MobileMixAudioProcessor& processor);
-    ~MMTopBar() {}
+    ~MMTopBar();
 
     struct Listener
     {
