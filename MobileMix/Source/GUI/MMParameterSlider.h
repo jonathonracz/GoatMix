@@ -54,7 +54,8 @@ private:
     String getTextFromValue(double value) override
     {
         if (representedParameter)
-            return MobileMixPluginInstance::stripPrefixFromParameterName(representedParameter->name) + ": " + representedParameter->getText(static_cast<float>(value), 0);
+            return MobileMixPluginInstance::stripPrefixFromParameterName(representedParameter->name)
+                + ": " + representedParameter->getText(static_cast<float>(value), 0);
 
         return Slider::getTextFromValue(value);
     }
@@ -63,12 +64,16 @@ private:
 
     void editorShown(Label* label, TextEditor& editor) override
     {
-        editor.setText(String(editor.getText().getFloatValue()));
+        editor.setText(String(
+            MobileMixPluginInstance::stripPrefixFromParameterName(
+                label->getText(false)).getFloatValue()));
     }
 
+    /*
     void editorHidden(Label* label, TextEditor& editor) override
     {
     }
+     */
 
     AudioProcessorParameterWithID* representedParameter = nullptr;
 
