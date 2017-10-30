@@ -104,5 +104,6 @@ void MMGainPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPe
 
 void MMGainPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    goniometerSource.process(buffer);
     MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

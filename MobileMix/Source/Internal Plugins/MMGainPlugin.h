@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "../GUI/GoniometerSource.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -28,6 +29,8 @@ public:
 
     void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+
+    GoniometerSource goniometerSource;
 
     AudioProcessorParameterWithID* paramGain;
     AudioProcessorParameterWithID* paramGainL;

@@ -33,7 +33,7 @@ protected:
     MMComboBoxAttachment createComboBoxAttachment(AudioProcessorParameterWithID* parameter, ComboBox& comboBoxToControl);
     MMSliderAttachment createSliderAttachment(AudioProcessorParameterWithID* parameter, MMParameterSlider& sliderToControl);
 
-    static void setVerticalRotatedWithBounds(Component* component, Rectangle<int> verticalBounds, bool clockwise = false);
+    static void setVerticalRotated(Component* component, bool clockwise = false);
 
     MobileMixPluginInstance& processor;
 

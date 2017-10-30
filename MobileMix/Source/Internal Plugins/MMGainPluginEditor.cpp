@@ -32,6 +32,9 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(sliderPhaseDelayR);
     addAndMakeVisible(buttonPhaseInvertL);
     addAndMakeVisible(buttonPhaseInvertR);
+
+    goniometer.setSource(&processor.goniometerSource);
+    addAndMakeVisible(goniometer);
 }
 
 MMGainPluginEditor::~MMGainPluginEditor()
@@ -42,12 +45,25 @@ void MMGainPluginEditor::resized()
 {
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
+    goniometer.setBounds(0, 0, 200, 200);
     FlexBox layout;
 
+    layout.items.add(lf.getFlexItem(*this, sliderGainL));
     layout.items.add(lf.getFlexItem(*this, sliderGain));
+    layout.items.add(lf.getFlexItem(*this, sliderGainR));
+
+    FlexBox phaseL;
+    phaseL.flexDirection = FlexBox::Direction::column;
+
+    FlexBox phaseR;
+    phaseR.flexDirection = FlexBox::Direction::column;
+
+    FlexBox phaseRow;
+
 
     layout.performLayout(getLocalBounds());
 
-    //gainSlider.setSize(getWidth() / 10, getHeight() - 20);
-    MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(&sliderGain, sliderGain.getBounds());
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGainL);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGainR);
 }

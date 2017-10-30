@@ -34,12 +34,13 @@ MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor:
 }
 
 // From https://forum.juce.com/t/best-way-of-rotating-components/17750/2
-void MobileMixPluginInstanceEditor::setVerticalRotatedWithBounds(Component* component, Rectangle<int> verticalBounds, bool clockwise)
+void MobileMixPluginInstanceEditor::setVerticalRotated(Component* component, bool clockwise)
 {
     float angle = MathConstants<float>::pi / 2.0f;
     if (!clockwise)
         angle *= -1.0f;
 
+    Rectangle<int> verticalBounds = component->getBounds();
     component->setSize(verticalBounds.getHeight(), verticalBounds.getWidth());
     component->setCentrePosition(0, 0);
     component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getX() + (verticalBounds.getWidth() / 2.0f),

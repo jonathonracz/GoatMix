@@ -64,6 +64,7 @@
 #define JUCE_MODULE_AVAILABLE_juce_graphics                   1
 #define JUCE_MODULE_AVAILABLE_juce_gui_basics                 1
 #define JUCE_MODULE_AVAILABLE_juce_gui_extra                  1
+#define JUCE_MODULE_AVAILABLE_juce_opengl                     1
 
 #define JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED 1
 
@@ -290,7 +291,7 @@
  #define JucePlugin_Build_VST3             0
 #endif
 #ifndef  JucePlugin_Build_AU
- #define JucePlugin_Build_AU               0
+ #define JucePlugin_Build_AU               1
 #endif
 #ifndef  JucePlugin_Build_AUv3
  #define JucePlugin_Build_AUv3             1

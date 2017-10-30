@@ -15,6 +15,7 @@
 #include "../GUI/MMParameterSlider.h"
 #include "../GUI/MMShapeButton.h"
 #include "../GUI/SimpleMultiLevelMeter.h"
+#include "../GUI/Goniometer.h"
 
 class MMGainPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -27,6 +28,8 @@ protected:
     void resized() override;
 
 private:
+    Goniometer goniometer;
+
     MMParameterSlider sliderGain;
     MMParameterSlider sliderGainL;
     MMParameterSlider sliderGainR;

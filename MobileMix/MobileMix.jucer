@@ -3,7 +3,7 @@
 <JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
-              cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="0"
+              cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="GoatAudio"
               pluginManufacturerCode="Goat" pluginCode="Gomm" pluginChannelConfigs=""
@@ -14,6 +14,10 @@
               companyCopyright="">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{620A2A96-A068-7CBB-C477-632E4BD0B217}" name="External">
+      <GROUP id="{C363776A-6782-D2DB-B479-56C4009933A1}" name="readerwriterqueue">
+        <FILE id="jgSxlX" name="readerwriterqueue.h" compile="0" resource="0"
+              file="Source/External/readerwriterqueue/readerwriterqueue.h"/>
+      </GROUP>
       <GROUP id="{865C58D6-30CC-F474-2260-71EB8FE84350}" name="CenteredEditableLabel">
         <FILE id="GOr5tN" name="CenteredEditableLabel.h" compile="0" resource="0"
               file="Source/External/CenteredEditableLabel/CenteredEditableLabel.h"/>
@@ -83,6 +87,12 @@
             file="Source/GUI/DraggableTabbedComponent.cpp"/>
       <FILE id="ob1JOz" name="DraggableTabbedComponent.h" compile="0" resource="0"
             file="Source/GUI/DraggableTabbedComponent.h"/>
+      <FILE id="SESQCE" name="Goniometer.cpp" compile="1" resource="0" file="Source/GUI/Goniometer.cpp"/>
+      <FILE id="YqYhTv" name="Goniometer.h" compile="0" resource="0" file="Source/GUI/Goniometer.h"/>
+      <FILE id="jEBZB6" name="GoniometerSource.cpp" compile="1" resource="0"
+            file="Source/GUI/GoniometerSource.cpp"/>
+      <FILE id="eu2DKs" name="GoniometerSource.h" compile="0" resource="0"
+            file="Source/GUI/GoniometerSource.h"/>
       <FILE id="m9sTzn" name="LongDialogPopup.h" compile="0" resource="0"
             file="Source/GUI/LongDialogPopup.h"/>
       <FILE id="XTv3fG" name="MMLookAndFeel.cpp" compile="1" resource="0"
@@ -131,8 +141,7 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{4CF936E7-0673-245C-CCB6-E8E62C4F2DD9}" name="Containers">
-      <FILE id="bujuIm" name="SingleThreadRingBuffer.h" compile="0" resource="0"
-            file="Source/Containers/SingleThreadRingBuffer.h"/>
+      <FILE id="xrrn5T" name="RingBuffer.h" compile="0" resource="0" file="Source/Containers/RingBuffer.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
       <FILE id="HNoVzC" name="BufferSizeAdaptor.h" compile="0" resource="0"
@@ -177,6 +186,7 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
+        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
@@ -204,6 +214,7 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
+        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017">
@@ -232,6 +243,7 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
+        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
@@ -254,6 +266,7 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>
