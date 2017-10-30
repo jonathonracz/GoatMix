@@ -42,6 +42,9 @@ MMLookAndFeel::MMLookAndFeel()
         Slider::ColourIds::textBoxOutlineColourId, findColour(outline).getARGB(),
         TextButton::ColourIds::textColourOnId, findColour(background).getARGB(),
         TextButton::ColourIds::textColourOffId, findColour(outline).getARGB(),
+        Label::ColourIds::outlineColourId, findColour(outline).getARGB(),
+        Label::ColourIds::textColourId, findColour(outline).getARGB(),
+        Label::ColourIds::backgroundColourId, Colours::transparentBlack.getARGB(),
     };
 
     setColorsFromArray(juceColors, sizeof(juceColors) / sizeof(uint32));

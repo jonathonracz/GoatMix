@@ -35,6 +35,9 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
 
     goniometer.setSource(&processor.goniometerSource);
     addAndMakeVisible(goniometer);
+
+    maxdBLabel.setSource(&processor.meterSource, 0);
+    addAndMakeVisible(maxdBLabel);
 }
 
 MMGainPluginEditor::~MMGainPluginEditor()
@@ -46,6 +49,7 @@ void MMGainPluginEditor::resized()
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
     goniometer.setBounds(0, 0, 200, 200);
+    maxdBLabel.setBounds(0, 0, 100, 100);
     FlexBox layout;
 
     layout.items.add(lf.getFlexItem(*this, sliderGainL));

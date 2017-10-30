@@ -1929,6 +1929,7 @@
     <ClInclude Include="..\..\Source\GUI\Goniometer.h"/>
     <ClInclude Include="..\..\Source\GUI\GoniometerSource.h"/>
     <ClInclude Include="..\..\Source\GUI\LongDialogPopup.h"/>
+    <ClInclude Include="..\..\Source\GUI\MaxdBLabel.h"/>
     <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\GUI\MMParameterSlider.h"/>
     <ClInclude Include="..\..\Source\GUI\MMShapeButton.h"/>

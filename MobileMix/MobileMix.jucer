@@ -95,6 +95,7 @@
             file="Source/GUI/GoniometerSource.h"/>
       <FILE id="m9sTzn" name="LongDialogPopup.h" compile="0" resource="0"
             file="Source/GUI/LongDialogPopup.h"/>
+      <FILE id="W4rTXs" name="MaxdBLabel.h" compile="0" resource="0" file="Source/GUI/MaxdBLabel.h"/>
       <FILE id="XTv3fG" name="MMLookAndFeel.cpp" compile="1" resource="0"
             file="Source/GUI/MMLookAndFeel.cpp"/>
       <FILE id="V0JXud" name="MMLookAndFeel.h" compile="0" resource="0" file="Source/GUI/MMLookAndFeel.h"/>

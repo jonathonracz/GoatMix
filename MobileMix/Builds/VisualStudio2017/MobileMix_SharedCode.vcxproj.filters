@@ -2454,6 +2454,9 @@
     <ClInclude Include="..\..\Source\GUI\LongDialogPopup.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MaxdBLabel.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>

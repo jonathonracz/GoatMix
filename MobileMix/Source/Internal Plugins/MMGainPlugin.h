@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../GUI/GoniometerSource.h"
+#include "../GUI/MaxdBLabel.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance

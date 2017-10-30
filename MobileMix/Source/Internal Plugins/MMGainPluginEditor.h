@@ -29,6 +29,7 @@ protected:
 
 private:
     Goniometer goniometer;
+    MaxdBLabel maxdBLabel;
 
     MMParameterSlider sliderGain;
     MMParameterSlider sliderGainL;
