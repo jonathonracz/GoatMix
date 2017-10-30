@@ -31,14 +31,24 @@ public:
     */
     bool isBypassed() const;
 
+    virtual void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock){}
+    virtual void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {}
+    virtual void releaseResourcesDerived() {}
+
+    float getUnnormalizedValue(AudioProcessorParameterWithID* param) const;
+    float getNormalizedValue(AudioProcessorParameterWithID* param) const;
+    const String addPrefixToParameterName(StringRef name) const;
+    static const String stripPrefixFromParameterName(const String& name);
+
+    AudioProcessorValueTreeState& state;
+    AudioProcessorParameterWithID* paramBypass;
+    FFAU::LevelMeterSource meterSource;
+
+private:
     void fillInPluginDescription(PluginDescription &description) const override;
 
-    /** This MUST be called at the end of your derived prepareToPlay! */
-    void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
-
     void releaseResources() override;
-
-    /** This MUST be called at the end of your derived processBlock! */
+    void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
@@ -54,14 +64,6 @@ public:
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
-    AudioProcessorValueTreeState& state;
-    AudioProcessorParameterWithID* paramBypass;
-    FFAU::LevelMeterSource meterSource;
-
-    const String addPrefixToParameterName(StringRef name) const;
-    static const String stripPrefixFromParameterName(const String& name);
-
-private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)
 
 };

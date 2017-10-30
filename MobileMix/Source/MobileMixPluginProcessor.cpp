@@ -140,17 +140,21 @@ void MobileMixAudioProcessor::changeProgramName(int index, const String& newName
 
 void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
+    suspendProcessing(true);
     std::unique_ptr<XmlElement> xml(params.state.createXml());
     AudioProcessor::copyXmlToBinary(*xml, destData);
+    suspendProcessing(false);
 }
 
 void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
+    suspendProcessing(true);
     std::unique_ptr<XmlElement> xml(AudioProcessor::getXmlFromBinary(data, sizeInBytes));
     ValueTree newState = ValueTree::fromXml(*xml);
     if (newState.isValid())
         params.state = newState;
     undoManager.clearUndoHistory();
+    suspendProcessing(false);
 }
 
 int MobileMixAudioProcessor::indexOfNodeWithName(String name) const

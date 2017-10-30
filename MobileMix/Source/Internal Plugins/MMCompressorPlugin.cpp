@@ -33,12 +33,10 @@ AudioProcessorEditor* MMCompressorPlugin::createEditor()
     return new MMCompressorPluginEditor(*this);
 }
 
-void MMCompressorPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+void MMCompressorPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
-void MMCompressorPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void MMCompressorPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

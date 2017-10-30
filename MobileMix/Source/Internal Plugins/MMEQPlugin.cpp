@@ -33,12 +33,10 @@ AudioProcessorEditor* MMEQPlugin::createEditor()
     return new MMEQPluginEditor(*this);
 }
 
-void MMEQPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+void MMEQPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
-void MMEQPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void MMEQPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

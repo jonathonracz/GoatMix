@@ -33,12 +33,10 @@ AudioProcessorEditor* MMDistortionPlugin::createEditor()
     return new MMDistortionPluginEditor(*this);
 }
 
-void MMDistortionPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+void MMDistortionPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
-void MMDistortionPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

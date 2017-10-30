@@ -40,6 +40,26 @@ bool MobileMixPluginInstance::isBypassed() const
     return static_cast<bool>(paramBypass->getValue());
 }
 
+float MobileMixPluginInstance::getUnnormalizedValue(AudioProcessorParameterWithID* param) const
+{
+    return *state.getRawParameterValue(param->paramID);
+}
+
+float MobileMixPluginInstance::getNormalizedValue(AudioProcessorParameterWithID* param) const
+{
+    return state.getParameterRange(param->paramID).convertFrom0to1(*state.getRawParameterValue(param->paramID));
+}
+
+const String MobileMixPluginInstance::addPrefixToParameterName(StringRef name) const
+{
+    return getName() + ": " + name;
+}
+
+const String MobileMixPluginInstance::stripPrefixFromParameterName(const String& name)
+{
+    return name.substring(name.indexOf(": ") + 2);
+}
+
 void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &description) const
 {
     description.name = getName();
@@ -52,14 +72,17 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
 
 void MobileMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
+    prepareToPlayDerived(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
 void MobileMixPluginInstance::releaseResources()
 {
+    releaseResourcesDerived();
 }
 
 void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    processBlockDerived(buffer, midiMessages);
     meterSource.measureBlock(buffer);
 }
 
@@ -118,14 +141,4 @@ void MobileMixPluginInstance::getStateInformation(MemoryBlock& destData)
 
 void MobileMixPluginInstance::setStateInformation(const void* data, int sizeInBytes)
 {
-}
-
-const String MobileMixPluginInstance::addPrefixToParameterName(StringRef name) const
-{
-    return getName() + ": " + name;
-}
-
-const String MobileMixPluginInstance::stripPrefixFromParameterName(const String& name)
-{
-    return name.substring(name.indexOf(": ") + 2);
 }

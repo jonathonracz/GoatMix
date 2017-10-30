@@ -97,13 +97,11 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
     return new MMGainPluginEditor(*this);
 }
 
-void MMGainPlugin::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    MobileMixPluginInstance::prepareToPlay(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
-void MMGainPlugin::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     goniometerSource.process(buffer);
-    MobileMixPluginInstance::processBlock(buffer, midiMessages);
 }

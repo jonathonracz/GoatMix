@@ -28,8 +28,8 @@ public:
     const String getName() const override { return "Gain"; }
     const String getDisplayName() const override { return NEEDS_TRANS("Gain"); }
 
-    void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
-    void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+    void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
+    void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
     GoniometerSource goniometerSource;
 

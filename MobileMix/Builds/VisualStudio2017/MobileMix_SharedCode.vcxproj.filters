@@ -472,6 +472,9 @@
     <ClCompile Include="..\..\Source\GUI\MMLookAndFeel.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\MMParameterSlider.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\MMShapeButton.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>

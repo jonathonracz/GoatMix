@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\Source\GUI\Goniometer.cpp"/>
     <ClCompile Include="..\..\Source\GUI\GoniometerSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMLookAndFeel.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\MMParameterSlider.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMShapeButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp"/>
