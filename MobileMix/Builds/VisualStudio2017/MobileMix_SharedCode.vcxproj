@@ -157,6 +157,8 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMGainPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPlugin.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\DistortionPreviewSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\GUI\Goniometer.cpp"/>
@@ -1925,6 +1927,8 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\DistortionPreview.h"/>
+    <ClInclude Include="..\..\Source\GUI\DistortionPreviewSource.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\Goniometer.h"/>
@@ -1946,12 +1950,12 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
     <ClInclude Include="..\..\Source\Containers\RingBuffer.h"/>
+    <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h"/>
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h"/>
-    <ClInclude Include="..\..\Source\DSP\DSPKernel.h"/>
-    <ClInclude Include="..\..\Source\DSP\Gain.h"/>
+    <ClInclude Include="..\..\Source\DSP\DelayLine.h"/>
+    <ClInclude Include="..\..\Source\DSP\InvertPhase.h"/>
     <ClInclude Include="..\..\Source\DSP\Math.h"/>
-    <ClInclude Include="..\..\Source\DSP\PhaseInvert.h"/>
-    <ClInclude Include="..\..\Source\DSP\PitchShift.h"/>
+    <ClInclude Include="..\..\Source\DSP\SampleRepeat.h"/>
     <ClInclude Include="..\..\Source\MobileMixPluginProcessor.h"/>
     <ClInclude Include="..\..\Source\MobileMixPluginEditor.h"/>
     <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.h"/>

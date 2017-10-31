@@ -457,6 +457,12 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\DistortionPreviewSource.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -2442,6 +2448,12 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\DistortionPreviewSource.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -2505,22 +2517,22 @@
     <ClInclude Include="..\..\Source\Containers\RingBuffer.h">
       <Filter>MobileMix\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\DSPKernel.h">
+    <ClInclude Include="..\..\Source\DSP\DelayLine.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\Gain.h">
+    <ClInclude Include="..\..\Source\DSP\InvertPhase.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\Math.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\PhaseInvert.h">
-      <Filter>MobileMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\PitchShift.h">
+    <ClInclude Include="..\..\Source\DSP\SampleRepeat.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MobileMixPluginProcessor.h">

@@ -12,6 +12,8 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "../DSP/AmplitudeQuantize.h"
+#include "../DSP/SampleRepeat.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -32,5 +34,8 @@ public:
     AudioProcessorParameterWithID* paramDistortion;
 
 private:
+    AmplitudeQuantize quantizer;
+    SampleRepeat sampleRepeater;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPlugin)
 };

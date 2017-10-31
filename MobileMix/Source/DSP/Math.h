@@ -12,9 +12,6 @@
 
 #include <cassert>
 
-namespace kernel
-{
-
 namespace math
 {
 
@@ -60,8 +57,6 @@ void hanningz(float* samples, int numSamples)
     for (int i = 0; i < numSamples; ++i)
         samples[i] = 1.0f - std::cosf(samples[i] * i);
     juce::FloatVectorOperations::multiply(samples, 0.5f, numSamples);
-}
-
 }
 
 }

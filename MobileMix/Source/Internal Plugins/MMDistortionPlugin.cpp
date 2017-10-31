@@ -35,8 +35,24 @@ AudioProcessorEditor* MMDistortionPlugin::createEditor()
 
 void MMDistortionPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
+    dsp::ProcessSpec spec
+    {
+        sampleRate,
+        static_cast<uint32>(maximumExpectedSamplesPerBlock),
+        static_cast<uint32>(getMainBusNumInputChannels())
+    };
+
+    quantizer.prepare(spec);
+    sampleRepeater.prepare(spec);
 }
 
 void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    dsp::AudioBlock<float> block(buffer);
+
+    quantizer.params->bitDepth = 8;
+    quantizer.process(dsp::ProcessContextReplacing<float>(block));
+
+    sampleRepeater.params->samplesToRepeat = 4;
+    sampleRepeater.process(dsp::ProcessContextReplacing<float>(block));
 }
