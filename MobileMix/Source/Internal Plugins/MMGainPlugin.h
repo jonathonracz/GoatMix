@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../GUI/GoniometerSource.h"
 #include "../GUI/MaxdBLabel.h"
+#include "../DSP/DelayLine.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -43,5 +44,7 @@ public:
     AudioProcessorParameterWithID* paramPhaseInvertR;
 
 private:
+    DelayLine delay;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

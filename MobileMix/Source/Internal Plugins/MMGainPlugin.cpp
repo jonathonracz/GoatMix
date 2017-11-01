@@ -68,7 +68,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Phase Delay R"),
         addPrefixToParameterName("Phase Delay R"),
         "ms",
-        NormalisableRange<float>(0.0f, 100.0f, 1.0f),
+        NormalisableRange<float>(0.0f, 1000.0f, 1.0f),
         0.0f,
         nullptr,
         nullptr);
@@ -99,9 +99,21 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
 
 void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
+    dsp::ProcessSpec spec {
+        sampleRate,
+        static_cast<uint32>(maximumExpectedSamplesPerBlock),
+        static_cast<uint32>(getMainBusNumInputChannels())
+    };
+
+    delay.params->maxDelay = static_cast<size_t>(sampleRate); // 1 second max delay
+    delay.prepare(spec);
 }
 
 void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    delay.params->samplesToDelay = static_cast<size_t>((getUnnormalizedValue(paramPhaseDelayR) / 1000.0f) * getPreparedSampleRate());
+
+    dsp::AudioBlock<float> block(buffer);
+    delay.process(dsp::ProcessContextReplacing<float>(block));
     goniometerSource.process(buffer);
 }

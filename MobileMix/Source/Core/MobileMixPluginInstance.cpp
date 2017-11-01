@@ -72,6 +72,8 @@ void MobileMixPluginInstance::fillInPluginDescription(PluginDescription &descrip
 
 void MobileMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
+    preparedSampleRate = sampleRate;
+    preparedBlockSize = maximumExpectedSamplesPerBlock;
     prepareToPlayDerived(sampleRate, maximumExpectedSamplesPerBlock);
 }
 

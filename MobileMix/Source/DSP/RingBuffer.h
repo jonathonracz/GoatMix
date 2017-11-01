@@ -17,9 +17,9 @@ class RingBuffer
 {
 public:
     RingBuffer() {}
-    RingBuffer(int capacity)
+    RingBuffer(int logicalCapacity)
     {
-        data.resize(capacity);
+        setLogicalCapacity(logicalCapacity);
     }
 
     void clear()
@@ -29,7 +29,7 @@ public:
 
     void fill(const Type& value = Type())
     {
-        while (numElements() < (capacity() - 1))
+        while (numElements() < (logicalCapacity()))
             push(value);
     }
 
@@ -41,6 +41,16 @@ public:
     int capacity() const
     {
         return data.size();
+    }
+
+    void setLogicalCapacity(int num)
+    {
+        data.resize(num + 1);
+    }
+
+    int logicalCapacity() const
+    {
+        return data.size() - 1;
     }
 
     int numElements() const
@@ -80,10 +90,58 @@ public:
         return data.getReference((head + index) % numElements());
     }
 
+    Type* getPointerToFirstHalf()
+    {
+        return data.getRawDataPointer() + head;
+    }
+
+    int getSizeOfFirstHalf() const
+    {
+        if (head <= tail)
+            return tail - head;
+        else
+            return static_cast<int>(data.size()) - head;
+    }
+
+    Type* getPointerToSecondHalf()
+    {
+        if (head <= tail || tail == 0)
+            return nullptr;
+        else
+            return data.getRawDataPointer();
+    }
+
+    int getSizeOfSecondHalf() const
+    {
+        if (head <= tail || tail == 0)
+            return 0;
+        else
+            return tail;
+    }
+
     Type operator[](int index) const
     {
         jassert(index < numElements());
         return data[(head + index) % numElements()];
+    }
+
+    void setData(const Type* src, int num)
+    {
+        jassert(num < capacity());
+        if (std::is_trivially_copyable<Type>::value)
+        {
+            head = 0;
+            tail = num;
+            memcpy(data.getRawDataPointer(), src, num * sizeof(Type));
+        }
+        else
+        {
+            clear();
+            for (int i = 0; i < num; ++i)
+            {
+                push(src[i]);
+            }
+        }
     }
 
 private:

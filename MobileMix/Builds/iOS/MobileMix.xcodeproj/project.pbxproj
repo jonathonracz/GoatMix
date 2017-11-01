@@ -81,7 +81,6 @@
 		110E13F653409326D004D8F1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMTopBar.cpp; path = ../../Source/GUI/MMTopBar.cpp; sourceTree = "SOURCE_ROOT"; };
 		111FE89A75418912EF569350 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTabBarButton.h; path = ../../Source/GUI/MMTabBarButton.h; sourceTree = "SOURCE_ROOT"; };
 		1338D22AE82635D06B82FB26 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		13825C849B3B30DF6651F777 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RingBuffer.h; path = ../../Source/Containers/RingBuffer.h; sourceTree = "SOURCE_ROOT"; };
 		13DE466BEE841E78FF4CDA56 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPlugin.h; path = "../../Source/Internal Plugins/MMReverbPlugin.h"; sourceTree = "SOURCE_ROOT"; };
 		16CB14F6624F1447BBDE6DCE = {isa = PBXFileReference; lastKnownFileType = file.svg; name = power.svg; path = ../../Source/Resources/power.svg; sourceTree = "SOURCE_ROOT"; };
 		1706236431A29C759CCC2639 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMCompressorPluginEditor.h; path = "../../Source/Internal Plugins/MMCompressorPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
@@ -140,6 +139,7 @@
 		87AF76DD1351DB2DFC5B7C60 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B5DFB9ABB75C63AC5F9665F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPluginEditor.h; path = "../../Source/Internal Plugins/MMReverbPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		8D373DD3990803003ECDF920 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMShapeButton.h; path = ../../Source/GUI/MMShapeButton.h; sourceTree = "SOURCE_ROOT"; };
+		8DAA5F6C48DC8B33DDDE4AF4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RingBuffer.h; path = ../../Source/DSP/RingBuffer.h; sourceTree = "SOURCE_ROOT"; };
 		8EA9203723DCCC46FB62A1B0 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		927D28E647BF25EA83B3C986 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JuceHeader.h; path = ../../JuceLibraryCode/JuceHeader.h; sourceTree = "SOURCE_ROOT"; };
 		9356AAA43B367E8F50F18D5C = {isa = PBXFileReference; lastKnownFileType = file; name = "ff_meters"; path = "../../Source/External/ff_meters"; sourceTree = "SOURCE_ROOT"; };
@@ -167,6 +167,7 @@
 		AF7AD70D115ECC99292FB19A = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_opengl"; path = "../../../External/JUCE/modules/juce_opengl"; sourceTree = "SOURCE_ROOT"; };
 		B00E7FAA3C481C478DC255C9 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_plugin_client"; path = "../../../external/JUCE/modules/juce_audio_plugin_client"; sourceTree = "SOURCE_ROOT"; };
 		B0FD49C96544C827E896F210 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MobileMixPluginInstanceEditor.h; path = ../../Source/Core/MobileMixPluginInstanceEditor.h; sourceTree = "SOURCE_ROOT"; };
+		B1FEB49DBA9BA3DE6C1E2197 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gain.h; path = ../../Source/DSP/Gain.h; sourceTree = "SOURCE_ROOT"; };
 		B213B1418E627BAAF2CFA5C7 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = filter.svg; path = ../../Source/Resources/filter.svg; sourceTree = "SOURCE_ROOT"; };
 		B3B7C11B3615A7E1E4167ED3 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_core"; path = "../../../external/JUCE/modules/juce_core"; sourceTree = "SOURCE_ROOT"; };
 		B45BF05120E0FAA107617BFF = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DistortionPreviewSource.h; path = ../../Source/GUI/DistortionPreviewSource.h; sourceTree = "SOURCE_ROOT"; };
@@ -295,9 +296,9 @@
 					2878ECDF2A4A42AD3257CB1F,
 					AE6C5854DE71A92A43C92341,
 					744DD89013408294BC7D6E3A, ); name = Core; sourceTree = "<group>"; };
-		E135EB2F3498B2D0CDA2E037 = {isa = PBXGroup; children = (
-					13825C849B3B30DF6651F777, ); name = Containers; sourceTree = "<group>"; };
 		084466A2BBDF7EF667263E6B = {isa = PBXGroup; children = (
+					B1FEB49DBA9BA3DE6C1E2197,
+					8DAA5F6C48DC8B33DDDE4AF4,
 					93C557D5A907402F33E592C4,
 					6E51ACF27A541254792B6891,
 					FCDC56042628F9BC05EB2611,
@@ -310,7 +311,6 @@
 					488270A71C4342ECADF32635,
 					86887FC76D731EA22F920835,
 					873123984E6894756F92D29D,
-					E135EB2F3498B2D0CDA2E037,
 					084466A2BBDF7EF667263E6B,
 					0A6998F171576D1CA7279872,
 					49880C45F6BDBD59B0F5BC7D,

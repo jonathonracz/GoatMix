@@ -35,6 +35,9 @@ public:
     virtual void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {}
     virtual void releaseResourcesDerived() {}
 
+    double getPreparedSampleRate() const { return preparedSampleRate; }
+    int getPreparedBlockSize() const { return preparedBlockSize; }
+
     float getUnnormalizedValue(AudioProcessorParameterWithID* param) const;
     float getNormalizedValue(AudioProcessorParameterWithID* param) const;
     const String addPrefixToParameterName(StringRef name) const;
@@ -63,6 +66,9 @@ private:
     void changeProgramName(int index, const String& newName) override;
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
+
+    double preparedSampleRate = 0.0;
+    int preparedBlockSize = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)
 

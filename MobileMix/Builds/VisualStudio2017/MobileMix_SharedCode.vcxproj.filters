@@ -23,9 +23,6 @@
     <Filter Include="MobileMix\Core">
       <UniqueIdentifier>{DA36B01B-161C-A08B-B623-441503804A39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MobileMix\Containers">
-      <UniqueIdentifier>{BD24392F-954B-024B-5DF7-208EA0AE609E}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MobileMix\DSP">
       <UniqueIdentifier>{6EA1B2CD-9A1F-6235-D8D2-37DC57AF88F4}</UniqueIdentifier>
     </Filter>
@@ -2514,8 +2511,11 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Containers\RingBuffer.h">
-      <Filter>MobileMix\Containers</Filter>
+    <ClInclude Include="..\..\Source\DSP\Gain.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\RingBuffer.h">
+      <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h">
       <Filter>MobileMix\DSP</Filter>

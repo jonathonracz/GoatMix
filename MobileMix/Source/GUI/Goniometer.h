@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Containers/RingBuffer.h"
+#include "../DSP/RingBuffer.h"
 
 class GoniometerSource;
 

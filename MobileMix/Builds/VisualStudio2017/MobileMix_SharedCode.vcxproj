@@ -1949,7 +1949,8 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
-    <ClInclude Include="..\..\Source\Containers\RingBuffer.h"/>
+    <ClInclude Include="..\..\Source\DSP\Gain.h"/>
+    <ClInclude Include="..\..\Source\DSP\RingBuffer.h"/>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h"/>
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h"/>
     <ClInclude Include="..\..\Source\DSP\DelayLine.h"/>
