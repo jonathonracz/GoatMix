@@ -72,7 +72,8 @@ public:
                 }
 
                 // Crossfade to avoid popping using a simple PSOLA-type method with
-                // a linear fade.
+                // a linear fade. (TODO: Still has popping - investigate nonlinear fade.
+                // Could also be related to a lack of parameter smoothing...)
                 LinearSmoothedValue<float> fadeOut(1.0f);
                 fadeOut.setValue(0.0f);
                 LinearSmoothedValue<float> fadeIn(0.0f);

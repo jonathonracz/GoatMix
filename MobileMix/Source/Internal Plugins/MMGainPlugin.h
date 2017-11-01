@@ -15,6 +15,7 @@
 #include "../GUI/GoniometerSource.h"
 #include "../GUI/MaxdBLabel.h"
 #include "../DSP/DelayLine.h"
+#include "../DSP/Gain.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -45,6 +46,7 @@ public:
 
 private:
     DelayLine delay;
+    Gain gain;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

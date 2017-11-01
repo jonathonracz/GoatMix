@@ -13,10 +13,10 @@
 #include "JuceHeader.h"
 
 struct AmplitudeQuantize :
-    public dsp::ProcessorBase
+    dsp::ProcessorBase
 {
     struct Parameters :
-        public dsp::ProcessorState
+        dsp::ProcessorState
     {
         size_t bitDepth;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;

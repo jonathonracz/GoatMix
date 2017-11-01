@@ -107,13 +107,17 @@ void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSa
 
     delay.params->maxDelay = static_cast<size_t>(sampleRate); // 1 second max delay
     delay.prepare(spec);
+    gain.prepare(spec);
 }
 
 void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     delay.params->samplesToDelay = static_cast<size_t>((getUnnormalizedValue(paramPhaseDelayR) / 1000.0f) * getPreparedSampleRate());
+    gain.params->gain = getUnnormalizedValue(paramGain);
 
     dsp::AudioBlock<float> block(buffer);
-    delay.process(dsp::ProcessContextReplacing<float>(block));
+    dsp::ProcessContextReplacing<float> context(block);
+    delay.process(context);
+    gain.process(context);
     goniometerSource.process(buffer);
 }
