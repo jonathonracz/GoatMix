@@ -52,14 +52,14 @@ public:
         {
             float* samples = context.getOutputBlock().getChannelPointer(channel);
             ChannelState* channelState = &channelStates[channel];
-            if (params->samplesToDelay == 0 && channelState->line.logicalCapacity() == 0)
+            if (params->samplesToDelay == 0 && channelState->line.getLogicalCapacity() == 0)
                 continue;
 
             int newDelay = static_cast<int>(params->samplesToDelay);
             jassert(newDelay <= params->maxDelay); // This would require allocation on the audio thread!
 
             // Resize our ringbuffer if we have a new delay length.
-            if (newDelay != channelState->line.logicalCapacity())
+            if (newDelay != channelState->line.getLogicalCapacity())
             {
                 DBG("New delay detected! " << newDelay << " samples");
                 int totalNumElements = 0;

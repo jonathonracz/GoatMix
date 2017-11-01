@@ -29,8 +29,13 @@ public:
 
     void fill(const Type& value = Type())
     {
-        while (numElements() < (logicalCapacity()))
+        while (numElements() < (getLogicalCapacity()))
             push(value);
+    }
+
+    int getCapacity() const
+    {
+        return data.size();
     }
 
     void setCapacity(int num)
@@ -38,9 +43,9 @@ public:
         data.resize(num);
     }
 
-    int capacity() const
+    int getLogicalCapacity() const
     {
-        return data.size();
+        return data.size() - 1;
     }
 
     void setLogicalCapacity(int num)
@@ -48,17 +53,12 @@ public:
         data.resize(num + 1);
     }
 
-    int logicalCapacity() const
-    {
-        return data.size() - 1;
-    }
-
     int numElements() const
     {
         if (head < tail)
             return tail - head;
         else if (head > tail)
-            return (capacity() - head) + tail;
+            return (getCapacity() - head) + tail;
         else
             return 0;
     }
@@ -71,16 +71,16 @@ public:
     void push(const Type& src)
     {
         data.setUnchecked(tail, src);
-        tail = (tail + 1) % capacity();
+        tail = (tail + 1) % getCapacity();
         if (head == tail)
-            head = (head + 1) % capacity();
+            head = (head + 1) % getCapacity();
     }
 
     Type pop()
     {
         jassert(head != tail);
         Type ret = data[head];
-        head = (head + 1) % capacity();
+        head = (head + 1) % getCapacity();
         return ret;
     }
 
@@ -127,7 +127,7 @@ public:
 
     void setData(const Type* src, int num)
     {
-        jassert(num < capacity());
+        jassert(num < getCapacity());
         if (std::is_trivially_copyable<Type>::value)
         {
             head = 0;
@@ -146,6 +146,7 @@ public:
 
 private:
     Array<Type> data;
+    int capacity = 0;
     int head = 0;
     int tail = 0;
 };
