@@ -61,14 +61,13 @@ public:
             // Resize our ringbuffer if we have a new delay length.
             if (newDelay != channelState->line.getLogicalCapacity())
             {
-                DBG("New delay detected! " << newDelay << " samples");
                 int totalNumElements = 0;
                 {
                     int firstHalfSize = channelState->line.getSizeOfFirstHalf();
                     int secondHalfSize = channelState->line.getSizeOfSecondHalf();
                     memcpy(&resizeScratchSpaceFadeOut[0], channelState->line.getPointerToFirstHalf(), firstHalfSize * sizeof(float));
                     memcpy(&resizeScratchSpaceFadeOut[firstHalfSize], channelState->line.getPointerToSecondHalf(), secondHalfSize * sizeof(float));
-                    memcpy(&resizeScratchSpaceFadeIn[0], &resizeScratchSpaceFadeOut[0], channelState->line.numElements() * sizeof(float));
+                    memcpy(&resizeScratchSpaceFadeIn[0], &resizeScratchSpaceFadeOut[0], channelState->line.getNumElements() * sizeof(float));
                     totalNumElements = firstHalfSize + secondHalfSize;
                 }
 
@@ -78,9 +77,9 @@ public:
                 fadeOut.setValue(0.0f);
                 LinearSmoothedValue<float> fadeIn(0.0f);
                 fadeIn.setValue(1.0f);
-                if (newDelay > channelState->line.numElements()) // Stretching
+                if (newDelay > channelState->line.getNumElements()) // Stretching
                 {
-                    int fadeSpace = newDelay - (2 * channelState->line.numElements());
+                    int fadeSpace = newDelay - (2 * channelState->line.getNumElements());
                     if (fadeSpace < 0) // Has overlap
                     {
                         fadeSpace *= -1;
@@ -97,7 +96,7 @@ public:
                         memcpy(&resizeScratchSpaceFadeOut[totalNumElements + fadeSpace], &resizeScratchSpaceFadeIn[0], totalNumElements);
                     }
                 }
-                else if (newDelay < channelState->line.numElements()) // Shrinking
+                else if (newDelay < channelState->line.getNumElements()) // Shrinking
                 {
                     fadeOut.applyGain(&resizeScratchSpaceFadeOut[0], newDelay);
                     fadeIn.applyGain(&resizeScratchSpaceFadeIn[totalNumElements - newDelay], newDelay);
@@ -105,7 +104,7 @@ public:
                 }
 
                 // Resize the RingBuffer and copy in the new data.
-                channelState->line.setLogicalCapacity(newDelay);
+                channelState->line.setLogicalCapacity(newDelay, true);
                 channelState->line.setData(resizeScratchSpaceFadeOut.data(), newDelay);
             }
 

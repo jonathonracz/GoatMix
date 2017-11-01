@@ -60,9 +60,9 @@ void Goniometer::paint(Graphics& g)
         pathCoordsForDrawing.push(newPoint);
 
     Path drawPath;
-    drawPath.preallocateSpace(pathCoordsForDrawing.numElements());
+    drawPath.preallocateSpace(pathCoordsForDrawing.getNumElements());
     Point<float> componentSpacePoint;
-    for (int i = 0; i < pathCoordsForDrawing.numElements(); ++i)
+    for (int i = 0; i < pathCoordsForDrawing.getNumElements(); ++i)
     {
         componentSpacePoint.x = pathCoordsForDrawing[i].x * getWidth() / 2.0f;
         componentSpacePoint.y = pathCoordsForDrawing[i].y * getHeight() / 2.0f;
@@ -83,7 +83,7 @@ void Goniometer::paint(Graphics& g)
         imageBuffers.push(newPathTarget);
     }
 
-    for (int i = 0; i < imageBuffers.numElements(); ++i)
+    for (int i = 0; i < imageBuffers.getNumElements(); ++i)
     {
         imageBuffers[i].multiplyAllAlphas(0.98f);
         g.drawImageAt(imageBuffers[i], 0, 0);

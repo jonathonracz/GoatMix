@@ -10,50 +10,105 @@
 
 #pragma once
 
-#include <JuceHeader.h>
+#include "JuceHeader.h"
 
 template<class Type>
 class RingBuffer
 {
 public:
     RingBuffer() {}
-    RingBuffer(int logicalCapacity)
+    RingBuffer(int logicalAllocatedCapacity) noexcept
     {
-        setLogicalCapacity(logicalCapacity);
+        setAllocatedLogicalCapacity(logicalAllocatedCapacity);
+        setLogicalCapacity(logicalAllocatedCapacity);
     }
 
-    void clear()
+    RingBuffer(const RingBuffer& other)
+    {
+        setCapacity(other.capacity);
+        for (int i = 0; i < other.getNumElements(); ++i)
+            push(other.getReference(i));
+    }
+
+    RingBuffer(RingBuffer&& other) = default;
+
+    ~RingBuffer() noexcept {}
+
+    void clear() noexcept
     {
         head = tail = 0;
     }
 
-    void fill(const Type& value = Type())
+    void fill(const Type& value = Type()) noexcept
     {
-        while (numElements() < (getLogicalCapacity()))
+        while (getNumElements() < (getLogicalCapacity()))
             push(value);
     }
 
-    int getCapacity() const
+    int getCapacity() const noexcept
     {
-        return data.size();
+        return capacity;
     }
 
-    void setCapacity(int num)
+    void setCapacity(int num, bool doNotReallocate = false) noexcept
     {
-        data.resize(num);
+        if (allocSize < num)
+        {
+            jassert(!doNotReallocate); // You would have had to reallocate here!
+            setAllocatedCapacity(num);
+        }
+        linearize();
+        capacity = num;
     }
 
-    int getLogicalCapacity() const
+    int getLogicalCapacity() const noexcept
     {
-        return data.size() - 1;
+        return getCapacity() - 1;
     }
 
-    void setLogicalCapacity(int num)
+    void setLogicalCapacity(int num, bool doNotReallocate = false) noexcept
     {
-        data.resize(num + 1);
+        setCapacity(num + 1, doNotReallocate);
     }
 
-    int numElements() const
+    int getAllocatedCapacity() const noexcept
+    {
+        return allocSize;
+    }
+
+    void setAllocatedCapacity(int num) noexcept
+    {
+        if (num)
+        {
+            data.realloc(num);
+            for (int i = allocSize; i < num; ++i)
+                new (data + i) Type();
+        }
+        else
+        {
+            data.free();
+        }
+
+        allocSize = num;
+    }
+
+    int getAllocatedLogicalCapacity() const noexcept
+    {
+        return getAllocatedCapacity() - 1;
+    }
+
+    void setAllocatedLogicalCapacity(int num) noexcept
+    {
+        setAllocatedCapacity(num + 1);
+    }
+
+    void deallocateToCurrentCapacity() noexcept
+    {
+        if (allocSize > capacity)
+            setAllocatedCapacity(capacity);
+    }
+
+    int getNumElements() const noexcept
     {
         if (head < tail)
             return tail - head;
@@ -63,20 +118,20 @@ public:
             return 0;
     }
 
-    bool isEmpty() const
+    bool isEmpty() const noexcept
     {
-        return numElements() == 0;
+        return getNumElements() == 0;
     }
 
-    void push(const Type& src)
+    void push(const Type& src) noexcept
     {
-        data.setUnchecked(tail, src);
+        data[tail] = src;
         tail = (tail + 1) % getCapacity();
         if (head == tail)
             head = (head + 1) % getCapacity();
     }
 
-    Type pop()
+    Type pop() noexcept
     {
         jassert(head != tail);
         Type ret = data[head];
@@ -84,34 +139,34 @@ public:
         return ret;
     }
 
-    Type& getReference(int index) const
+    Type& getReference(int index) const noexcept
     {
-        jassert(index < numElements());
-        return data.getReference((head + index) % numElements());
+        jassert(index < getNumElements());
+        return data[(head + index) % getNumElements()];
     }
 
-    Type* getPointerToFirstHalf()
+    Type* getPointerToFirstHalf() noexcept
     {
-        return data.getRawDataPointer() + head;
+        return data.getData() + head;
     }
 
-    int getSizeOfFirstHalf() const
+    int getSizeOfFirstHalf() const noexcept
     {
         if (head <= tail)
             return tail - head;
         else
-            return static_cast<int>(data.size()) - head;
+            return capacity - head;
     }
 
-    Type* getPointerToSecondHalf()
+    Type* getPointerToSecondHalf() noexcept
     {
         if (head <= tail || tail == 0)
             return nullptr;
         else
-            return data.getRawDataPointer();
+            return data.getData();
     }
 
-    int getSizeOfSecondHalf() const
+    int getSizeOfSecondHalf() const noexcept
     {
         if (head <= tail || tail == 0)
             return 0;
@@ -119,33 +174,39 @@ public:
             return tail;
     }
 
-    Type operator[](int index) const
+    Type operator[](int index) const noexcept
     {
-        jassert(index < numElements());
-        return data[(head + index) % numElements()];
+        jassert(index < getNumElements());
+        return data[(head + index) % getNumElements()];
     }
 
-    void setData(const Type* src, int num)
+    void setData(const Type* src, int num) noexcept
     {
         jassert(num < getCapacity());
         if (std::is_trivially_copyable<Type>::value)
         {
             head = 0;
             tail = num;
-            memcpy(data.getRawDataPointer(), src, num * sizeof(Type));
+            memcpy(data.getData(), src, num * sizeof(Type));
         }
         else
         {
             clear();
             for (int i = 0; i < num; ++i)
-            {
                 push(src[i]);
-            }
         }
     }
 
+    void linearize() noexcept
+    {
+        head = 0;
+        tail = getNumElements();
+        std::rotate(data.getData(), data.getData() + head, data.getData() + capacity);
+    }
+
 private:
-    Array<Type> data;
+    HeapBlock<Type> data;
+    int allocSize = 0;
     int capacity = 0;
     int head = 0;
     int tail = 0;
