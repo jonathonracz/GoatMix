@@ -51,8 +51,8 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dsp::AudioBlock<float> block(buffer);
 
     quantizer.params->bitDepth = 8;
-    quantizer.process(dsp::ProcessContextReplacing<float>(block));
+    //quantizer.process(dsp::ProcessContextReplacing<float>(block));
 
     sampleRepeater.params->samplesToRepeat = 4;
-    sampleRepeater.process(dsp::ProcessContextReplacing<float>(block));
+    //sampleRepeater.process(dsp::ProcessContextReplacing<float>(block));
 }

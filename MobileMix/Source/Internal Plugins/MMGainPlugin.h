@@ -16,6 +16,8 @@
 #include "../GUI/MaxdBLabel.h"
 #include "../DSP/DelayLine.h"
 #include "../DSP/Gain.h"
+#include "../DSP/InvertPhase.h"
+#include "../DSP/Pan.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -47,6 +49,8 @@ public:
 private:
     DelayLine delay;
     Gain gain;
+    InvertPhase invertPhase;
+    Pan pan;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

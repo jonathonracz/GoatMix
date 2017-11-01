@@ -18,7 +18,7 @@ struct AmplitudeQuantize :
     struct Parameters :
         dsp::ProcessorState
     {
-        size_t bitDepth;
+        size_t bitDepth = 32;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 

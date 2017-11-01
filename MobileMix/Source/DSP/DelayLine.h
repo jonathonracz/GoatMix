@@ -20,8 +20,8 @@ public:
     struct Parameters :
         dsp::ProcessorState
     {
-        size_t maxDelay;
-        size_t samplesToDelay;
+        size_t maxDelay = 0;
+        size_t samplesToDelay = 0;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 

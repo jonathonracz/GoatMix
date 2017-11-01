@@ -54,7 +54,7 @@ void MMGainPluginEditor::resized()
 
     layout.items.add(lf.getFlexItem(*this, sliderGainL));
     layout.items.add(lf.getFlexItem(*this, sliderGain));
-    layout.items.add(lf.getFlexItem(*this, sliderPhaseDelayR));
+    layout.items.add(lf.getFlexItem(*this, sliderPan));
 
     FlexBox phaseL;
     phaseL.flexDirection = FlexBox::Direction::column;

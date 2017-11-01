@@ -19,7 +19,7 @@ public:
     struct Parameters :
         public dsp::ProcessorState
     {
-        float gain;
+        float gain = 1.0f;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
@@ -38,7 +38,10 @@ public:
         gain.process(context);
     }
 
-    void reset() noexcept override {}
+    void reset() noexcept override
+    {
+        gain.reset();
+    }
 
     Parameters::Ptr params = new Parameters;
 

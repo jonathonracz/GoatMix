@@ -72,6 +72,7 @@
 		16368E48A7244BB073868021 = {isa = PBXBuildFile; fileRef = E30DE61866DBA90076460139; };
 		7F9E74A120E7099E4B28A654 = {isa = PBXBuildFile; fileRef = D2AC1091FFFA432F58B09FF3; };
 		011B429FDDE04A0ED66C49BC = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_audio_devices.mm"; path = "../../JuceLibraryCode/include_juce_audio_devices.mm"; sourceTree = "SOURCE_ROOT"; };
+		03BB79D30538BAF9C9345870 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Pan.h; path = ../../Source/DSP/Pan.h; sourceTree = "SOURCE_ROOT"; };
 		06D7B554EAE0D3E3DE62E2D8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginEditor.cpp; path = ../../Source/MobileMixPluginEditor.cpp; sourceTree = "SOURCE_ROOT"; };
 		08A9FF91EA17C3E650A59858 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_devices"; path = "../../../external/JUCE/modules/juce_audio_devices"; sourceTree = "SOURCE_ROOT"; };
 		09730A271AEFBC7910FE30F6 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "include_juce_audio_plugin_client_utils.cpp"; path = "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -297,6 +298,7 @@
 					AE6C5854DE71A92A43C92341,
 					744DD89013408294BC7D6E3A, ); name = Core; sourceTree = "<group>"; };
 		084466A2BBDF7EF667263E6B = {isa = PBXGroup; children = (
+					03BB79D30538BAF9C9345870,
 					B1FEB49DBA9BA3DE6C1E2197,
 					8DAA5F6C48DC8B33DDDE4AF4,
 					93C557D5A907402F33E592C4,

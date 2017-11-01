@@ -49,9 +49,9 @@ void MMGainPlugin::registerParameters()
     paramPan = state.createAndAddParameter(
         addPrefixToParameterName("Pan"),
         addPrefixToParameterName("Pan"),
-        "%",
-        NormalisableRange<float>(0.0f, 1.0f, 0.01f),
-        0.5f,
+        "Degrees",
+        NormalisableRange<float>(-45.0f, 45.0f, 1.0f),
+        0.0f,
         nullptr,
         nullptr);
 
@@ -99,25 +99,38 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
 
 void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    dsp::ProcessSpec spec {
+    dsp::ProcessSpec multiChannelSpec {
         sampleRate,
         static_cast<uint32>(maximumExpectedSamplesPerBlock),
         static_cast<uint32>(getMainBusNumInputChannels())
     };
 
+    dsp::ProcessSpec monoSpec {
+        sampleRate,
+        static_cast<uint32>(maximumExpectedSamplesPerBlock),
+        1
+    };
+
     delay.params->maxDelay = static_cast<size_t>(sampleRate); // 1 second max delay
-    delay.prepare(spec);
-    gain.prepare(spec);
+
+    delay.prepare(multiChannelSpec);
+    gain.prepare(multiChannelSpec);
+    invertPhase.prepare(monoSpec);
+    pan.prepare(multiChannelSpec);
 }
 
 void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     delay.params->samplesToDelay = static_cast<size_t>((getUnnormalizedValue(paramPhaseDelayR) / 1000.0f) * getPreparedSampleRate());
     gain.params->gain = getUnnormalizedValue(paramGain);
+    invertPhase.params->invert = true;
+    pan.params->pan = getUnnormalizedValue(paramPan);
 
     dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
     delay.process(context);
     gain.process(context);
+    invertPhase.process(context);
+    pan.process(context);
     goniometerSource.process(buffer);
 }

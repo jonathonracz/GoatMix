@@ -19,7 +19,7 @@ public:
     struct Parameters :
         dsp::ProcessorState
     {
-        size_t samplesToRepeat;
+        size_t samplesToRepeat = 0;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
