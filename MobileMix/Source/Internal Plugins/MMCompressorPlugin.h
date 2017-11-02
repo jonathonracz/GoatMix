@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "../DSP/Compressor.h"
 
 class MMCompressorPlugin :
     public MobileMixPluginInstance

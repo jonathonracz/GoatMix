@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MobileMix\External\Maximilian">
+      <UniqueIdentifier>{3415E17E-70A3-F191-96E7-EFE210F08FAF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MobileMix\External\readerwriterqueue">
       <UniqueIdentifier>{2BAE8160-CFAC-E5AE-2592-ADC38FE09935}</UniqueIdentifier>
     </Filter>
@@ -424,6 +427,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\External\Maximilian\maximilian.cpp">
+      <Filter>MobileMix\External\Maximilian</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPlugin.cpp">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClCompile>
@@ -2403,6 +2409,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\External\Maximilian\maximilian.h">
+      <Filter>MobileMix\External\Maximilian</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\External\readerwriterqueue\readerwriterqueue.h">
       <Filter>MobileMix\External\readerwriterqueue</Filter>
     </ClInclude>
@@ -2510,6 +2519,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\Compressor.h">
+      <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\DryWet.h">
       <Filter>MobileMix\DSP</Filter>
