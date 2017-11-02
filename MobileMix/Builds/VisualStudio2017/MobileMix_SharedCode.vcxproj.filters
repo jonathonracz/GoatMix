@@ -2520,6 +2520,9 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\MMReverb.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>

@@ -18,7 +18,7 @@ class VariableDelayLineResampling :
 {
 public:
     struct Parameters :
-    dsp::ProcessorState
+        dsp::ProcessorState
     {
         size_t maxDelay = 0;
         size_t samplesToDelay = 0;

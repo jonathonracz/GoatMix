@@ -156,6 +156,7 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="ZJGX7r" name="MMReverb.h" compile="0" resource="0" file="Source/DSP/MMReverb.h"/>
       <FILE id="cs1vAt" name="VariableDelayLineResampling.h" compile="0"
             resource="0" file="Source/DSP/VariableDelayLineResampling.h"/>
       <FILE id="bBOU3q" name="Overdrive.h" compile="0" resource="0" file="Source/DSP/Overdrive.h"/>

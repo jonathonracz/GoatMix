@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/DryWet.h"
+#include "../DSP/MMReverb.h"
 
 class MMReverbPlugin :
     public MobileMixPluginInstance
@@ -34,6 +35,7 @@ public:
 
 private:
     DryWet dryWet;
+    MMReverb reverb;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPlugin)
 };
