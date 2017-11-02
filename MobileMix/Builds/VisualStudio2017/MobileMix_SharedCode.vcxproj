@@ -1951,6 +1951,7 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\Overdrive.h"/>
     <ClInclude Include="..\..\Source\DSP\Compressor.h"/>
     <ClInclude Include="..\..\Source\DSP\DryWet.h"/>
     <ClInclude Include="..\..\Source\DSP\Pan.h"/>

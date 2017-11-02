@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/AmplitudeQuantize.h"
 #include "../DSP/SampleRepeat.h"
+#include "../DSP/Overdrive.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -36,6 +37,7 @@ public:
 private:
     AmplitudeQuantize quantizer;
     SampleRepeat sampleRepeater;
+    Overdrive overdrive;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPlugin)
 };
