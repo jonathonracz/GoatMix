@@ -14,7 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../GUI/GoniometerSource.h"
 #include "../GUI/MaxdBLabel.h"
-#include "../DSP/DelayLine.h"
+#include "../DSP/VariableDelayLineResampling.h"
 #include "../DSP/Gain.h"
 #include "../DSP/InvertPhase.h"
 #include "../DSP/Pan.h"
@@ -50,7 +50,7 @@ private:
     Gain gainL;
     Gain gainR;
 
-    DelayLine delay;
+    VariableDelayLineResampling delay;
     Gain gain;
     InvertPhase invertPhase;
     Pan pan;

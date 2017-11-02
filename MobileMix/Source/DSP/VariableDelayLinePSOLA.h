@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    DelayLine.h
+    VariableDelayLinePSOLA.h
     Created: 31 Oct 2017 2:57:49pm
     Author:  Jonathon Racz
 
@@ -13,7 +13,7 @@
 #include "JuceHeader.h"
 #include "RingBuffer.h"
 
-class DelayLine :
+class VariableDelayLinePSOLA :
     public dsp::ProcessorBase
 {
 public:
@@ -25,8 +25,8 @@ public:
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
-    DelayLine() = default;
-    ~DelayLine() = default;
+    VariableDelayLinePSOLA() = default;
+    ~VariableDelayLinePSOLA() = default;
 
     void prepare(const dsp::ProcessSpec& spec) override
     {

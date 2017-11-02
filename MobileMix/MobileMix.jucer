@@ -156,6 +156,8 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="cs1vAt" name="VariableDelayLineResampling.h" compile="0"
+            resource="0" file="Source/DSP/VariableDelayLineResampling.h"/>
       <FILE id="bBOU3q" name="Overdrive.h" compile="0" resource="0" file="Source/DSP/Overdrive.h"/>
       <FILE id="zmoNgW" name="Compressor.h" compile="0" resource="0" file="Source/DSP/Compressor.h"/>
       <FILE id="Y3YZjS" name="DryWet.h" compile="0" resource="0" file="Source/DSP/DryWet.h"/>
@@ -166,7 +168,8 @@
             file="Source/DSP/AmplitudeQuantize.h"/>
       <FILE id="HNoVzC" name="BufferSizeAdaptor.h" compile="0" resource="0"
             file="Source/DSP/BufferSizeAdaptor.h"/>
-      <FILE id="zYc3oa" name="DelayLine.h" compile="0" resource="0" file="Source/DSP/DelayLine.h"/>
+      <FILE id="zYc3oa" name="VariableDelayLinePSOLA.h" compile="0" resource="0"
+            file="Source/DSP/VariableDelayLinePSOLA.h"/>
       <FILE id="dFx7EU" name="InvertPhase.h" compile="0" resource="0" file="Source/DSP/InvertPhase.h"/>
       <FILE id="BcpLCZ" name="Math.h" compile="0" resource="0" file="Source/DSP/Math.h"/>
       <FILE id="l1XXpl" name="SampleRepeat.h" compile="0" resource="0" file="Source/DSP/SampleRepeat.h"/>

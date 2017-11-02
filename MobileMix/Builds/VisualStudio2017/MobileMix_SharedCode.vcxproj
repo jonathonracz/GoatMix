@@ -1951,6 +1951,7 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h"/>
     <ClInclude Include="..\..\Source\DSP\Overdrive.h"/>
     <ClInclude Include="..\..\Source\DSP\Compressor.h"/>
     <ClInclude Include="..\..\Source\DSP\DryWet.h"/>
@@ -1959,7 +1960,7 @@
     <ClInclude Include="..\..\Source\DSP\RingBuffer.h"/>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h"/>
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h"/>
-    <ClInclude Include="..\..\Source\DSP\DelayLine.h"/>
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLinePSOLA.h"/>
     <ClInclude Include="..\..\Source\DSP\InvertPhase.h"/>
     <ClInclude Include="..\..\Source\DSP\Math.h"/>
     <ClInclude Include="..\..\Source\DSP\SampleRepeat.h"/>

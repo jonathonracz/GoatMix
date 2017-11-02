@@ -2520,6 +2520,9 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\Overdrive.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
@@ -2544,7 +2547,7 @@
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\DelayLine.h">
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLinePSOLA.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\InvertPhase.h">
