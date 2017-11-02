@@ -31,13 +31,11 @@ public:
 
     void prepare(const dsp::ProcessSpec& spec) override
     {
-        sampleRate = spec.sampleRate;
-
         auto& bias = overdrive.get<1>();
         bias.setBias(0.4f);
 
-        auto& wavShaper = overdrive.get<2>();
-        wavShaper.functionToUse = std::tanh;
+        auto& waveShaper = overdrive.get<2>();
+        waveShaper.functionToUse = std::tanh;
 
         auto& dcFilter = overdrive.get<3>();
         dcFilter.state = dsp::IIR::Coefficients<float>::makeHighPass(spec.sampleRate, 5.0);
@@ -78,6 +76,4 @@ private:
             dsp::IIR::Filter<float>,
             dsp::IIR::Coefficients<float>>,
         Gain> overdrive;
-
-    double sampleRate = 0;
 };
