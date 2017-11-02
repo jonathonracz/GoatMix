@@ -152,6 +152,7 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="Y3YZjS" name="DryWet.h" compile="0" resource="0" file="Source/DSP/DryWet.h"/>
       <FILE id="Za6Ji0" name="Pan.h" compile="0" resource="0" file="Source/DSP/Pan.h"/>
       <FILE id="iGHCzN" name="Gain.h" compile="0" resource="0" file="Source/DSP/Gain.h"/>
       <FILE id="UVYsdT" name="RingBuffer.h" compile="0" resource="0" file="Source/DSP/RingBuffer.h"/>

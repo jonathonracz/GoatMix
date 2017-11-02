@@ -18,7 +18,7 @@ class InvertPhase :
 {
 public:
     struct Parameters :
-        public dsp::ProcessorState
+        dsp::ProcessorState
     {
         bool invert = false;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;

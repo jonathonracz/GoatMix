@@ -16,10 +16,9 @@ class Pan :
     public dsp::ProcessorBase
 {
 public:
-    class Parameters :
-        public dsp::ProcessorState
+    struct Parameters :
+        dsp::ProcessorState
     {
-    public:
         // In degrees, -45.0 <= panAngle <= 45.0.
         float pan = 0.0f;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;

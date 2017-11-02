@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "../DSP/DryWet.h"
 
 class MMReverbPlugin :
     public MobileMixPluginInstance
@@ -32,5 +33,7 @@ public:
     AudioProcessorParameterWithID* paramReverb;
 
 private:
+    DryWet dryWet;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPlugin)
 };

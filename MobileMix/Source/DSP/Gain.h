@@ -17,7 +17,7 @@ class Gain :
 {
 public:
     struct Parameters :
-        public dsp::ProcessorState
+        dsp::ProcessorState
     {
         float gain = 1.0f;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;

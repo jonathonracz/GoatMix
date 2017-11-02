@@ -212,6 +212,7 @@
 		FA74B4A7A835C45C1D3D6A57 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMShapeButton.cpp; path = ../../Source/GUI/MMShapeButton.cpp; sourceTree = "SOURCE_ROOT"; };
 		FC6B201A5323E9007D535521 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		FCDC56042628F9BC05EB2611 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DelayLine.h; path = ../../Source/DSP/DelayLine.h; sourceTree = "SOURCE_ROOT"; };
+		FD09EA0A694E933487A88E57 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DryWet.h; path = ../../Source/DSP/DryWet.h; sourceTree = "SOURCE_ROOT"; };
 		FDB1B3C9DEC18D3D2CE0F1E0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMDistortionPlugin.cpp; path = "../../Source/Internal Plugins/MMDistortionPlugin.cpp"; sourceTree = "SOURCE_ROOT"; };
 		FE6847B3D788F06B76159E4A = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Standalone_Plugin.plist"; path = "Info-Standalone_Plugin.plist"; sourceTree = "SOURCE_ROOT"; };
 		FE8D15768A891CA48EE2D5A8 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MobileMixPluginEditor.h; path = ../../Source/MobileMixPluginEditor.h; sourceTree = "SOURCE_ROOT"; };
@@ -298,6 +299,7 @@
 					AE6C5854DE71A92A43C92341,
 					744DD89013408294BC7D6E3A, ); name = Core; sourceTree = "<group>"; };
 		084466A2BBDF7EF667263E6B = {isa = PBXGroup; children = (
+					FD09EA0A694E933487A88E57,
 					03BB79D30538BAF9C9345870,
 					B1FEB49DBA9BA3DE6C1E2197,
 					8DAA5F6C48DC8B33DDDE4AF4,

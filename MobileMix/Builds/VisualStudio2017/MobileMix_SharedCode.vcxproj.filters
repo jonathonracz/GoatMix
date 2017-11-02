@@ -2511,6 +2511,9 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DryWet.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\Pan.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>

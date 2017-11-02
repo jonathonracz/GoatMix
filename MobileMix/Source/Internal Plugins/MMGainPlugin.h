@@ -47,6 +47,9 @@ public:
     AudioProcessorParameterWithID* paramPhaseInvertR;
 
 private:
+    Gain gainL;
+    Gain gainR;
+
     DelayLine delay;
     Gain gain;
     InvertPhase invertPhase;

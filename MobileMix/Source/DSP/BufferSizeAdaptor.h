@@ -14,9 +14,6 @@
 #include <unordered_set>
 #include <vector>
 
-namespace kernel
-{
-
 class BufferSizeAdaptor
 {
 public:
@@ -75,5 +72,3 @@ private:
     size_t logicalBufferSize = 0;
     size_t bufferWriteIdx = 0;
 };
-
-}
