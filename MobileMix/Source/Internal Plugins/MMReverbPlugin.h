@@ -36,6 +36,9 @@ public:
 private:
     DryWet dryWet;
     MMReverb reverb;
+    dsp::ProcessorDuplicator<
+        dsp::StateVariableFilter::Filter<float>,
+        dsp::StateVariableFilter::Parameters<float>> lowPass;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPlugin)
 };

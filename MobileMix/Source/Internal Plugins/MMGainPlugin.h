@@ -18,6 +18,8 @@
 #include "../DSP/Gain.h"
 #include "../DSP/InvertPhase.h"
 #include "../DSP/Pan.h"
+#include "../DSP/MMStateVariableFilter.h"
+#include "../DSP/MMIIRFilter.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -54,6 +56,7 @@ private:
     Gain gain;
     InvertPhase invertPhase;
     Pan pan;
+    MMStateVariableFilter filter;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };

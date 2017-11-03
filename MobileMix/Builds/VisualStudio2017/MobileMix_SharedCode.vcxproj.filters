@@ -460,6 +460,9 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -494,6 +497,9 @@
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GUI\MMTopBar.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\ReverbPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
@@ -2454,6 +2460,9 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\CompressorPreview.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -2496,6 +2505,9 @@
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\ReverbPreview.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -2519,6 +2531,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\MMStateVariableFilter.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DistortionChain.h">
+      <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\MMReverb.h">
       <Filter>MobileMix\DSP</Filter>

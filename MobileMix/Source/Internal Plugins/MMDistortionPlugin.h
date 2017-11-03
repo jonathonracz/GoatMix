@@ -15,6 +15,7 @@
 #include "../DSP/AmplitudeQuantize.h"
 #include "../DSP/SampleRepeat.h"
 #include "../DSP/Overdrive.h"
+#include "../GUI/DistortionPreview.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -35,6 +36,8 @@ public:
     AudioProcessorParameterWithID* paramDistortion;
 
 private:
+    DistortionPreview preview;
+
     AmplitudeQuantize quantizer;
     SampleRepeat sampleRepeater;
     Overdrive overdrive;

@@ -158,6 +158,7 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMGainPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPlugin.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DistortionPreviewSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
@@ -170,6 +171,7 @@
     <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\GUI\MMTopBar.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\ReverbPreview.cpp"/>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginInstanceEditor.cpp"/>
     <ClCompile Include="..\..\Source\Core\MobileMixPluginFormat.cpp"/>
@@ -1929,6 +1931,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\DistortionPreviewSource.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
@@ -1943,6 +1946,7 @@
     <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTopBar.h"/>
+    <ClInclude Include="..\..\Source\GUI\ReverbPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\ScreenResolutionConstants.h"/>
     <ClInclude Include="..\..\Source\GUI\SimpleLevelMeter.h"/>
     <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h"/>
@@ -1951,6 +1955,9 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h"/>
+    <ClInclude Include="..\..\Source\DSP\MMStateVariableFilter.h"/>
+    <ClInclude Include="..\..\Source\DSP\DistortionChain.h"/>
     <ClInclude Include="..\..\Source\DSP\MMReverb.h"/>
     <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h"/>
     <ClInclude Include="..\..\Source\DSP\Overdrive.h"/>

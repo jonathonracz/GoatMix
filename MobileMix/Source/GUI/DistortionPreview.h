@@ -9,3 +9,20 @@
 */
 
 #pragma once
+
+#include "JuceHeader.h"
+#include "../DSP/DistortionChain.h"
+
+class DistortionPreview :
+    public Component
+{
+public:
+    DistortionPreview() {}
+    ~DistortionPreview() {}
+
+private:
+    void paint(Graphics& g) override;
+
+    DistortionChain previewDSP;
+
+};
