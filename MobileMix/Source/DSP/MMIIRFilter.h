@@ -42,10 +42,12 @@ public:
     {
         sampleRate = spec.sampleRate;
         iir.prepare(spec);
+        updateParameters();
     }
 
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
+        updateParameters();
         iir.process(context);
     }
 

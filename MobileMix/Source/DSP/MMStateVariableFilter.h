@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 
+// Do a simple alias to get all the template syntax out of the way...
 using MMStateVariableFilter = dsp::ProcessorDuplicator<
     dsp::StateVariableFilter::Filter<float>,
     dsp::StateVariableFilter::Parameters<float>>;
