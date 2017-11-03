@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/DryWet.h"
 #include "../DSP/MMReverb.h"
+#include "../GUI/GoniometerSource.h"
 
 class MMReverbPlugin :
     public MobileMixPluginInstance
@@ -31,7 +32,13 @@ public:
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
-    AudioProcessorParameterWithID* paramReverb;
+    GoniometerSource graphReverbSource;
+    
+    AudioProcessorParameterWithID* paramTrim;
+    AudioProcessorParameterWithID* paramLowPass;
+    AudioProcessorParameterWithID* paramHighPass;
+    AudioProcessorParameterWithID* paramLength;
+    AudioProcessorParameterWithID* paramDryWet;
 
 private:
     DryWet dryWet;

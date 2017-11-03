@@ -19,13 +19,54 @@ MMCompressorPlugin::MMCompressorPlugin(AudioProcessorValueTreeState& state) :
 void MMCompressorPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
-    paramCompressor = state.createAndAddParameter(addPrefixToParameterName("Compressor"),
-                                                          addPrefixToParameterName("Compressor"),
+    paramAttack = state.createAndAddParameter(addPrefixToParameterName("Attack"),
+                                                          addPrefixToParameterName("Attack"),
                                                           "",
                                                           NormalisableRange<float>(0.0f, 1.0f, 0.1f),
                                                           1.0f,
                                                           nullptr,
                                                           nullptr);
+    
+    paramRelease = state.createAndAddParameter(addPrefixToParameterName("Release"),
+                                              addPrefixToParameterName("Release"),
+                                              "",
+                                              NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                              1.0f,
+                                              nullptr,
+                                              nullptr);
+    
+    paramRatio = state.createAndAddParameter(addPrefixToParameterName("Ratio"),
+                                              addPrefixToParameterName("Ratio"),
+                                              "",
+                                              NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                              1.0f,
+                                              nullptr,
+                                              nullptr);
+    
+    paramThreshold = state.createAndAddParameter(addPrefixToParameterName("Threshold"),
+                                                 addPrefixToParameterName("Threshold"),
+                                                 "",
+                                                 NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                                 1.0f,
+                                                 nullptr,
+                                                 nullptr);
+    
+    paramMakeupGain = state.createAndAddParameter(addPrefixToParameterName("Makeup Gain"),
+                                              addPrefixToParameterName("Makeup Gain"),
+                                              "",
+                                              NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                              1.0f,
+                                              nullptr,
+                                              nullptr);
+    
+    
+    paramDryWet = state.createAndAddParameter(addPrefixToParameterName("Dry/Wet"),
+                                              addPrefixToParameterName("Dry/Wet"),
+                                              "",
+                                              NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                              1.0f,
+                                              nullptr,
+                                              nullptr);
 }
 
 AudioProcessorEditor* MMCompressorPlugin::createEditor()

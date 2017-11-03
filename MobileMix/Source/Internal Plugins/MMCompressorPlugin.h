@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/Compressor.h"
+#include "../GUI/GoniometerSource.h"
 
 class MMCompressorPlugin :
     public MobileMixPluginInstance
@@ -29,8 +30,15 @@ public:
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
+    
+    GoniometerSource graphCompressSource;
 
-    AudioProcessorParameterWithID* paramCompressor;
+    AudioProcessorParameterWithID* paramAttack;
+    AudioProcessorParameterWithID* paramRelease;
+    AudioProcessorParameterWithID* paramRatio;
+    AudioProcessorParameterWithID* paramThreshold;
+    AudioProcessorParameterWithID* paramMakeupGain;
+    AudioProcessorParameterWithID* paramDryWet;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMCompressorPlugin)
