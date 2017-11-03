@@ -42,17 +42,13 @@ void MMDistortionPlugin::prepareToPlayDerived(double sampleRate, int maximumExpe
         static_cast<uint32>(getMainBusNumInputChannels())
     };
 
-    quantizer.prepare(spec);
-    sampleRepeater.prepare(spec);
+    distortion.prepare(spec);
 }
 
 void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     dsp::AudioBlock<float> block(buffer);
+    dsp::ProcessContextReplacing<float> context(block);
 
-    quantizer.params->bitDepth = 8;
-    //quantizer.process(dsp::ProcessContextReplacing<float>(block));
-
-    sampleRepeater.params->samplesToRepeat = 4;
-    //sampleRepeater.process(dsp::ProcessContextReplacing<float>(block));
+    distortion.process(context);
 }

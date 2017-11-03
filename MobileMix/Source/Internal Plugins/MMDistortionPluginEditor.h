@@ -12,6 +12,7 @@
 
 #include "MMDistortionPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
+#include "../GUI/DistortionPreview.h"
 
 class MMDistortionPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -27,6 +28,8 @@ private:
     MMSliderAttachment gainSliderAttachment;
 
     MMParameterSlider gainSlider;
+
+    DistortionPreview preview;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPluginEditor)
 };

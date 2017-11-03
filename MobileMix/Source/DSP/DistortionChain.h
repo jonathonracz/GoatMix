@@ -33,20 +33,18 @@ public:
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
-    DistortionChain()
-    {
-
-    }
-
+    DistortionChain() = default;
     ~DistortionChain() = default;
 
     void prepare(const dsp::ProcessSpec& spec) override
     {
+        updateParameters();
         chain.prepare(spec);
     }
 
     void process(const dsp::ProcessContextReplacing<float>& context) override
     {
+        updateParameters();
         chain.process(context);
     }
 
@@ -58,6 +56,15 @@ public:
     Parameters::Ptr params = new Parameters;
 
 private:
+    void updateParameters()
+    {
+        // Trickle parameters down.
+        chain.get<0>().params->samplesToRepeat = params->samplesToRepeat;
+        chain.get<1>().params->bitDepth = params->bitDepth;
+        chain.get<2>().params->gainUp = params->overDriveGainUp;
+        chain.get<2>().params->gainDown = params->overDriveGainDown;
+    }
+
     dsp::ProcessorChain<
         SampleRepeat,
         AmplitudeQuantize,

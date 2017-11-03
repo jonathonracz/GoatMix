@@ -466,9 +466,6 @@
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\DistortionPreviewSource.cpp">
-      <Filter>MobileMix\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -2464,9 +2461,6 @@
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">
-      <Filter>MobileMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\DistortionPreviewSource.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h">

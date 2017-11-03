@@ -12,8 +12,7 @@
 
 #include "MMCompressorPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
-#include "../GUI/Goniometer.h"
-#include "../GUI/SimpleLevelMeter.h"
+#include "../GUI/DistortionPreview.h"
 
 class MMCompressorPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -26,27 +25,9 @@ protected:
     void resized() override;
 
 private:
-    
-    Goniometer graphCompress;
-    Label textGR;
-    Label textLGainReduc;
-    Label textRGainReduc;
-    SimpleLevelMeter meterLGainReduc;
-    SimpleLevelMeter meterRGainReduc;
+    MMSliderAttachment gainSliderAttachment;
 
-    MMParameterSlider sliderAttack;
-    MMParameterSlider sliderRelease;
-    MMParameterSlider sliderRatio;
-    MMParameterSlider sliderThreshold;
-    MMParameterSlider sliderMakeupGain;
-    MMParameterSlider sliderDryWet;
-    
-    MMSliderAttachment attachAttack;
-    MMSliderAttachment attachRelease;
-    MMSliderAttachment attachRatio;
-    MMSliderAttachment attachThreshold;
-    MMSliderAttachment attachMakeupGain;
-    MMSliderAttachment attachDryWet;
-    
+    MMParameterSlider gainSlider;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMCompressorPluginEditor)
 };

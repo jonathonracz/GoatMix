@@ -11,7 +11,8 @@
 #include "MMDistortionPluginEditor.h"
 
 MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor) :
-    MobileMixPluginInstanceEditor(processor)
+    MobileMixPluginInstanceEditor(processor),
+    preview(processor.distortion.params)
 {
     gainSliderAttachment = createSliderAttachment(processor.paramDistortion, gainSlider);
     addAndMakeVisible(gainSlider);

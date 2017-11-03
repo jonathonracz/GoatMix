@@ -12,10 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
-#include "../DSP/AmplitudeQuantize.h"
-#include "../DSP/SampleRepeat.h"
-#include "../DSP/Overdrive.h"
-#include "../GUI/DistortionPreview.h"
+#include "../DSP/DistortionChain.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -33,14 +30,9 @@ public:
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
+    DistortionChain distortion;
+
     AudioProcessorParameterWithID* paramDistortion;
-
-private:
-    DistortionPreview preview;
-
-    AmplitudeQuantize quantizer;
-    SampleRepeat sampleRepeater;
-    Overdrive overdrive;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPlugin)
 };

@@ -160,7 +160,6 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp"/>
-    <ClCompile Include="..\..\Source\GUI\DistortionPreviewSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
     <ClCompile Include="..\..\Source\GUI\Goniometer.cpp"/>
@@ -1933,7 +1932,6 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h"/>
-    <ClInclude Include="..\..\Source\GUI\DistortionPreviewSource.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\GUI\Goniometer.h"/>

@@ -91,10 +91,6 @@
             file="Source/GUI/DistortionPreview.cpp"/>
       <FILE id="oEs9ZE" name="DistortionPreview.h" compile="0" resource="0"
             file="Source/GUI/DistortionPreview.h"/>
-      <FILE id="HZij9e" name="DistortionPreviewSource.cpp" compile="1" resource="0"
-            file="Source/GUI/DistortionPreviewSource.cpp"/>
-      <FILE id="D0JrrB" name="DistortionPreviewSource.h" compile="0" resource="0"
-            file="Source/GUI/DistortionPreviewSource.h"/>
       <FILE id="OnXZF5" name="DraggableTabBarButton.cpp" compile="1" resource="0"
             file="Source/GUI/DraggableTabBarButton.cpp"/>
       <FILE id="aPXk1A" name="DraggableTabBarButton.h" compile="0" resource="0"
