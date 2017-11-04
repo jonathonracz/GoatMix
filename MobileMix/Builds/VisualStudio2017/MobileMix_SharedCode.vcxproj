@@ -1931,6 +1931,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\Divider.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreviewSource.h"/>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h"/>

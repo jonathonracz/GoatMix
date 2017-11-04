@@ -2460,6 +2460,9 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\Divider.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>

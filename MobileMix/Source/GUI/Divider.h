@@ -5,14 +5,13 @@
 //  Created by Jeran Norman on 11/3/17.
 //
 
-#ifndef Divider_h
-#define Divider_h
+#pragma once
 
 #include "JuceHeader.h"
 #include "MMLookAndFeel.h"
 
 class Divider :
-public Component
+    public Component
 {
 public:
     Divider()
@@ -21,13 +20,10 @@ public:
     }
 
 private:
-    
     void paint(Graphics& g) override
     {
+        MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
         g.setColour(Colours::black);
-        g.drawLine(0, 0, getWidth(), getHeight(), 2);
+        g.drawLine(0, 0, getWidth(), getHeight(), lf.borderThickness);
     }
 };
-
-
-#endif /* Divider_h */
