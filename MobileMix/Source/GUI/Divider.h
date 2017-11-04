@@ -14,10 +14,8 @@ class Divider :
     public Component
 {
 public:
-    Divider()
-    {
-        setOpaque(true);
-    }
+    Divider() = default;
+    ~Divider() = default;
 
 private:
     void paint(Graphics& g) override
