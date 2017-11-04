@@ -14,6 +14,7 @@
 MMParameterSlider::MMParameterSlider() :
     Slider(Slider::SliderStyle::LinearBar, Slider::TextEntryBoxPosition::TextBoxAbove)
 {
+    setOpaque(true);
 }
 
 void MMParameterSlider::setRepresentedParameter(AudioProcessorParameterWithID* parameter)

@@ -20,7 +20,6 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     tabs(TabbedButtonBar::Orientation::TabsAtBottom),
     aboutDialog("About")
 {
-    renderingContext.attachTo(*this);
     setResizable(true, true);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
@@ -49,7 +48,6 @@ MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
     setLookAndFeel(nullptr); // Prevent assertion on quit
     processor.params.state.removeListener(this);
     processor.chainTree.removeListener(this);
-    renderingContext.detach();
 }
 
 void MobileMixAudioProcessorEditor::paint(Graphics& g)

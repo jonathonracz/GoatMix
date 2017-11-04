@@ -53,7 +53,6 @@ private:
 
     void closeButtonClicked(LongDialogPopup* dialog) override;
 
-    OpenGLContext renderingContext;
     MobileMixAudioProcessor& processor;
     MMTopBar topBar;
     MMTabbedComponent tabs;
