@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/Compressor.h"
 #include "../GUI/GoniometerSource.h"
+#include "../DSP/WindowedMeter.h"
 
 class MMCompressorPlugin :
     public MobileMixPluginInstance
@@ -39,6 +40,8 @@ public:
     AudioProcessorParameterWithID* paramThreshold;
     AudioProcessorParameterWithID* paramMakeupGain;
     AudioProcessorParameterWithID* paramDryWet;
+
+    WindowedMeter peak;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMCompressorPlugin)

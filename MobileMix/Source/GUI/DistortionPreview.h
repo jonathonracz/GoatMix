@@ -30,4 +30,6 @@ private:
     constexpr static const size_t generatorFrequency = 440;
     AudioBuffer<float> freshSignal;
     AudioBuffer<float> processedSignal;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DistortionPreview)
 };

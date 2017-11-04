@@ -118,6 +118,11 @@ public:
             return 0;
     }
 
+    bool isFull() const noexcept
+    {
+        return getNumElements() == getLogicalCapacity();
+    }
+
     bool isEmpty() const noexcept
     {
         return getNumElements() == 0;

@@ -87,6 +87,10 @@
             file="Source/GUI/CompressorPreview.cpp"/>
       <FILE id="kpNIoJ" name="CompressorPreview.h" compile="0" resource="0"
             file="Source/GUI/CompressorPreview.h"/>
+      <FILE id="yOIX5g" name="CompressorPreviewSource.cpp" compile="1" resource="0"
+            file="Source/GUI/CompressorPreviewSource.cpp"/>
+      <FILE id="RTacfF" name="CompressorPreviewSource.h" compile="0" resource="0"
+            file="Source/GUI/CompressorPreviewSource.h"/>
       <FILE id="OdMqGs" name="DistortionPreview.cpp" compile="1" resource="0"
             file="Source/GUI/DistortionPreview.cpp"/>
       <FILE id="oEs9ZE" name="DistortionPreview.h" compile="0" resource="0"
@@ -159,6 +163,7 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="lG3yZn" name="WindowedMeter.h" compile="0" resource="0" file="Source/DSP/WindowedMeter.h"/>
       <FILE id="NEgaKa" name="MMIIRFilter.h" compile="0" resource="0" file="Source/DSP/MMIIRFilter.h"/>
       <FILE id="x9H6cv" name="MMStateVariableFilter.h" compile="0" resource="0"
             file="Source/DSP/MMStateVariableFilter.h"/>

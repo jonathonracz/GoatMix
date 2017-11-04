@@ -463,6 +463,9 @@
     <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\CompressorPreviewSource.cpp">
+      <Filter>MobileMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -2460,6 +2463,9 @@
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\CompressorPreviewSource.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -2525,6 +2531,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\WindowedMeter.h">
+      <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h">
       <Filter>MobileMix\DSP</Filter>

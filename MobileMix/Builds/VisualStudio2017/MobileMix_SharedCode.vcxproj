@@ -159,6 +159,7 @@
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPlugin.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp"/>
+    <ClCompile Include="..\..\Source\GUI\CompressorPreviewSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabBarButton.cpp"/>
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp"/>
@@ -1931,6 +1932,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>
+    <ClInclude Include="..\..\Source\GUI\CompressorPreviewSource.h"/>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h"/>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h"/>
@@ -1953,6 +1955,7 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\WindowedMeter.h"/>
     <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h"/>
     <ClInclude Include="..\..\Source\DSP\MMStateVariableFilter.h"/>
     <ClInclude Include="..\..\Source\DSP\DistortionChain.h"/>
