@@ -51,8 +51,12 @@ bool AudioProcessorChain::removeNode(Node* node)
 
 void AudioProcessorChain::moveNode(int fromIndex, int toIndex)
 {
+    Array<Node::Ptr> newChain(chain);
+    Node::Ptr nodeToMove = newChain.removeAndReturn(fromIndex);
+    newChain.insert(toIndex, nodeToMove);
+
     const ScopedLock lock(getCallbackLock());
-    chain.swap(fromIndex, toIndex);
+    chain.swapWith(newChain);
 }
 
 void AudioProcessorChain::prepareToPlay(double sampleRate, int blockSize)
