@@ -75,7 +75,16 @@ void MMCompressorPluginEditor::resized()
     layout.items.add(FlexItem(sliderRelease).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderRatio).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderThreshold).withMargin(standardMargin).withFlex(1.0f));
-    layout.items.add(FlexItem(graphCompress).withMargin(standardMargin).withFlex(10.0f));
+    
+    FlexItem graphItem = FlexItem(graphCompress).withMargin(standardMargin).withWidth(this->getWidth() * 0.4f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
+    if (graphItem.width > graphItem.height) {
+        graphItem.width = graphItem.height;
+    } else {
+        graphItem.height = graphItem.width;
+        float topBottomSpace = (this->getHeight() - vertSpace * 2 - graphItem.height) / 2;
+        graphItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
+    }
+    layout.items.add(graphItem);
     
     FlexBox meterBox;
     meterBox.flexDirection = FlexBox::Direction::column;
@@ -97,10 +106,7 @@ void MMCompressorPluginEditor::resized()
     meters.items.add(FlexItem(lMeter).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f)).withFlex(1.0f));
     meters.items.add(FlexItem(rMeter).withFlex(1.0f));
     meterBox.items.add(FlexItem(meters).withFlex(10.0f));
-    layout.items.add(FlexItem(meterBox).withMargin(standardMargin).withFlex(1.5f));
-    
-    //layout.items.add(FlexItem(meterLGainReduc).withMargin(standardMargin).withFlex(0.5f));
-    //layout.items.add(FlexItem(meterRGainReduc).withMargin(standardMargin).withFlex(0.5f));
+    layout.items.add(FlexItem(meterBox).withMargin(standardMargin).withFlex(1.0f));
     
     layout.items.add(FlexItem(sliderMakeupGain).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));

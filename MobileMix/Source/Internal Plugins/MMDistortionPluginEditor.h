@@ -13,6 +13,8 @@
 #include "MMDistortionPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 #include "../GUI/DistortionPreview.h"
+#include "../GUI/Goniometer.h"
+#include "../GUI/SimpleLevelMeter.h"
 
 class MMDistortionPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -25,9 +27,29 @@ protected:
     void resized() override;
 
 private:
-    MMSliderAttachment gainSliderAttachment;
-
-    MMParameterSlider gainSlider;
+    Goniometer graphDistortion;
+    SimpleLevelMeter meterL;
+    SimpleLevelMeter meterR;
+    Label labelL;
+    Label labelR;
+    
+    MMParameterSlider sliderDownsample;
+    MMParameterSlider sliderBitDepth;
+    MMParameterSlider sliderTone;
+    MMParameterSlider sliderDrive;
+    MMParameterSlider sliderClipThreshold1;
+    MMParameterSlider sliderLowPass;
+    MMParameterSlider sliderClipThreshold2;
+    
+    MMSliderAttachment attachDownsample;
+    MMSliderAttachment attachBitDepth;
+    MMSliderAttachment attachTone;
+    MMSliderAttachment attachDrive;
+    MMSliderAttachment attachClipThreshold1;
+    MMSliderAttachment attachLowPass;
+    MMSliderAttachment attachClipThreshold2;
+    
+    //MMShapeButton buttonLowPass;
 
     DistortionPreview preview;
 

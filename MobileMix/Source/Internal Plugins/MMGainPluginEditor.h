@@ -16,6 +16,7 @@
 #include "../GUI/MMShapeButton.h"
 #include "../GUI/SimpleMultiLevelMeter.h"
 #include "../GUI/Goniometer.h"
+#include "../GUI/Divider.h"
 
 class MMGainPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -30,6 +31,10 @@ protected:
 private:
     Goniometer goniometer;
     MaxdBLabel maxdBLabel;
+    
+    SimpleMultiLevelMeter smlMeterL;
+    SimpleMultiLevelMeter smlMeterR;
+    Divider div;
 
     MMParameterSlider sliderGain;
     MMParameterSlider sliderGainL;

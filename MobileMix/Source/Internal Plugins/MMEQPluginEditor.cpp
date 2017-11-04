@@ -70,6 +70,32 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
     addAndMakeVisible(boxType2);
     addAndMakeVisible(boxType3);
     addAndMakeVisible(boxType4);
+    
+    text1.setText("1", dontSendNotification);
+    text1.setBorderSize(BorderSize<int>::BorderSize());
+    text1.setJustificationType(Justification::centred);
+    
+    text2.setText("2", dontSendNotification);
+    text2.setBorderSize(BorderSize<int>::BorderSize());
+    text2.setJustificationType(Justification::centred);
+    
+    text3.setText("3", dontSendNotification);
+    text3.setBorderSize(BorderSize<int>::BorderSize());
+    text3.setJustificationType(Justification::centred);
+    
+    text4.setText("4", dontSendNotification);
+    text4.setBorderSize(BorderSize<int>::BorderSize());
+    text4.setJustificationType(Justification::centred);
+    
+    addAndMakeVisible(text1);
+    addAndMakeVisible(text2);
+    addAndMakeVisible(text3);
+    addAndMakeVisible(text4);
+    
+    addAndMakeVisible(div1);
+    addAndMakeVisible(div2);
+    addAndMakeVisible(div3);
+    
 }
 
 MMEQPluginEditor::~MMEQPluginEditor()
@@ -83,7 +109,9 @@ void MMEQPluginEditor::resized()
     
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
-    FlexItem::Margin extraRightMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace * 2, 0.0f, 0.0f);
+    FlexItem::Margin rightMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f);
+    FlexItem::Margin leftMargin = FlexItem::Margin::Margin(0.0f, vertSpace, 0.0f, dynamicSpace);
+    FlexItem::Margin rightLeftMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace);
     FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, dynamicSpace);
     
     //Box 1
@@ -97,9 +125,16 @@ void MMEQPluginEditor::resized()
     FlexBox cb1;
     cb1.flexDirection = FlexBox::Direction::column;
     cb1.items.add(FlexItem(fb1).withFlex(6.0f));
-    cb1.items.add(FlexItem(boxType1).withMargin(FlexItem::Margin::Margin(5.0f, dynamicSpace, 15.0f, vertSpace)).withFlex(1.0f));
     
-    layout.items.add(FlexItem(cb1).withMargin(extraRightMargin).withFlex(1.0f));
+    FlexBox rb1;
+    rb1.flexDirection = FlexBox::Direction::row;
+    rb1.items.add(FlexItem(boxType1).withFlex(2.0f));
+    rb1.items.add(FlexItem(text1).withFlex(1.0f));
+    
+    cb1.items.add(FlexItem(rb1).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, vertSpace)).withFlex(1.0f));
+    
+    layout.items.add(FlexItem(cb1).withMargin(rightMargin).withFlex(1.0f));
+    layout.items.add(FlexItem(div1).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
     
     //Box 2
     FlexBox fb2;
@@ -112,9 +147,16 @@ void MMEQPluginEditor::resized()
     FlexBox cb2;
     cb2.flexDirection = FlexBox::Direction::column;
     cb2.items.add(FlexItem(fb2).withFlex(6.0f));
-    cb2.items.add(FlexItem(boxType2).withMargin(FlexItem::Margin::Margin(5.0f, dynamicSpace, 15.0f, dynamicSpace)).withFlex(1.0f));
     
-    layout.items.add(FlexItem(cb2).withMargin(extraRightMargin).withFlex(1.0f));
+    FlexBox rb2;
+    rb2.flexDirection = FlexBox::Direction::row;
+    rb2.items.add(FlexItem(boxType2).withFlex(2.0f));
+    rb2.items.add(FlexItem(text2).withFlex(1.0f));
+    
+    cb2.items.add(FlexItem(rb2).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, dynamicSpace)).withFlex(1.0f));
+    
+    layout.items.add(FlexItem(cb2).withMargin(rightLeftMargin).withFlex(1.0f));
+    layout.items.add(FlexItem(div2).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
     
     //Box 3
     FlexBox fb3;
@@ -127,9 +169,16 @@ void MMEQPluginEditor::resized()
     FlexBox cb3;
     cb3.flexDirection = FlexBox::Direction::column;
     cb3.items.add(FlexItem(fb3).withFlex(6.0f));
-    cb3.items.add(FlexItem(boxType3).withMargin(FlexItem::Margin::Margin(5.0f, dynamicSpace, 15.0f, dynamicSpace)).withFlex(1.0f));
     
-    layout.items.add(FlexItem(cb3).withMargin(extraRightMargin).withFlex(1.0f));
+    FlexBox rb3;
+    rb3.flexDirection = FlexBox::Direction::row;
+    rb3.items.add(FlexItem(boxType3).withFlex(2.0f));
+    rb3.items.add(FlexItem(text3).withFlex(1.0f));
+    
+    cb3.items.add(FlexItem(rb3).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, dynamicSpace)).withFlex(1.0f));
+    
+    layout.items.add(FlexItem(cb3).withMargin(rightLeftMargin).withFlex(1.0f));
+    layout.items.add(FlexItem(div3).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
     
     //Box 4
     FlexBox fb4;
@@ -137,14 +186,20 @@ void MMEQPluginEditor::resized()
     
     fb4.items.add(FlexItem(sliderFrequency4).withMargin(standardMargin).withFlex(1.0f));
     fb4.items.add(FlexItem(sliderGain4).withMargin(standardMargin).withFlex(1.0f));
-    fb4.items.add(FlexItem(sliderQ4).withMargin(FlexItem::Margin::Margin(15.0f, vertSpace, 10.0f, dynamicSpace)).withFlex(1.0f));
+    fb4.items.add(FlexItem(sliderQ4).withMargin(FlexItem::Margin::Margin(15.0f, 0.0f, 10.0f, dynamicSpace)).withFlex(1.0f));
     
     FlexBox cb4;
     cb4.flexDirection = FlexBox::Direction::column;
     cb4.items.add(FlexItem(fb4).withFlex(6.0f));
-    cb4.items.add(FlexItem(boxType4).withMargin(FlexItem::Margin::Margin(5.0f, vertSpace, 15.0f, dynamicSpace)).withFlex(1.0f));
     
-    layout.items.add(FlexItem(cb4).withFlex(1.0f));
+    FlexBox rb4;
+    rb4.flexDirection = FlexBox::Direction::row;
+    rb4.items.add(FlexItem(boxType4).withFlex(2.0f));
+    rb4.items.add(FlexItem(text4).withMargin(FlexItem::Margin::Margin(0.0f, -dynamicSpace, 0.0f, 0.0f)).withFlex(1.0f));
+    
+    cb4.items.add(FlexItem(rb4).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, dynamicSpace)).withFlex(1.0f));
+    
+    layout.items.add(FlexItem(cb4).withMargin(leftMargin).withFlex(1.0f));
     
     //Final
     layout.performLayout(getLocalBounds());

@@ -12,6 +12,7 @@
 
 #include "MMEQPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
+#include "../GUI/Divider.h"
 
 class MMEQPluginEditor :
     public MobileMixPluginInstanceEditor
@@ -29,6 +30,15 @@ private:
     ComboBox boxType2;
     ComboBox boxType3;
     ComboBox boxType4;
+    
+    Label text1;
+    Label text2;
+    Label text3;
+    Label text4;
+    
+    Divider div1;
+    Divider div2;
+    Divider div3;
 
     MMParameterSlider sliderFrequency1;
     MMParameterSlider sliderGain1;
