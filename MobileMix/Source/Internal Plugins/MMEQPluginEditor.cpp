@@ -63,18 +63,18 @@ void MMEQPluginEditor::resized()
     // 0
     FlexBox fb0;
     fb0.flexDirection = FlexBox::Direction::row;
-    fb0.items.add(FlexItem(eqs[0].sliderCutoff).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
-    fb0.items.add(FlexItem(eqs[0].sliderGain).withMargin(standardMargin).withFlex(1.0f));
-    fb0.items.add(FlexItem(eqs[0].sliderQ).withMargin(standardMargin).withFlex(1.0f));
+    fb0.items.add(FlexItem(eqs[0].sliderCutoff).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 10.0f, 0.0f)).withFlex(1.0f));
+    fb0.items.add(FlexItem(eqs[0].sliderGain).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 10.0f, dynamicSpace)).withFlex(1.0f));
+    fb0.items.add(FlexItem(eqs[0].sliderQ).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, 10.0f, dynamicSpace)).withFlex(1.0f));
     FlexBox cb0;
     cb0.flexDirection = FlexBox::Direction::column;
     cb0.items.add(FlexItem(fb0).withFlex(6.0f));
     FlexBox rb0;
     rb0.flexDirection = FlexBox::Direction::row;
-    rb0.items.add(FlexItem(eqs[0].boxType).withFlex(2.0f));
-    rb0.items.add(FlexItem(eqs[0].text).withFlex(1.0f));
-    cb0.items.add(FlexItem(rb0).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, vertSpace)).withFlex(1.0f));
-    layout.items.add(FlexItem(cb0).withMargin(rightMargin).withFlex(1.0f));
+    rb0.items.add(FlexItem(eqs[0].boxType).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
+    rb0.items.add(FlexItem(eqs[0].text).withMargin(FlexItem::Margin::Margin(0.0f, -dynamicSpace, 0.0f, dynamicSpace)).withFlex(1.0f));
+    cb0.items.add(FlexItem(rb0).withFlex(1.0f));
+    layout.items.add(FlexItem(cb0).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(1.0f));
     layout.items.add(FlexItem(dividers[0]).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
 
     // 1

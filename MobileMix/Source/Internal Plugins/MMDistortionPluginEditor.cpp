@@ -46,6 +46,11 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
     labelR.setBorderSize(BorderSize<int>::BorderSize());
     labelR.setJustificationType(Justification::centred);
     
+    labelDB.setText("dB", dontSendNotification);
+    labelDB.setBorderSize(BorderSize<int>::BorderSize());
+    labelDB.setJustificationType(Justification::centred);
+    
+    addAndMakeVisible(labelDB);
     addAndMakeVisible(labelL);
     addAndMakeVisible(labelR);
 
@@ -72,19 +77,37 @@ void MMDistortionPluginEditor::resized()
     layout.items.add(FlexItem(sliderOverdrive).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderGain).withMargin(standardMargin).withFlex(1.0f));
     
+    FlexBox meters;
+    meters.flexDirection = FlexBox::Direction::column;
+    meters.items.add(FlexItem(labelDB).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, 0.0f, 0.0f)).withFlex(0.75f));
+    
+    FlexBox meterRow;
+    meterRow.flexDirection = FlexBox::Direction::row;
+    
     FlexBox lmeter;
     lmeter.flexDirection = FlexBox::Direction::column;
-    lmeter.items.add(FlexItem(labelL).withFlex(1.0f));
+    lmeter.items.add(FlexItem(labelL).withFlex(0.75f));
     lmeter.items.add(FlexItem(meterL).withFlex(6.0f));
-    layout.items.add(FlexItem(lmeter).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace)).withFlex(0.5f));
+    meterRow.items.add(FlexItem(lmeter).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace)).withFlex(1.0f));
     
     FlexBox rmeter;
     rmeter.flexDirection = FlexBox::Direction::column;
-    rmeter.items.add(FlexItem(labelR).withFlex(1.0f));
+    rmeter.items.add(FlexItem(labelR).withFlex(0.75f));
     rmeter.items.add(FlexItem(meterR).withFlex(6.0f));
-    layout.items.add(FlexItem(rmeter).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(0.5f));
+    meterRow.items.add(FlexItem(rmeter).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace)).withFlex(1.0f));
+    meters.items.add(FlexItem(meterRow).withFlex(6.0f));
+    layout.items.add(FlexItem(meters).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertSpace, 0.0f)).withFlex(1.5f));
     
-    layout.items.add(FlexItem(preview).withMargin(standardMargin).withFlex(6.0f));
+    FlexItem prevItem = FlexItem(preview).withMargin(standardMargin).withWidth(this->getWidth() * 0.35f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
+    if (prevItem.width > prevItem.height) {
+        prevItem.width = prevItem.height;
+    } else {
+        prevItem.height = prevItem.width;
+        float topBottomSpace = (this->getHeight() - vertSpace * 2 - prevItem.height) / 2;
+        prevItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
+    }
+    layout.items.add(prevItem);
+    //layout.items.add(FlexItem(preview).withMargin(standardMargin).withFlex(6.0f));
     
     FlexBox lpass;
     lpass.flexDirection = FlexBox::Direction::column;

@@ -28,19 +28,15 @@ protected:
 private:
     
     Goniometer graphReverb;
-    //MMShapeButton buttonHighPass;
-    //MMShapeButton buttonLowPass;
+    MMShapeButton buttonHighPass;
+    MMShapeButton buttonLowPass;
     
-    MMParameterSlider sliderTrim;
     MMParameterSlider sliderHighPass;
     MMParameterSlider sliderLowPass;
-    MMParameterSlider sliderLength;
     MMParameterSlider sliderDryWet;
     
-    MMSliderAttachment attachTrim;
     MMSliderAttachment attachHighPass;
     MMSliderAttachment attachLowPass;
-    MMSliderAttachment attachLength;
     MMSliderAttachment attachDryWet;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPluginEditor)

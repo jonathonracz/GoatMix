@@ -35,10 +35,8 @@ public:
 
     GoniometerSource graphReverbSource;
     
-    AudioProcessorParameterWithID* paramTrim;
     AudioProcessorParameterWithID* paramLowPass;
     AudioProcessorParameterWithID* paramHighPass;
-    AudioProcessorParameterWithID* paramLength;
     AudioProcessorParameterWithID* paramDryWet;
 
 private:
