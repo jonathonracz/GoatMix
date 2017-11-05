@@ -61,7 +61,7 @@ void MMGainPlugin::registerParameters()
         ValueStringFuncs::Milliseconds::unit,
         NormalisableRange<float>(0.0f, 100.0f, 1.0f),
         0.0f,
-        [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Milliseconds::unit, 0); },
+        ValueStringFuncs::Milliseconds::valueToText,
         ValueStringFuncs::Generic::textToValue);
 
     paramPhaseDelayR = state.createAndAddParameter(
@@ -70,7 +70,7 @@ void MMGainPlugin::registerParameters()
         ValueStringFuncs::Milliseconds::unit,
         NormalisableRange<float>(0.0f, 1000.0f, 1.0f),
         0.0f,
-        [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Milliseconds::unit, 0); },
+        ValueStringFuncs::Milliseconds::valueToText,
         ValueStringFuncs::Generic::textToValue);
 
     paramPhaseInvertL = state.createAndAddParameter(
