@@ -12,30 +12,24 @@
 
 MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    preview(processor.distortion.params)
+    preview(processor.distortion.params),
+    buttonLowPassEnable(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
 {
     attachDownsample = createSliderAttachment(processor.paramDownsample, sliderDownsample);
-    addAndMakeVisible(sliderDownsample);
-    
     attachBitDepth = createSliderAttachment(processor.paramBitDepth, sliderBitDepth);
-    addAndMakeVisible(sliderBitDepth);
-    
-    attachTone = createSliderAttachment(processor.paramTone, sliderTone);
-    addAndMakeVisible(sliderTone);
-    
-    attachDrive = createSliderAttachment(processor.paramDrive, sliderDrive);
-    addAndMakeVisible(sliderDrive);
-    
-    attachClipThreshold1 = createSliderAttachment(processor.paramClipThreshold1, sliderClipThreshold1);
-    addAndMakeVisible(sliderClipThreshold1);
-    
+    attachOverdrive = createSliderAttachment(processor.paramOverdrive, sliderOverdrive);
+    attachGain = createSliderAttachment(processor.paramGain, sliderGain);
     attachLowPass = createSliderAttachment(processor.paramLowPass, sliderLowPass);
+    attachLowPassEnable = createButtonAttachment(processor.paramLowPassEnable, buttonLowPassEnable);
+
+    addAndMakeVisible(sliderDownsample);
+    addAndMakeVisible(sliderBitDepth);
+    addAndMakeVisible(sliderOverdrive);
+    addAndMakeVisible(sliderGain);
     addAndMakeVisible(sliderLowPass);
+    addAndMakeVisible(buttonLowPassEnable);
     
-    attachClipThreshold2 = createSliderAttachment(processor.paramClipThreshold2, sliderClipThreshold2);
-    addAndMakeVisible(sliderClipThreshold2);
-    
-    addAndMakeVisible(graphDistortion);
+    addAndMakeVisible(preview);
     addAndMakeVisible(meterL);
     addAndMakeVisible(meterR);
     
@@ -53,7 +47,6 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
 
 MMDistortionPluginEditor::~MMDistortionPluginEditor()
 {
-
 }
 
 void MMDistortionPluginEditor::resized()
@@ -66,9 +59,8 @@ void MMDistortionPluginEditor::resized()
     
     layout.items.add(FlexItem(sliderDownsample).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, vertSpace)).withFlex(1.0f));
     layout.items.add(FlexItem(sliderBitDepth).withMargin(standardMargin).withFlex(1.0f));
-    layout.items.add(FlexItem(sliderTone).withMargin(standardMargin).withFlex(1.0f));
-    layout.items.add(FlexItem(sliderDrive).withMargin(standardMargin).withFlex(1.0f));
-    layout.items.add(FlexItem(sliderClipThreshold1).withMargin(standardMargin).withFlex(1.0f));
+    layout.items.add(FlexItem(sliderOverdrive).withMargin(standardMargin).withFlex(1.0f));
+    layout.items.add(FlexItem(sliderGain).withMargin(standardMargin).withFlex(1.0f));
     
     FlexBox lmeter;
     lmeter.flexDirection = FlexBox::Direction::column;
@@ -82,25 +74,21 @@ void MMDistortionPluginEditor::resized()
     rmeter.items.add(FlexItem(meterR).withFlex(6.0f));
     layout.items.add(FlexItem(rmeter).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(0.5f));
     
-    layout.items.add(FlexItem(graphDistortion).withMargin(standardMargin).withFlex(6.0f));
+    layout.items.add(FlexItem(preview).withMargin(standardMargin).withFlex(6.0f));
     
     FlexBox lpass;
     lpass.flexDirection = FlexBox::Direction::column;
-    lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
-    //lpass.items.add(FlexItem(buttonLowPass)withMargin(FlexItem::Margin::Margin(15.0f, 0.0f, 0.0f, 0.0f)));
+    //lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
+    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(15.0f, 0.0f, 0.0f, 0.0f)));
     layout.items.add(FlexItem(lpass).withMargin(standardMargin).withFlex(1.0f));
-    
-    layout.items.add(FlexItem(sliderClipThreshold2).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)));
     
     layout.performLayout(getLocalBounds());
     
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDownsample);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderBitDepth);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderTone);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDrive);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderClipThreshold1);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderOverdrive);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
     MobileMixPluginInstanceEditor::setVerticalRotated(&meterL);
     MobileMixPluginInstanceEditor::setVerticalRotated(&meterR);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderClipThreshold2);
 }

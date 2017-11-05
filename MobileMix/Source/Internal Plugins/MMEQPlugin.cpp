@@ -30,7 +30,7 @@ void MMEQPlugin::registerParameters()
             ValueStringFuncs::Filter::unit,
             ValueStringFuncs::Filter::range,
             ValueStringFuncs::Filter::defaultValue,
-            [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Filter::unit, 0); },
+            ValueStringFuncs::Filter::valueToText,
             ValueStringFuncs::Generic::textToValue);
 
         eq->paramGain = state.createAndAddParameter(

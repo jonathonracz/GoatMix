@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="KOUI21" name="MobileMix" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" projectType="audioplug" version="1.0.0"
+              splashScreenColour="Light" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
@@ -30,6 +30,8 @@
       </GROUP>
     </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <FILE id="WL0l57" name="hipass.svg" compile="0" resource="1" file="Source/Resources/hipass.svg"/>
+      <FILE id="a1mLQp" name="lopass.svg" compile="0" resource="1" file="Source/Resources/lopass.svg"/>
       <FILE id="r0l0iz" name="phaseinvert.svg" compile="0" resource="1" file="Source/Resources/phaseinvert.svg"/>
       <FILE id="V19T5d" name="about.txt" compile="0" resource="1" file="Source/Resources/about.txt"/>
       <FILE id="mXelQp" name="info.svg" compile="0" resource="1" file="Source/Resources/info.svg"/>

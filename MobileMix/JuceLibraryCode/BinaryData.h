@@ -8,6 +8,12 @@
 
 namespace BinaryData
 {
+    extern const char*   hipass_svg;
+    const int            hipass_svgSize = 740;
+
+    extern const char*   lopass_svg;
+    const int            lopass_svgSize = 638;
+
     extern const char*   phaseinvert_svg;
     const int            phaseinvert_svgSize = 1026;
 
@@ -42,7 +48,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 10;
+    const int namedResourceListSize = 12;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).
