@@ -32,10 +32,10 @@ void MMDistortionPlugin::registerParameters()
     paramBitDepth = state.createAndAddParameter(
         addPrefixToParameterName("Bit Depth"),
         addPrefixToParameterName("Bit Depth"),
-        "bits",
+        "bit",
         NormalisableRange<float>(1.0f, 32.0f, 1.0f),
         32.0f,
-        [](float value){ return ValueStringFuncs::Generic::valueToText(value, "bits", 0); },
+        [](float value){ return ValueStringFuncs::Generic::valueToText(value, "bit", 0); },
         ValueStringFuncs::Generic::textToValue);
 
     NormalisableRange<float> odRange = ValueStringFuncs::Gain::range;
@@ -106,7 +106,7 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
 
-    //distortion.process(context);
-    //if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
-        //lowPass.process(context);
+    distortion.process(context);
+    if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
+        lowPass.process(context);
 }
