@@ -46,3 +46,12 @@ void MobileMixPluginInstanceEditor::setVerticalRotated(Component* component, boo
     component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getX() + (verticalBounds.getWidth() / 2.0f),
                                                                         verticalBounds.getY() + (verticalBounds.getHeight() / 2.0f)));
 }
+
+void MobileMixPluginInstanceEditor::setUpsideDownRotated(Component* component)
+{
+    float angle = MathConstants<float>::pi;
+    Rectangle<int> verticalBounds = component->getBounds();
+    component->setCentrePosition(0, 0);
+    component->setTransform(AffineTransform::rotation(angle).translated(verticalBounds.getX() + (verticalBounds.getWidth() / 2.0f),
+                                                                        verticalBounds.getY() + (verticalBounds.getHeight() / 2.0f)));
+}

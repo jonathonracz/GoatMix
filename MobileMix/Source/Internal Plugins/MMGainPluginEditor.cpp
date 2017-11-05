@@ -37,13 +37,10 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(goniometer);
 
     //MaxdBLabels here -- probably need to change the source channel
-    maxdBLabel.setSource(&processor.meterSource, 0);
-    addAndMakeVisible(maxdBLabel);
-    
     leftdBLabel.setSource(&processor.meterSource, 0);
     addAndMakeVisible(leftdBLabel);
     
-    rightdBLabel.setSource(&processor.meterSource, 0);
+    rightdBLabel.setSource(&processor.meterSource, 1);
     addAndMakeVisible(rightdBLabel);
     
     //Meters here
@@ -51,6 +48,17 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     meterPosL.setSource(&processor.meterSource);
     meterNegR.setSource(&processor.meterSource);
     meterPosR.setSource(&processor.meterSource);
+
+    meterPosL.setMinGainDisplayValue(1.0f);
+    meterPosL.setMaxGainDisplayValue(2.0f);
+    meterPosR.setMinGainDisplayValue(1.0f);
+    meterPosR.setMaxGainDisplayValue(2.0f);
+
+    meterNegL.setChannel(0);
+    meterPosL.setChannel(0);
+    meterNegR.setChannel(1);
+    meterPosR.setChannel(1);
+
     addAndMakeVisible(meterNegL);
     addAndMakeVisible(meterPosL);
     addAndMakeVisible(meterNegR);
@@ -59,11 +67,11 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(div);
     
     //meterLabels here
-    meterLabels[0].setText("0", dontSendNotification);
+    meterLabels[0].setText("+6", dontSendNotification);
     meterLabels[0].setJustificationType(Justification::topRight);
     meterLabels[1].setText("+3", dontSendNotification);
     meterLabels[1].setJustificationType(Justification::centredRight);
-    meterLabels[2].setText("+6", dontSendNotification);
+    meterLabels[2].setText("0", dontSendNotification);
     meterLabels[2].setJustificationType(Justification::bottomRight);
     meterLabels[3].setText("0", dontSendNotification);
     meterLabels[3].setJustificationType(Justification::topRight);
@@ -85,11 +93,11 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     meterLabels[11].setJustificationType(Justification::centredLeft);
     meterLabels[12].setText("-inf", dontSendNotification);
     meterLabels[12].setJustificationType(Justification::bottomLeft);
-    meterLabels[13].setText("0", dontSendNotification);
+    meterLabels[13].setText("+6", dontSendNotification);
     meterLabels[13].setJustificationType(Justification::topLeft);
     meterLabels[14].setText("+3", dontSendNotification);
     meterLabels[14].setJustificationType(Justification::centredLeft);
-    meterLabels[15].setText("+6", dontSendNotification);
+    meterLabels[15].setText("0", dontSendNotification);
     meterLabels[15].setJustificationType(Justification::bottomLeft);
     
     for (int i = 0; i < 16; ++i) {

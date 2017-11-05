@@ -34,6 +34,7 @@ protected:
     MMSliderAttachment createSliderAttachment(AudioProcessorParameterWithID* parameter, MMParameterSlider& sliderToControl);
 
     static void setVerticalRotated(Component* component, bool clockwise = false);
+    static void setUpsideDownRotated(Component* component);
 
     MobileMixPluginInstance& processor;
 
