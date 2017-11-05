@@ -44,6 +44,7 @@ namespace ValueStringFuncs
     {
         const StringRef unit = "dB";
         const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.1f, 0.5f);
+        const float defaultValue = 1.0f;
 
         auto valueToText = [](float value) -> String
         {
@@ -82,5 +83,12 @@ namespace ValueStringFuncs
     namespace Milliseconds
     {
         const StringRef unit = "ms";
+    }
+
+    namespace Filter
+    {
+        const StringRef unit = "Hz";
+        const NormalisableRange<float> range = NormalisableRange<float>(20.0f, 20000.0f, 1.0f, 0.25f);
+        const float defaultValue = 1000.0f;
     }
 }

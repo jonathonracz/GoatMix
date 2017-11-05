@@ -24,7 +24,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain"),
         ValueStringFuncs::Gain::unit,
         ValueStringFuncs::Gain::range,
-        1.0f,
+        ValueStringFuncs::Gain::defaultValue,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
 
@@ -33,7 +33,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain L"),
         ValueStringFuncs::Gain::unit,
         ValueStringFuncs::Gain::range,
-        1.0f,
+        ValueStringFuncs::Gain::defaultValue,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
 
@@ -42,7 +42,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain R"),
         ValueStringFuncs::Gain::unit,
         ValueStringFuncs::Gain::range,
-        1.0f,
+        ValueStringFuncs::Gain::defaultValue,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
 

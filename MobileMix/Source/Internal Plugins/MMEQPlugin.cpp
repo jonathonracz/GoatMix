@@ -10,6 +10,7 @@
 
 #include "MMEQPlugin.h"
 #include "MMEQPluginEditor.h"
+#include "../GUI/ValueStringFuncs.h"
 
 MMEQPlugin::MMEQPlugin(AudioProcessorValueTreeState& state) :
     MobileMixPluginInstance(state)
@@ -19,133 +20,45 @@ MMEQPlugin::MMEQPlugin(AudioProcessorValueTreeState& state) :
 void MMEQPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
-    paramFrequency1 = state.createAndAddParameter(addPrefixToParameterName("Frequency1"),
-                                                          addPrefixToParameterName("Frequency"),
-                                                          "",
-                                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                          1.0f,
-                                                          nullptr,
-                                                          nullptr);
-    
-    paramGain1 = state.createAndAddParameter(addPrefixToParameterName("Gain1"),
-                                                  addPrefixToParameterName("Gain"),
-                                                  "",
-                                                  NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                  1.0f,
-                                                  nullptr,
-                                                  nullptr);
-    
-    paramQ1 = state.createAndAddParameter(addPrefixToParameterName("Q1"),
-                                             addPrefixToParameterName("Q"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramType1 = state.createAndAddParameter(addPrefixToParameterName("Type1"),
-                                             addPrefixToParameterName("Type"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramFrequency2 = state.createAndAddParameter(addPrefixToParameterName("Frequency2"),
-                                                  addPrefixToParameterName("Frequency"),
-                                                  "",
-                                                  NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                  1.0f,
-                                                  nullptr,
-                                                  nullptr);
-    
-    paramGain2 = state.createAndAddParameter(addPrefixToParameterName("Gain2"),
-                                             addPrefixToParameterName("Gain"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramQ2 = state.createAndAddParameter(addPrefixToParameterName("Q2"),
-                                          addPrefixToParameterName("Q"),
-                                          "",
-                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                          1.0f,
-                                          nullptr,
-                                          nullptr);
-    
-    paramType2 = state.createAndAddParameter(addPrefixToParameterName("Type2"),
-                                             addPrefixToParameterName("Type"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramFrequency3 = state.createAndAddParameter(addPrefixToParameterName("Frequency3"),
-                                                  addPrefixToParameterName("Frequency"),
-                                                  "",
-                                                  NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                  1.0f,
-                                                  nullptr,
-                                                  nullptr);
-    
-    paramGain3 = state.createAndAddParameter(addPrefixToParameterName("Gain3"),
-                                             addPrefixToParameterName("Gain"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramQ3 = state.createAndAddParameter(addPrefixToParameterName("Q3"),
-                                          addPrefixToParameterName("Q"),
-                                          "",
-                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                          1.0f,
-                                          nullptr,
-                                          nullptr);
-    
-    paramType3 = state.createAndAddParameter(addPrefixToParameterName("Type3"),
-                                             addPrefixToParameterName("Type"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramFrequency4 = state.createAndAddParameter(addPrefixToParameterName("Frequency4"),
-                                                  addPrefixToParameterName("Frequency"),
-                                                  "",
-                                                  NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                                  1.0f,
-                                                  nullptr,
-                                                  nullptr);
-    
-    paramGain4 = state.createAndAddParameter(addPrefixToParameterName("Gain4"),
-                                             addPrefixToParameterName("Gain"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
-    
-    paramQ4 = state.createAndAddParameter(addPrefixToParameterName("Q4"),
-                                          addPrefixToParameterName("Q"),
-                                          "",
-                                          NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                          1.0f,
-                                          nullptr,
-                                          nullptr);
-    
-    paramType4 = state.createAndAddParameter(addPrefixToParameterName("Type4"),
-                                             addPrefixToParameterName("Type"),
-                                             "",
-                                             NormalisableRange<float>(0.0f, 1.0f, 0.1f),
-                                             1.0f,
-                                             nullptr,
-                                             nullptr);
+    for (size_t i = 0; i < eqParams.size(); ++i)
+    {
+        EQParams* eq = &eqParams[i];
+        eq->paramFrequency = state.createAndAddParameter(
+            addPrefixToParameterName("Frequency ") + String(i),
+            addPrefixToParameterName("Frequency ") + String(i),
+            ValueStringFuncs::Filter::unit,
+            ValueStringFuncs::Filter::range,
+            ValueStringFuncs::Filter::defaultValue,
+            [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Filter::unit, 0); },
+            ValueStringFuncs::Generic::textToValue);
+
+        eq->paramGain = state.createAndAddParameter(
+            addPrefixToParameterName("Gain ") + String(i),
+            addPrefixToParameterName("Gain ") + String(i),
+            ValueStringFuncs::Gain::unit,
+            ValueStringFuncs::Gain::range,
+            ValueStringFuncs::Gain::defaultValue,
+            ValueStringFuncs::Gain::valueToText,
+            ValueStringFuncs::Gain::textToValue);
+
+        eq->paramQ = state.createAndAddParameter(
+            addPrefixToParameterName("Q ") + String(i),
+            addPrefixToParameterName("Q ") + String(i),
+            "",
+            NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+            1.0f,
+            nullptr,
+            nullptr);
+
+        eq->paramType = state.createAndAddParameter(
+            addPrefixToParameterName("Type ") + String(i),
+            addPrefixToParameterName("Type ") + String(i),
+            "",
+            NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+            1.0f,
+            nullptr,
+            nullptr);
+    }
 }
 
 AudioProcessorEditor* MMEQPlugin::createEditor()

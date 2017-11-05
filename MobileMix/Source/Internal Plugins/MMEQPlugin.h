@@ -28,23 +28,16 @@ public:
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
-    
-    AudioProcessorParameterWithID* paramFrequency1;
-    AudioProcessorParameterWithID* paramGain1;
-    AudioProcessorParameterWithID* paramQ1;
-    AudioProcessorParameterWithID* paramType1;
-    AudioProcessorParameterWithID* paramFrequency2;
-    AudioProcessorParameterWithID* paramGain2;
-    AudioProcessorParameterWithID* paramQ2;
-    AudioProcessorParameterWithID* paramType2;
-    AudioProcessorParameterWithID* paramFrequency3;
-    AudioProcessorParameterWithID* paramGain3;
-    AudioProcessorParameterWithID* paramQ3;
-    AudioProcessorParameterWithID* paramType3;
-    AudioProcessorParameterWithID* paramFrequency4;
-    AudioProcessorParameterWithID* paramGain4;
-    AudioProcessorParameterWithID* paramQ4;
-    AudioProcessorParameterWithID* paramType4;
+
+    struct EQParams
+    {
+        AudioProcessorParameterWithID* paramFrequency;
+        AudioProcessorParameterWithID* paramGain;
+        AudioProcessorParameterWithID* paramQ;
+        AudioProcessorParameterWithID* paramType;
+    };
+
+    std::array<EQParams, 4> eqParams;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMEQPlugin)
