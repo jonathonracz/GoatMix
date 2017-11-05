@@ -15,7 +15,8 @@
 #include "../GUI/Divider.h"
 
 class MMEQPluginEditor :
-    public MobileMixPluginInstanceEditor
+    public MobileMixPluginInstanceEditor,
+    public ComboBox::Listener
 {
 public:
     MMEQPluginEditor(MMEQPlugin& processor);
@@ -25,15 +26,18 @@ protected:
     void resized() override;
 
 private:
+    void updateSliderOpacities();
+    void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
+
     struct EQControls
     {
-        MMParameterSlider sliderFrequency;
+        MMParameterSlider sliderCutoff;
         MMParameterSlider sliderGain;
         MMParameterSlider sliderQ;
         ComboBox boxType;
         Label text;
 
-        MMSliderAttachment attachFrequency;
+        MMSliderAttachment attachCutoff;
         MMSliderAttachment attachGain;
         MMSliderAttachment attachQ;
         MMComboBoxAttachment attachType;

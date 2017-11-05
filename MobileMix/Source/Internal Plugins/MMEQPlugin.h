@@ -12,6 +12,8 @@
 
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
+#include "../DSP/MMIIRFilter.h"
+#include <array>
 
 class MMEQPlugin :
     public MobileMixPluginInstance
@@ -31,14 +33,17 @@ public:
 
     struct EQParams
     {
-        AudioProcessorParameterWithID* paramFrequency;
+        AudioProcessorParameterWithID* paramCutoff;
         AudioProcessorParameterWithID* paramGain;
         AudioProcessorParameterWithID* paramQ;
         AudioProcessorParameterWithID* paramType;
     };
 
     std::array<EQParams, 4> eqParams;
-
+    const StringArray filterTypes;
+    
 private:
+    std::array<MMIIRFilter, 4> filters;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMEQPlugin)
 };

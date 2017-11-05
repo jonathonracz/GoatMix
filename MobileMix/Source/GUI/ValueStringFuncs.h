@@ -91,4 +91,17 @@ namespace ValueStringFuncs
         const NormalisableRange<float> range = NormalisableRange<float>(20.0f, 20000.0f, 1.0f, 0.25f);
         const float defaultValue = 1000.0f;
     }
+
+    namespace ComboBox
+    {
+        auto valueToText = [](float value, const StringArray& values) -> String
+        {
+            return values[static_cast<int>(value)];
+        };
+
+        auto textToValue = [](const String& text, const StringArray& values) -> float
+        {
+            return static_cast<float>(values.indexOf(text));
+        };
+    }
 }

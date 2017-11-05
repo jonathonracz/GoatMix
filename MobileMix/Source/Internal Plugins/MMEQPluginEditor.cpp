@@ -19,16 +19,11 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
         EQControls* eqControl = &eqs[i];
         MMEQPlugin::EQParams* eqParam = &processor.eqParams[i];
 
-        eqControl->boxType.addItem("Bypass", 1);
-        eqControl->boxType.addItem("Low Pass", 2);
-        eqControl->boxType.addItem("Low Shelf", 3);
-        eqControl->boxType.addItem("Peak", 4);
-        eqControl->boxType.addItem("High Shelf", 5);
-        eqControl->boxType.addItem("High Pass", 6);
-        eqControl->boxType.setSelectedId(-1);
+        eqControl->boxType.addItemList(processor.filterTypes, 1);
         eqControl->boxType.setJustificationType(Justification::Flags::centred);
+        eqControl->boxType.addListener(this);
 
-        eqControl->attachFrequency = createSliderAttachment(eqParam->paramFrequency, eqControl->sliderFrequency);
+        eqControl->attachCutoff = createSliderAttachment(eqParam->paramCutoff, eqControl->sliderCutoff);
         eqControl->attachGain = createSliderAttachment(eqParam->paramGain, eqControl->sliderGain);
         eqControl->attachQ = createSliderAttachment(eqParam->paramQ, eqControl->sliderQ);
         eqControl->attachType = createComboBoxAttachment(eqParam->paramType, eqControl->boxType);
@@ -37,7 +32,7 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
         eqControl->text.setBorderSize(BorderSize<int>::BorderSize());
         eqControl->text.setJustificationType(Justification::centred);
 
-        addAndMakeVisible(eqControl->sliderFrequency);
+        addAndMakeVisible(eqControl->sliderCutoff);
         addAndMakeVisible(eqControl->sliderGain);
         addAndMakeVisible(eqControl->sliderQ);
         addAndMakeVisible(eqControl->boxType);
@@ -46,6 +41,8 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
 
     for (size_t i = 0; i < dividers.size(); ++i)
         addAndMakeVisible(dividers[i]);
+
+    updateSliderOpacities();
 }
 
 MMEQPluginEditor::~MMEQPluginEditor()
@@ -66,7 +63,7 @@ void MMEQPluginEditor::resized()
     // 0
     FlexBox fb0;
     fb0.flexDirection = FlexBox::Direction::row;
-    fb0.items.add(FlexItem(eqs[0].sliderFrequency).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
+    fb0.items.add(FlexItem(eqs[0].sliderCutoff).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
     fb0.items.add(FlexItem(eqs[0].sliderGain).withMargin(standardMargin).withFlex(1.0f));
     fb0.items.add(FlexItem(eqs[0].sliderQ).withMargin(standardMargin).withFlex(1.0f));
     FlexBox cb0;
@@ -83,7 +80,7 @@ void MMEQPluginEditor::resized()
     // 1
     FlexBox fb1;
     fb1.flexDirection = FlexBox::Direction::row;
-    fb1.items.add(FlexItem(eqs[1].sliderFrequency).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
+    fb1.items.add(FlexItem(eqs[1].sliderCutoff).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
     fb1.items.add(FlexItem(eqs[1].sliderGain).withMargin(standardMargin).withFlex(1.0f));
     fb1.items.add(FlexItem(eqs[1].sliderQ).withMargin(standardMargin).withFlex(1.0f));
     FlexBox cb1;
@@ -100,7 +97,7 @@ void MMEQPluginEditor::resized()
     // 2
     FlexBox fb2;
     fb2.flexDirection = FlexBox::Direction::row;
-    fb2.items.add(FlexItem(eqs[2].sliderFrequency).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
+    fb2.items.add(FlexItem(eqs[2].sliderCutoff).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
     fb2.items.add(FlexItem(eqs[2].sliderGain).withMargin(standardMargin).withFlex(1.0f));
     fb2.items.add(FlexItem(eqs[2].sliderQ).withMargin(standardMargin).withFlex(1.0f));
     FlexBox cb2;
@@ -117,7 +114,7 @@ void MMEQPluginEditor::resized()
     // 3
     FlexBox fb3;
     fb3.flexDirection = FlexBox::Direction::row;
-    fb3.items.add(FlexItem(eqs[3].sliderFrequency).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
+    fb3.items.add(FlexItem(eqs[3].sliderCutoff).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, vertSpace)).withFlex(1.0f));
     fb3.items.add(FlexItem(eqs[3].sliderGain).withMargin(standardMargin).withFlex(1.0f));
     fb3.items.add(FlexItem(eqs[3].sliderQ).withMargin(standardMargin).withFlex(1.0f));
     FlexBox cb3;
@@ -137,8 +134,35 @@ void MMEQPluginEditor::resized()
     for (size_t i = 0; i < eqs.size(); ++i)
     {
         EQControls* eq = &eqs[i];
-        MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderFrequency);
+        MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderCutoff);
         MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderGain);
         MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
     }
+}
+
+void MMEQPluginEditor::updateSliderOpacities()
+{
+    for (size_t i = 0; i < eqs.size(); ++i)
+    {
+        float disabledAlpha = 0.25f;
+        eqs[i].sliderCutoff.setAlpha(1.0f);
+        eqs[i].sliderGain.setAlpha(1.0f);
+        eqs[i].sliderQ.setAlpha(1.0f);
+        int currId = eqs[i].boxType.getSelectedId();
+        if (currId == 1)
+        {
+            eqs[i].sliderCutoff.setAlpha(disabledAlpha);
+            eqs[i].sliderGain.setAlpha(disabledAlpha);
+            eqs[i].sliderQ.setAlpha(disabledAlpha);
+        }
+        else if (currId == 2 || currId == 6)
+        {
+            eqs[i].sliderGain.setAlpha(disabledAlpha);
+        }
+    }
+}
+
+void MMEQPluginEditor::comboBoxChanged(ComboBox* comboBoxThatHasChanged)
+{
+    updateSliderOpacities();
 }
