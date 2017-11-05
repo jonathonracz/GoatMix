@@ -36,13 +36,25 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     goniometer.setSource(&processor.goniometerSource);
     addAndMakeVisible(goniometer);
 
+    //MaxdBLabels here -- probably need to change the source channel
     maxdBLabel.setSource(&processor.meterSource, 0);
     addAndMakeVisible(maxdBLabel);
     
-    smlMeterL.setSource(&processor.meterSource);
-    smlMeterR.setSource(&processor.meterSource);
-    addAndMakeVisible(smlMeterL);
-    addAndMakeVisible(smlMeterR);
+    leftdBLabel.setSource(&processor.meterSource, 0);
+    addAndMakeVisible(leftdBLabel);
+    
+    rightdBLabel.setSource(&processor.meterSource, 0);
+    addAndMakeVisible(rightdBLabel);
+    
+    //Meters here
+    meterNegL.setSource(&processor.meterSource);
+    meterPosL.setSource(&processor.meterSource);
+    meterNegR.setSource(&processor.meterSource);
+    meterPosR.setSource(&processor.meterSource);
+    addAndMakeVisible(meterNegL);
+    addAndMakeVisible(meterPosL);
+    addAndMakeVisible(meterNegR);
+    addAndMakeVisible(meterPosR);
     
     addAndMakeVisible(div);
 }
@@ -69,16 +81,19 @@ void MMGainPluginEditor::resized()
     
     FlexBox ampTop;
     ampTop.flexDirection = FlexBox::Direction::row;
+    ampTop.items.add(FlexItem(leftdBLabel).withFlex(1.0f));
     ampTop.items.add(FlexItem(maxdBLabel).withFlex(1.0f));
+    ampTop.items.add(FlexItem(rightdBLabel).withFlex(1.0f));
     ampBox.items.add(FlexItem(ampTop).withFlex(1.0f));
     
     FlexBox ampBottom;
     ampBottom.flexDirection = FlexBox::Direction::row;
     ampBottom.items.add(FlexItem(sliderGainL).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(1.0f));
-    ampBottom.items.add(FlexItem(smlMeterL).withMargin(standardMargin).withFlex(0.75f));
+    ampBottom.items.add(FlexItem(meterNegL).withFlex(0.75f));
+    ampBottom.items.add(FlexItem(meterPosL).withFlex(0.75f));
     ampBottom.items.add(FlexItem(sliderGain).withMargin(standardMargin).withFlex(1.0f));
-    ampBottom.items.add(FlexItem(smlMeterR).withMargin(standardMargin).withFlex(0.75f));
-    ampBottom.items.add(FlexItem(sliderGainR).withMargin(standardMargin).withFlex(1.0f));
+    ampBottom.items.add(FlexItem(meterNegR).withFlex(0.75f));
+    ampBottom.items.add(FlexItem(meterPosR).withFlex(0.75f));    ampBottom.items.add(FlexItem(sliderGainR).withMargin(standardMargin).withFlex(1.0f));
     ampBox.items.add(FlexItem(ampBottom).withFlex(8.0f));
     
     layout.items.add(FlexItem(ampBox).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace * 1.5f, 0.0f, vertSpace)).withFlex(1.0f));
