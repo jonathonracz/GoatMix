@@ -37,9 +37,15 @@ public:
                              });
 
         for (auto& channelState : channelStates)
-            channelState.line.fill(0);
+        {
+            channelState.line.clear();
+            channelState.line.setLogicalCapacity(static_cast<int>(params->samplesToDelay));
+            channelState.line.fill(0.0f);
+        }
     }
 
+    // TODO: Currently broken. Fails when sample size is too small to resample
+    // (needs special casing).
     void process(const dsp::ProcessContextReplacing<float>& context) override
     {
         if (context.isBypassed)
@@ -58,14 +64,22 @@ public:
             // Resize our ringbuffer if we have a new delay length.
             if (newDelay != channelState->line.getLogicalCapacity())
             {
-                interp.reset();
-                channelState->line.linearize();
-                float* lineSamples = channelState->line.getPointerToFirstHalf();
-                int numLineSamples = channelState->line.getNumElements();
-                interp.process(numLineSamples / static_cast<double>(newDelay), lineSamples, lineSamples, newDelay);
+                bool needsZeroFill = true;
+                if (channelState->line.getNumElements())
+                {
+                    interp.reset();
+                    channelState->line.linearize();
+                    float* lineSamples = channelState->line.getPointerToFirstHalf();
+                    int numLineSamples = channelState->line.getNumElements();
+                    interp.process(numLineSamples / static_cast<double>(newDelay), lineSamples, lineSamples, newDelay);
+                    needsZeroFill = false;
+                }
 
-                // Resize the RingBuffer and copy in the new data.
+                // Resize the RingBuffer.
                 channelState->line.setLogicalCapacity(newDelay, true);
+
+                if (needsZeroFill)
+                    channelState->line.fill(0.0f);
             }
 
             // Actually push to the ringbuffer.

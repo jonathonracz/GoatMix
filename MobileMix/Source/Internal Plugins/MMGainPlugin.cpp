@@ -99,7 +99,7 @@ AudioProcessorEditor* MMGainPlugin::createEditor()
 
 void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
-    dsp::ProcessSpec multiChannelSpec {
+    dsp::ProcessSpec stereoSpec {
         sampleRate,
         static_cast<uint32>(maximumExpectedSamplesPerBlock),
         static_cast<uint32>(getMainBusNumInputChannels())
@@ -111,26 +111,49 @@ void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSa
         1
     };
 
-    delay.params->maxDelay = static_cast<size_t>(sampleRate); // 1 second max delay
+    delayL.params->maxDelay = static_cast<size_t>(sampleRate / 10.0); // 100 ms max delay
+    delayR.params->maxDelay = static_cast<size_t>(sampleRate / 10.0);
 
-    delay.prepare(multiChannelSpec);
-    gain.prepare(multiChannelSpec);
-    invertPhase.prepare(monoSpec);
-    pan.prepare(multiChannelSpec);
+    gainL.prepare(monoSpec);
+    gainR.prepare(monoSpec);
+    gainCenter.prepare(stereoSpec);
+    pan.prepare(stereoSpec);
+    delayL.prepare(monoSpec);
+    delayR.prepare(monoSpec);
+    invertPhaseL.prepare(monoSpec);
+    invertPhaseR.prepare(monoSpec);
 }
 
 void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    delay.params->samplesToDelay = static_cast<size_t>((getUnnormalizedValue(paramPhaseDelayR) / 1000.0f) * getPreparedSampleRate());
-    gain.params->gain = getUnnormalizedValue(paramGain);
-    invertPhase.params->invert = true;
+    // Update parameters
+    gainL.params->gain = getUnnormalizedValue(paramGainL);
+    gainR.params->gain = getUnnormalizedValue(paramGainR);
+    gainCenter.params->gain = getUnnormalizedValue(paramGain);
     pan.params->pan = getUnnormalizedValue(paramPan);
+    delayL.params->samplesToDelay = getUnnormalizedValue(paramPhaseDelayL);
+    delayR.params->samplesToDelay = getUnnormalizedValue(paramPhaseDelayR);
+    invertPhaseL.params->invert = getUnnormalizedValue(paramPhaseInvertL);
+    invertPhaseR.params->invert = getUnnormalizedValue(paramPhaseInvertR);
 
-    dsp::AudioBlock<float> block(buffer);
-    dsp::ProcessContextReplacing<float> context(block);
-    delay.process(context);
-    gain.process(context);
-    invertPhase.process(context);
-    pan.process(context);
+    // Create processing blocks
+    dsp::AudioBlock<float> blockStereo(buffer);
+    dsp::ProcessContextReplacing<float> contextStereo(blockStereo);
+
+    dsp::AudioBlock<float> blockL = blockStereo.getSingleChannelBlock(0);
+    dsp::ProcessContextReplacing<float> contextL(blockL);
+
+    dsp::AudioBlock<float> blockR = blockStereo.getSingleChannelBlock(1);
+    dsp::ProcessContextReplacing<float> contextR(blockR);
+
+    // Run processing
+    gainL.process(contextL);
+    gainR.process(contextR);
+    gainCenter.process(contextStereo);
+    pan.process(contextStereo);
+    delayL.process(contextL);
+    invertPhaseL.process(contextL);
+    delayR.process(contextR);
+    invertPhaseR.process(contextR);
     goniometerSource.process(buffer);
 }

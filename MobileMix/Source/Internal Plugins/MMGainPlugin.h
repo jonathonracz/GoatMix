@@ -15,11 +15,10 @@
 #include "../GUI/GoniometerSource.h"
 #include "../GUI/MaxdBLabel.h"
 #include "../DSP/VariableDelayLineResampling.h"
+#include "../DSP/VariableDelayLinePSOLA.h"
 #include "../DSP/Gain.h"
 #include "../DSP/InvertPhase.h"
 #include "../DSP/Pan.h"
-#include "../DSP/MMStateVariableFilter.h"
-#include "../DSP/MMIIRFilter.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -51,12 +50,12 @@ public:
 private:
     Gain gainL;
     Gain gainR;
-
-    VariableDelayLineResampling delay;
-    Gain gain;
-    InvertPhase invertPhase;
+    Gain gainCenter;
     Pan pan;
-    MMStateVariableFilter filter;
+    VariableDelayLinePSOLA delayL;
+    VariableDelayLinePSOLA delayR;
+    InvertPhase invertPhaseL;
+    InvertPhase invertPhaseR;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMGainPlugin)
 };
