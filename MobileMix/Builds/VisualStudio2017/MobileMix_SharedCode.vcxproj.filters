@@ -4652,6 +4652,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\hipass.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\lopass.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\phaseinvert.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>

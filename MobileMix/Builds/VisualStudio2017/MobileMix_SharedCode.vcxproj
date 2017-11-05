@@ -2663,6 +2663,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\hipass.svg"/>
+    <None Include="..\..\Source\Resources\lopass.svg"/>
     <None Include="..\..\Source\Resources\phaseinvert.svg"/>
     <None Include="..\..\Source\Resources\about.txt"/>
     <None Include="..\..\Source\Resources\info.svg"/>

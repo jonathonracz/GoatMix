@@ -13,7 +13,7 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/DistortionChain.h"
-#include "../GUI/GoniometerSource.h"
+#include "../DSP/MMStateVariableFilter.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -31,16 +31,17 @@ public:
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
-    DistortionChain distortion;
-    GoniometerSource graphDistortionSource;
-
     AudioProcessorParameterWithID* paramDownsample;
     AudioProcessorParameterWithID* paramBitDepth;
-    AudioProcessorParameterWithID* paramTone;
-    AudioProcessorParameterWithID* paramDrive;
-    AudioProcessorParameterWithID* paramClipThreshold1;
+    AudioProcessorParameterWithID* paramOverdrive;
+    AudioProcessorParameterWithID* paramGain;
     AudioProcessorParameterWithID* paramLowPass;
-    AudioProcessorParameterWithID* paramClipThreshold2;
+    AudioProcessorParameterWithID* paramLowPassEnable;
+
+    DistortionChain distortion;
+
+private:
+    MMStateVariableFilter lowPass;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMDistortionPlugin)
 };

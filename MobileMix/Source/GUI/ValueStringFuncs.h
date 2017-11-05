@@ -29,6 +29,9 @@ namespace ValueStringFuncs
 
     namespace OnOff
     {
+        const StringRef unit = "";
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 1.0f, 1.0f);
+
         auto valueToText = [](float value) -> String
         {
             return (value >= 0.5f) ? "On" : "Off";
@@ -90,6 +93,7 @@ namespace ValueStringFuncs
         const StringRef unit = "Hz";
         const NormalisableRange<float> range = NormalisableRange<float>(20.0f, 20000.0f, 1.0f, 0.25f);
         const float defaultValue = 1000.0f;
+        const auto valueToText = [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Filter::unit, 0); };
     }
 
     namespace ComboBox

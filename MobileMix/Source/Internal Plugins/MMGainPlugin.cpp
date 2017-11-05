@@ -77,7 +77,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Phase Invert L"),
         addPrefixToParameterName("Phase Invert L"),
         {},
-        NormalisableRange<float>(0.0f, 1.0f, 1.0f),
+        ValueStringFuncs::OnOff::range,
         0.0f,
         ValueStringFuncs::OnOff::valueToText,
         ValueStringFuncs::OnOff::textToValue);
@@ -86,7 +86,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Phase Invert R"),
         addPrefixToParameterName("Phase Invert R"),
         {},
-        NormalisableRange<float>(0.0f, 1.0f, 1.0f),
+        ValueStringFuncs::OnOff::range,
         0.0f,
         ValueStringFuncs::OnOff::valueToText,
         ValueStringFuncs::OnOff::textToValue);

@@ -7,8 +7,42 @@
 namespace BinaryData
 {
 
-//================== phaseinvert.svg ==================
+//================== hipass.svg ==================
 static const unsigned char temp_binary_data_0[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Filter Glyph Copy</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs></defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Filter-Glyph-Copy\" stroke=\"#000000\" stroke-width=\"3\">\n"
+"            <path d=\"M8,10 C14.6666667,10 19,10 21,10 C23,10 24.3333333,14.6666667 25,24\" id=\"Path-34\" transform=\"translate(16.500000, 17.000000) scale(-1, 1) translate(-16.500000, -17.000000) \"></path>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* hipass_svg = (const char*) temp_binary_data_0;
+
+//================== lopass.svg ==================
+static const unsigned char temp_binary_data_1[] =
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+"<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
+"    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
+"    <title>Filter Glyph</title>\n"
+"    <desc>Created with Sketch.</desc>\n"
+"    <defs></defs>\n"
+"    <g id=\"Mix\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n"
+"        <g id=\"Filter-Glyph\" stroke=\"#000000\" stroke-width=\"3\">\n"
+"            <path d=\"M8,10 C14.6666667,10 19,10 21,10 C23,10 24.3333333,14.6666667 25,24\" id=\"Path-34\"></path>\n"
+"        </g>\n"
+"    </g>\n"
+"</svg>";
+
+const char* lopass_svg = (const char*) temp_binary_data_1;
+
+//================== phaseinvert.svg ==================
+static const unsigned char temp_binary_data_2[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -24,10 +58,10 @@ static const unsigned char temp_binary_data_0[] =
 "    </g>\n"
 "</svg>";
 
-const char* phaseinvert_svg = (const char*) temp_binary_data_0;
+const char* phaseinvert_svg = (const char*) temp_binary_data_2;
 
 //================== about.txt ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_3[] =
 { 77,111,98,105,108,101,77,105,120,32,98,121,32,71,111,97,116,65,117,100,105,111,32,105,115,32,97,32,102,105,99,116,105,111,110,97,108,32,115,116,97,114,116,117,112,32,97,112,112,32,102,111,114,32,116,104,101,32,85,110,105,118,101,114,115,105,116,121,32,
 111,102,32,77,105,99,104,105,103,97,110,32,99,111,117,114,115,101,32,69,69,67,83,32,52,52,49,58,32,77,111,98,105,108,101,32,65,112,112,32,68,101,118,101,108,111,112,109,101,110,116,46,13,10,13,10,71,111,97,116,65,117,100,105,111,32,105,115,32,40,105,
 110,32,97,108,112,104,97,98,101,116,105,99,97,108,32,111,114,100,101,114,41,58,13,10,68,97,110,105,101,108,32,66,101,114,107,111,119,105,116,122,32,40,100,97,110,98,101,114,107,111,41,32,45,32,80,114,111,106,101,99,116,32,77,97,110,97,103,101,114,13,
@@ -1097,10 +1131,10 @@ static const unsigned char temp_binary_data_1[] =
 89,32,79,85,84,32,79,70,32,84,72,69,32,85,83,69,32,79,70,32,84,72,73,83,32,83,79,70,84,87,65,82,69,44,32,69,86,69,78,32,73,70,32,65,68,86,73,83,69,68,32,79,70,32,84,72,69,32,80,79,83,83,73,66,73,76,73,84,89,32,79,70,32,83,85,67,72,32,68,65,77,65,71,69,
 46,13,10,13,10,67,101,110,116,101,114,101,100,69,100,105,116,97,98,108,101,76,97,98,101,108,13,10,13,10,67,111,112,121,114,105,103,104,116,32,40,99,41,32,50,48,49,55,44,32,65,100,97,109,32,87,105,108,115,111,110,13,10,0,0 };
 
-const char* about_txt = (const char*) temp_binary_data_1;
+const char* about_txt = (const char*) temp_binary_data_3;
 
 //================== info.svg ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_4[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1118,10 +1152,10 @@ static const unsigned char temp_binary_data_2[] =
 "    </g>\n"
 "</svg>";
 
-const char* info_svg = (const char*) temp_binary_data_2;
+const char* info_svg = (const char*) temp_binary_data_4;
 
 //================== mutebuttonbg.svg ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_5[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1135,10 +1169,10 @@ static const unsigned char temp_binary_data_3[] =
 "    </g>\n"
 "</svg>";
 
-const char* mutebuttonbg_svg = (const char*) temp_binary_data_3;
+const char* mutebuttonbg_svg = (const char*) temp_binary_data_5;
 
 //================== tabshadow.svg ==================
-static const unsigned char temp_binary_data_4[] =
+static const unsigned char temp_binary_data_6[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1157,10 +1191,10 @@ static const unsigned char temp_binary_data_4[] =
 "    </g>\n"
 "</svg>";
 
-const char* tabshadow_svg = (const char*) temp_binary_data_4;
+const char* tabshadow_svg = (const char*) temp_binary_data_6;
 
 //================== redo.svg ==================
-static const unsigned char temp_binary_data_5[] =
+static const unsigned char temp_binary_data_7[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1176,10 +1210,10 @@ static const unsigned char temp_binary_data_5[] =
 "    </g>\n"
 "</svg>";
 
-const char* redo_svg = (const char*) temp_binary_data_5;
+const char* redo_svg = (const char*) temp_binary_data_7;
 
 //================== undo.svg ==================
-static const unsigned char temp_binary_data_6[] =
+static const unsigned char temp_binary_data_8[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1195,10 +1229,10 @@ static const unsigned char temp_binary_data_6[] =
 "    </g>\n"
 "</svg>";
 
-const char* undo_svg = (const char*) temp_binary_data_6;
+const char* undo_svg = (const char*) temp_binary_data_8;
 
 //================== filter.svg ==================
-static const unsigned char temp_binary_data_7[] =
+static const unsigned char temp_binary_data_9[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1212,10 +1246,10 @@ static const unsigned char temp_binary_data_7[] =
 "    </g>\n"
 "</svg>";
 
-const char* filter_svg = (const char*) temp_binary_data_7;
+const char* filter_svg = (const char*) temp_binary_data_9;
 
 //================== goataudio.svg ==================
-static const unsigned char temp_binary_data_8[] =
+static const unsigned char temp_binary_data_10[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
 "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 1428 188\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;st"
@@ -1262,10 +1296,10 @@ static const unsigned char temp_binary_data_8[] =
 "    </g>\n"
 "</svg>\n";
 
-const char* goataudio_svg = (const char*) temp_binary_data_8;
+const char* goataudio_svg = (const char*) temp_binary_data_10;
 
 //================== power.svg ==================
-static const unsigned char temp_binary_data_9[] =
+static const unsigned char temp_binary_data_11[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -1281,7 +1315,7 @@ static const unsigned char temp_binary_data_9[] =
 "    </g>\n"
 "</svg>";
 
-const char* power_svg = (const char*) temp_binary_data_9;
+const char* power_svg = (const char*) temp_binary_data_11;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -1294,6 +1328,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0x56665d37:  numBytes = 740; return hipass_svg;
+        case 0xa126bbb9:  numBytes = 638; return lopass_svg;
         case 0x1604de36:  numBytes = 1026; return phaseinvert_svg;
         case 0xb02b86be:  numBytes = 73914; return about_txt;
         case 0x0aa04b53:  numBytes = 1039; return info_svg;
@@ -1313,6 +1349,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "hipass_svg",
+    "lopass_svg",
     "phaseinvert_svg",
     "about_txt",
     "info_svg",
