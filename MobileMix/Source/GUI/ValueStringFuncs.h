@@ -14,18 +14,73 @@
 
 namespace ValueStringFuncs
 {
+    namespace Generic
+    {
+        auto valueToText = [](float value, String label, int decimalPlaces) -> String
+        {
+            return String(value, decimalPlaces) + " " + label;
+        };
+
+        auto textToValue = [](const String& text) -> float
+        {
+            return text.getFloatValue();
+        };
+    }
+
+    namespace OnOff
+    {
+        auto valueToText = [](float value) -> String
+        {
+            return (value >= 0.5f) ? "On" : "Off";
+        };
+
+        auto textToValue = [](const String& text) -> float
+        {
+            return (text == "On" || text.getFloatValue() >= 0.5f) ? 1.0f : 0.0f;
+        };
+    }
+
     namespace Gain
     {
-        StringRef unit = "dB";
+        const StringRef unit = "dB";
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.1f, 0.5f);
 
         auto valueToText = [](float value) -> String
         {
-            return Decibels::toString(Decibels::gainToDecibels(value), 1);
+            float dB = Decibels::gainToDecibels(range.snapToLegalValue(value));
+            String prefix = (dB >= 0) ? "+" : String();
+            return prefix + String(dB, 1) + " " + unit;
         };
 
         auto textToValue = [](const String& text) -> float
         {
             return Decibels::decibelsToGain(text.getFloatValue());
         };
+    }
+
+    namespace Pan
+    {
+        const StringRef unit = "°";
+
+        auto valueToText = [](float value) -> String
+        {
+            String direction;
+            if (value > 0.0f)
+                direction = "L";
+            else if (value < 0.0f)
+                direction = "R";
+            return String(std::fabs(value), 0) + unit + " " + direction;
+        };
+
+        auto textToValue = [](const String& text) -> float
+        {
+            float multiplier = text.contains("L") ? -1.0f : 1.0f;
+            return text.getFloatValue() * multiplier;
+        };
+    }
+
+    namespace Milliseconds
+    {
+        const StringRef unit = "ms";
     }
 }

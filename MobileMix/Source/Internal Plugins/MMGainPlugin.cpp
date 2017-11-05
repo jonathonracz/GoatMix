@@ -23,7 +23,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain"),
         addPrefixToParameterName("Gain"),
         ValueStringFuncs::Gain::unit,
-        NormalisableRange<float>(0.0f, 2.0f, 0.01f),
+        ValueStringFuncs::Gain::range,
         1.0f,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
@@ -32,7 +32,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain L"),
         addPrefixToParameterName("Gain L"),
         ValueStringFuncs::Gain::unit,
-        NormalisableRange<float>(0.0f, 2.0f, 0.01f),
+        ValueStringFuncs::Gain::range,
         1.0f,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
@@ -41,7 +41,7 @@ void MMGainPlugin::registerParameters()
         addPrefixToParameterName("Gain R"),
         addPrefixToParameterName("Gain R"),
         ValueStringFuncs::Gain::unit,
-        NormalisableRange<float>(0.0f, 2.0f, 0.01f),
+        ValueStringFuncs::Gain::range,
         1.0f,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
@@ -49,29 +49,29 @@ void MMGainPlugin::registerParameters()
     paramPan = state.createAndAddParameter(
         addPrefixToParameterName("Pan"),
         addPrefixToParameterName("Pan"),
-        "Degrees",
+        ValueStringFuncs::Pan::unit,
         NormalisableRange<float>(-45.0f, 45.0f, 1.0f),
         0.0f,
-        nullptr,
-        nullptr);
+        [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Pan::unit, 0); },
+        ValueStringFuncs::Generic::textToValue);
 
     paramPhaseDelayL = state.createAndAddParameter(
         addPrefixToParameterName("Phase Delay L"),
         addPrefixToParameterName("Phase Delay L"),
-        "ms",
+        ValueStringFuncs::Milliseconds::unit,
         NormalisableRange<float>(0.0f, 100.0f, 1.0f),
         0.0f,
-        nullptr,
-        nullptr);
+        [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Milliseconds::unit, 0); },
+        ValueStringFuncs::Generic::textToValue);
 
     paramPhaseDelayR = state.createAndAddParameter(
         addPrefixToParameterName("Phase Delay R"),
         addPrefixToParameterName("Phase Delay R"),
-        "ms",
+        ValueStringFuncs::Milliseconds::unit,
         NormalisableRange<float>(0.0f, 1000.0f, 1.0f),
         0.0f,
-        nullptr,
-        nullptr);
+        [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Milliseconds::unit, 0); },
+        ValueStringFuncs::Generic::textToValue);
 
     paramPhaseInvertL = state.createAndAddParameter(
         addPrefixToParameterName("Phase Invert L"),
@@ -79,8 +79,8 @@ void MMGainPlugin::registerParameters()
         {},
         NormalisableRange<float>(0.0f, 1.0f, 1.0f),
         0.0f,
-        nullptr,
-        nullptr);
+        ValueStringFuncs::OnOff::valueToText,
+        ValueStringFuncs::OnOff::textToValue);
 
     paramPhaseInvertR = state.createAndAddParameter(
         addPrefixToParameterName("Phase Invert R"),
@@ -88,8 +88,8 @@ void MMGainPlugin::registerParameters()
         {},
         NormalisableRange<float>(0.0f, 1.0f, 1.0f),
         0.0f,
-        nullptr,
-        nullptr);
+        ValueStringFuncs::OnOff::valueToText,
+        ValueStringFuncs::OnOff::textToValue);
 }
 
 AudioProcessorEditor* MMGainPlugin::createEditor()

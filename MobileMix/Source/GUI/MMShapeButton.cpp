@@ -38,14 +38,9 @@ void MMShapeButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButt
     if (isButtonDown || getToggleState())
     {
         if (hasBackground)
-        {
             lf.drawButtonBackground(g, *this, lf.findColour(MMLookAndFeel::ColourIds::sliderForeground), isMouseOverButton, isButtonDown);
-            g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::sliderText));
-        }
-        else
-        {
-            g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::outline));
-        }
+
+        g.setColour(lf.findColour((downColorId) ? downColorId : MMLookAndFeel::ColourIds::outline));
     }
     else
     {

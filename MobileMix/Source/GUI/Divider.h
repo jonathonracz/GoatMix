@@ -20,8 +20,7 @@ public:
 private:
     void paint(Graphics& g) override
     {
-        MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
-        g.setColour(Colours::black);
-        g.drawLine(0, 0, getWidth(), getHeight(), lf.borderThickness);
+        g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        g.fillRect(0, 0, getWidth(), getHeight());
     }
 };

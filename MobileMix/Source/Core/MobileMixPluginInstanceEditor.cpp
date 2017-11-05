@@ -29,7 +29,7 @@ MobileMixPluginInstanceEditor::MMComboBoxAttachment MobileMixPluginInstanceEdito
 
 MobileMixPluginInstanceEditor::MMSliderAttachment MobileMixPluginInstanceEditor::createSliderAttachment(AudioProcessorParameterWithID* parameter, MMParameterSlider& sliderToControl)
 {
-    sliderToControl.setRepresentedParameter(parameter);
+    sliderToControl.setRepresentedParameter(parameter, processor.state.getParameterRange(parameter->paramID));
     return MMSliderAttachment(new AudioProcessorValueTreeState::SliderAttachment(processor.state, parameter->paramID, sliderToControl));
 }
 

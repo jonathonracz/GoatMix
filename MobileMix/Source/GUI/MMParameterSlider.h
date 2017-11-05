@@ -21,7 +21,8 @@ public:
     MMParameterSlider();
     ~MMParameterSlider() {}
 
-    void setRepresentedParameter(AudioProcessorParameterWithID* parameter);
+    void setRepresentedParameter(AudioProcessorParameterWithID* parameter,
+            NormalisableRange<float> range);
 
 private:
     void paint(Graphics& g) override;
@@ -31,13 +32,8 @@ private:
     void labelTextChanged(Label* labelThatHasChanged) override {}
     void editorShown(Label* label, TextEditor& editor) override;
 
-    /*
-    void editorHidden(Label* label, TextEditor& editor) override
-    {
-    }
-     */
-
     AudioProcessorParameterWithID* representedParameter = nullptr;
+    NormalisableRange<float> representedRange;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMParameterSlider)
 };

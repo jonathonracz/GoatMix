@@ -112,6 +112,10 @@ void MMGainPluginEditor::resized()
 
     layout.performLayout(getLocalBounds());
 
+    Rectangle<int> shapeBounds = buttonPhaseInvertL.getLocalBounds().reduced(buttonPhaseInvertL.getWidth() * 0.15f, buttonPhaseInvertL.getHeight() * 0.15f);
+    buttonPhaseInvertL.setInternalShapeBounds(shapeBounds);
+    buttonPhaseInvertR.setInternalShapeBounds(shapeBounds);
+
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGainL);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGainR);

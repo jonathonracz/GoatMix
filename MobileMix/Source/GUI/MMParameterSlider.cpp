@@ -17,9 +17,11 @@ MMParameterSlider::MMParameterSlider() :
     setOpaque(true);
 }
 
-void MMParameterSlider::setRepresentedParameter(AudioProcessorParameterWithID* parameter)
+void MMParameterSlider::setRepresentedParameter(AudioProcessorParameterWithID* parameter,
+        NormalisableRange<float> range)
 {
     representedParameter = parameter;
+    representedRange = range;
 }
 
 void MMParameterSlider::paint(Graphics& g)
@@ -36,7 +38,7 @@ void MMParameterSlider::paint(Graphics& g)
 double MMParameterSlider::getValueFromText(const String &text)
 {
     if (representedParameter)
-        return representedParameter->getValueForText(text);
+        return representedRange.convertFrom0to1(representedParameter->getValueForText(text));
 
     return Slider::getValueFromText(text);
 }
@@ -44,8 +46,10 @@ double MMParameterSlider::getValueFromText(const String &text)
 String MMParameterSlider::getTextFromValue(double value)
 {
     if (representedParameter)
+    {
         return MobileMixPluginInstance::stripPrefixFromParameterName(representedParameter->name)
-        + ": " + representedParameter->getText(static_cast<float>(value), 0);
+        + ": " + representedParameter->getText(representedRange.convertTo0to1(static_cast<float>(value)), 0);
+    }
 
     return Slider::getTextFromValue(value);
 }
