@@ -30,6 +30,7 @@ private:
     DistortionPreview preview;
     SimpleLevelMeter meterL;
     SimpleLevelMeter meterR;
+    Label labelDB;
     Label labelL;
     Label labelR;
     

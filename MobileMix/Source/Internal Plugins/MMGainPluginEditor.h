@@ -34,6 +34,8 @@ private:
     MaxdBLabel leftdBLabel;
     MaxdBLabel rightdBLabel;
     
+    Label meterLabels[16];
+    
     SimpleLevelMeter meterNegL;
     SimpleLevelMeter meterPosL;
     SimpleLevelMeter meterNegR;
