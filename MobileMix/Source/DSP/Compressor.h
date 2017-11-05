@@ -44,9 +44,9 @@ public:
 
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
+        updateParameters();
         for (size_t channel = 0; channel < context.getInputBlock().getNumChannels(); ++channel)
         {
-            updateParameters();
             const float* sampleRead = context.getInputBlock().getChannelPointer(channel);
             float* sampleWrite = context.getOutputBlock().getChannelPointer(channel);
             for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
@@ -68,7 +68,7 @@ private:
             channelState.compressor.setAttack(static_cast<double>(params->attack));
             channelState.compressor.setRelease(static_cast<double>(params->release));
             channelState.compressor.setThreshold(static_cast<double>(params->threshold));
-            channelState.compressor.setRatio(1.0 / static_cast<double>(params->ratio));
+            channelState.compressor.setRatio(static_cast<double>(params->ratio));
         }
     }
 

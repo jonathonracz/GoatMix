@@ -87,6 +87,10 @@ void MMEQPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& mid
 
     for (size_t i = 0; i < filters.size(); ++i)
     {
+        if (getUnnormalizedValue(eqParams[i].paramType) < 1.0f)
+            continue;
+
+        filters[i].params->mode = static_cast<MMIIRFilter::Parameters::FilterMode>(getUnnormalizedValue(eqParams[i].paramType) - 1);
         filters[i].params->cutoff = getUnnormalizedValue(eqParams[i].paramCutoff);
         filters[i].params->gain = getUnnormalizedValue(eqParams[i].paramGain);
         filters[i].params->q = getUnnormalizedValue(eqParams[i].paramQ);

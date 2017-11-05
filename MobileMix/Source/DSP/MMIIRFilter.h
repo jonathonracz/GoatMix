@@ -64,7 +64,8 @@ private:
         // If a param changed, regenerate coefficients.
         if (params->mode != currentMode ||
             params->cutoff != currentCutoff ||
-            params->q != currentQ)
+            params->q != currentQ ||
+            params->gain != currentGain)
         {
             switch(params->mode)
             {
@@ -109,6 +110,6 @@ private:
     Parameters::FilterMode currentMode;
     float currentCutoff;
     float currentQ;
-    float currentPeak;
+    float currentGain;
     double sampleRate = 0.0;
 };

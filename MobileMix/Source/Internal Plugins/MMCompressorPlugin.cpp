@@ -99,13 +99,13 @@ void MMCompressorPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
 {
     compressor.params->attack = getUnnormalizedValue(paramAttack);
     compressor.params->release = getUnnormalizedValue(paramRelease);
-    compressor.params->ratio = getUnnormalizedValue(paramThreshold);
+    compressor.params->ratio = getUnnormalizedValue(paramRatio);
     compressor.params->threshold = getUnnormalizedValue(paramThreshold);
     makeup.params->gain = getUnnormalizedValue(paramMakeupGain);
     dryWet.params->wetDry = getUnnormalizedValue(paramDryWet);
 
     dryWet.copyDrySignal(buffer);
-    dsp::AudioBlock<float> block;
+    dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
     compressor.process(context);
     makeup.process(context);

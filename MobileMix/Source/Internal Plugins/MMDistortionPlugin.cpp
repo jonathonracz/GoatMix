@@ -106,7 +106,7 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
 
-    distortion.process(context);
-    if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
-        lowPass.process(context);
+    //distortion.process(context);
+    //if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
+        //lowPass.process(context);
 }
