@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/DryWet.h"
 #include "../DSP/MMReverb.h"
+#include "../DSP/MMStateVariableFilter.h"
 #include "../GUI/GoniometerSource.h"
 
 class MMReverbPlugin :
@@ -41,9 +42,7 @@ public:
 private:
     DryWet dryWet;
     MMReverb reverb;
-    dsp::ProcessorDuplicator<
-        dsp::StateVariableFilter::Filter<float>,
-        dsp::StateVariableFilter::Parameters<float>> lowPass;
+    MMStateVariableFilter lowPass;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPlugin)
 };

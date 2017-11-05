@@ -13,6 +13,8 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/Compressor.h"
+#include "../DSP/DryWet.h"
+#include "../DSP/Gain.h"
 #include "../GUI/GoniometerSource.h"
 #include "../DSP/WindowedMeter.h"
 
@@ -42,6 +44,10 @@ public:
     AudioProcessorParameterWithID* paramDryWet;
 
     WindowedMeter peak;
+
+    Compressor compressor;
+    Gain makeup;
+    DryWet dryWet;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMCompressorPlugin)

@@ -47,7 +47,7 @@ public:
                     samples[i] = channelState->repeatSampleValue;
 
                 channelState->samplesReplaced++;
-                if (channelState->samplesReplaced == params->samplesToRepeat)
+                if (channelState->samplesReplaced >= params->samplesToRepeat)
                     channelState->samplesReplaced = 0;
             }
         }

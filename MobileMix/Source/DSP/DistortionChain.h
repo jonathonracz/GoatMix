@@ -38,19 +38,25 @@ public:
 
     void prepare(const dsp::ProcessSpec& spec) override
     {
+        downsample.prepare(spec);
+        depth.prepare(spec);
+        overdrive.prepare(spec);
         updateParameters();
-        chain.prepare(spec);
     }
 
     void process(const dsp::ProcessContextReplacing<float>& context) override
     {
         updateParameters();
-        chain.process(context);
+        downsample.process(context);
+        depth.process(context);
+        overdrive.process(context);
     }
 
     void reset() override
     {
-        chain.reset();
+        downsample.reset();
+        depth.reset();
+        overdrive.reset();
     }
 
     Parameters::Ptr params = new Parameters;
@@ -59,14 +65,13 @@ private:
     void updateParameters()
     {
         // Trickle parameters down.
-        chain.get<0>().params->samplesToRepeat = params->samplesToRepeat;
-        chain.get<1>().params->bitDepth = params->bitDepth;
-        chain.get<2>().params->gainUp = params->overDriveGainUp;
-        chain.get<2>().params->gainDown = params->overDriveGainDown;
+        downsample.params->samplesToRepeat = params->samplesToRepeat;
+        depth.params->bitDepth = params->bitDepth;
+        overdrive.params->gainUp = params->overDriveGainUp;
+        overdrive.params->gainDown = params->overDriveGainDown;
     }
 
-    dsp::ProcessorChain<
-        SampleRepeat,
-        AmplitudeQuantize,
-        Overdrive> chain;
+    SampleRepeat downsample;
+    AmplitudeQuantize depth;
+    Overdrive overdrive;
 };

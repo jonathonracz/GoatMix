@@ -86,6 +86,7 @@ namespace ValueStringFuncs
     namespace Milliseconds
     {
         const StringRef unit = "ms";
+        const auto valueToText = [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Milliseconds::unit, 0); };
     }
 
     namespace Filter
@@ -107,5 +108,12 @@ namespace ValueStringFuncs
         {
             return static_cast<float>(values.indexOf(text));
         };
+    }
+
+    namespace Percent
+    {
+        const StringRef unit = "%";
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 100.0f, 1.0f);
+        const auto valueToText = [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Percent::unit, 0); };
     }
 }
