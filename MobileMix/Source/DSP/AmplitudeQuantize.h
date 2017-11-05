@@ -18,7 +18,7 @@ struct AmplitudeQuantize :
     struct Parameters :
         dsp::ProcessorState
     {
-        size_t bitDepth = 32;
+        size_t bitDepth = 16;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
@@ -28,6 +28,9 @@ struct AmplitudeQuantize :
     void prepare(const dsp::ProcessSpec& spec) override {}
     void process(const dsp::ProcessContextReplacing<float>& context) override
     {
+        if (params->bitDepth >= 16)
+            return;
+
         // Convert from floating point scale to bit depth scale.
         context.getOutputBlock().multiply(static_cast<float>(params->bitDepth));
 

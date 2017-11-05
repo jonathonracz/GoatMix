@@ -16,18 +16,19 @@ DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr paramsToFo
     processedSignal(1, generatorFrequency)
 {
     // Generate a clean signal.
-    dsp::Oscillator<float> signalGenerator(&std::sinf, generatorFrequency);
+    dsp::Oscillator<float> signalGenerator(&std::sinf);
     dsp::ProcessSpec spec;
-    spec.maximumBlockSize = generatorFrequency;
+    spec.sampleRate = static_cast<uint32>(44100);
+    spec.maximumBlockSize = static_cast<uint32>(generatorFrequency);
     spec.numChannels = 1;
-    spec.sampleRate = generatorFrequency;
-    signalGenerator.prepare(spec);
     distortion.params = paramsToFollow;
     distortion.prepare(spec);
 
-    dsp::AudioBlock<float> block(freshSignal);
-    dsp::ProcessContextReplacing<float> context(block);
-    signalGenerator.process(context);
+    float* freshSignalWrite = freshSignal.getWritePointer(0);
+    for (size_t i = 0; i < freshSignal.getNumSamples(); ++i)
+    {
+        freshSignalWrite[i] = std::sin((2.0f * MathConstants<float>::pi) * (i / static_cast<float>(freshSignal.getNumSamples())));
+    }
 }
 
 void DistortionPreview::paint(Graphics& g)
@@ -64,20 +65,20 @@ void DistortionPreview::paint(Graphics& g)
     {
         Path wavePath;
         wavePath.preallocateSpace(processedSignal.getNumSamples());
-        float pathXDelta = getWidth() / processedSignal.getNumSamples();
+        float pathXDelta = getWidth() / static_cast<float>(processedSignal.getNumSamples());
         for (int channel = 0; channel < processedSignal.getNumChannels(); channel++)
         {
             const float* sample = processedSignal.getReadPointer(channel);
             for (int i = 0; i < processedSignal.getNumSamples(); ++i)
             {
-                float yPos = sample[i] * getHeight() * 0.25f;
+                float yPos = (sample[i] * getHeight() * 0.45f) + (getHeight() / 2.0f);
                 if (i == 0)
                     wavePath.startNewSubPath(0, yPos);
                 else
-                    wavePath.lineTo(pathXDelta * i, yPos);
+                    wavePath.lineTo(static_cast<float>(i) * pathXDelta, yPos);
             }
         }
-        g.strokePath(wavePath, PathStrokeType(lf.borderThickness));
+        g.strokePath(wavePath, PathStrokeType(lf.borderThickness* 2.0f));
     }
 }
 

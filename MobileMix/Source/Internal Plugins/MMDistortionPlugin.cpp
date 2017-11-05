@@ -15,6 +15,7 @@
 MMDistortionPlugin::MMDistortionPlugin(AudioProcessorValueTreeState& state) :
     MobileMixPluginInstance(state)
 {
+    meterSource.resize(getMainBusNumInputChannels(), 8);
 }
 
 void MMDistortionPlugin::registerParameters()
@@ -33,8 +34,8 @@ void MMDistortionPlugin::registerParameters()
         addPrefixToParameterName("Bit Depth"),
         addPrefixToParameterName("Bit Depth"),
         "bit",
-        NormalisableRange<float>(1.0f, 32.0f, 1.0f),
-        32.0f,
+        NormalisableRange<float>(1.0f, 16.0f, 1.0f),
+        16.0f,
         [](float value){ return ValueStringFuncs::Generic::valueToText(value, "bit", 0); },
         ValueStringFuncs::Generic::textToValue);
 
@@ -107,6 +108,7 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dsp::ProcessContextReplacing<float> context(block);
 
     distortion.process(context);
+    meterSource.measureBlock(buffer);
     if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
         lowPass.process(context);
 }

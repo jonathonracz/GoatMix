@@ -38,6 +38,8 @@ public:
     AudioProcessorParameterWithID* paramLowPass;
     AudioProcessorParameterWithID* paramLowPassEnable;
 
+    FFAU::LevelMeterSource meterSource;
+
     DistortionChain distortion;
 
 private:

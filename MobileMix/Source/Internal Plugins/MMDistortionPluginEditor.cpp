@@ -22,6 +22,11 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
     attachLowPass = createSliderAttachment(processor.paramLowPass, sliderLowPass);
     attachLowPassEnable = createButtonAttachment(processor.paramLowPassEnable, buttonLowPassEnable);
 
+    meterL.setSource(&processor.meterSource);
+    meterL.setChannel(0);
+    meterR.setSource(&processor.meterSource);
+    meterR.setChannel(1);
+
     addAndMakeVisible(sliderDownsample);
     addAndMakeVisible(sliderBitDepth);
     addAndMakeVisible(sliderOverdrive);
@@ -43,6 +48,11 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
     
     addAndMakeVisible(labelL);
     addAndMakeVisible(labelR);
+
+    sliderGain.addListener(&preview);
+    sliderBitDepth.addListener(&preview);
+    sliderOverdrive.addListener(&preview);
+    sliderDownsample.addListener(&preview);
 }
 
 MMDistortionPluginEditor::~MMDistortionPluginEditor()
@@ -88,7 +98,5 @@ void MMDistortionPluginEditor::resized()
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderBitDepth);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderOverdrive);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&meterL);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&meterR);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
 }
