@@ -31,10 +31,18 @@ private:
     MMShapeButton buttonHighPass;
     MMShapeButton buttonLowPass;
     
+    TextButton tbFreeze = TextButton("Freeze");
+    
+    MMParameterSlider sliderRoomSize;
+    MMParameterSlider sliderDamping;
+    MMParameterSlider sliderWidth;
     MMParameterSlider sliderHighPass;
     MMParameterSlider sliderLowPass;
     MMParameterSlider sliderDryWet;
     
+    MMSliderAttachment attachRoomSize;
+    MMSliderAttachment attachDamping;
+    MMSliderAttachment attachWidth;
     MMSliderAttachment attachHighPass;
     MMSliderAttachment attachLowPass;
     MMSliderAttachment attachDryWet;

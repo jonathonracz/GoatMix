@@ -35,6 +35,9 @@ public:
 
     GoniometerSource graphReverbSource;
     
+    AudioProcessorParameterWithID* paramRoomSize;
+    AudioProcessorParameterWithID* paramDamping;
+    AudioProcessorParameterWithID* paramWidth;
     AudioProcessorParameterWithID* paramLowPass;
     AudioProcessorParameterWithID* paramHighPass;
     AudioProcessorParameterWithID* paramDryWet;

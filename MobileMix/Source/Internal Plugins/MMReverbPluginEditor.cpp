@@ -15,6 +15,14 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     buttonLowPass(BinaryData::filter_svg, BinaryData::filter_svgSize),
     buttonHighPass(BinaryData::filter_svg, BinaryData::filter_svgSize)
 {
+    attachRoomSize = createSliderAttachment(processor.paramRoomSize, sliderRoomSize);
+    addAndMakeVisible(sliderRoomSize);
+    
+    attachDamping = createSliderAttachment(processor.paramDamping, sliderDamping);
+    addAndMakeVisible(sliderDamping);
+    
+    attachWidth = createSliderAttachment(processor.paramWidth, sliderWidth);
+    addAndMakeVisible(sliderWidth);
     
     attachHighPass = createSliderAttachment(processor.paramHighPass, sliderHighPass);
     addAndMakeVisible(sliderHighPass);
@@ -32,6 +40,8 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     //buttonHighPass = MMShapeButton(BinaryData::filter_svg, BinaryData::filter_svgSize);
     addAndMakeVisible(buttonHighPass);
     addAndMakeVisible(buttonLowPass);
+    
+    addAndMakeVisible(tbFreeze);
 }
 
 MMReverbPluginEditor::~MMReverbPluginEditor()
@@ -51,7 +61,20 @@ void MMReverbPluginEditor::resized()
     graphBox.flexDirection = FlexBox::Direction::column;
     graphBox.items.add(FlexItem(graphReverb).withFlex(6.0f));
     
-    layout.items.add(FlexItem(graphBox).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(10.0f));
+    layout.items.add(FlexItem(graphBox).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(8.0f));
+    
+    FlexBox freezeBox;
+    freezeBox.flexDirection = FlexBox::Direction::column;
+    
+    FlexBox freezeMeters;
+    freezeMeters.flexDirection = FlexBox::Direction::row;
+    freezeMeters.items.add(FlexItem(sliderRoomSize).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f)).withFlex(1.0f));
+    freezeMeters.items.add(FlexItem(sliderDamping).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace)).withFlex(1.0f));
+    freezeMeters.items.add(FlexItem(sliderWidth).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, 0.0f, dynamicSpace)).withFlex(1.0f));
+    freezeBox.items.add(FlexItem(freezeMeters).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, dynamicSpace * 2, 0.0f)).withFlex(6.0f));
+    
+    freezeBox.items.add(FlexItem(tbFreeze).withFlex(1.0f));
+    layout.items.add(FlexItem(freezeBox).withMargin(standardMargin).withFlex(3.0f));
     
     FlexBox highPass;
     highPass.flexDirection = FlexBox::Direction::column;
@@ -70,6 +93,9 @@ void MMReverbPluginEditor::resized()
     
     layout.performLayout(getLocalBounds());
     
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderRoomSize);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDamping);
+    MobileMixPluginInstanceEditor::setVerticalRotated(&sliderWidth);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderHighPass);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDryWet);

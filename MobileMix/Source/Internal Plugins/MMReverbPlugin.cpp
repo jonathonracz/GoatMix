@@ -19,6 +19,29 @@ MMReverbPlugin::MMReverbPlugin(AudioProcessorValueTreeState& state) :
 void MMReverbPlugin::registerParameters()
 {
     // Add parameters here via createParameter...
+    paramRoomSize = state.createAndAddParameter(addPrefixToParameterName("Room Size"),
+                                                addPrefixToParameterName("Room Size"),
+                                                "",
+                                                NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                                1.0f,
+                                                nullptr,
+                                                nullptr);
+    
+    paramDamping = state.createAndAddParameter(addPrefixToParameterName("Damping"),
+                                                addPrefixToParameterName("Damping"),
+                                                "",
+                                                NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                                1.0f,
+                                                nullptr,
+                                                nullptr);
+    
+    paramWidth = state.createAndAddParameter(addPrefixToParameterName("Width"),
+                                                addPrefixToParameterName("Width"),
+                                                "",
+                                                NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+                                                1.0f,
+                                                nullptr,
+                                                nullptr);
     
     paramHighPass = state.createAndAddParameter(addPrefixToParameterName("High Pass"),
                                             addPrefixToParameterName("High Pass"),
