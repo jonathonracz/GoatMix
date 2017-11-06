@@ -107,12 +107,11 @@ void MMDistortionPluginEditor::resized()
         prevItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
     }
     layout.items.add(prevItem);
-    //layout.items.add(FlexItem(preview).withMargin(standardMargin).withFlex(6.0f));
     
     FlexBox lpass;
     lpass.flexDirection = FlexBox::Direction::column;
-    //lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
-    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(15.0f, 0.0f, 0.0f, 0.0f)));
+    lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
+    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(dynamicSpace * 2, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
     layout.items.add(FlexItem(lpass).withMargin(standardMargin).withFlex(1.0f));
     
     layout.performLayout(getLocalBounds());
