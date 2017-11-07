@@ -74,7 +74,10 @@ void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isBut
     g.setColour(lf.findColour(MMLookAndFeel::ColourIds::outline));
     g.strokePath(muteButtonBgBorder, PathStrokeType(borderThickness));
     g.strokePath(border, PathStrokeType(borderThickness * 2.0f));
-    g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], getTextArea(), Justification::centred);
+    Rectangle<int> textArea = getTextArea();
+    textArea.setLeft(muteButtonBgBorder.getBounds().getRight());
+    textArea.setRight(meter.getBounds().getX());
+    g.drawText(getTabbedButtonBar().getTabNames()[getIndex()], textArea, Justification::centred);
 }
 
 int MMTabBarButton::getBestTabLength(int depth)

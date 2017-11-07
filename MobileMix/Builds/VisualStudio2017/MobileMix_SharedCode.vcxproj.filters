@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MobileMix\External\SimpleComp">
+      <UniqueIdentifier>{5203C2D0-9A7E-FA8B-D5CF-4A29809515CC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MobileMix\External\Maximilian">
       <UniqueIdentifier>{3415E17E-70A3-F191-96E7-EFE210F08FAF}</UniqueIdentifier>
     </Filter>
@@ -427,6 +430,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleComp.cpp">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleEnvelope.cpp">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleGate.cpp">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleLimit.cpp">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\External\Maximilian\maximilian.cpp">
       <Filter>MobileMix\External\Maximilian</Filter>
     </ClCompile>
@@ -2415,6 +2430,33 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleComp.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleCompProcess.inl">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleEnvelope.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGain.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGate.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGateProcess.inl">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleHeader.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimit.h">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimitProcess.inl">
+      <Filter>MobileMix\External\SimpleComp</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\External\Maximilian\maximilian.h">
       <Filter>MobileMix\External\Maximilian</Filter>
     </ClInclude>

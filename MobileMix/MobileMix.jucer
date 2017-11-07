@@ -14,6 +14,26 @@
               companyCopyright="">
   <MAINGROUP id="AIgys5" name="MobileMix">
     <GROUP id="{620A2A96-A068-7CBB-C477-632E4BD0B217}" name="External">
+      <GROUP id="{63F5FE48-D246-6CEF-AC5A-F4986B3C9885}" name="SimpleComp">
+        <FILE id="YuZso2" name="SimpleComp.cpp" compile="1" resource="0" file="Source/External/SimpleComp/SimpleComp.cpp"/>
+        <FILE id="lgcAUD" name="SimpleComp.h" compile="0" resource="0" file="Source/External/SimpleComp/SimpleComp.h"/>
+        <FILE id="kIFFFi" name="SimpleCompProcess.inl" compile="0" resource="0"
+              file="Source/External/SimpleComp/SimpleCompProcess.inl"/>
+        <FILE id="aFv8fM" name="SimpleEnvelope.cpp" compile="1" resource="0"
+              file="Source/External/SimpleComp/SimpleEnvelope.cpp"/>
+        <FILE id="FrEGqi" name="SimpleEnvelope.h" compile="0" resource="0"
+              file="Source/External/SimpleComp/SimpleEnvelope.h"/>
+        <FILE id="pIAqAP" name="SimpleGain.h" compile="0" resource="0" file="Source/External/SimpleComp/SimpleGain.h"/>
+        <FILE id="ZvSPtL" name="SimpleGate.cpp" compile="1" resource="0" file="Source/External/SimpleComp/SimpleGate.cpp"/>
+        <FILE id="Q1wXKv" name="SimpleGate.h" compile="0" resource="0" file="Source/External/SimpleComp/SimpleGate.h"/>
+        <FILE id="OtQ9Yh" name="SimpleGateProcess.inl" compile="0" resource="0"
+              file="Source/External/SimpleComp/SimpleGateProcess.inl"/>
+        <FILE id="evYJ9G" name="SimpleHeader.h" compile="0" resource="0" file="Source/External/SimpleComp/SimpleHeader.h"/>
+        <FILE id="todaUH" name="SimpleLimit.cpp" compile="1" resource="0" file="Source/External/SimpleComp/SimpleLimit.cpp"/>
+        <FILE id="Fhszwc" name="SimpleLimit.h" compile="0" resource="0" file="Source/External/SimpleComp/SimpleLimit.h"/>
+        <FILE id="QWogpz" name="SimpleLimitProcess.inl" compile="0" resource="0"
+              file="Source/External/SimpleComp/SimpleLimitProcess.inl"/>
+      </GROUP>
       <GROUP id="{02EFC6CA-C806-C8C0-D7E2-3A9D3982A88C}" name="Maximilian">
         <FILE id="g3xzvU" name="maximilian.cpp" compile="1" resource="0" file="Source/External/Maximilian/maximilian.cpp"/>
         <FILE id="gp7zQ5" name="maximilian.h" compile="0" resource="0" file="Source/External/Maximilian/maximilian.h"/>
@@ -256,7 +276,7 @@
         <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
-    <VS2017 targetFolder="Builds/VisualStudio2017">
+    <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
                        isDebug="1" optimisation="1" targetName="MobileMix" debugInformationFormat="ProgramDatabase"

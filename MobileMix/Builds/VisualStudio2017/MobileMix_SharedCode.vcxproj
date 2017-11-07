@@ -147,6 +147,10 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleComp.cpp"/>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleEnvelope.cpp"/>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleGate.cpp"/>
+    <ClCompile Include="..\..\Source\External\SimpleComp\SimpleLimit.cpp"/>
     <ClCompile Include="..\..\Source\External\Maximilian\maximilian.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPlugin.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPluginEditor.cpp"/>
@@ -1916,6 +1920,15 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleComp.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleCompProcess.inl"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleEnvelope.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGain.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGate.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleGateProcess.inl"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleHeader.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimit.h"/>
+    <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimitProcess.inl"/>
     <ClInclude Include="..\..\Source\External\Maximilian\maximilian.h"/>
     <ClInclude Include="..\..\Source\External\readerwriterqueue\readerwriterqueue.h"/>
     <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredEditableLabel.h"/>
