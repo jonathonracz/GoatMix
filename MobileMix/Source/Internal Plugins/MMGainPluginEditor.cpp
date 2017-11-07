@@ -191,13 +191,12 @@ void MMGainPluginEditor::resized()
     //Phase (right side)
     float phaseWidth = (this->getWidth() * 0.405f);
     float phaseHeight = this->getHeight() - vertSpace * 2;
-    float gonVertSpace = phaseHeight * (5.5f/7.0f);
-    float gonHorSpace = phaseWidth * (2.0f/3.0f);
-    float phaseSliderWidth = (phaseWidth - gonHorSpace) / 2;
+    float phaseSliderWidth = phaseWidth / 6;
     
     FlexBox phaseBox;
     phaseBox.flexDirection = FlexBox::Direction::column;
-    phaseBox.items.add(FlexItem(sliderPan).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withFlex(1.0f));
+    float panHeight = phaseHeight * (1.0f/6.0f);
+    phaseBox.items.add(FlexItem(sliderPan).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withHeight(panHeight));
 
     FlexBox phaseBottom;
     phaseBottom.flexDirection = FlexBox::Direction::row;
@@ -209,19 +208,28 @@ void MMGainPluginEditor::resized()
     phaseBottom.items.add(FlexItem(lPhase).withFlex(1.0f));
     
     //Goniometer
-    FlexItem gonItem = FlexItem(goniometer).withWidth(gonHorSpace).withHeight(gonVertSpace);
-    //float rightLeftSpace = (gonHorSpace - gonItem.width) / 2 - phaseSliderWidth + dynamicSpace * 4;
-    //float topBottomSpace = (gonVertSpace - gonItem.height) / 2;
-    if (gonItem.width > gonItem.height) {
-        gonItem.width = gonItem.height;
+    float gonVertSpace = phaseHeight - panHeight;
+    float gonHorSpace = phaseWidth - phaseSliderWidth * 2;
+    float calcWidth = gonHorSpace;
+    float calcHeight = gonVertSpace;
+    if (calcWidth > calcHeight) {
+        calcWidth = calcHeight;
     } else {
-        gonItem.height = gonItem.width;
+        calcHeight = calcWidth;
     }
-    float horMargin = (gonHorSpace - gonItem.width) / 2;
-    float vertMargin = (gonVertSpace - gonItem.height) / 2;
+    float horMargin = (gonHorSpace - calcWidth) / 2;
+    float vertMargin = (gonVertSpace - calcHeight) / 2;
     if (horMargin < dynamicSpace * 2) {
         horMargin = dynamicSpace * 2;
+        calcWidth = gonHorSpace - horMargin * 2;
+        calcHeight = calcWidth;
     }
+    else if (vertMargin < vertDynamicSpace * 2) {
+        vertMargin = vertDynamicSpace * 2;
+        calcHeight = gonVertSpace - vertMargin * 2;
+        calcWidth = calcHeight;
+    }
+    FlexItem gonItem = FlexItem(goniometer).withWidth(calcWidth).withHeight(calcHeight);
     gonItem.margin = FlexItem::Margin::Margin(vertMargin, horMargin, vertMargin, horMargin);
     phaseBottom.items.add(gonItem);
     
@@ -232,7 +240,7 @@ void MMGainPluginEditor::resized()
     phaseBottom.items.add(FlexItem(rPhase).withFlex(1.0f));
     phaseBox.items.add(FlexItem(phaseBottom).withFlex(6.0f));
     
-    layout.items.add(FlexItem(phaseBox).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace * 2)).withFlex((0.9f)));
+    layout.items.add(FlexItem(phaseBox).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace * 2)).withWidth(phaseWidth));
 
     layout.performLayout(getLocalBounds());
 

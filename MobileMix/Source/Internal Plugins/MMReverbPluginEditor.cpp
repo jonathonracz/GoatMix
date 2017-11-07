@@ -53,6 +53,7 @@ void MMReverbPluginEditor::resized()
 {
     FlexBox layout;
     
+    float vertDynamicSpace = this->getHeight() * 0.02f;
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
     FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
@@ -71,19 +72,19 @@ void MMReverbPluginEditor::resized()
     freezeMeters.items.add(FlexItem(sliderRoomSize).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f)).withFlex(1.0f));
     freezeMeters.items.add(FlexItem(sliderDamping).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace)).withFlex(1.0f));
     freezeMeters.items.add(FlexItem(sliderWidth).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, 0.0f, dynamicSpace)).withFlex(1.0f));
-    freezeBox.items.add(FlexItem(freezeMeters).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, dynamicSpace * 2, 0.0f)).withFlex(6.0f));
+    freezeBox.items.add(FlexItem(freezeMeters).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
     
     freezeBox.items.add(FlexItem(tbFreeze).withFlex(1.0f));
     layout.items.add(FlexItem(freezeBox).withMargin(standardMargin).withFlex(3.0f));
     
     FlexBox highPass;
     highPass.flexDirection = FlexBox::Direction::column;
-    highPass.items.add(FlexItem(sliderHighPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, dynamicSpace * 2, 0.0f)).withFlex(6.0f));
+    highPass.items.add(FlexItem(sliderHighPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
     highPass.items.add(FlexItem(buttonHighPass).withFlex(1.0f));
     
     FlexBox lowPass;
     lowPass.flexDirection = FlexBox::Direction::column;
-    lowPass.items.add(FlexItem(sliderLowPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, dynamicSpace * 2, 0.0f)).withFlex(6.0f));
+    lowPass.items.add(FlexItem(sliderLowPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
     lowPass.items.add(FlexItem(buttonLowPass).withFlex(1.0f));
     
     layout.items.add(FlexItem(highPass).withMargin(standardMargin).withFlex(1.0f));

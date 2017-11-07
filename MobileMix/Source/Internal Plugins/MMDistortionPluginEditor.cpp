@@ -68,6 +68,7 @@ void MMDistortionPluginEditor::resized()
 {
     FlexBox layout;
     
+    float vertDynamicSpace = this->getHeight() * 0.02f;
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
     FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
@@ -111,7 +112,7 @@ void MMDistortionPluginEditor::resized()
     FlexBox lpass;
     lpass.flexDirection = FlexBox::Direction::column;
     lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
-    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(dynamicSpace * 2, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
+    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
     layout.items.add(FlexItem(lpass).withMargin(standardMargin).withFlex(1.0f));
     
     layout.performLayout(getLocalBounds());
