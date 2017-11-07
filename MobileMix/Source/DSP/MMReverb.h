@@ -42,7 +42,7 @@ public:
         updateParameters();
         if (context.getInputBlock().getNumChannels() == 1)
             reverb.processMono(context.getOutputBlock().getChannelPointer(0), static_cast<int>(context.getOutputBlock().getNumSamples()));
-        else if (context.getInputBlock().getNumChannels() == 1)
+        else if (context.getInputBlock().getNumChannels() > 1)
             reverb.processStereo(context.getOutputBlock().getChannelPointer(0), context.getOutputBlock().getChannelPointer(1), static_cast<int>(context.getOutputBlock().getNumSamples()));
     }
 

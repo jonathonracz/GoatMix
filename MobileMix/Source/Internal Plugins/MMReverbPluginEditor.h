@@ -43,7 +43,10 @@ private:
     MMSliderAttachment attachRoomSize;
     MMSliderAttachment attachDamping;
     MMSliderAttachment attachWidth;
+    MMButtonAttachment attachFreeze;
+    MMButtonAttachment attachHighPassEnable;
     MMSliderAttachment attachHighPass;
+    MMButtonAttachment attachLowPassEnable;
     MMSliderAttachment attachLowPass;
     MMSliderAttachment attachDryWet;
 

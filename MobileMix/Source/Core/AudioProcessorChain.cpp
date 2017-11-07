@@ -12,15 +12,15 @@
 
 void AudioProcessorChain::clear()
 {
-    Array<Node::Ptr> emptyChain;
+    ReferenceCountedArray<Node> emptyChain;
     const ScopedLock lock(getCallbackLock());
     chain.swapWith(emptyChain);
 }
 
 AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processor, int insertIndex)
 {
-    Array<Node::Ptr> newChain(chain);
-    Node::Ptr newNode = std::shared_ptr<Node>(new Node(processor));
+    ReferenceCountedArray<Node> newChain(chain);
+    Node::Ptr newNode(new Node(processor));
     newChain.insert(insertIndex, newNode);
     {
         const ScopedLock lock(getCallbackLock());
@@ -29,32 +29,21 @@ AudioProcessorChain::Node* AudioProcessorChain::addNode(AudioProcessor* processo
     return newNode.get();
 }
 
-struct RemoveRawPointerPredicate
+void AudioProcessorChain::removeNode(Node* node)
 {
-    AudioProcessorChain::Node* rawNode;
-    bool operator()(AudioProcessorChain::Node::Ptr node) const
-    {
-        return node.get() == rawNode;
-    }
-};
-
-bool AudioProcessorChain::removeNode(Node* node)
-{
-    Array<Node::Ptr> newChain(chain);
-    int numRemoved = newChain.removeIf(RemoveRawPointerPredicate{node});
-    {
-        const ScopedLock lock(getCallbackLock());
-        chain.swapWith(newChain);
-    }
-    return (numRemoved);
+    ReferenceCountedArray<Node> newChain(chain);
+    newChain.removeObject(node);
+    const ScopedLock lock(getCallbackLock());
+    chain.swapWith(newChain);
 }
 
 void AudioProcessorChain::moveNode(int fromIndex, int toIndex)
 {
-    Array<Node::Ptr> newChain(chain);
+    ReferenceCountedArray<Node> newChain(chain);
     Node::Ptr nodeToMove = newChain.removeAndReturn(fromIndex);
+    DBG("Removed " << nodeToMove->getProcessor()->getName() << " from index " << fromIndex);
     newChain.insert(toIndex, nodeToMove);
-
+    DBG("Inserted " << nodeToMove->getProcessor()->getName() << " to index " << toIndex);
     const ScopedLock lock(getCallbackLock());
     chain.swapWith(newChain);
 }

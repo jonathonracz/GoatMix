@@ -38,14 +38,18 @@ public:
     AudioProcessorParameterWithID* paramRoomSize;
     AudioProcessorParameterWithID* paramDamping;
     AudioProcessorParameterWithID* paramWidth;
+    AudioProcessorParameterWithID* paramFreeze;
     AudioProcessorParameterWithID* paramLowPass;
+    AudioProcessorParameterWithID* paramLowPassEnable;
     AudioProcessorParameterWithID* paramHighPass;
+    AudioProcessorParameterWithID* paramHighPassEnable;
     AudioProcessorParameterWithID* paramDryWet;
 
 private:
-    DryWet dryWet;
     MMReverb reverb;
     MMStateVariableFilter lowPass;
+    MMStateVariableFilter highPass;
+    DryWet dryWet;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMReverbPlugin)
 };

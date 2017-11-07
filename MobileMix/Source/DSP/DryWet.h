@@ -20,7 +20,7 @@ public:
     struct Parameters :
         dsp::ProcessorState
     {
-        float wetDry = 100.0f; // Percentage
+        float wetDry = 1.0f; // Percentage, 0.0f - 1.0f
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
@@ -39,8 +39,8 @@ public:
 
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
-        wetGain.params->gain = params->wetDry / 100.0f;
-        dryGain.params->gain = 1.0f - (params->wetDry / 100.0f);
+        wetGain.params->gain = params->wetDry;
+        dryGain.params->gain = 1.0f - params->wetDry;
 
         wetGain.process(context);
 

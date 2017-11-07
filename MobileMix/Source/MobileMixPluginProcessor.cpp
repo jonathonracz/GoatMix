@@ -42,7 +42,6 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         chainTree.getOrCreateChildWithName(instance->getName(), nullptr);
     }
 
-    chainTree.addListener(this);
     params.state = ValueTree("ROOT");
     params.state.addChild(chainTree, -1, nullptr);
     params.state.addListener(this);

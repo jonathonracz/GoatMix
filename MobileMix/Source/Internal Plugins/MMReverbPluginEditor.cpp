@@ -36,9 +36,13 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     addAndMakeVisible(graphReverb);
     
     //Need MMShapeButton constructors for high and low pass buttons
+    attachHighPassEnable = createButtonAttachment(processor.paramHighPassEnable, buttonHighPass);
     addAndMakeVisible(buttonHighPass);
+    attachLowPassEnable = createButtonAttachment(processor.paramLowPassEnable, buttonLowPass);
     addAndMakeVisible(buttonLowPass);
-    
+
+    tbFreeze.setClickingTogglesState(true);
+    attachFreeze = createButtonAttachment(processor.paramFreeze, tbFreeze);
     addAndMakeVisible(tbFreeze);
 }
 

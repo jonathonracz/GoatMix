@@ -31,17 +31,13 @@ public:
 
     void prepare(const dsp::ProcessSpec& spec) override
     {
-        auto& bias = overdrive.get<1>();
-        bias.setBias(0.4f);
-
-        auto& waveShaper = overdrive.get<2>();
+        auto& waveShaper = overdrive.get<1>();
         waveShaper.functionToUse = std::tanh;
 
-        auto& dcFilter = overdrive.get<3>();
-        dcFilter.state = dsp::IIR::Coefficients<float>::makeHighPass(spec.sampleRate, 5.0);
+        auto& dcFilter = overdrive.get<2>();
+        dcFilter.state = dsp::IIR::Coefficients<float>::makeHighPass(spec.sampleRate, 5.0f);
 
         updateParameters();
-
         overdrive.prepare(spec);
     }
 
@@ -64,13 +60,12 @@ private:
         auto& gainUp = overdrive.get<0>();
         gainUp.params->gain = params->gainUp;
 
-        auto& gainDown = overdrive.get<4>();
+        auto& gainDown = overdrive.get<3>();
         gainDown.params->gain = params->gainDown;
     }
 
     dsp::ProcessorChain<
         Gain,
-        dsp::Bias<float>,
         dsp::WaveShaper<float>,
         dsp::ProcessorDuplicator<
             dsp::IIR::Filter<float>,

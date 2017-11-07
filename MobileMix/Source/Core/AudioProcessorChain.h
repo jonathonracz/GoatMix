@@ -19,15 +19,17 @@ public:
     AudioProcessorChain() {}
     ~AudioProcessorChain() {}
 
-    class Node
+    class Node :
+        public ReferenceCountedObject
     {
     public:
         AudioProcessor* getProcessor() const { return processor.get(); }
-        typedef std::shared_ptr<Node> Ptr;
+        using Ptr = ReferenceCountedObjectPtr<Node>;
     private:
         friend class AudioProcessorChain;
         std::unique_ptr<AudioProcessor> processor;
         Node(AudioProcessor* _processor) : processor(_processor) {}
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Node)
     };
 
     /** These should all be called on the message thread. */
@@ -35,7 +37,7 @@ public:
     int getNumNodes() const noexcept { return chain.size(); };
     Node* getNode(int index) const noexcept { return chain[index].get(); }
     Node* addNode(AudioProcessor* processor, int insertIndex = -1);
-    bool removeNode(Node* node);
+    void removeNode(Node* node);
     void moveNode(int fromIndex, int toIndex);
 
     /** AudioProcessor overrides. */
@@ -63,7 +65,7 @@ public:
     void setStateInformation(const void* data, int sizeInBytes) override {}
 
 private:
-    Array<Node::Ptr> chain;
+    ReferenceCountedArray<Node> chain;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioProcessorChain)
 };

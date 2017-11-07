@@ -9,6 +9,7 @@
 */
 
 #include "MobileMixPluginInstance.h"
+#include "../GUI/ValueStringFuncs.h"
 
 MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessorValueTreeState& _state) :
     AudioPluginInstance(BusesProperties()
@@ -25,13 +26,14 @@ MobileMixPluginInstance::~MobileMixPluginInstance()
 
 void MobileMixPluginInstance::registerParameters()
 {
-    paramBypass = state.createAndAddParameter(addPrefixToParameterName("Bypass"),
-                                              addPrefixToParameterName("Bypass"),
-                                              "",
-                                              NormalisableRange<float>(0.0f, 1.0f, 1.0f),
-                                              0.0f,
-                                              [](float value){ return (value != 1.0f) ? NEEDS_TRANS("False") : NEEDS_TRANS("True"); },
-                                              nullptr);
+    paramBypass = state.createAndAddParameter(
+        addPrefixToParameterName("Bypass"),
+        addPrefixToParameterName("Bypass"),
+        {},
+        ValueStringFuncs::OnOff::range,
+        0.0f,
+        ValueStringFuncs::OnOff::valueToText,
+        ValueStringFuncs::OnOff::textToValue);
 }
 
 bool MobileMixPluginInstance::isBypassed() const
@@ -84,7 +86,8 @@ void MobileMixPluginInstance::releaseResources()
 
 void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    processBlockDerived(buffer, midiMessages);
+    if (paramBypass->getValue() != 1.0f)
+        processBlockDerived(buffer, midiMessages);
     meterSource.measureBlock(buffer);
 }
 
