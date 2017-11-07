@@ -35,6 +35,10 @@ public:
         sliderText          = 0x67740010,
 
         muteButtonBg        = 0x67740011,
+        
+        comboBoxBg          = 0x67740011,
+        comboBoxHighlight   = 0x67740012,
+        comboBoxText        = 0x67740013
     };
 
     MMLookAndFeel();

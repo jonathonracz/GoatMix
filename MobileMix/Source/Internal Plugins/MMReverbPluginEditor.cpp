@@ -12,8 +12,8 @@
 
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    buttonLowPass(BinaryData::filter_svg, BinaryData::filter_svgSize),
-    buttonHighPass(BinaryData::filter_svg, BinaryData::filter_svgSize)
+    buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize),
+    buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize)
 {
     attachRoomSize = createSliderAttachment(processor.paramRoomSize, sliderRoomSize);
     addAndMakeVisible(sliderRoomSize);
@@ -36,8 +36,6 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     addAndMakeVisible(graphReverb);
     
     //Need MMShapeButton constructors for high and low pass buttons
-    //buttonLowPass = MMShapeButton(BinaryData::filter_svg, BinaryData::filter_svgSize);
-    //buttonHighPass = MMShapeButton(BinaryData::filter_svg, BinaryData::filter_svgSize);
     addAndMakeVisible(buttonHighPass);
     addAndMakeVisible(buttonLowPass);
     
@@ -75,16 +73,20 @@ void MMReverbPluginEditor::resized()
     freezeBox.items.add(FlexItem(freezeMeters).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
     
     freezeBox.items.add(FlexItem(tbFreeze).withFlex(1.0f));
-    layout.items.add(FlexItem(freezeBox).withMargin(standardMargin).withFlex(3.0f));
+    layout.items.add(FlexItem(freezeBox).withMargin(standardMargin).withFlex(3.5f));
     
     FlexBox highPass;
     highPass.flexDirection = FlexBox::Direction::column;
     highPass.items.add(FlexItem(sliderHighPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
+    Rectangle<int> hpBounds = buttonHighPass.getLocalBounds().reduced(buttonHighPass.getWidth() * 0.15f, buttonHighPass.getHeight() * 0.15f);
+    buttonHighPass.setInternalShapeBounds(hpBounds);
     highPass.items.add(FlexItem(buttonHighPass).withFlex(1.0f));
     
     FlexBox lowPass;
     lowPass.flexDirection = FlexBox::Direction::column;
     lowPass.items.add(FlexItem(sliderLowPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
+    Rectangle<int> lpBounds = buttonLowPass.getLocalBounds().reduced(buttonLowPass.getWidth() * 0.15f, buttonLowPass.getHeight() * 0.15f);
+    buttonLowPass.setInternalShapeBounds(lpBounds);
     lowPass.items.add(FlexItem(buttonLowPass).withFlex(1.0f));
     
     layout.items.add(FlexItem(highPass).withMargin(standardMargin).withFlex(1.0f));

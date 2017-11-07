@@ -40,7 +40,10 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     leftdBLabel.setSource(&processor.meterSource, 0);
     addAndMakeVisible(leftdBLabel);
     
-    rightdBLabel.setSource(&processor.meterSource, 1);
+    maxdBLabel.setSource(&processor.meterSource, 0);
+    addAndMakeVisible(maxdBLabel);
+    
+    rightdBLabel.setSource(&processor.meterSource, 0);
     addAndMakeVisible(rightdBLabel);
     
     //Meters here
@@ -253,6 +256,4 @@ void MMGainPluginEditor::resized()
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderGainR);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayL);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayR);
-    //MobileMixPluginInstanceEditor::setVerticalRotated(&smlMeterL);
-    //MobileMixPluginInstanceEditor::setVerticalRotated(&smlMeterR);
 }

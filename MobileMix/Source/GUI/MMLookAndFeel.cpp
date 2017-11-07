@@ -31,6 +31,10 @@ MMLookAndFeel::MMLookAndFeel()
         sliderText,         0xfff7f7f7,
 
         muteButtonBg,       0xff606060,
+        
+        comboBoxBg,         0xff606060,
+        comboBoxHighlight,  0xff3e8ae5,
+        comboBoxText,       0xff000000
     };
 
     setColorsFromArray(colors, sizeof(colors) / sizeof(uint32));
@@ -45,6 +49,14 @@ MMLookAndFeel::MMLookAndFeel()
         Label::ColourIds::outlineColourId, Colours::transparentWhite.getARGB(),
         Label::ColourIds::textColourId, findColour(outline).getARGB(),
         Label::ColourIds::backgroundColourId, Colours::transparentBlack.getARGB(),
+        ComboBox::ColourIds::buttonColourId, findColour(meterGradientBottom).getARGB(),
+        ComboBox::ColourIds::backgroundColourId, findColour(background).getARGB(),
+        ComboBox::ColourIds::outlineColourId, findColour(outline).getARGB(),
+        ComboBox::ColourIds::textColourId, findColour(comboBoxText).getARGB(),
+        ComboBox::ColourIds::arrowColourId, findColour(comboBoxText).getARGB(),
+        PopupMenu::ColourIds::backgroundColourId, findColour(background).getARGB(),
+        PopupMenu::ColourIds::textColourId, findColour(outline).getARGB(),
+        PopupMenu::ColourIds::highlightedBackgroundColourId, findColour(comboBoxHighlight).getARGB()
     };
 
     setColorsFromArray(juceColors, sizeof(juceColors) / sizeof(uint32));
