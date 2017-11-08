@@ -12,8 +12,8 @@
 
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize),
-    buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize)
+    buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize),
+    buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
 {
     attachRoomSize = createSliderAttachment(processor.paramRoomSize, sliderRoomSize);
     addAndMakeVisible(sliderRoomSize);
