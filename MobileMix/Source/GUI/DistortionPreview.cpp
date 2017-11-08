@@ -15,6 +15,7 @@ DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr paramsToFo
     freshSignal(1, generatorFrequency),
     processedSignal(1, generatorFrequency)
 {
+    setBufferedToImage(true);
     // Generate a clean signal.
     dsp::Oscillator<float> signalGenerator(&std::sinf);
     dsp::ProcessSpec spec;

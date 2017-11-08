@@ -34,10 +34,6 @@
         <FILE id="QWogpz" name="SimpleLimitProcess.inl" compile="0" resource="0"
               file="Source/External/SimpleComp/SimpleLimitProcess.inl"/>
       </GROUP>
-      <GROUP id="{02EFC6CA-C806-C8C0-D7E2-3A9D3982A88C}" name="Maximilian">
-        <FILE id="g3xzvU" name="maximilian.cpp" compile="1" resource="0" file="Source/External/Maximilian/maximilian.cpp"/>
-        <FILE id="gp7zQ5" name="maximilian.h" compile="0" resource="0" file="Source/External/Maximilian/maximilian.h"/>
-      </GROUP>
       <GROUP id="{C363776A-6782-D2DB-B479-56C4009933A1}" name="readerwriterqueue">
         <FILE id="jgSxlX" name="readerwriterqueue.h" compile="0" resource="0"
               file="Source/External/readerwriterqueue/readerwriterqueue.h"/>

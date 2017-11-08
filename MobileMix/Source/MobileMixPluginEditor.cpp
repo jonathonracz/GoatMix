@@ -41,6 +41,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     addChildComponent(aboutDialog);
 
     setLookAndFeel(&lookAndFeel);
+    setBufferedToImage(true);
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()

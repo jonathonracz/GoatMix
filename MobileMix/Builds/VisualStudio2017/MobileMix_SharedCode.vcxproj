@@ -151,7 +151,6 @@
     <ClCompile Include="..\..\Source\External\SimpleComp\SimpleEnvelope.cpp"/>
     <ClCompile Include="..\..\Source\External\SimpleComp\SimpleGate.cpp"/>
     <ClCompile Include="..\..\Source\External\SimpleComp\SimpleLimit.cpp"/>
-    <ClCompile Include="..\..\Source\External\Maximilian\maximilian.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPlugin.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\Internal Plugins\MMDistortionPlugin.cpp"/>
@@ -1929,7 +1928,6 @@
     <ClInclude Include="..\..\Source\External\SimpleComp\SimpleHeader.h"/>
     <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimit.h"/>
     <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimitProcess.inl"/>
-    <ClInclude Include="..\..\Source\External\Maximilian\maximilian.h"/>
     <ClInclude Include="..\..\Source\External\readerwriterqueue\readerwriterqueue.h"/>
     <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredEditableLabel.h"/>
     <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredTextEditor.h"/>

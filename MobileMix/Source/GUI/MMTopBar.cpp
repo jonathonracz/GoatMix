@@ -19,6 +19,7 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     logoSVG(Drawable::createFromImageData(BinaryData::goataudio_svg, BinaryData::goataudio_svgSize))
 {
     assert(logoSVG);
+    setBufferedToImage(true);
 
     undoButton.addListener(this);
     redoButton.addListener(this);

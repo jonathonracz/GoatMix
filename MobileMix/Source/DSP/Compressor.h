@@ -11,13 +11,9 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../External/Maximilian/maximilian.h"
+#include "../External/SimpleComp/SimpleComp.h"
 #include <vector>
 
-/** Leveraging Maximilian's compressor since we're short on time for our MVP.
-    Building something identical would be dead simple, as it's just an envelope
-    follower controlled cutoff basically (hard knee). Like I said, no time...
-*/
 class Compressor :
     public dsp::ProcessorBase
 {
@@ -37,20 +33,28 @@ public:
 
     void prepare(const dsp::ProcessSpec& spec) noexcept override
     {
-        maxiSettings::setup(spec.sampleRate, static_cast<int>(spec.numChannels), static_cast<int>(spec.maximumBlockSize));
-        channelStates.resize(spec.numChannels);
+        jassert(spec.numChannels == 2); // TODO: Test chunkware compressor on mono...
+        compressor.setSampleRate(spec.sampleRate);
+        compressor.initRuntime();
         updateParameters();
     }
 
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
         updateParameters();
-        for (size_t channel = 0; channel < context.getInputBlock().getNumChannels(); ++channel)
+        float* left = context.getOutputBlock().getChannelPointer(0);
+        float* right = context.getOutputBlock().getChannelPointer(1);
+        for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
         {
-            const float* sampleRead = context.getInputBlock().getChannelPointer(channel);
-            float* sampleWrite = context.getOutputBlock().getChannelPointer(channel);
-            for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
-                sampleWrite[i] = channelStates[channel].compressor.compress(sampleRead[i]);
+            // Copy conversions like this suck, but I can't figure out a good
+            // cast conversion that will allow me to pass the float pointer
+            // as a double reference.
+            double currLeft = left[i];
+            double currRight = right[i];
+            compressor.process(currLeft, currRight);
+            left[i] = static_cast<float>(currLeft);
+            right[i] = static_cast<float>(currRight);
+
         }
     }
 
@@ -63,21 +67,13 @@ public:
 private:
     void updateParameters()
     {
-        for (auto& channelState : channelStates)
-        {
-            channelState.compressor.setAttack(static_cast<double>(params->attack));
-            channelState.compressor.setRelease(static_cast<double>(params->release));
-            channelState.compressor.setThreshold(static_cast<double>(params->threshold));
-            channelState.compressor.setRatio(static_cast<double>(params->ratio));
-        }
+        compressor.setAttack(static_cast<double>(params->attack));
+        compressor.setRelease(static_cast<double>(params->release));
+        compressor.setThresh(static_cast<double>(Decibels::gainToDecibels(params->threshold)));
+        compressor.setRatio(1.0 / static_cast<double>(params->ratio));
     }
 
-    struct ChannelState
-    {
-        // TODO: We may need some sort of parameter smoothing...
-        maxiDyn compressor;
-    };
-
-    std::vector<ChannelState> channelStates;
+    // TODO: We may need some sort of parameter smoothing...
+    chunkware_simple::SimpleComp compressor;
 
 };

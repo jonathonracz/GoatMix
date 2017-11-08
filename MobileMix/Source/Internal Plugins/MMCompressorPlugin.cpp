@@ -56,11 +56,13 @@ void MMCompressorPlugin::registerParameters()
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);
 
+    NormalisableRange<float> makeupRange(ValueStringFuncs::Gain::range);
+    makeupRange.end = 3.0f;
     paramMakeupGain = state.createAndAddParameter(
         addPrefixToParameterName("Makeup Gain"),
         addPrefixToParameterName("Makeup Gain"),
         ValueStringFuncs::Gain::unit,
-        ValueStringFuncs::Gain::range,
+        makeupRange,
         ValueStringFuncs::Gain::defaultValue,
         ValueStringFuncs::Gain::valueToText,
         ValueStringFuncs::Gain::textToValue);

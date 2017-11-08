@@ -46,7 +46,7 @@ namespace ValueStringFuncs
     namespace Gain
     {
         const StringRef unit = "dB";
-        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.1f, 0.5f);
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.1f, 0.9f);
         const float defaultValue = 1.0f;
 
         auto valueToText = [](float value) -> String

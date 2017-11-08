@@ -16,6 +16,3 @@
 [submodule "MobileMix/Source/External/juce-toys"]
 	path = MobileMix/Source/External/juce-toys
 	url = https://github.com/jonathonracz/juce-toys.git
-[submodule "MobileMix/Source/External/Maximilian"]
-	path = MobileMix/Source/External/Maximilian
-	url = https://github.com/micknoise/Maximilian.git

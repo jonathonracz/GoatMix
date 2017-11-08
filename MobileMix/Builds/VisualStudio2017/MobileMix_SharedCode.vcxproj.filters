@@ -5,9 +5,6 @@
     <Filter Include="MobileMix\External\SimpleComp">
       <UniqueIdentifier>{5203C2D0-9A7E-FA8B-D5CF-4A29809515CC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MobileMix\External\Maximilian">
-      <UniqueIdentifier>{3415E17E-70A3-F191-96E7-EFE210F08FAF}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MobileMix\External\readerwriterqueue">
       <UniqueIdentifier>{2BAE8160-CFAC-E5AE-2592-ADC38FE09935}</UniqueIdentifier>
     </Filter>
@@ -441,9 +438,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\External\SimpleComp\SimpleLimit.cpp">
       <Filter>MobileMix\External\SimpleComp</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\External\Maximilian\maximilian.cpp">
-      <Filter>MobileMix\External\Maximilian</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPlugin.cpp">
       <Filter>MobileMix\Internal Plugins</Filter>
@@ -2456,9 +2450,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\External\SimpleComp\SimpleLimitProcess.inl">
       <Filter>MobileMix\External\SimpleComp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\Maximilian\maximilian.h">
-      <Filter>MobileMix\External\Maximilian</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\External\readerwriterqueue\readerwriterqueue.h">
       <Filter>MobileMix\External\readerwriterqueue</Filter>
