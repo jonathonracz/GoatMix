@@ -115,10 +115,10 @@ void MMDistortionPluginEditor::resized()
     lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
     layout.items.add(FlexItem(lpass).withMargin(standardMargin).withFlex(1.0f));
     
+    layout.performLayout(getLocalBounds());
+
     Rectangle<int> lpBounds = buttonLowPassEnable.getLocalBounds().reduced(buttonLowPassEnable.getWidth() * 0.15f, buttonLowPassEnable.getHeight() * 0.15f);
     buttonLowPassEnable.setInternalShapeBounds(lpBounds);
-    
-    layout.performLayout(getLocalBounds());
     
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDownsample);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderBitDepth);

@@ -82,15 +82,11 @@ void MMReverbPluginEditor::resized()
     FlexBox highPass;
     highPass.flexDirection = FlexBox::Direction::column;
     highPass.items.add(FlexItem(sliderHighPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
-    Rectangle<int> hpBounds = buttonHighPass.getLocalBounds().reduced(buttonHighPass.getWidth() * 0.15f, buttonHighPass.getHeight() * 0.15f);
-    buttonHighPass.setInternalShapeBounds(hpBounds);
     highPass.items.add(FlexItem(buttonHighPass).withFlex(1.0f));
     
     FlexBox lowPass;
     lowPass.flexDirection = FlexBox::Direction::column;
     lowPass.items.add(FlexItem(sliderLowPass).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace, 0.0f)).withFlex(6.0f));
-    Rectangle<int> lpBounds = buttonLowPass.getLocalBounds().reduced(buttonLowPass.getWidth() * 0.15f, buttonLowPass.getHeight() * 0.15f);
-    buttonLowPass.setInternalShapeBounds(lpBounds);
     lowPass.items.add(FlexItem(buttonLowPass).withFlex(1.0f));
     
     layout.items.add(FlexItem(highPass).withMargin(standardMargin).withFlex(1.0f));
@@ -99,6 +95,11 @@ void MMReverbPluginEditor::resized()
     layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
     
     layout.performLayout(getLocalBounds());
+
+    Rectangle<int> hpBounds = buttonHighPass.getLocalBounds().reduced(buttonHighPass.getWidth() * 0.15f, buttonHighPass.getHeight() * 0.15f);
+    buttonHighPass.setInternalShapeBounds(hpBounds);
+    Rectangle<int> lpBounds = buttonLowPass.getLocalBounds().reduced(buttonLowPass.getWidth() * 0.15f, buttonLowPass.getHeight() * 0.15f);
+    buttonLowPass.setInternalShapeBounds(lpBounds);
     
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderRoomSize);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDamping);
