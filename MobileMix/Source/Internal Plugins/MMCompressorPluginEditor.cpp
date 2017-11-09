@@ -11,7 +11,8 @@
 #include "MMCompressorPluginEditor.h"
 
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
-    MobileMixPluginInstanceEditor(processor)
+    MobileMixPluginInstanceEditor(processor),
+    preview(processor.compressor.params)
 {
     attachAttack = createSliderAttachment(processor.paramAttack, sliderAttack);
     addAndMakeVisible(sliderAttack);
@@ -24,8 +25,8 @@ MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor
     
     attachThreshold = createSliderAttachment(processor.paramThreshold, sliderThreshold);
     addAndMakeVisible(sliderThreshold);
-    
-    addAndMakeVisible(graphCompress);
+
+    addAndMakeVisible(preview);
     addAndMakeVisible(meterLGainReduc);
     addAndMakeVisible(meterRGainReduc);
     
@@ -76,7 +77,7 @@ void MMCompressorPluginEditor::resized()
     layout.items.add(FlexItem(sliderRatio).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderThreshold).withMargin(standardMargin).withFlex(1.0f));
     
-    FlexItem graphItem = FlexItem(graphCompress).withMargin(standardMargin).withWidth(this->getWidth() * 0.4f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
+    FlexItem graphItem = FlexItem(preview).withMargin(standardMargin).withWidth(this->getWidth() * 0.4f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
     if (graphItem.width > graphItem.height) {
         graphItem.width = graphItem.height;
     } else {
@@ -117,7 +118,6 @@ void MMCompressorPluginEditor::resized()
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderRelease);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderRatio);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderThreshold);
-    MobileMixPluginInstanceEditor::setVerticalRotated(&graphCompress);
     MobileMixPluginInstanceEditor::setVerticalRotated(&meterLGainReduc);
     MobileMixPluginInstanceEditor::setVerticalRotated(&meterRGainReduc);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderMakeupGain);

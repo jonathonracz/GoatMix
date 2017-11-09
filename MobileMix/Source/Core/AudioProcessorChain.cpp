@@ -62,8 +62,8 @@ void AudioProcessorChain::releaseResources()
 
 void AudioProcessorChain::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    for (Node::Ptr node : chain)
-        node->getProcessor()->processBlock(buffer, midiMessages);
+    for (int i = 0; i < chain.size(); ++i)
+        chain[i]->getProcessor()->processBlock(buffer, midiMessages);
 }
 
 double AudioProcessorChain::getTailLengthSeconds() const

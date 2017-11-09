@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "RingBuffer.h"
+#include <atomic>
 
 class WindowedMeter :
     public dsp::ProcessorBase
@@ -48,20 +49,51 @@ public:
     {
     }
 
-    float getPeak(int channel) const
+    float getPeak(int channel) const noexcept
     {
-        return channelStates[channel].peakSum / channelStates[channel].buffer.getLogicalCapacity();
+        return channelStates[channel].peakSum.load(std::memory_order_relaxed) / channelStates[channel].bufferSize.load(std::memory_order_relaxed);
     }
 
-    float getRMS(int channel) const
+    float getRMS(int channel) const noexcept
     {
-        return std::sqrt(channelStates[channel].rmsSum / channelStates[channel].buffer.getLogicalCapacity());
+        return std::sqrt(channelStates[channel].rmsSum.load(std::memory_order_relaxed) / channelStates[channel].bufferSize.load(std::memory_order_relaxed));
+    }
+
+    float getOverallPeak(int channel) const noexcept
+    {
+        return channelStates[channel].overallPeak.load(std::memory_order_relaxed);
+    }
+
+    void resetOverallPeak(int channel) noexcept
+    {
+        channelStates[channel].overallPeak.store(0.0f, std::memory_order_relaxed);
+    }
+
+    void resetOverallPeak() noexcept
+    {
+        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
+            resetOverallPeak(i);
+    }
+
+    bool getClippingStatus(int channel) const noexcept
+    {
+        return getOverallPeak(channel) > 1.0f;
+    }
+
+    void resetClippingStatus(int channel) noexcept
+    {
+        resetOverallPeak(channel);
+    }
+
+    void resetClippingStatus() noexcept
+    {
+        resetOverallPeak();
     }
 
     Parameters::Ptr params = new Parameters;
 
 private:
-    void updateParameters()
+    void updateParameters() noexcept
     {
         for (int channel = 0; channel < static_cast<int>(channelStates.size()); ++channel)
         {
@@ -73,32 +105,58 @@ private:
                         popSample(channel);
 
                 channelStates[channel].buffer.setLogicalCapacity(static_cast<int>(currWindowSize));
+                channelStates[channel].bufferSize.store(static_cast<int>(currWindowSize), std::memory_order_relaxed);
             }
         }
     }
 
-    void pushSample(float newSample, int channel)
+    void pushSample(float newSample, int channel) noexcept
     {
-        if (channelStates[channel].buffer.isFull())
+        ChannelState* ch = &channelStates[channel];
+        if (ch->buffer.isFull())
             popSample(channel);
 
-        channelStates[channel].buffer.push(newSample);
-        channelStates[channel].peakSum += newSample;
-        channelStates[channel].rmsSum += (newSample * newSample);
+        ch->buffer.push(newSample);
+
+        float newPeakSum = ch->peakSum.load(std::memory_order_relaxed) + newSample;
+        float newRMSSum = ch->rmsSum.load(std::memory_order_relaxed) + (newSample * newSample);
+        ch->peakSum.store(newPeakSum, std::memory_order_relaxed);
+        ch->rmsSum.store(newRMSSum, std::memory_order_relaxed);
+
+        if (newSample > ch->overallPeak.load(std::memory_order_relaxed))
+            ch->overallPeak.store(newSample, std::memory_order_relaxed);
     }
 
-    void popSample(int channel)
+    void popSample(int channel) noexcept
     {
-        float poppedSample = channelStates[channel].buffer.pop();
-        channelStates[channel].peakSum -= poppedSample;
-        channelStates[channel].rmsSum -= (poppedSample * poppedSample);
+        ChannelState* ch = &channelStates[channel];
+        float poppedSample = ch->buffer.pop();
+
+        float newPeakSum = ch->peakSum.load(std::memory_order_relaxed) - poppedSample;
+        float newRMSSum = ch->rmsSum.load(std::memory_order_relaxed) - (poppedSample * poppedSample);
+        ch->peakSum.store(newPeakSum, std::memory_order_relaxed);
+        ch->rmsSum.store(newRMSSum, std::memory_order_relaxed);
     }
 
     struct ChannelState
     {
+        ChannelState() {}
+        explicit ChannelState(const ChannelState& other) :
+            buffer(other.buffer),
+            bufferSize(other.bufferSize.load()),
+            peakSum(other.peakSum.load()),
+            rmsSum(other.rmsSum.load()),
+            overallPeak(other.overallPeak.load())
+        {
+        }
+
+        ~ChannelState() {}
+
         RingBuffer<float> buffer;
-        float peakSum = 0.0f;
-        float rmsSum = 0.0f;
+        std::atomic<int> bufferSize = 0;
+        std::atomic<float> peakSum = 0.0f;
+        std::atomic<float> rmsSum = 0.0f;
+        std::atomic<float> overallPeak = 0.0f;
     };
 
     std::vector<ChannelState> channelStates;

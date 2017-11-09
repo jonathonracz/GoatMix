@@ -18,11 +18,14 @@ class CompressorPreview :
     public Timer
 {
 public:
-    CompressorPreview() {}
+    CompressorPreview(Compressor::Parameters::Ptr params);
     ~CompressorPreview() {}
 
 private:
+    void paint(Graphics& g) override;
     void timerCallback() override;
+
+    Compressor::Parameters::Ptr params = nullptr;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CompressorPreview)
 };

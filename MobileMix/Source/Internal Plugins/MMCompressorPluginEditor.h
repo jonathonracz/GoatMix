@@ -12,7 +12,7 @@
 
 #include "MMCompressorPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
-#include "../GUI/Goniometer.h"
+#include "../GUI/CompressorPreview.h"
 #include "../GUI/SimpleLevelMeter.h"
 
 class MMCompressorPluginEditor :
@@ -27,7 +27,7 @@ protected:
 
 private:
     
-    Goniometer graphCompress;
+    CompressorPreview preview;
     Label textGR;
     Label textLGainReduc;
     Label textRGainReduc;

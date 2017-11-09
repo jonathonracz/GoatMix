@@ -46,14 +46,14 @@ namespace ValueStringFuncs
     namespace Gain
     {
         const StringRef unit = "dB";
-        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.1f, 0.9f);
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 2.0f, 0.01f, 0.9f);
         const float defaultValue = 1.0f;
 
         auto valueToText = [](float value) -> String
         {
             float dB = Decibels::gainToDecibels(range.snapToLegalValue(value));
             String prefix = (dB >= 0) ? "+" : String();
-            return prefix + String(dB, 1) + " " + unit;
+            return ((dB <= -100.0f) ? "-INF" : prefix + String(dB, 1)) + " " + unit;
         };
 
         auto textToValue = [](const String& text) -> float
