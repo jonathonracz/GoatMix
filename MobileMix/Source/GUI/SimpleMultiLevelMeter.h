@@ -51,6 +51,18 @@ public:
             meter.setMaxGainDisplayValue(value);
     }
 
+    void startAnimating(int hz)
+    {
+        for (SimpleLevelMeter& meter : meters)
+            meter.startTimerHz(hz);
+    }
+
+    void stopAnimating()
+    {
+        for (SimpleLevelMeter& meter : meters)
+            meter.stopTimer();
+    }
+
 private:
     void resized() override
     {

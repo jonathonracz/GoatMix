@@ -16,7 +16,8 @@
 #include "SimpleMultiLevelMeter.h"
 
 class MMTabBarButton :
-    public DraggableTabBarButton
+    public DraggableTabBarButton,
+    public DraggableTabbedComponent::Listener
 {
 public:
     MMTabBarButton(DraggableTabbedComponent& owner, MobileMixPluginInstance& representedPlugin);
@@ -28,6 +29,8 @@ protected:
 
 private:
     int getBestTabLength(int depth) override;
+    void tabDragStarted(int atIndex) override;
+    void tabDragEnded(int atIndex) override;
 
     std::unique_ptr<Drawable> shadow;
     std::unique_ptr<Drawable> muteButtonBg;
@@ -35,6 +38,7 @@ private:
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
     MobileMixPluginInstance& representedPlugin;
     SimpleMultiLevelMeter meter;
+    Image freezeSnapshot;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMTabBarButton)
 };

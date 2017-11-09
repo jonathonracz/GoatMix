@@ -24,6 +24,7 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     representedPlugin(_representedPlugin)
 {
     assert(shadow);
+    owner.addListener(this);
     bypassButton.addMouseListener(this, false);
     bypassButton.setOverrideColors(MMLookAndFeel::ColourIds::muteButtonOn, MMLookAndFeel::ColourIds::muteButtonOff);
     meter.setMaxGainDisplayValue(1.1f);
@@ -58,6 +59,12 @@ void MMTabBarButton::resized()
 
 void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButtonDown)
 {
+    if (freezeSnapshot.isValid())
+    {
+        g.drawImageAt(freezeSnapshot, 0, 0);
+        return;
+    }
+
     shadow->setVisible(!isFrontTab());
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
@@ -83,4 +90,25 @@ void MMTabBarButton::paintButton(Graphics& g, bool isMouseOverButton, bool isBut
 int MMTabBarButton::getBestTabLength(int depth)
 {
     return owner.getWidth() / owner.getNumTabs();
+}
+
+void MMTabBarButton::tabDragStarted(int atIndex)
+{
+    if (atIndex == getIndex())
+    {
+        Component* topComponent = getTopLevelComponent();
+        freezeSnapshot = topComponent->createComponentSnapshot(topComponent->getLocalArea(this, getLocalBounds()));
+        meter.stopAnimating();
+        setOpaque(true);
+    }
+}
+
+void MMTabBarButton::tabDragEnded(int atIndex)
+{
+    if (atIndex == getIndex())
+    {
+        meter.startAnimating(30);
+        setOpaque(false);
+        freezeSnapshot = Image();
+    }
 }
