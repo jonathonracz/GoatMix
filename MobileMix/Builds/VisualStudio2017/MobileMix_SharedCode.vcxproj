@@ -1942,6 +1942,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\AboutDataManager.h"/>
     <ClInclude Include="..\..\Source\GUI\Divider.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreviewSource.h"/>
@@ -2674,16 +2675,15 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\MobileMixAcknowledgements.pdf"/>
     <None Include="..\..\Source\Resources\hipass.svg"/>
     <None Include="..\..\Source\Resources\lopass.svg"/>
     <None Include="..\..\Source\Resources\phaseinvert.svg"/>
-    <None Include="..\..\Source\Resources\about.txt"/>
     <None Include="..\..\Source\Resources\info.svg"/>
     <None Include="..\..\Source\Resources\mutebuttonbg.svg"/>
     <None Include="..\..\Source\Resources\tabshadow.svg"/>
     <None Include="..\..\Source\Resources\redo.svg"/>
     <None Include="..\..\Source\Resources\undo.svg"/>
-    <None Include="..\..\Source\Resources\filter.svg"/>
     <None Include="..\..\Source\Resources\goataudio.svg"/>
     <None Include="..\..\Source\Resources\power.svg"/>
     <None Include="..\..\Source\External\ff_meters\LICENSE.md"/>

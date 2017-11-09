@@ -14,6 +14,8 @@
 
 MMLookAndFeel::MMLookAndFeel()
 {
+    setUsingNativeAlertWindows(true);
+
     const uint32 colors[] = {
         background,         0xfff7f7f7,
         outline,            0xff000000,

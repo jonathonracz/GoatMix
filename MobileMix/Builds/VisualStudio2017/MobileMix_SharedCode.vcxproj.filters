@@ -2493,6 +2493,9 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\AboutDataManager.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\Divider.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -4685,6 +4688,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\MobileMixAcknowledgements.pdf">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\hipass.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
@@ -4692,9 +4698,6 @@
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\phaseinvert.svg">
-      <Filter>MobileMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\about.txt">
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\info.svg">
@@ -4710,9 +4713,6 @@
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\undo.svg">
-      <Filter>MobileMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\filter.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\goataudio.svg">

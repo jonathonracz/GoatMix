@@ -17,8 +17,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     AudioProcessorEditor(&p),
     processor(p),
     topBar(p),
-    tabs(TabbedButtonBar::Orientation::TabsAtBottom),
-    aboutDialog("About")
+    tabs(TabbedButtonBar::Orientation::TabsAtBottom)
 {
     setResizable(true, true);
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
@@ -32,15 +31,11 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
         tabs.addTabForPlugin(currentProcessor);
     }
 
-    aboutDialog.addListener(this);
-    aboutDialog.setAlpha(0.0f);
     topBar.addListener(this);
     addAndMakeVisible(topBar);
     tabs.addListener(this);
     addAndMakeVisible(tabs);
-    addChildComponent(aboutDialog);
-
-    setLookAndFeel(&lookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setBufferedToImage(true);
 }
 
@@ -61,8 +56,6 @@ void MobileMixAudioProcessorEditor::paint(Graphics& g)
 
 void MobileMixAudioProcessorEditor::resized()
 {
-    aboutDialog.setBounds(getLocalBounds());
-
     FlexBox layout;
     layout.flexDirection = FlexBox::Direction::column;
 
@@ -130,12 +123,12 @@ void MobileMixAudioProcessorEditor::valueTreeRedirected(ValueTree &treeWhichHasB
 
 void MobileMixAudioProcessorEditor::infoClicked(MMTopBar* bar)
 {
-    Desktop::getInstance().getAnimator().fadeIn(&aboutDialog, 100);
-    aboutDialog.setVisible(true);
-}
-
-void MobileMixAudioProcessorEditor::closeButtonClicked(LongDialogPopup* dialog)
-{
-    Desktop::getInstance().getAnimator().fadeOut(&aboutDialog, 100);
-    aboutDialog.setVisible(false);
+    AlertWindow::showOkCancelBox(
+        AlertWindow::AlertIconType::WarningIcon,
+        NEEDS_TRANS("Open Acknowledgements?"),
+        NEEDS_TRANS("Opening the acknowledgements document may cause audio to stop. Continue?"),
+        "",
+        "",
+        this,
+        aboutData.getCallback());
 }
