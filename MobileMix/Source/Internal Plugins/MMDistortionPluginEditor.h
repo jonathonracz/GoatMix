@@ -18,7 +18,8 @@
 
 class MMDistortionPluginEditor :
     public MobileMixPluginInstanceEditor,
-    public Slider::Listener
+    public Slider::Listener,
+    public ChangeBroadcaster
 {
 public:
     MMDistortionPluginEditor(MMDistortionPlugin& processor);
@@ -29,7 +30,6 @@ protected:
 
 private:
     void sliderValueChanged(Slider* slider) override;
-    void regeneratePreview();
 
     DistortionPreview preview;
     SimpleLevelMeter meterL;

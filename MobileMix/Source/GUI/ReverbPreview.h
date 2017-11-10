@@ -15,20 +15,20 @@
 
 class ReverbPreview :
     public Component,
-    public Slider::Listener,
     public ChangeListener
 {
 public:
-    ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow);
+    ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBroadcaster& paramChangeSource);
     ~ReverbPreview() {}
 
 private:
     void paint(Graphics& g) override;
-    void sliderValueChanged(Slider* slider) override;
     void changeListenerCallback(ChangeBroadcaster* source) override;
     void processPreviewSignal();
 
+    dsp::ProcessSpec spec;
     MMReverb reverb;
+    ChangeBroadcaster& paramChangeSource;
     AudioFormatManager formatManager;
     AudioThumbnailCache cache;
     AudioThumbnail thumbnail;

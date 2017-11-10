@@ -12,6 +12,7 @@
 
 MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
+    preview(processor.distortion.params, *this),
     buttonLowPassEnable(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
 {
     attachDownsample = createSliderAttachment(processor.paramDownsample, sliderDownsample);
@@ -39,7 +40,7 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
     addAndMakeVisible(buttonLowPassEnable);
 
     addAndMakeVisible(preview);
-    regeneratePreview();
+    sendSynchronousChangeMessage();
     addAndMakeVisible(meterL);
     addAndMakeVisible(meterR);
 
@@ -129,14 +130,5 @@ void MMDistortionPluginEditor::resized()
 
 void MMDistortionPluginEditor::sliderValueChanged(Slider* slider)
 {
-    regeneratePreview();
-}
-
-void MMDistortionPluginEditor::regeneratePreview()
-{
-    preview.getParams()->samplesToRepeat = static_cast<size_t>(sliderDownsample.getValue());
-    preview.getParams()->bitDepth = static_cast<size_t>(sliderBitDepth.getValue());
-    preview.getParams()->overdriveGainUp = static_cast<float>(sliderOverdrive.getValue());
-    preview.getParams()->overdriveGainDown = static_cast<float>(sliderGain.getValue());
-    preview.repaint();
+    sendSynchronousChangeMessage();
 }

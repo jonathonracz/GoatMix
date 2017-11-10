@@ -16,7 +16,9 @@
 #include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMReverbPluginEditor :
-    public MobileMixPluginInstanceEditor
+    public MobileMixPluginInstanceEditor,
+    public Slider::Listener,
+    public ChangeBroadcaster
 {
 public:
     MMReverbPluginEditor(MMReverbPlugin& processor);
@@ -26,19 +28,21 @@ protected:
     void resized() override;
 
 private:
+    void sliderValueChanged(Slider* slider) override;
+
     ReverbPreview preview;
     MMShapeButton buttonHighPass;
     MMShapeButton buttonLowPass;
-    
-    TextButton tbFreeze = TextButton("Freeze");
-    
+
+    TextButton tbFreeze;
+
     MMParameterSlider sliderRoomSize;
     MMParameterSlider sliderDamping;
     MMParameterSlider sliderWidth;
     MMParameterSlider sliderHighPass;
     MMParameterSlider sliderLowPass;
     MMParameterSlider sliderDryWet;
-    
+
     MMSliderAttachment attachRoomSize;
     MMSliderAttachment attachDamping;
     MMSliderAttachment attachWidth;

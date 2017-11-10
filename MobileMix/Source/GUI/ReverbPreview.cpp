@@ -11,19 +11,19 @@
 #include "ReverbPreview.h"
 #include "MMLookAndFeel.h"
 
-ReverbPreview::ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow) :
+ReverbPreview::ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBroadcaster& _paramChangeSource) :
+    paramChangeSource(_paramChangeSource),
     cache(1),
     thumbnail(16, formatManager, cache)
 {
-    dsp::ProcessSpec spec;
     spec.numChannels = 1;
     spec.sampleRate = 44100;
     spec.maximumBlockSize = 4096;
     buffer.setSize(spec.numChannels, spec.maximumBlockSize);
     reverb.params = paramsToFollow;
     reverb.prepare(spec);
-    thumbnail.reset(spec.numChannels, spec.sampleRate);
     thumbnail.addChangeListener(this);
+    paramChangeSource.addChangeListener(this);
 }
 
 void ReverbPreview::paint(Graphics& g)
@@ -44,7 +44,7 @@ void ReverbPreview::paint(Graphics& g)
 
 void ReverbPreview::processPreviewSignal()
 {
-    thumbnail.clear();
+    thumbnail.reset(spec.numChannels, spec.sampleRate);
     reverb.reset();
     buffer.clear();
 
@@ -56,20 +56,22 @@ void ReverbPreview::processPreviewSignal()
     int blockNumber = 0;
     dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
+    float magnitude = 0.0f;
     do {
+        if (blockNumber > 0)
+            buffer.clear();
+
         reverb.process(context);
         thumbnail.addBlock(buffer.getNumSamples() * blockNumber++, buffer, 0, buffer.getNumSamples());
-        buffer.clear();
-    } while (buffer.getMagnitude(0, 0, buffer.getNumSamples()) > 0.0f);
+        magnitude = buffer.getMagnitude(0, 0, buffer.getNumSamples());
+    } while (magnitude > 0.0f);
     DBG("Ran " << blockNumber << " blocks");
-}
-
-void ReverbPreview::sliderValueChanged(Slider* slider)
-{
-    processPreviewSignal();
 }
 
 void ReverbPreview::changeListenerCallback(ChangeBroadcaster* source)
 {
-    repaint();
+    if (source == &thumbnail)
+        repaint();
+    else if (source == &paramChangeSource)
+        processPreviewSignal();
 }

@@ -12,42 +12,40 @@
 
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    preview(processor.reverb.params),
+    preview(processor.reverb.params, *this),
     buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize),
-    buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
+    buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize),
+    tbFreeze("Freeze")
 {
     attachRoomSize = createSliderAttachment(processor.paramRoomSize, sliderRoomSize);
-    sliderRoomSize.addListener(&preview);
-    addAndMakeVisible(sliderRoomSize);
-    
     attachDamping = createSliderAttachment(processor.paramDamping, sliderDamping);
-    sliderRoomSize.addListener(&preview);
-    addAndMakeVisible(sliderDamping);
-    
     attachWidth = createSliderAttachment(processor.paramWidth, sliderWidth);
-    sliderRoomSize.addListener(&preview);
-    addAndMakeVisible(sliderWidth);
-    
     attachHighPass = createSliderAttachment(processor.paramHighPass, sliderHighPass);
-    addAndMakeVisible(sliderHighPass);
-    
     attachLowPass = createSliderAttachment(processor.paramLowPass, sliderLowPass);
-    addAndMakeVisible(sliderLowPass);
-    
     attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
-    addAndMakeVisible(sliderDryWet);
-    
-    addAndMakeVisible(preview);
-    
-    //Need MMShapeButton constructors for high and low pass buttons
+
     attachHighPassEnable = createButtonAttachment(processor.paramHighPassEnable, buttonHighPass);
-    addAndMakeVisible(buttonHighPass);
     attachLowPassEnable = createButtonAttachment(processor.paramLowPassEnable, buttonLowPass);
-    addAndMakeVisible(buttonLowPass);
+    attachFreeze = createButtonAttachment(processor.paramFreeze, tbFreeze);
 
     tbFreeze.setClickingTogglesState(true);
-    attachFreeze = createButtonAttachment(processor.paramFreeze, tbFreeze);
+
+    sliderRoomSize.addListener(this);
+    sliderDamping.addListener(this);
+    sliderWidth.addListener(this);
+
+    addAndMakeVisible(sliderRoomSize);
+    addAndMakeVisible(sliderDamping);
+    addAndMakeVisible(sliderWidth);
+    addAndMakeVisible(sliderHighPass);
+    addAndMakeVisible(sliderLowPass);
+    addAndMakeVisible(sliderDryWet);
+    addAndMakeVisible(preview);
+    addAndMakeVisible(buttonHighPass);
+    addAndMakeVisible(buttonLowPass);
     addAndMakeVisible(tbFreeze);
+
+    sendSynchronousChangeMessage();
 }
 
 MMReverbPluginEditor::~MMReverbPluginEditor()
@@ -110,4 +108,9 @@ void MMReverbPluginEditor::resized()
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderHighPass);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
     MobileMixPluginInstanceEditor::setVerticalRotated(&sliderDryWet);
+}
+
+void MMReverbPluginEditor::sliderValueChanged(Slider* slider)
+{
+    sendSynchronousChangeMessage();
 }
