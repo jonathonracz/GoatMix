@@ -44,9 +44,9 @@ MMLookAndFeel::MMLookAndFeel()
         Slider::ColourIds::textBoxOutlineColourId, findColour(outline).getARGB(),
         TextButton::ColourIds::textColourOnId, findColour(background).getARGB(),
         TextButton::ColourIds::textColourOffId, findColour(outline).getARGB(),
+        TextButton::ColourIds::buttonColourId, Colours::transparentWhite.getARGB(),
         Label::ColourIds::outlineColourId, Colours::transparentWhite.getARGB(),
         Label::ColourIds::textColourId, findColour(outline).getARGB(),
-        Label::ColourIds::backgroundColourId, Colours::transparentBlack.getARGB(),
         ComboBox::ColourIds::buttonColourId, findColour(meterGradientBottom).getARGB(),
         ComboBox::ColourIds::backgroundColourId, Colours::transparentWhite.getARGB(),
         ComboBox::ColourIds::outlineColourId, findColour(outline).getARGB(),
@@ -96,7 +96,7 @@ void MMLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colo
     if (isButtonDown || button.getToggleState())
         g.fillAll(findColour(ColourIds::sliderForeground));
     else
-        g.fillAll(findColour(ColourIds::background));
+        g.fillAll(Colours::transparentWhite);
 
     Path outline;
     outline.addRectangle(button.getLocalBounds());

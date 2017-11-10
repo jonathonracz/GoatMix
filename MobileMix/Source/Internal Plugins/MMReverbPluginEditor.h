@@ -18,6 +18,7 @@
 class MMReverbPluginEditor :
     public MobileMixPluginInstanceEditor,
     public Slider::Listener,
+    public Button::Listener,
     public ChangeBroadcaster
 {
 public:
@@ -29,6 +30,8 @@ protected:
 
 private:
     void sliderValueChanged(Slider* slider) override;
+    void buttonClicked(Button* button) override {}
+    void buttonStateChanged(Button* button) override;
 
     ReverbPreview preview;
     MMShapeButton buttonHighPass;

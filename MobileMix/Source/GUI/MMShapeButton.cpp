@@ -45,7 +45,7 @@ void MMShapeButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButt
     else
     {
         if (hasBackground)
-            lf.drawButtonBackground(g, *this, lf.findColour(MMLookAndFeel::ColourIds::background), isMouseOverButton, isButtonDown);
+            lf.drawButtonBackground(g, *this, Colours::transparentWhite, isMouseOverButton, isButtonDown);
 
         g.setColour(lf.findColour((upColorId) ? upColorId : MMLookAndFeel::ColourIds::outline));
     }

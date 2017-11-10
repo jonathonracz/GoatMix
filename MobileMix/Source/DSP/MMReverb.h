@@ -59,8 +59,10 @@ private:
         Reverb::Parameters newParameters;
         newParameters.roomSize = params->roomSize;
         newParameters.damping = params->damping;
-        newParameters.wetLevel = 1.0f;
         newParameters.dryLevel = 0.0f;
+        // Completely arbitrary hand guessed math to limit the amount of
+        // clipping from various reverb parameters.
+        newParameters.wetLevel = std::min(1.0f, (1.0f - newParameters.roomSize) * (newParameters.damping * 0.5f) + 0.15f);
         newParameters.freezeMode = static_cast<float>(params->freeze);
         reverb.setParameters(newParameters);
     }

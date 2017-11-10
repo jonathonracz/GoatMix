@@ -33,6 +33,7 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     sliderRoomSize.addListener(this);
     sliderDamping.addListener(this);
     sliderWidth.addListener(this);
+    tbFreeze.addListener(this);
 
     addAndMakeVisible(sliderRoomSize);
     addAndMakeVisible(sliderDamping);
@@ -111,6 +112,11 @@ void MMReverbPluginEditor::resized()
 }
 
 void MMReverbPluginEditor::sliderValueChanged(Slider* slider)
+{
+    sendSynchronousChangeMessage();
+}
+
+void MMReverbPluginEditor::buttonStateChanged(Button* button)
 {
     sendSynchronousChangeMessage();
 }
