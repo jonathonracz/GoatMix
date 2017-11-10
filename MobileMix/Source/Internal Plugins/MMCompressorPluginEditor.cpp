@@ -12,48 +12,45 @@
 
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    preview(processor.compressor.params)
+    preview(processor.compressor.params, processor.meter)
 {
     attachAttack = createSliderAttachment(processor.paramAttack, sliderAttack);
     addAndMakeVisible(sliderAttack);
-    
+
     attachRelease = createSliderAttachment(processor.paramRelease, sliderRelease);
     addAndMakeVisible(sliderRelease);
-    
+
     attachRatio = createSliderAttachment(processor.paramRatio, sliderRatio);
     addAndMakeVisible(sliderRatio);
-    
+
     attachThreshold = createSliderAttachment(processor.paramThreshold, sliderThreshold);
     addAndMakeVisible(sliderThreshold);
 
     addAndMakeVisible(preview);
     addAndMakeVisible(meterLGainReduc);
     addAndMakeVisible(meterRGainReduc);
-    
-    //How to remove label borders?
+
     textLGainReduc.setText("L", dontSendNotification);
     textLGainReduc.setBorderSize(BorderSize<int>::BorderSize());
     textLGainReduc.setJustificationType(Justification::centred);
-    
+
     textRGainReduc.setText("R", dontSendNotification);
     textRGainReduc.setBorderSize(BorderSize<int>::BorderSize());
     textRGainReduc.setJustificationType(Justification::centred);
-    
+
     textGR.setText("GR", dontSendNotification);
     textGR.setBorderSize(BorderSize<int>::BorderSize());
     textGR.setJustificationType(Justification::centred);
-    
-    
+
     addAndMakeVisible(textGR);
     addAndMakeVisible(textLGainReduc);
     addAndMakeVisible(textRGainReduc);
-    
+
     attachMakeupGain = createSliderAttachment(processor.paramMakeupGain, sliderMakeupGain);
     addAndMakeVisible(sliderMakeupGain);
-    
+
     attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
     addAndMakeVisible(sliderDryWet);
-    
 }
 
 MMCompressorPluginEditor::~MMCompressorPluginEditor()
@@ -86,7 +83,8 @@ void MMCompressorPluginEditor::resized()
         graphItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
     }
     layout.items.add(graphItem);
-    
+
+    /*
     FlexBox meterBox;
     meterBox.flexDirection = FlexBox::Direction::column;
     meterBox.items.add(FlexItem(textGR).withFlex(1.0f));
@@ -108,6 +106,7 @@ void MMCompressorPluginEditor::resized()
     meters.items.add(FlexItem(rMeter).withFlex(1.0f));
     meterBox.items.add(FlexItem(meters).withFlex(10.0f));
     layout.items.add(FlexItem(meterBox).withMargin(standardMargin).withFlex(1.0f));
+     */
     
     layout.items.add(FlexItem(sliderMakeupGain).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));

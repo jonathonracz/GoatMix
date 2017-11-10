@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "SimpleLevelMeter.h"
+#include "../DSP/WindowedMeter.h"
 #include <list>
 
 class SimpleMultiLevelMeter :
@@ -23,18 +24,12 @@ public:
 
     void setSource(FFAU::LevelMeterSource* source)
     {
-        jassert(source);
-        meters.resize(source->getNumChannels());
-        int index = 0;
-        for (auto meter = meters.begin(); meter != meters.end(); ++meter)
-        {
-            meter->setSource(source);
-            meter->setChannel(index);
-            meter->setMinGainDisplayValue(minGainDisplay);
-            meter->setMaxGainDisplayValue(maxGainDisplay);
-            addAndMakeVisible(*meter);
-            index++;
-        }
+        setSourceInternal(source);
+    }
+
+    void setSource(WindowedMeter* source)
+    {
+        setSourceInternal(source);
     }
 
     void setMinGainDisplayValue(float value)
@@ -70,6 +65,23 @@ private:
         for (SimpleLevelMeter& meter : meters)
             flex.items.add(FlexItem(meter).withFlex(1.0f));
         flex.performLayout(getLocalBounds());
+    }
+
+    template<class SourceType>
+    void setSourceInternal(SourceType source)
+    {
+        jassert(source);
+        meters.resize(source->getNumChannels());
+        int index = 0;
+        for (auto meter = meters.begin(); meter != meters.end(); ++meter)
+        {
+            meter->setSource(source);
+            meter->setChannel(index);
+            meter->setMinGainDisplayValue(minGainDisplay);
+            meter->setMaxGainDisplayValue(maxGainDisplay);
+            addAndMakeVisible(*meter);
+            index++;
+        }
     }
 
     std::list<SimpleLevelMeter> meters;

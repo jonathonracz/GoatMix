@@ -114,6 +114,8 @@ void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSa
     delayL.params->maxDelay = static_cast<size_t>(sampleRate / 10.0); // 100 ms max delay
     delayR.params->maxDelay = static_cast<size_t>(sampleRate / 10.0);
 
+    meter.prepare(stereoSpec);
+    meter.params->windowSamples = sampleRate * 0.05f;
     gainL.prepare(monoSpec);
     gainR.prepare(monoSpec);
     gainCenter.prepare(stereoSpec);
@@ -156,4 +158,5 @@ void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& m
     delayR.process(contextR);
     invertPhaseR.process(contextR);
     goniometerSource.process(buffer);
+    meter.process(contextStereo);
 }

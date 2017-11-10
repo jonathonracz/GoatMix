@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "MMLookAndFeel.h"
+#include "../DSP/WindowedMeter.h"
 
 class SimpleLevelMeter :
     public Component,
@@ -28,9 +29,14 @@ public:
 
     void setSource(FFAU::LevelMeterSource* _source)
     {
-        jassert(_source);
-        source = _source;
-        jassert(channel < source->getNumChannels());
+        jassert(_source && !gaSource);
+        ffauSource = _source;
+    }
+
+    void setSource(WindowedMeter* _source)
+    {
+        jassert(_source && !ffauSource);
+        gaSource = _source;
     }
 
     float getChannel() const { return channel; }
@@ -45,21 +51,12 @@ private:
     {
         regenerateGradientIfNeeded();
         g.fillAll(Colours::black);
-        if (source)
+        if (ffauSource)
         {
-            float gainBoundsDelta = ((maxGainDisplayValue - minGainDisplayValue) > 0) ? (maxGainDisplayValue - minGainDisplayValue) : 0;
+            drawMeterFilledToLevel(g, ffauSource->getRMSLevel(channel));
 
             {
-                float proportionOfRMSMeterFilled = (source->getRMSLevel(channel) - minGainDisplayValue) / gainBoundsDelta;
-                Rectangle<int> activeRMSMeterArea = Rectangle<int>(0,
-                                                                   getHeight() * (1.0 - proportionOfRMSMeterFilled),
-                                                                   getWidth(),
-                                                                   getHeight());
-                g.drawImage(gradient.getClippedImage(activeRMSMeterArea), activeRMSMeterArea.toFloat());
-            }
-
-            {
-                float proportionOfMaxMeterFilled = (source->getMaxLevel(channel) - minGainDisplayValue) / gainBoundsDelta;
+                float proportionOfMaxMeterFilled = getProportionOfMeterFilledForLevel(ffauSource->getMaxLevel(channel));
                 int maxMeterStartPos = getHeight() * (1.0 - proportionOfMaxMeterFilled);
                 Rectangle<int> activeMaxMeterArea = Rectangle<int>(0,
                                                                    maxMeterStartPos,
@@ -68,12 +65,19 @@ private:
                 g.drawImage(gradient.getClippedImage(activeMaxMeterArea), activeMaxMeterArea.toFloat());
             }
         }
+        else if (gaSource)
+        {
+            g.setOpacity(0.5f);
+            drawMeterFilledToLevel(g, gaSource->getCurrentPeak(channel));
+            g.setOpacity(1.0f);
+            drawMeterFilledToLevel(g, gaSource->getRMS(channel));
+        }
     }
 
     void timerCallback() override
     {
-        if (source)
-            source->decayIfNeeded();
+        if (ffauSource)
+            ffauSource->decayIfNeeded();
 
         repaint();
     }
@@ -108,7 +112,24 @@ private:
         }
     }
 
-    WeakReference<FFAU::LevelMeterSource> source;
+    float getProportionOfMeterFilledForLevel(float level) const noexcept
+    {
+        float gainBoundsDelta = ((maxGainDisplayValue - minGainDisplayValue) > 0) ? (maxGainDisplayValue - minGainDisplayValue) : 0;
+        return (level - minGainDisplayValue) / gainBoundsDelta;
+    }
+
+    void drawMeterFilledToLevel(Graphics& g, float level) noexcept
+    {
+        float proportionOfMeterFilled = getProportionOfMeterFilledForLevel(level);
+        Rectangle<int> activeMeterArea = Rectangle<int>(0,
+                                                        getHeight() * (1.0 - proportionOfMeterFilled),
+                                                        getWidth(),
+                                                        getHeight());
+        g.drawImage(gradient.getClippedImage(activeMeterArea), activeMeterArea.toFloat());
+    }
+
+    WeakReference<FFAU::LevelMeterSource> ffauSource;
+    WeakReference<WindowedMeter> gaSource;
     int channel = 0;
     float minGainDisplayValue = 0.0f;
     float maxGainDisplayValue = 1.0f;

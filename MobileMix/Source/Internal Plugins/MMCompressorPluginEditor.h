@@ -26,7 +26,6 @@ protected:
     void resized() override;
 
 private:
-    
     CompressorPreview preview;
     Label textGR;
     Label textLGainReduc;
@@ -40,13 +39,13 @@ private:
     MMParameterSlider sliderThreshold;
     MMParameterSlider sliderMakeupGain;
     MMParameterSlider sliderDryWet;
-    
+
     MMSliderAttachment attachAttack;
     MMSliderAttachment attachRelease;
     MMSliderAttachment attachRatio;
     MMSliderAttachment attachThreshold;
     MMSliderAttachment attachMakeupGain;
     MMSliderAttachment attachDryWet;
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMCompressorPluginEditor)
 };

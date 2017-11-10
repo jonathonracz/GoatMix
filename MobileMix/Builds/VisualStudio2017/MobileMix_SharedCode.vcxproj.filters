@@ -472,9 +472,6 @@
     <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\CompressorPreviewSource.cpp">
-      <Filter>MobileMix\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\DistortionPreview.cpp">
       <Filter>MobileMix\GUI</Filter>
     </ClCompile>
@@ -2500,9 +2497,6 @@
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h">
-      <Filter>MobileMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\CompressorPreviewSource.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">

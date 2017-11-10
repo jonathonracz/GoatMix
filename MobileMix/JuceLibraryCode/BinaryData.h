@@ -9,7 +9,7 @@
 namespace BinaryData
 {
     extern const char*   MobileMixAcknowledgements_pdf;
-    const int            MobileMixAcknowledgements_pdfSize = 242440;
+    const int            MobileMixAcknowledgements_pdfSize = 230620;
 
     extern const char*   hipass_svg;
     const int            hipass_svgSize = 740;

@@ -15,7 +15,6 @@
 #include "../DSP/Compressor.h"
 #include "../DSP/DryWet.h"
 #include "../DSP/Gain.h"
-#include "../GUI/GoniometerSource.h"
 #include "../DSP/WindowedMeter.h"
 
 class MMCompressorPlugin :
@@ -33,8 +32,6 @@ public:
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
-    
-    GoniometerSource graphCompressSource;
 
     AudioProcessorParameterWithID* paramAttack;
     AudioProcessorParameterWithID* paramRelease;
@@ -43,8 +40,7 @@ public:
     AudioProcessorParameterWithID* paramMakeupGain;
     AudioProcessorParameterWithID* paramDryWet;
 
-    WindowedMeter peak;
-
+    WindowedMeter meter;
     Compressor compressor;
     Gain makeup;
     DryWet dryWet;

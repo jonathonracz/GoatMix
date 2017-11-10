@@ -108,10 +108,6 @@
             file="Source/GUI/CompressorPreview.cpp"/>
       <FILE id="kpNIoJ" name="CompressorPreview.h" compile="0" resource="0"
             file="Source/GUI/CompressorPreview.h"/>
-      <FILE id="yOIX5g" name="CompressorPreviewSource.cpp" compile="1" resource="0"
-            file="Source/GUI/CompressorPreviewSource.cpp"/>
-      <FILE id="RTacfF" name="CompressorPreviewSource.h" compile="0" resource="0"
-            file="Source/GUI/CompressorPreviewSource.h"/>
       <FILE id="OdMqGs" name="DistortionPreview.cpp" compile="1" resource="0"
             file="Source/GUI/DistortionPreview.cpp"/>
       <FILE id="oEs9ZE" name="DistortionPreview.h" compile="0" resource="0"

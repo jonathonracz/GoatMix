@@ -47,10 +47,10 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(rightdBLabel);
     
     //Meters here
-    meterNegL.setSource(&processor.meterSource);
-    meterPosL.setSource(&processor.meterSource);
-    meterNegR.setSource(&processor.meterSource);
-    meterPosR.setSource(&processor.meterSource);
+    meterNegL.setSource(&processor.meter);
+    meterPosL.setSource(&processor.meter);
+    meterNegR.setSource(&processor.meter);
+    meterPosR.setSource(&processor.meter);
 
     meterPosL.setMinGainDisplayValue(1.0f);
     meterPosL.setMaxGainDisplayValue(2.0f);
@@ -71,13 +71,13 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     
     //meterLabels here
     meterLabels[0].setText("+6", dontSendNotification);
-    meterLabels[0].setJustificationType(Justification::topRight);
+    meterLabels[0].setJustificationType(Justification::centredTop);
     meterLabels[1].setText("+3", dontSendNotification);
     meterLabels[1].setJustificationType(Justification::centredRight);
     meterLabels[2].setText("0", dontSendNotification);
-    meterLabels[2].setJustificationType(Justification::bottomRight);
+    meterLabels[2].setJustificationType(Justification::centredBottom);
     meterLabels[3].setText("0", dontSendNotification);
-    meterLabels[3].setJustificationType(Justification::topRight);
+    meterLabels[3].setJustificationType(Justification::centredTop);
     meterLabels[4].setText("-6", dontSendNotification);
     meterLabels[4].setJustificationType(Justification::centredRight);
     meterLabels[5].setText("-12", dontSendNotification);

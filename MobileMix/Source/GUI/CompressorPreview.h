@@ -12,13 +12,14 @@
 
 #include "JuceHeader.h"
 #include "../DSP/Compressor.h"
+#include "../DSP/WindowedMeter.h"
 
 class CompressorPreview :
     public Component,
     public Timer
 {
 public:
-    CompressorPreview(Compressor::Parameters::Ptr params);
+    CompressorPreview(Compressor::Parameters::Ptr params, WindowedMeter& meter);
     ~CompressorPreview() {}
 
 private:
@@ -26,6 +27,7 @@ private:
     void timerCallback() override;
 
     Compressor::Parameters::Ptr params = nullptr;
+    WindowedMeter& meter;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(CompressorPreview)
 };

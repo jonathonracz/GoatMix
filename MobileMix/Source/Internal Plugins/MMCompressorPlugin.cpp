@@ -92,6 +92,8 @@ void MMCompressorPlugin::prepareToPlayDerived(double sampleRate, int maximumExpe
         static_cast<uint32>(getTotalNumInputChannels())
     };
 
+    meter.params->windowSamples = sampleRate * 0.05f;
+    meter.prepare(spec);
     compressor.prepare(spec);
     makeup.prepare(spec);
     dryWet.prepare(spec);
@@ -109,6 +111,7 @@ void MMCompressorPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dryWet.copyDrySignal(buffer);
     dsp::AudioBlock<float> block(buffer);
     dsp::ProcessContextReplacing<float> context(block);
+    meter.process(context);
     compressor.process(context);
     makeup.process(context);
     dryWet.process(context);

@@ -13,7 +13,7 @@
 #include "MMDistortionPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 #include "../GUI/DistortionPreview.h"
-#include "../GUI/SimpleLevelMeter.h"
+#include "../GUI/SimpleMultiLevelMeter.h"
 #include "../GUI/MMShapeButton.h"
 
 class MMDistortionPluginEditor :
@@ -32,11 +32,7 @@ private:
     void sliderValueChanged(Slider* slider) override;
 
     DistortionPreview preview;
-    SimpleLevelMeter meterL;
-    SimpleLevelMeter meterR;
-    Label labelDB;
-    Label labelL;
-    Label labelR;
+    SimpleMultiLevelMeter meter;
     
     MMParameterSlider sliderDownsample;
     MMParameterSlider sliderBitDepth;
