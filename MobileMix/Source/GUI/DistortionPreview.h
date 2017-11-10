@@ -14,20 +14,20 @@
 #include "../DSP/DistortionChain.h"
 
 class DistortionPreview :
-    public Component,
-    public Slider::Listener
+    public Component
 {
 public:
-    DistortionPreview(DistortionChain::Parameters::Ptr paramsToFollow);
+    DistortionPreview();
     ~DistortionPreview() {}
+
+    DistortionChain::Parameters* getParams() const { return distortion.params.get(); }
 
 private:
     void paint(Graphics& g) override;
-    void sliderValueChanged(Slider* slider) override;
     void processPreviewSignal();
 
     DistortionChain distortion;
-    constexpr static const size_t generatorFrequency = 440;
+    constexpr static const size_t generatorFrequency = 220;
     AudioBuffer<float> freshSignal;
     AudioBuffer<float> processedSignal;
 

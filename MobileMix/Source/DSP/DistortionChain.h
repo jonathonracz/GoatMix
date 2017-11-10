@@ -27,8 +27,8 @@ public:
     {
         size_t samplesToRepeat = 0;
         size_t bitDepth = 32;
-        float overDriveGainUp = 1.0f;
-        float overDriveGainDown = 1.0f;
+        float overdriveGainUp = 1.0f;
+        float overdriveGainDown = 1.0f;
 
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
@@ -67,8 +67,8 @@ private:
         // Trickle parameters down.
         downsample.params->samplesToRepeat = params->samplesToRepeat;
         depth.params->bitDepth = params->bitDepth;
-        overdrive.params->gainUp = params->overDriveGainUp;
-        overdrive.params->gainDown = params->overDriveGainDown;
+        overdrive.params->gainUp = params->overdriveGainUp;
+        overdrive.params->gainDown = params->overdriveGainDown;
     }
 
     SampleRepeat downsample;

@@ -15,7 +15,8 @@
 
 class ReverbPreview :
     public Component,
-    public Slider::Listener
+    public Slider::Listener,
+    public ChangeListener
 {
 public:
     ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow);
@@ -24,10 +25,14 @@ public:
 private:
     void paint(Graphics& g) override;
     void sliderValueChanged(Slider* slider) override;
+    void changeListenerCallback(ChangeBroadcaster* source) override;
     void processPreviewSignal();
 
     MMReverb reverb;
-    AudioBuffer<float> signal;
+    AudioFormatManager formatManager;
+    AudioThumbnailCache cache;
+    AudioThumbnail thumbnail;
+    AudioBuffer<float> buffer;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReverbPreview)
 };

@@ -41,9 +41,7 @@ void AudioProcessorChain::moveNode(int fromIndex, int toIndex)
 {
     ReferenceCountedArray<Node> newChain(chain);
     Node::Ptr nodeToMove = newChain.removeAndReturn(fromIndex);
-    DBG("Removed " << nodeToMove->getProcessor()->getName() << " from index " << fromIndex);
     newChain.insert(toIndex, nodeToMove);
-    DBG("Inserted " << nodeToMove->getProcessor()->getName() << " to index " << toIndex);
     const ScopedLock lock(getCallbackLock());
     chain.swapWith(newChain);
 }

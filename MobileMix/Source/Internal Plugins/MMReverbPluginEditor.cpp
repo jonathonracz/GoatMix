@@ -12,16 +12,20 @@
 
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
+    preview(processor.reverb.params),
     buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize),
     buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
 {
     attachRoomSize = createSliderAttachment(processor.paramRoomSize, sliderRoomSize);
+    sliderRoomSize.addListener(&preview);
     addAndMakeVisible(sliderRoomSize);
     
     attachDamping = createSliderAttachment(processor.paramDamping, sliderDamping);
+    sliderRoomSize.addListener(&preview);
     addAndMakeVisible(sliderDamping);
     
     attachWidth = createSliderAttachment(processor.paramWidth, sliderWidth);
+    sliderRoomSize.addListener(&preview);
     addAndMakeVisible(sliderWidth);
     
     attachHighPass = createSliderAttachment(processor.paramHighPass, sliderHighPass);
@@ -33,7 +37,7 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
     addAndMakeVisible(sliderDryWet);
     
-    addAndMakeVisible(graphReverb);
+    addAndMakeVisible(preview);
     
     //Need MMShapeButton constructors for high and low pass buttons
     attachHighPassEnable = createButtonAttachment(processor.paramHighPassEnable, buttonHighPass);
@@ -48,7 +52,6 @@ MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
 
 MMReverbPluginEditor::~MMReverbPluginEditor()
 {
-
 }
 
 void MMReverbPluginEditor::resized()
@@ -62,7 +65,7 @@ void MMReverbPluginEditor::resized()
     
     FlexBox graphBox;
     graphBox.flexDirection = FlexBox::Direction::column;
-    graphBox.items.add(FlexItem(graphReverb).withFlex(6.0f));
+    graphBox.items.add(FlexItem(preview).withFlex(6.0f));
     
     layout.items.add(FlexItem(graphBox).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(8.0f));
     

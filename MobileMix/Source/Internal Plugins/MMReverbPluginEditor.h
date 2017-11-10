@@ -12,7 +12,7 @@
 
 #include "MMReverbPlugin.h"
 #include "../GUI/MMShapeButton.h"
-#include "../GUI/Goniometer.h"
+#include "../GUI/ReverbPreview.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 
 class MMReverbPluginEditor :
@@ -26,8 +26,7 @@ protected:
     void resized() override;
 
 private:
-    
-    Goniometer graphReverb;
+    ReverbPreview preview;
     MMShapeButton buttonHighPass;
     MMShapeButton buttonLowPass;
     

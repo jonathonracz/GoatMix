@@ -34,11 +34,13 @@ public:
         auto& waveShaper = overdrive.get<1>();
         waveShaper.functionToUse = std::tanh;
 
+        /*
         auto& dcFilter = overdrive.get<2>();
         dcFilter.state = dsp::IIR::Coefficients<float>::makeHighPass(spec.sampleRate, 5.0f);
+         */
 
-        updateParameters();
         overdrive.prepare(spec);
+        updateParameters();
     }
 
     void process(const dsp::ProcessContextReplacing<float>& context) override
@@ -60,15 +62,15 @@ private:
         auto& gainUp = overdrive.get<0>();
         gainUp.params->gain = params->gainUp;
 
-        auto& gainDown = overdrive.get<3>();
+        auto& gainDown = overdrive.get<2>();
         gainDown.params->gain = params->gainDown;
     }
 
     dsp::ProcessorChain<
         Gain,
         dsp::WaveShaper<float>,
-        dsp::ProcessorDuplicator<
+        /*dsp::ProcessorDuplicator<
             dsp::IIR::Filter<float>,
-            dsp::IIR::Coefficients<float>>,
+            dsp::IIR::Coefficients<float>>,*/
         Gain> overdrive;
 };

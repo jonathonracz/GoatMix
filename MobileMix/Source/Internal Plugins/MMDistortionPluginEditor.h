@@ -17,7 +17,8 @@
 #include "../GUI/MMShapeButton.h"
 
 class MMDistortionPluginEditor :
-    public MobileMixPluginInstanceEditor
+    public MobileMixPluginInstanceEditor,
+    public Slider::Listener
 {
 public:
     MMDistortionPluginEditor(MMDistortionPlugin& processor);
@@ -27,6 +28,9 @@ protected:
     void resized() override;
 
 private:
+    void sliderValueChanged(Slider* slider) override;
+    void regeneratePreview();
+
     DistortionPreview preview;
     SimpleLevelMeter meterL;
     SimpleLevelMeter meterR;

@@ -100,8 +100,8 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
 {
     distortion.params->samplesToRepeat = getUnnormalizedValue(paramDownsample);
     distortion.params->bitDepth = getUnnormalizedValue(paramBitDepth);
-    distortion.params->overDriveGainUp = getUnnormalizedValue(paramOverdrive);
-    distortion.params->overDriveGainDown = getUnnormalizedValue(paramGain);
+    distortion.params->overdriveGainUp = getUnnormalizedValue(paramOverdrive);
+    distortion.params->overdriveGainDown = getUnnormalizedValue(paramGain);
     lowPass.params->cutoff = getUnnormalizedValue(paramLowPass);
 
     dsp::AudioBlock<float> block(buffer);

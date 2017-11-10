@@ -11,7 +11,7 @@
 #include "DistortionPreview.h"
 #include "MMLookAndFeel.h"
 
-DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr paramsToFollow) :
+DistortionPreview::DistortionPreview() :
     freshSignal(1, generatorFrequency),
     processedSignal(1, generatorFrequency)
 {
@@ -19,10 +19,9 @@ DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr paramsToFo
     // Generate a clean signal.
     dsp::Oscillator<float> signalGenerator(&std::sinf);
     dsp::ProcessSpec spec;
-    spec.sampleRate = static_cast<uint32>(44100);
+    spec.sampleRate = static_cast<uint32>(generatorFrequency * 2.0f);
     spec.maximumBlockSize = static_cast<uint32>(generatorFrequency);
     spec.numChannels = 1;
-    distortion.params = paramsToFollow;
     distortion.prepare(spec);
 
     float* freshSignalWrite = freshSignal.getWritePointer(0);
@@ -81,9 +80,4 @@ void DistortionPreview::paint(Graphics& g)
         }
         g.strokePath(wavePath, PathStrokeType(lf.borderThickness* 2.0f));
     }
-}
-
-void DistortionPreview::sliderValueChanged(Slider* slider)
-{
-    repaint();
 }

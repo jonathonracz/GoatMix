@@ -33,8 +33,6 @@ public:
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
-    GoniometerSource graphReverbSource;
-    
     AudioProcessorParameterWithID* paramRoomSize;
     AudioProcessorParameterWithID* paramDamping;
     AudioProcessorParameterWithID* paramWidth;
@@ -45,8 +43,9 @@ public:
     AudioProcessorParameterWithID* paramHighPassEnable;
     AudioProcessorParameterWithID* paramDryWet;
 
-private:
     MMReverb reverb;
+
+private:
     MMStateVariableFilter lowPass;
     MMStateVariableFilter highPass;
     DryWet dryWet;
