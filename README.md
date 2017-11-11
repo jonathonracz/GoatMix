@@ -37,4 +37,4 @@ I've lumped the macOS build instructions into one category because they're almos
 
 ## Appendix
 
-Our "Actual source code", i.e. all our app's code, can be found in `/MobileMix/Source`.
+Our "actual" source code, i.e. all our app's code, can be found in `/MobileMix/Source`. External meta-project dependencies for the project are in `/External`. Statically linked dependencies are in `/MobileMix/Source/External`.
