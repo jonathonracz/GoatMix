@@ -4682,6 +4682,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\Icon-60.svg">
+      <Filter>MobileMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\MobileMixAcknowledgements.pdf">
       <Filter>MobileMix\Resources</Filter>
     </None>

@@ -51,7 +51,7 @@ private:
     {
         regenerateGradientIfNeeded();
         g.fillAll(Colours::black);
-        if (ffauSource)
+        if (ffauSource && channel < ffauSource->getNumChannels())
         {
             drawMeterFilledToLevel(g, ffauSource->getRMSLevel(channel));
 
@@ -65,7 +65,7 @@ private:
                 g.drawImage(gradient.getClippedImage(activeMaxMeterArea), activeMaxMeterArea.toFloat());
             }
         }
-        else if (gaSource)
+        else if (gaSource && channel < gaSource->getNumChannels())
         {
             g.setOpacity(0.5f);
             drawMeterFilledToLevel(g, gaSource->getCurrentPeak(channel));

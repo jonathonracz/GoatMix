@@ -5,7 +5,7 @@
               bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="1" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="GoatAudio"
+              enableIAA="0" pluginName="MobileMix" pluginDesc="MobileMix" pluginManufacturer="GoatAudio"
               pluginManufacturerCode="Goat" pluginCode="Gomm" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="MobileMixAU"
@@ -46,6 +46,7 @@
       </GROUP>
     </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <FILE id="BcWm5j" name="Icon-60.svg" compile="0" resource="1" file="Source/Resources/Icon-60.svg"/>
       <FILE id="AdaT8z" name="MobileMixAcknowledgements.pdf" compile="0"
             resource="1" file="Source/Resources/MobileMixAcknowledgements.pdf"/>
       <FILE id="WL0l57" name="hipass.svg" compile="0" resource="1" file="Source/Resources/hipass.svg"/>
@@ -215,7 +216,8 @@
           file="Source/MobileMixPluginEditor.h"/>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="" vst3Folder="">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="" vst3Folder=""
+               smallIcon="BcWm5j" bigIcon="BcWm5j">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"
                        enablePluginBinaryCopyStep="1"/>
@@ -243,7 +245,8 @@
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
-                  vst3Folder="" iPadScreenOrientation="landscape" iosDeviceFamily="1,2">
+                  vst3Folder="" iPadScreenOrientation="landscape" iosDeviceFamily="1,2"
+                  smallIcon="BcWm5j" bigIcon="BcWm5j">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"
                        enablePluginBinaryCopyStep="1"/>

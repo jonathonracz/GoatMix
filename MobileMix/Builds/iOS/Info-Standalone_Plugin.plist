@@ -38,20 +38,5 @@
     </array>
     <key>UIBackgroundModes</key>
     <array/>
-    <key>AudioComponents</key>
-    <array>
-      <dict>
-        <key>name</key>
-        <string>GoatAudio: MobileMix</string>
-        <key>manufacturer</key>
-        <string>Goat</string>
-        <key>type</key>
-        <string>aurx</string>
-        <key>subtype</key>
-        <string>Gomm</string>
-        <key>version</key>
-        <integer>65536</integer>
-      </dict>
-    </array>
   </dict>
 </plist>
