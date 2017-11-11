@@ -34,3 +34,7 @@ This will build MobileMix in a standalone "dummy" mode which is mostly useful fo
 ##### Building for macOS (Any target)
 
 I've lumped the macOS build instructions into one category because they're almost completely analagous to the iOS instructions - just choose the target which deploys to "My Mac" rather than to an iOS device. Note that no host on macOS currently works with AUv3, so stick to AUv2 (supported by any first party host on macOS, such as Logic or Garageband) or VST (supported by any third party host, such as Ableton Live, Reaper, Cubase, etc.).
+
+## Appendix
+
+Our "Actual source code", i.e. all our app's code, can be found in `/MobileMix/Source`.
