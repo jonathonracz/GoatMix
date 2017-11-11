@@ -17,7 +17,7 @@ It will take a while to clone everything. Once complete, own `MobileMix.xcworksp
 
 ## Step 3: Build.
 
-This is where things will either go without a hitch or crash and burn, mostly due to paths to SDKs (which are included as submodules) are not referenced correctly for whatever reason. Again, contact me if you run into these issues, but in the case of simply building and side-loading the app onto a device, there shouldn't be any issues.
+This is where things will either go without a hitch or crash and burn, mostly due to paths to SDKs (which are included as submodules) are not referenced correctly for whatever reason. Again, contact me (jdracz at umich dot edu) if you run into these issues, but in the case of simply building and side-loading the app onto a device, there shouldn't be any issues.
 
 ##### Building for iOS (AUv3)
 
