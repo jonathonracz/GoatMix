@@ -19,7 +19,9 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     topBar(p),
     tabs(TabbedButtonBar::Orientation::TabsAtBottom)
 {
+#if JUCE_DEBUG
     setResizable(true, true);
+#endif
     setSize(ScreenResolutionConstants::iPhone7LogicalY,
         ScreenResolutionConstants::iPhone7LogicalX);
     processor.params.state.addListener(this);

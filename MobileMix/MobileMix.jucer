@@ -251,7 +251,7 @@
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"
                        enablePluginBinaryCopyStep="1"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"
-                       enablePluginBinaryCopyStep="1"/>
+                       enablePluginBinaryCopyStep="1" iosCompatibility="11.0" linkTimeOptimisation="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../external/JUCE/modules"/>

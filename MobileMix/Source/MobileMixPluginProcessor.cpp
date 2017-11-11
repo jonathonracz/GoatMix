@@ -15,6 +15,9 @@
 #include "Internal Plugins/MMGainPlugin.h"
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
+    AudioProcessor(BusesProperties()
+        .withInput("Input", AudioChannelSet::stereo(), true)
+        .withOutput("Output", AudioChannelSet::stereo(), true)),
     chainTree("CHAIN"),
     params(*this, &undoManager)
 {
@@ -66,8 +69,10 @@ void MobileMixAudioProcessor::releaseResources()
 bool MobileMixAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     // We're assuming EVERYTHING in this plugin will ALWAYS be stereo.
-    return (layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
-        (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo());
+    return ((layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
+        (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())) /*||
+        ((layouts.getMainInputChannelSet() == AudioChannelSet::mono()) &&
+         (layouts.getMainOutputChannelSet() == AudioChannelSet::mono())*/;
 }
 
 void MobileMixAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
