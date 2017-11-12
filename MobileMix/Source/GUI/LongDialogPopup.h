@@ -11,22 +11,16 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "MMLookAndFeel.h"
 
 class LongDialogPopup :
-    public Component,
-    public Button::Listener
+    public Component
 {
 public:
-    LongDialogPopup(const String& textToDisplay) :
-        closeButton(NEEDS_TRANS("Close"))
+    LongDialogPopup(const String& _textToDisplay) :
+        textToDisplay(_textToDisplay)
     {
-        display.setReadOnly(true);
-        display.setMultiLine(true);
-        display.setCaretVisible(false);
-        display.setText(textToDisplay);
-        closeButton.addListener(this);
-        addAndMakeVisible(display);
-        addAndMakeVisible(closeButton);
+        setVisible(false);
     }
 
     ~LongDialogPopup() {}
@@ -34,41 +28,45 @@ public:
     struct Listener
     {
         virtual ~Listener() {}
-        virtual void closeButtonClicked(LongDialogPopup* dialog) = 0;
+        virtual void dismissed(LongDialogPopup* dialog) = 0;
     };
 
     void addListener(Listener* listener) { listeners.add(listener); }
     void removeListener(Listener* listener) { listeners.remove(listener); }
 
+    void show()
+    {
+        setVisible(true);
+    }
+
+    void hide()
+    {
+        setVisible(false);
+    }
+
 private:
-    void visibilityChanged() override
-    {
-        if (isVisible())
-        {
-        }
-    }
-
-    void resized() override
-    {
-        display.setBoundsRelative(0.0f, 0.0f, 0.5f, 0.9f);
-        display.setCentreRelative(0.5f, 0.5f);
-        closeButton.setBoundsRelative(0.05f, 0.05f, 0.1f, 0.1f);
-    }
-
     void paint(Graphics& g) override
     {
-        g.fillAll(Colour(0x7f000000));
+        g.fillAll(Colour(0xcf000000));
+        g.setColour(Colours::white);
+        g.drawFittedText(
+            textToDisplay,
+            getBounds().withSizeKeepingCentre(static_cast<int>(getWidth() * 0.8f), getHeight()),
+            Justification::Flags::centred,
+            INT_MAX,
+            1.0f);
     }
 
-    void buttonClicked(Button* button) override
+    void mouseUp(const MouseEvent& e) override
     {
+        hide();
         BailOutChecker checker(this);
-        listeners.callChecked(checker, &Listener::closeButtonClicked, this);
+        listeners.callChecked(checker, &Listener::dismissed, this);
     }
 
+    const float fadeTime = 1.0f;
     ListenerList<Listener> listeners;
-    TextButton closeButton;
-    TextEditor display;
+    String textToDisplay;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LongDialogPopup)
 };

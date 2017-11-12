@@ -17,7 +17,8 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     AudioProcessorEditor(&p),
     processor(p),
     topBar(p),
-    tabs(TabbedButtonBar::Orientation::TabsAtBottom)
+    tabs(TabbedButtonBar::Orientation::TabsAtBottom),
+    aboutMessage(NEEDS_TRANS("The about and acknowledgements PDF can be found in MobileMix's iTunes file sharing."))
 {
 #if JUCE_DEBUG
     setResizable(true, true);
@@ -39,6 +40,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     addAndMakeVisible(tabs);
     LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setBufferedToImage(true);
+    addChildComponent(aboutMessage);
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()
@@ -65,6 +67,8 @@ void MobileMixAudioProcessorEditor::resized()
     layout.items.add(FlexItem(tabs).withFlex(1.0f));
 
     layout.performLayout(getLocalBounds());
+
+    aboutMessage.setBounds(getLocalBounds());
 
     // Manual hack since we aren't laying out the tabbedButtonBar directly...
     tabs.setTabBarDepth(topBar.getHeight());
@@ -125,6 +129,7 @@ void MobileMixAudioProcessorEditor::valueTreeRedirected(ValueTree &treeWhichHasB
 
 void MobileMixAudioProcessorEditor::infoClicked(MMTopBar* bar)
 {
+#if !JUCE_IOS
     AlertWindow::showOkCancelBox(
         AlertWindow::AlertIconType::WarningIcon,
         NEEDS_TRANS("Open Acknowledgements?"),
@@ -133,4 +138,7 @@ void MobileMixAudioProcessorEditor::infoClicked(MMTopBar* bar)
         "",
         this,
         aboutData.getCallback());
+#else
+    aboutMessage.show();
+#endif
 }
