@@ -104,6 +104,19 @@ void MMLookAndFeel::drawButtonBackground(Graphics& g, Button& button, const Colo
     g.strokePath(outline, PathStrokeType(borderThickness * 2.0f));
 }
 
+Component* MMLookAndFeel::getParentComponentForMenuOptions(const PopupMenu::Options& options)
+{
+#if JUCE_IOS
+    if (PluginHostType::getPluginLoadedAs() == AudioProcessor::wrapperType_AudioUnitv3)
+    {
+        if (options.getParentComponent() == nullptr && options.getTargetComponent() != nullptr)
+            return options.getTargetComponent()->getTopLevelComponent();
+    }
+#endif
+
+    return LookAndFeel_V4::getParentComponentForMenuOptions(options);
+}
+
 void MMLookAndFeel::setColorsFromArray(const uint32* colors, size_t num)
 {
     for (size_t i = 0; i < num; i += 2)

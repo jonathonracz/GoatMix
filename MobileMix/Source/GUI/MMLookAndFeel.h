@@ -57,6 +57,7 @@ public:
 
     Label* createSliderTextBox(Slider& slider) override;
     void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour, bool isMouseOverButton, bool isButtonDown) override;
+    Component* getParentComponentForMenuOptions(const PopupMenu::Options& options) override;
 
     const float borderThickness = 2.0f;
 
