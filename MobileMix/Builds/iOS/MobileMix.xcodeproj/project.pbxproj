@@ -36,19 +36,19 @@
 		240F8EBC67572874AF6DC240 /* DistortionPreview.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18D20D0540194B8F3D02C45 /* DistortionPreview.cpp */; };
 		259EB5A2627027A3D83ED2A2 /* SimpleComp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65A17CB1123D1131FCE4AD71 /* SimpleComp.cpp */; };
 		2730CEEEA9C32E6D9847A404 /* include_juce_audio_formats.mm in Sources */ = {isa = PBXBuildFile; fileRef = 99A1E06AB96B59C211D41F38 /* include_juce_audio_formats.mm */; };
-		28CA1EBE1FB821C100079A40 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
-		28CA1EBF1FB821C100079A40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349D44D286DC25B7AB0EEF9 /* AudioToolbox.framework */; };
-		28CA1EC01FB821C100079A40 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF76DD1351DB2DFC5B7C60 /* AVFoundation.framework */; };
-		28CA1EC11FB821C100079A40 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B201A5323E9007D535521 /* CoreAudio.framework */; };
-		28CA1EC21FB821C100079A40 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F68137C08CD8CF6650CF51 /* CoreAudioKit.framework */; };
-		28CA1EC31FB821C100079A40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00E10573277B3703A82E052 /* CoreGraphics.framework */; };
-		28CA1EC41FB821C100079A40 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7573461C793F1FD8BCBDCE8C /* CoreImage.framework */; };
-		28CA1EC51FB821C100079A40 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445578FBC03104A8A41A2FC9 /* CoreMIDI.framework */; };
-		28CA1EC61FB821C100079A40 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA9203723DCCC46FB62A1B0 /* CoreText.framework */; };
-		28CA1EC71FB821C100079A40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968CA8A47527D04288D87440 /* Foundation.framework */; };
-		28CA1EC81FB821C100079A40 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C121F91D2C878E83058D425 /* OpenGLES.framework */; };
-		28CA1EC91FB821C100079A40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1374D090C1A97FB22C91EC /* QuartzCore.framework */; };
-		28CA1ECA1FB821C100079A40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A70057675E8ACEC230116B7 /* UIKit.framework */; };
+		28CA1EFE1FB832F800079A40 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
+		28CA1EFF1FB832F800079A40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349D44D286DC25B7AB0EEF9 /* AudioToolbox.framework */; };
+		28CA1F001FB832F800079A40 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF76DD1351DB2DFC5B7C60 /* AVFoundation.framework */; };
+		28CA1F011FB832F800079A40 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B201A5323E9007D535521 /* CoreAudio.framework */; };
+		28CA1F021FB832F800079A40 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F68137C08CD8CF6650CF51 /* CoreAudioKit.framework */; };
+		28CA1F031FB832F800079A40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00E10573277B3703A82E052 /* CoreGraphics.framework */; };
+		28CA1F041FB832F800079A40 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7573461C793F1FD8BCBDCE8C /* CoreImage.framework */; };
+		28CA1F051FB832F800079A40 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445578FBC03104A8A41A2FC9 /* CoreMIDI.framework */; };
+		28CA1F061FB832F800079A40 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA9203723DCCC46FB62A1B0 /* CoreText.framework */; };
+		28CA1F071FB832F800079A40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968CA8A47527D04288D87440 /* Foundation.framework */; };
+		28CA1F081FB832F800079A40 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C121F91D2C878E83058D425 /* OpenGLES.framework */; };
+		28CA1F091FB832F800079A40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1374D090C1A97FB22C91EC /* QuartzCore.framework */; };
+		28CA1F0A1FB832F800079A40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A70057675E8ACEC230116B7 /* UIKit.framework */; };
 		2A871480000FF0A4FBA8003B /* include_juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9489C365CC70F0E520482FAE /* include_juce_core.mm */; };
 		2F82228913A3B5881ACB109E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
 		304B30C1E15F6E112CFAACE1 /* include_juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E7112FB38EBC5CA706C36C2 /* include_juce_gui_basics.mm */; };
@@ -108,21 +108,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		28CA1ECB1FB821C300079A40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 447A566CF8339B49CC1DCC8D;
-			remoteInfo = "MobileMix - Shared Code";
-		};
-		28CA1ECC1FB821C300079A40 /* PBXContainerItemProxy */ = {
+		28CA1F0B1FB832F800079A40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0DE56796EF92E40B478A62FF;
 			remoteInfo = "MobileMix - AUv3 AppExtension";
 		};
-		28CA1ECD1FB821C400079A40 /* PBXContainerItemProxy */ = {
+		28CA1F0C1FB832F800079A40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447A566CF8339B49CC1DCC8D;
+			remoteInfo = "MobileMix - Shared Code";
+		};
+		28CA1F0D1FB832F800079A40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
 			proxyType = 1;
@@ -232,6 +232,7 @@
 		7F7A9A126FB36F65FBAD6049 /* MMTopBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTopBar.h; path = ../../Source/GUI/MMTopBar.h; sourceTree = SOURCE_ROOT; };
 		82104AE40D5C959B11351585 /* SimpleLimitProcess.inl */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleLimitProcess.inl; path = ../../Source/External/SimpleComp/SimpleLimitProcess.inl; sourceTree = SOURCE_ROOT; };
 		822DAB6E01F838393475E189 /* MMIIRFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMIIRFilter.h; path = ../../Source/DSP/MMIIRFilter.h; sourceTree = SOURCE_ROOT; };
+		867D2EBA31CD3A1E911A1986 /* MobileMix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MobileMix.entitlements; sourceTree = SOURCE_ROOT; };
 		87AF76DD1351DB2DFC5B7C60 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B5DFB9ABB75C63AC5F9665F /* MMReverbPluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPluginEditor.h; path = "../../Source/Internal Plugins/MMReverbPluginEditor.h"; sourceTree = SOURCE_ROOT; };
 		8D373DD3990803003ECDF920 /* MMShapeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMShapeButton.h; path = ../../Source/GUI/MMShapeButton.h; sourceTree = SOURCE_ROOT; };
@@ -326,19 +327,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CA1EBE1FB821C100079A40 /* Accelerate.framework in Frameworks */,
-				28CA1EBF1FB821C100079A40 /* AudioToolbox.framework in Frameworks */,
-				28CA1EC01FB821C100079A40 /* AVFoundation.framework in Frameworks */,
-				28CA1EC11FB821C100079A40 /* CoreAudio.framework in Frameworks */,
-				28CA1EC21FB821C100079A40 /* CoreAudioKit.framework in Frameworks */,
-				28CA1EC31FB821C100079A40 /* CoreGraphics.framework in Frameworks */,
-				28CA1EC41FB821C100079A40 /* CoreImage.framework in Frameworks */,
-				28CA1EC51FB821C100079A40 /* CoreMIDI.framework in Frameworks */,
-				28CA1EC61FB821C100079A40 /* CoreText.framework in Frameworks */,
-				28CA1EC71FB821C100079A40 /* Foundation.framework in Frameworks */,
-				28CA1EC81FB821C100079A40 /* OpenGLES.framework in Frameworks */,
-				28CA1EC91FB821C100079A40 /* QuartzCore.framework in Frameworks */,
-				28CA1ECA1FB821C100079A40 /* UIKit.framework in Frameworks */,
+				28CA1EFE1FB832F800079A40 /* Accelerate.framework in Frameworks */,
+				28CA1EFF1FB832F800079A40 /* AudioToolbox.framework in Frameworks */,
+				28CA1F001FB832F800079A40 /* AVFoundation.framework in Frameworks */,
+				28CA1F011FB832F800079A40 /* CoreAudio.framework in Frameworks */,
+				28CA1F021FB832F800079A40 /* CoreAudioKit.framework in Frameworks */,
+				28CA1F031FB832F800079A40 /* CoreGraphics.framework in Frameworks */,
+				28CA1F041FB832F800079A40 /* CoreImage.framework in Frameworks */,
+				28CA1F051FB832F800079A40 /* CoreMIDI.framework in Frameworks */,
+				28CA1F061FB832F800079A40 /* CoreText.framework in Frameworks */,
+				28CA1F071FB832F800079A40 /* Foundation.framework in Frameworks */,
+				28CA1F081FB832F800079A40 /* OpenGLES.framework in Frameworks */,
+				28CA1F091FB832F800079A40 /* QuartzCore.framework in Frameworks */,
+				28CA1F0A1FB832F800079A40 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +505,7 @@
 		84597E6A7A811639665C9BD6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				867D2EBA31CD3A1E911A1986 /* MobileMix.entitlements */,
 				4E5227F06817A455F3B919AB /* MobileMix */,
 				A04B39CCE227B9A9F14E8281 /* Juce Modules */,
 				E943F98A3DD5091D4FC391B8 /* Juce Library Code */,
@@ -732,7 +734,7 @@
 						DevelopmentTeam = 2AWBX59SU4;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -751,7 +753,7 @@
 					447A566CF8339B49CC1DCC8D = {
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -771,7 +773,7 @@
 						DevelopmentTeam = 2AWBX59SU4;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -790,7 +792,7 @@
 					A7178F6070300AEEAA687D38 = {
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -920,17 +922,17 @@
 		2A023F9701DAB4A07E0D90D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 447A566CF8339B49CC1DCC8D /* MobileMix - Shared Code */;
-			targetProxy = 28CA1ECB1FB821C300079A40 /* PBXContainerItemProxy */;
+			targetProxy = 28CA1F0C1FB832F800079A40 /* PBXContainerItemProxy */;
 		};
 		389773303B503EF984D5030A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D0DA684FC754851392B6D75 /* MobileMix - Standalone Plugin */;
-			targetProxy = 28CA1ECD1FB821C400079A40 /* PBXContainerItemProxy */;
+			targetProxy = 28CA1F0D1FB832F800079A40 /* PBXContainerItemProxy */;
 		};
 		C709DF1DAEFC7B1E825DF846 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0DE56796EF92E40B478A62FF /* MobileMix - AUv3 AppExtension */;
-			targetProxy = 28CA1ECC1FB821C300079A40 /* PBXContainerItemProxy */;
+			targetProxy = 28CA1F0B1FB832F800079A40 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -942,6 +944,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -987,6 +990,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -1059,7 +1063,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = MobileMix;
 				SDKROOT = iphoneos;
@@ -1076,6 +1080,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1120,6 +1125,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1212,6 +1218,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1257,6 +1264,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -1302,6 +1310,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -1345,6 +1354,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++1z";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_ENTITLEMENTS = MobileMix.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;

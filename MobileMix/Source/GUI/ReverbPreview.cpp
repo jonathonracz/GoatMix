@@ -75,7 +75,6 @@ void ReverbPreview::processPreviewSignal()
         magnitude = buffer.getMagnitude(0, 0, buffer.getNumSamples());
         JUCE_UNDENORMALISE(magnitude);
     } while (magnitude > 0.01f);
-    DBG("Ran " << blockNumber << " blocks");
 }
 
 void ReverbPreview::changeListenerCallback(ChangeBroadcaster* source)
