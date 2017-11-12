@@ -67,10 +67,12 @@ private:
         }
         else if (gaSource && channel < gaSource->getNumChannels())
         {
+            float peakLevel = gaSource->getCurrentPeak(channel);
+            float rmsLevel = gaSource->getRMS(channel);
             g.setOpacity(0.5f);
-            drawMeterFilledToLevel(g, gaSource->getCurrentPeak(channel));
+            drawMeterFilledToLevel(g, peakLevel, rmsLevel);
             g.setOpacity(1.0f);
-            drawMeterFilledToLevel(g, gaSource->getRMS(channel));
+            drawMeterFilledToLevel(g, rmsLevel);
         }
     }
 
@@ -118,13 +120,17 @@ private:
         return (level - minGainDisplayValue) / gainBoundsDelta;
     }
 
-    void drawMeterFilledToLevel(Graphics& g, float level) noexcept
+    void drawMeterFilledToLevel(Graphics& g, float level, float bottomLevel = 0.0f) noexcept
     {
+        if (bottomLevel >= level)
+            return;
+
         float proportionOfMeterFilled = getProportionOfMeterFilledForLevel(level);
+        float bottomProportionOfMeterFilled = getProportionOfMeterFilledForLevel(bottomLevel);
         Rectangle<int> activeMeterArea = Rectangle<int>(0,
                                                         getHeight() * (1.0 - proportionOfMeterFilled),
                                                         getWidth(),
-                                                        getHeight());
+                                                        getHeight() * (1.0f - bottomProportionOfMeterFilled));
         g.drawImage(gradient.getClippedImage(activeMeterArea), activeMeterArea.toFloat());
     }
 
