@@ -7,8 +7,21 @@
 namespace BinaryData
 {
 
-//================== Icon-60.svg ==================
+//================== Init ==================
 static const unsigned char temp_binary_data_0[] =
+"VC2!\xcd\x06\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"0\"/><PARAM id=\"Gain: Gain\" value=\"1\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" value=\"0\"/><PARAM id=\""
+"Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"0\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"0\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Gain/><Compressor/><Reverb/><Distortion/><EQ"
+"/></CHAIN><PARAM id=\"Gain: Gain L\"/><PARAM id=\"Gain: Gain R\"/><PARAM id=\"Gain: Pan\"/><PARAM id=\"Gain: Phase Delay L\"/><PARAM id=\"Gain: Phase Delay R\"/><PARAM id=\"Gain: Phase Invert L\"/><PARAM id=\"Gain: Phase Invert R\"/><PARAM id=\"Compr"
+"essor: Attack\"/><PARAM id=\"Compressor: Release\"/><PARAM id=\"Compressor: Ratio\"/><PARAM id=\"Compressor: Threshold\"/><PARAM id=\"Compressor: Makeup Gain\"/><PARAM id=\"Compressor: Dry/Wet\"/><PARAM id=\"Reverb: Room Size\"/><PARAM id=\"Reverb: D"
+"amping\"/><PARAM id=\"Reverb: Width\"/><PARAM id=\"Reverb: Freeze\"/><PARAM id=\"Reverb: High Pass Enable\"/><PARAM id=\"Reverb: High Pass\"/><PARAM id=\"Reverb: Low Pass Enable\"/><PARAM id=\"Reverb: LowPass\"/><PARAM id=\"Reverb: Dry/Wet\"/><PARAM "
+"id=\"Distortion: Downsample\"/><PARAM id=\"Distortion: Bit Depth\"/><PARAM id=\"Distortion: Overdrive\"/><PARAM id=\"Distortion: Gain\"/><PARAM id=\"Distortion: Low Pass\"/><PARAM id=\"Distortion: Low Pass Enable\"/><PARAM id=\"EQ: Cutoff 0\"/><PARAM"
+" id=\"EQ: Gain 0\"/><PARAM id=\"EQ: Q 0\"/><PARAM id=\"EQ: Type 0\"/><PARAM id=\"EQ: Cutoff 1\"/><PARAM id=\"EQ: Gain 1\"/><PARAM id=\"EQ: Q 1\"/><PARAM id=\"EQ: Type 1\"/><PARAM id=\"EQ: Cutoff 2\"/><PARAM id=\"EQ: Gain 2\"/><PARAM id=\"EQ: Q 2\"/><"
+"PARAM id=\"EQ: Type 2\"/><PARAM id=\"EQ: Cutoff 3\"/><PARAM id=\"EQ: Gain 3\"/><PARAM id=\"EQ: Q 3\"/><PARAM id=\"EQ: Type 3\"/></ROOT>\0";
+
+const char* Init = (const char*) temp_binary_data_0;
+
+//================== Icon-60.svg ==================
+static const unsigned char temp_binary_data_1[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -58,10 +71,10 @@ static const unsigned char temp_binary_data_0[] =
 "    </g>\n"
 "</svg>";
 
-const char* Icon60_svg = (const char*) temp_binary_data_0;
+const char* Icon60_svg = (const char*) temp_binary_data_1;
 
 //================== MobileMixAcknowledgements.pdf ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_2[] =
 { 37,80,68,70,45,49,46,53,10,37,191,247,162,254,10,50,48,32,48,32,111,98,106,10,60,60,32,47,76,105,110,101,97,114,105,122,101,100,32,49,32,47,76,32,50,51,48,54,50,48,32,47,72,32,91,32,55,56,50,32,49,56,57,32,93,32,47,79,32,50,52,32,47,69,32,53,49,50,54,
 54,32,47,78,32,49,48,32,47,84,32,50,51,48,50,51,49,32,62,62,10,101,110,100,111,98,106,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,10,50,49,32,48,32,111,98,106,10,60,60,32,47,84,121,112,101,32,47,88,82,101,102,32,47,76,
@@ -3342,10 +3355,10 @@ static const unsigned char temp_binary_data_1[] =
 25,19,86,34,196,237,118,48,0,0,239,63,18,8,10,101,110,100,115,116,114,101,97,109,10,101,110,100,111,98,106,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,10,115,116,97,114,116,120,114,101,102,10,50,49,54,10,37,37,69,79,70,10,0,0 };
 
-const char* MobileMixAcknowledgements_pdf = (const char*) temp_binary_data_1;
+const char* MobileMixAcknowledgements_pdf = (const char*) temp_binary_data_2;
 
 //================== hipass.svg ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_3[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3359,10 +3372,10 @@ static const unsigned char temp_binary_data_2[] =
 "    </g>\n"
 "</svg>";
 
-const char* hipass_svg = (const char*) temp_binary_data_2;
+const char* hipass_svg = (const char*) temp_binary_data_3;
 
 //================== lopass.svg ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_4[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3376,10 +3389,10 @@ static const unsigned char temp_binary_data_3[] =
 "    </g>\n"
 "</svg>";
 
-const char* lopass_svg = (const char*) temp_binary_data_3;
+const char* lopass_svg = (const char*) temp_binary_data_4;
 
 //================== phaseinvert.svg ==================
-static const unsigned char temp_binary_data_4[] =
+static const unsigned char temp_binary_data_5[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3395,10 +3408,10 @@ static const unsigned char temp_binary_data_4[] =
 "    </g>\n"
 "</svg>";
 
-const char* phaseinvert_svg = (const char*) temp_binary_data_4;
+const char* phaseinvert_svg = (const char*) temp_binary_data_5;
 
 //================== info.svg ==================
-static const unsigned char temp_binary_data_5[] =
+static const unsigned char temp_binary_data_6[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3416,10 +3429,10 @@ static const unsigned char temp_binary_data_5[] =
 "    </g>\n"
 "</svg>";
 
-const char* info_svg = (const char*) temp_binary_data_5;
+const char* info_svg = (const char*) temp_binary_data_6;
 
 //================== mutebuttonbg.svg ==================
-static const unsigned char temp_binary_data_6[] =
+static const unsigned char temp_binary_data_7[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3433,10 +3446,10 @@ static const unsigned char temp_binary_data_6[] =
 "    </g>\n"
 "</svg>";
 
-const char* mutebuttonbg_svg = (const char*) temp_binary_data_6;
+const char* mutebuttonbg_svg = (const char*) temp_binary_data_7;
 
 //================== tabshadow.svg ==================
-static const unsigned char temp_binary_data_7[] =
+static const unsigned char temp_binary_data_8[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3455,10 +3468,10 @@ static const unsigned char temp_binary_data_7[] =
 "    </g>\n"
 "</svg>";
 
-const char* tabshadow_svg = (const char*) temp_binary_data_7;
+const char* tabshadow_svg = (const char*) temp_binary_data_8;
 
 //================== redo.svg ==================
-static const unsigned char temp_binary_data_8[] =
+static const unsigned char temp_binary_data_9[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3474,10 +3487,10 @@ static const unsigned char temp_binary_data_8[] =
 "    </g>\n"
 "</svg>";
 
-const char* redo_svg = (const char*) temp_binary_data_8;
+const char* redo_svg = (const char*) temp_binary_data_9;
 
 //================== undo.svg ==================
-static const unsigned char temp_binary_data_9[] =
+static const unsigned char temp_binary_data_10[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3493,10 +3506,10 @@ static const unsigned char temp_binary_data_9[] =
 "    </g>\n"
 "</svg>";
 
-const char* undo_svg = (const char*) temp_binary_data_9;
+const char* undo_svg = (const char*) temp_binary_data_10;
 
 //================== goataudio.svg ==================
-static const unsigned char temp_binary_data_10[] =
+static const unsigned char temp_binary_data_11[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
 "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 1428 188\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;st"
@@ -3543,10 +3556,10 @@ static const unsigned char temp_binary_data_10[] =
 "    </g>\n"
 "</svg>\n";
 
-const char* goataudio_svg = (const char*) temp_binary_data_10;
+const char* goataudio_svg = (const char*) temp_binary_data_11;
 
 //================== power.svg ==================
-static const unsigned char temp_binary_data_11[] =
+static const unsigned char temp_binary_data_12[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3562,7 +3575,7 @@ static const unsigned char temp_binary_data_11[] =
 "    </g>\n"
 "</svg>";
 
-const char* power_svg = (const char*) temp_binary_data_11;
+const char* power_svg = (const char*) temp_binary_data_12;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -3575,6 +3588,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0x0022d930:  numBytes = 1750; return Init;
         case 0x23ef2138:  numBytes = 3384; return Icon60_svg;
         case 0x317a86c6:  numBytes = 230620; return MobileMixAcknowledgements_pdf;
         case 0x56665d37:  numBytes = 740; return hipass_svg;
@@ -3596,6 +3610,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "Init",
     "Icon60_svg",
     "MobileMixAcknowledgements_pdf",
     "hipass_svg",

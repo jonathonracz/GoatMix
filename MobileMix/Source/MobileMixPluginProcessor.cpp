@@ -21,6 +21,9 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
     chainTree("CHAIN"),
     params(*this, &undoManager)
 {
+    // Set up presets.
+    //presets = 
+
     // Add top-level parameters here (currently none).
 
     // We only need the format manager to create the plugins once at load time.
@@ -120,26 +123,27 @@ double MobileMixAudioProcessor::getTailLengthSeconds() const
 
 int MobileMixAudioProcessor::getNumPrograms()
 {
-    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
-    // so this should be at least 1, even if you're not really implementing programs.
+    return static_cast<int>(presets.size());
 }
 
 int MobileMixAudioProcessor::getCurrentProgram()
 {
-    return 0;
+    return static_cast<int>(currentPresetIndex);
 }
 
 void MobileMixAudioProcessor::setCurrentProgram(int index)
 {
+    setStateInformation(presets[getCurrentProgram()].data, presets[getCurrentProgram()].size);
 }
 
 const String MobileMixAudioProcessor::getProgramName(int index)
 {
-    return {};
+    return presets[getCurrentProgram()].name;
 }
 
 void MobileMixAudioProcessor::changeProgramName(int index, const String& newName)
 {
+    jassertfalse; // Not sure how to best do this just yet, but is it even used?
 }
 
 void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)

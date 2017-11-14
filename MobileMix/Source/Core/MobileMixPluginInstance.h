@@ -12,6 +12,8 @@
 
 #include "JuceHeader.h"
 
+class MobileMixPluginInstanceEditor;
+
 class MobileMixPluginInstance :
     public AudioPluginInstance
 {
@@ -24,16 +26,18 @@ public:
     */
     virtual void registerParameters();
 
-    virtual const String getDisplayName() const { return "NO DISPLAY NAME"; };
+    virtual const String getDisplayName() const = 0;
 
     /** Call this in your derived processBlock() and avoid actually doing
         anything to the signal if you're bypassed.
     */
     bool isBypassed() const;
 
-    virtual void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock){}
-    virtual void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) {}
+    virtual void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) = 0;
+    virtual void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) = 0;
     virtual void releaseResourcesDerived() {}
+
+    virtual MobileMixPluginInstanceEditor* createMobileMixEditor() = 0;
 
     double getPreparedSampleRate() const { return preparedSampleRate; }
     int getPreparedBlockSize() const { return preparedBlockSize; }
@@ -55,6 +59,7 @@ private:
     void processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
+    AudioProcessorEditor* createEditor() override { jassertfalse; return nullptr; }
     bool hasEditor() const override;
     bool acceptsMidi() const override;
     bool producesMidi() const override;
@@ -71,5 +76,4 @@ private:
     int preparedBlockSize = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixPluginInstance)
-
 };

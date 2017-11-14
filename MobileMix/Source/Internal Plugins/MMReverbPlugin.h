@@ -26,7 +26,7 @@ public:
 
     void registerParameters() override;
 
-    AudioProcessorEditor* createEditor() override;
+    MobileMixPluginInstanceEditor* createMobileMixEditor() override;
     const String getName() const override { return "Reverb"; }
     const String getDisplayName() const override { return NEEDS_TRANS("Reverb"); }
 

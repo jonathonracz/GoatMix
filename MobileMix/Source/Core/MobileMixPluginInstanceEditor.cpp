@@ -11,7 +11,6 @@
 #include "MobileMixPluginInstanceEditor.h"
 
 MobileMixPluginInstanceEditor::MobileMixPluginInstanceEditor(MobileMixPluginInstance& _processor) :
-    AudioProcessorEditor(_processor),
     processor(_processor)
 {
     bypassButtonAttachment = createButtonAttachment(processor.paramBypass, bypassButton);

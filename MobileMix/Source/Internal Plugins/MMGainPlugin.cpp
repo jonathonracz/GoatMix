@@ -92,7 +92,7 @@ void MMGainPlugin::registerParameters()
         ValueStringFuncs::OnOff::textToValue);
 }
 
-AudioProcessorEditor* MMGainPlugin::createEditor()
+MobileMixPluginInstanceEditor* MMGainPlugin::createMobileMixEditor()
 {
     return new MMGainPluginEditor(*this);
 }

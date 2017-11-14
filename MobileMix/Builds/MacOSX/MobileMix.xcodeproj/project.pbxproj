@@ -169,6 +169,7 @@
 		74A5B250C05941110ADBDA75 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-VST.plist"; path = "Info-VST.plist"; sourceTree = "SOURCE_ROOT"; };
 		74FC7807AFB3D1945FC5942E = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_jcf_debug.mm"; path = "../../JuceLibraryCode/include_jcf_debug.mm"; sourceTree = "SOURCE_ROOT"; };
 		76AD8320F1F8149D12D583BA = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Divider.h; path = ../../Source/GUI/Divider.h; sourceTree = "SOURCE_ROOT"; };
+		782E5F48DC969D175E7EF8DC = {isa = PBXFileReference; lastKnownFileType = file; name = Init; path = ../../Source/Resources/Presets/Init; sourceTree = "SOURCE_ROOT"; };
 		7CAE4A61BE7D379CF0A1AF27 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMLookAndFeel.h; path = ../../Source/GUI/MMLookAndFeel.h; sourceTree = "SOURCE_ROOT"; };
 		7D65FBF68B15EA2259E142EE = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Compressor.h; path = ../../Source/DSP/Compressor.h; sourceTree = "SOURCE_ROOT"; };
 		7F7A9A126FB36F65FBAD6049 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTopBar.h; path = ../../Source/GUI/MMTopBar.h; sourceTree = "SOURCE_ROOT"; };
@@ -290,7 +291,10 @@
 					55940B0EC09157FCA449B8F5,
 					51F60192FE2930B9AFAFABD6,
 					45D00021ECA90F193DA11234, ); name = External; sourceTree = "<group>"; };
+		B61CAC3FCBDC1A3CECCD6315 = {isa = PBXGroup; children = (
+					782E5F48DC969D175E7EF8DC, ); name = Presets; sourceTree = "<group>"; };
 		749622BCA1EB7DC71C6D620C = {isa = PBXGroup; children = (
+					B61CAC3FCBDC1A3CECCD6315,
 					73B58CFFAB273399655AFD42,
 					0786C462463CBFBC42FD42EF,
 					723B597E8483EB3433CFE1CA,

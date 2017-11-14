@@ -24,7 +24,7 @@ MMTabbedComponent::MMTabbedComponent(TabbedButtonBar::Orientation orientation) :
 void MMTabbedComponent::addTabForPlugin(MobileMixPluginInstance* plugin)
 {
     lastPluginTabAddedFor = plugin;
-    addTab(plugin->getDisplayName(), Colours::transparentWhite, plugin->createEditor(), true);
+    addTab(plugin->getDisplayName(), Colours::transparentWhite, plugin->createMobileMixEditor(), true);
 }
 
 TabBarButton* MMTabbedComponent::createTabButton(const String& tabName, int tabIndex)

@@ -14,6 +14,9 @@
     <Filter Include="MobileMix\External">
       <UniqueIdentifier>{90D88CF2-CA44-196F-068A-1BA3A560A72B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MobileMix\Resources\Presets">
+      <UniqueIdentifier>{20A07BA6-B03E-25E4-DB97-4E23D553DEDF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MobileMix\Resources">
       <UniqueIdentifier>{338E3C31-1123-77EA-3F3C-70AAFEFBF1B2}</UniqueIdentifier>
     </Filter>
@@ -4682,6 +4685,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\Presets\Init">
+      <Filter>MobileMix\Resources\Presets</Filter>
+    </None>
     <None Include="..\..\Source\Resources\Icon-60.svg">
       <Filter>MobileMix\Resources</Filter>
     </None>

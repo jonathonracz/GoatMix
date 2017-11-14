@@ -78,7 +78,7 @@ void MMCompressorPlugin::registerParameters()
         ValueStringFuncs::Generic::textToValue);
 }
 
-AudioProcessorEditor* MMCompressorPlugin::createEditor()
+MobileMixPluginInstanceEditor* MMCompressorPlugin::createMobileMixEditor()
 {
     return new MMCompressorPluginEditor(*this);
 }

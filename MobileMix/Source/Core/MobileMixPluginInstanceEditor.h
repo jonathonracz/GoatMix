@@ -14,7 +14,7 @@
 #include "../GUI/MMParameterSlider.h"
 
 class MobileMixPluginInstanceEditor :
-    public AudioProcessorEditor
+    public Component
 {
 public:
     virtual ~MobileMixPluginInstanceEditor() {}

@@ -56,6 +56,18 @@ public:
     AudioProcessorValueTreeState params;
 
 private:
+    struct Preset
+    {
+        String name;
+        const char*& data;
+        const int& size;
+    };
+
+    std::array<Preset, 1> presets = {
+        {"Init", BinaryData::Init, BinaryData::InitSize}
+    };
+    size_t currentPresetIndex = 0;
+
     int indexOfNodeWithName(String name) const;
 
     void valueTreePropertyChanged(ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}

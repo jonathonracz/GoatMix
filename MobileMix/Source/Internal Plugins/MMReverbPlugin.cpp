@@ -103,7 +103,7 @@ void MMReverbPlugin::registerParameters()
         ValueStringFuncs::Generic::textToValue);
 }
 
-AudioProcessorEditor* MMReverbPlugin::createEditor()
+MobileMixPluginInstanceEditor* MMReverbPlugin::createMobileMixEditor()
 {
     return new MMReverbPluginEditor(*this);
 }

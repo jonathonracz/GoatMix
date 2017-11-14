@@ -62,7 +62,7 @@ void MMEQPlugin::registerParameters()
     }
 }
 
-AudioProcessorEditor* MMEQPlugin::createEditor()
+MobileMixPluginInstanceEditor* MMEQPlugin::createMobileMixEditor()
 {
     return new MMEQPluginEditor(*this);
 }

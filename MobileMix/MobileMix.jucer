@@ -46,6 +46,9 @@
       </GROUP>
     </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
+      <GROUP id="{155F1093-B264-B54E-5353-709C81438DD9}" name="Presets">
+        <FILE id="WiBjgr" name="Init" compile="0" resource="1" file="Source/Resources/Presets/Init"/>
+      </GROUP>
       <FILE id="BcWm5j" name="Icon-60.svg" compile="0" resource="1" file="Source/Resources/Icon-60.svg"/>
       <FILE id="AdaT8z" name="MobileMixAcknowledgements.pdf" compile="0"
             resource="1" file="Source/Resources/MobileMixAcknowledgements.pdf"/>

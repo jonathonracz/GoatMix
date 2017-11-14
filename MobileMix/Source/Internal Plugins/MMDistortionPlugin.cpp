@@ -78,7 +78,7 @@ void MMDistortionPlugin::registerParameters()
         ValueStringFuncs::OnOff::textToValue);
 }
 
-AudioProcessorEditor* MMDistortionPlugin::createEditor()
+MobileMixPluginInstanceEditor* MMDistortionPlugin::createMobileMixEditor()
 {
     return new MMDistortionPluginEditor(*this);
 }
