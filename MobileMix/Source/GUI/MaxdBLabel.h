@@ -48,11 +48,17 @@ private:
 
     void timerCallback() override
     {
+        String newText;
         if (source)
-            setText(Decibels::toString(source->getMaxOverallLevel(channel)), NotificationType::dontSendNotification);
+            newText = Decibels::toString(source->getMaxOverallLevel(channel));
         else
-            setText("NO SOURCE", NotificationType::dontSendNotification);
-        repaint();
+            newText = "NO SOURCE";
+
+        if (newText != getText())
+        {
+            setText(newText, NotificationType::dontSendNotification);
+            repaint();
+        }
     }
 
     WeakReference<FFAU::LevelMeterSource> source;

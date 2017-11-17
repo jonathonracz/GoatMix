@@ -32,8 +32,10 @@ private:
     void timerCallback() override;
 
     WeakReference<GoniometerSource> source = nullptr;
+    Image background;
+    Image paths;
     RingBuffer<Point<float>> pathCoordsForDrawing;
-    RingBuffer<Image> imageBuffers;
+    bool wasResized = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Goniometer)
 };

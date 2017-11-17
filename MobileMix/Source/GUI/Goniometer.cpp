@@ -13,8 +13,8 @@
 #include "GoniometerSource.h"
 
 Goniometer::Goniometer() :
-    pathCoordsForDrawing(256),
-    imageBuffers(10)
+    paths(Image::PixelFormat::ARGB, 1, 1, false),
+    pathCoordsForDrawing(256)
 {
     startTimerHz(30);
 }
@@ -34,23 +34,34 @@ void Goniometer::paint(Graphics& g)
 {
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
-    // Draw background
+    if (wasResized)
     {
-        Path guidelines;
-        guidelines.addEllipse(getLocalBounds().toFloat());
-        Rectangle<float> innerGuide = getLocalBounds().toFloat().withSizeKeepingCentre(getWidth() / 2.0f, getHeight() / 2.0f);
-        guidelines.addEllipse(innerGuide);
-        guidelines.addLineSegment(Line<float>(0.0f, 0.0f, static_cast<float>(getWidth()), static_cast<float>(getHeight())), lf.borderThickness);
-        guidelines.addLineSegment(Line<float>(static_cast<float>(getWidth()), 0.0f, 0.0f, static_cast<float>(getHeight())), lf.borderThickness);
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
-        g.strokePath(guidelines, PathStrokeType(lf.borderThickness));
-    }
+        // Resize paths
+        paths = paths.rescaled(getWidth(), getHeight(), Graphics::ResamplingQuality::lowResamplingQuality);
 
-    {
-        Path border;
-        border.addRectangle(getLocalBounds());
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
-        g.strokePath(border, PathStrokeType(lf.borderThickness * 2.0f));
+        // Draw background
+        background = Image(Image::PixelFormat::ARGB, getWidth(), getHeight(), true);
+        Graphics bgPainter(background);
+
+        {
+            Path guidelines;
+            guidelines.addEllipse(getLocalBounds().toFloat());
+            Rectangle<float> innerGuide = getLocalBounds().toFloat().withSizeKeepingCentre(getWidth() / 2.0f, getHeight() / 2.0f);
+            guidelines.addEllipse(innerGuide);
+            guidelines.addLineSegment(Line<float>(0.0f, 0.0f, static_cast<float>(getWidth()), static_cast<float>(getHeight())), lf.borderThickness);
+            guidelines.addLineSegment(Line<float>(static_cast<float>(getWidth()), 0.0f, 0.0f, static_cast<float>(getHeight())), lf.borderThickness);
+            bgPainter.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
+            bgPainter.strokePath(guidelines, PathStrokeType(lf.borderThickness));
+        }
+
+        {
+            Path border;
+            border.addRectangle(getLocalBounds());
+            bgPainter.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+            bgPainter.strokePath(border, PathStrokeType(lf.borderThickness * 2.0f));
+        }
+
+        wasResized = false;
     }
 
     // Pull as many samples as we can from the intermediate buffer and turn them
@@ -75,25 +86,21 @@ void Goniometer::paint(Graphics& g)
             drawPath.lineTo(componentSpacePoint);
     }
 
+    // Render paths.
     {
-        Image newPathTarget = imageBuffers.pop();
-        Graphics pathRender(newPathTarget);
+        paths.multiplyAllAlphas(0.94f);
+        Graphics pathRender(paths);
         pathRender.setColour(findColour(MMLookAndFeel::ColourIds::outline));
         pathRender.strokePath(drawPath, PathStrokeType(lf.borderThickness / 2.0f));
-        imageBuffers.push(newPathTarget);
     }
 
-    for (int i = 0; i < imageBuffers.getNumElements(); ++i)
-    {
-        imageBuffers[i].multiplyAllAlphas(0.98f);
-        g.drawImageAt(imageBuffers[i], 0, 0);
-    }
+    g.drawImageAt(background, 0, 0);
+    g.drawImageAt(paths, 0, 0);
 }
 
 void Goniometer::resized()
 {
-    imageBuffers.clear();
-    imageBuffers.fill(Image(Image::PixelFormat::ARGB, getWidth(), getHeight(), true));
+    wasResized = true;
 }
 
 void Goniometer::timerCallback()

@@ -15,6 +15,7 @@ MMShapeButton::MMShapeButton(const void* svgData, size_t svgSize, bool isToggle,
     Button(name),
     hasBackground(_hasBackground)
 {
+    setBufferedToImage(true);
     std::unique_ptr<Drawable> drawable(Drawable::createFromImageData(svgData, svgSize));
     shape = drawable->getOutlineAsPath();
     setClickingTogglesState(isToggle); // Make it toggle by default
