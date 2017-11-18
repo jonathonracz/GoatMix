@@ -56,18 +56,6 @@ public:
     AudioProcessorValueTreeState params;
 
 private:
-    struct Preset
-    {
-        String name;
-        const char*& data;
-        const int& size;
-    };
-
-    std::array<Preset, 1> presets = {
-        {"Init", BinaryData::Init, BinaryData::InitSize}
-    };
-    size_t currentPresetIndex = 0;
-
     int indexOfNodeWithName(String name) const;
 
     void valueTreePropertyChanged(ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override {}
@@ -81,6 +69,19 @@ private:
     void audioProcessorChanged(AudioProcessor* processor) override {}
     void audioProcessorParameterChangeGestureBegin(AudioProcessor* processor, int parameterIndex) override;
     void audioProcessorParameterChangeGestureEnd(AudioProcessor* processor, int parameterIndex) override;
+
+    struct Preset
+    {
+        String name;
+        const char*& data;
+        const int& size;
+    };
+
+    std::array<Preset, 1> presets = {
+        {"Init", BinaryData::Init, BinaryData::InitSize}
+    };
+    size_t currentPresetIndex = 0;
+    std::atomic<int> editorCount = 0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessor)
 };

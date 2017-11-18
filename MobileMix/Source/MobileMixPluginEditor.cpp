@@ -18,7 +18,8 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     processor(p),
     topBar(p),
     tabs(TabbedButtonBar::Orientation::TabsAtBottom),
-    aboutMessage(NEEDS_TRANS("The about and acknowledgements PDF can be found in MobileMix's iTunes file sharing."))
+    aboutMessage(NEEDS_TRANS("The about and acknowledgements PDF can be found in MobileMix's iTunes file sharing.")),
+    tooltipDisplay(*this)
 {
 #if JUCE_DEBUG
     setResizable(true, true);

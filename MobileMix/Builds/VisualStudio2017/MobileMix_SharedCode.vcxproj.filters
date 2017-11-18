@@ -2493,6 +2493,15 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMTooltipDisplay.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\MMTooltipManager.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SharedTooltips.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\AboutDataManager.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>

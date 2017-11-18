@@ -99,11 +99,13 @@
 		1A3ABC6BCA017EC0E10B697A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScreenResolutionConstants.h; path = ../../Source/GUI/ScreenResolutionConstants.h; sourceTree = "SOURCE_ROOT"; };
 		1D524B6D39072D34BC91141A = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DraggableTabbedComponent.cpp; path = ../../Source/GUI/DraggableTabbedComponent.cpp; sourceTree = "SOURCE_ROOT"; };
 		1E99122B74F62B5E815A4803 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ValueStringFuncs.h; path = ../../Source/GUI/ValueStringFuncs.h; sourceTree = "SOURCE_ROOT"; };
+		1F4265D79F8DF4BBD1E95F67 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTooltipManager.h; path = ../../Source/GUI/MMTooltipManager.h; sourceTree = "SOURCE_ROOT"; };
 		20CDEA2E919B31CB55197F7D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleLevelMeter.h; path = ../../Source/GUI/SimpleLevelMeter.h; sourceTree = "SOURCE_ROOT"; };
 		2238467A155DD1B1539041B5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudioProcessorChain.h; path = ../../Source/Core/AudioProcessorChain.h; sourceTree = "SOURCE_ROOT"; };
 		2349D44D286DC25B7AB0EEF9 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		236A5AD49079F60087967583 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_data_structures.mm"; path = "../../JuceLibraryCode/include_juce_data_structures.mm"; sourceTree = "SOURCE_ROOT"; };
 		237E48133696828AD6D354A9 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_data_structures"; path = "../../../external/JUCE/modules/juce_data_structures"; sourceTree = "SOURCE_ROOT"; };
+		2526F8415ECC9DF23119796D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SharedTooltips.h; path = ../../Source/GUI/SharedTooltips.h; sourceTree = "SOURCE_ROOT"; };
 		253BA61F62E2784E31E9818C = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ReverbPreview.cpp; path = ../../Source/GUI/ReverbPreview.cpp; sourceTree = "SOURCE_ROOT"; };
 		26276D9E280D035DF91BD8E4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMGainPluginEditor.cpp; path = "../../Source/Internal Plugins/MMGainPluginEditor.cpp"; sourceTree = "SOURCE_ROOT"; };
 		26DCB75CF1E2794AD3B0CC0A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleGateProcess.inl; path = ../../Source/External/SimpleComp/SimpleGateProcess.inl; sourceTree = "SOURCE_ROOT"; };
@@ -165,6 +167,7 @@
 		822DAB6E01F838393475E189 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMIIRFilter.h; path = ../../Source/DSP/MMIIRFilter.h; sourceTree = "SOURCE_ROOT"; };
 		867D2EBA31CD3A1E911A1986 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MobileMix.entitlements; path = MobileMix.entitlements; sourceTree = "SOURCE_ROOT"; };
 		87AF76DD1351DB2DFC5B7C60 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		885694CA1C5E3F9D9CE1D225 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTooltipDisplay.h; path = ../../Source/GUI/MMTooltipDisplay.h; sourceTree = "SOURCE_ROOT"; };
 		8B5DFB9ABB75C63AC5F9665F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPluginEditor.h; path = "../../Source/Internal Plugins/MMReverbPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		8D373DD3990803003ECDF920 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMShapeButton.h; path = ../../Source/GUI/MMShapeButton.h; sourceTree = "SOURCE_ROOT"; };
 		8DAA5F6C48DC8B33DDDE4AF4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RingBuffer.h; path = ../../Source/DSP/RingBuffer.h; sourceTree = "SOURCE_ROOT"; };
@@ -188,13 +191,13 @@
 		AB4293AF63BD54B609E2F78E = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-AUv3_AppExtension.plist"; path = "Info-AUv3_AppExtension.plist"; sourceTree = "SOURCE_ROOT"; };
 		AB73C6A9352DCEF9EAA8F5C0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VariableDelayLineResampling.h; path = ../../Source/DSP/VariableDelayLineResampling.h; sourceTree = "SOURCE_ROOT"; };
 		AC43C9E8330D9E90970569C2 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = phaseinvert.svg; path = ../../Source/Resources/phaseinvert.svg; sourceTree = "SOURCE_ROOT"; };
-		AD59A1FE3D2D05D90B6D986A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GoniometerSource.h; path = ../../Source/GUI/GoniometerSource.h; sourceTree = "SOURCE_ROOT"; };
 		AE37D752CC22EBB7343BB2C0 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = info.svg; path = ../../Source/Resources/info.svg; sourceTree = "SOURCE_ROOT"; };
 		CFD4C3771AB388DC1B7B45DA = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileMix.app; sourceTree = "BUILT_PRODUCTS_DIR"; };
 		7349A6C36738586589E65738 = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobileMix.a; sourceTree = "BUILT_PRODUCTS_DIR"; };
 		9F6237F10AB2787B0CFECB94 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleLimit.h; path = ../../Source/External/SimpleComp/SimpleLimit.h; sourceTree = "SOURCE_ROOT"; };
 		A6FF0434539558F11D44D51E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleCompProcess.inl; path = ../../Source/External/SimpleComp/SimpleCompProcess.inl; sourceTree = "SOURCE_ROOT"; };
 		ACE10411E96E97043DBC6AF4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Goniometer.cpp; path = ../../Source/GUI/Goniometer.cpp; sourceTree = "SOURCE_ROOT"; };
+		AD59A1FE3D2D05D90B6D986A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GoniometerSource.h; path = ../../Source/GUI/GoniometerSource.h; sourceTree = "SOURCE_ROOT"; };
 		AE5DF13685823D2C2E0ED725 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DraggableTabBarButton.cpp; path = ../../Source/GUI/DraggableTabBarButton.cpp; sourceTree = "SOURCE_ROOT"; };
 		AE6C5854DE71A92A43C92341 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginInstance.cpp; path = ../../Source/Core/MobileMixPluginInstance.cpp; sourceTree = "SOURCE_ROOT"; };
 		AF1F72A7ABEA25FC5ED813DE = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMParameterSlider.h; path = ../../Source/GUI/MMParameterSlider.h; sourceTree = "SOURCE_ROOT"; };
@@ -314,6 +317,9 @@
 					D9202C03745D5CEC2E50B4DF,
 					8B5DFB9ABB75C63AC5F9665F, ); name = "Internal Plugins"; sourceTree = "<group>"; };
 		86887FC76D731EA22F920835 = {isa = PBXGroup; children = (
+					885694CA1C5E3F9D9CE1D225,
+					1F4265D79F8DF4BBD1E95F67,
+					2526F8415ECC9DF23119796D,
 					0115E0DF9087735C209FDE48,
 					76AD8320F1F8149D12D583BA,
 					5B88D250A806D278CB1ACC13,

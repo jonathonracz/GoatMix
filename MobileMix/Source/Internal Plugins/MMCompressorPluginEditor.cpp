@@ -9,21 +9,25 @@
 */
 
 #include "MMCompressorPluginEditor.h"
+#include "../GUI/SharedTooltips.h"
 
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
     preview(processor.compressor.params, processor.meter)
 {
     attachAttack = createSliderAttachment(processor.paramAttack, sliderAttack);
-    addAndMakeVisible(sliderAttack);
-
     attachRelease = createSliderAttachment(processor.paramRelease, sliderRelease);
-    addAndMakeVisible(sliderRelease);
-
     attachRatio = createSliderAttachment(processor.paramRatio, sliderRatio);
-    addAndMakeVisible(sliderRatio);
-
     attachThreshold = createSliderAttachment(processor.paramThreshold, sliderThreshold);
+    attachMakeupGain = createSliderAttachment(processor.paramMakeupGain, sliderMakeupGain);
+    attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
+
+    sliderAttack.setTooltip(NEEDS_TRANS("The amount of time it takes for the compressor to \"catch up\" to the input signal."));
+    sliderAttack.setTooltip(NEEDS_TRANS("The amount of time it takes for the compressor to \"catch up\" to the input signal."));
+
+    addAndMakeVisible(sliderAttack);
+    addAndMakeVisible(sliderRelease);
+    addAndMakeVisible(sliderRatio);
     addAndMakeVisible(sliderThreshold);
 
     addAndMakeVisible(preview);
@@ -46,10 +50,8 @@ MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor
     addAndMakeVisible(textLGainReduc);
     addAndMakeVisible(textRGainReduc);
 
-    attachMakeupGain = createSliderAttachment(processor.paramMakeupGain, sliderMakeupGain);
     addAndMakeVisible(sliderMakeupGain);
 
-    attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
     addAndMakeVisible(sliderDryWet);
 }
 

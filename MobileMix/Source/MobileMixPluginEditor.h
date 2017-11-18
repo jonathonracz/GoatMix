@@ -18,6 +18,7 @@
 #include "GUI/LongDialogPopup.h"
 #include "Core/MobileMixPluginInstanceEditor.h"
 #include "GUI/AboutDataManager.h"
+#include "GUI/MMTooltipDisplay.h"
 
 /**
 */
@@ -57,6 +58,7 @@ private:
     MMLookAndFeel lookAndFeel;
     AboutDataManager aboutData;
     LongDialogPopup aboutMessage;
+    MMTooltipDisplay tooltipDisplay;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };
