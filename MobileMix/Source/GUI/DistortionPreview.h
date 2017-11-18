@@ -15,7 +15,8 @@
 
 class DistortionPreview :
     public Component,
-    public ChangeListener
+    public ChangeListener,
+    public SettableTooltipClient
 {
 public:
     DistortionPreview(DistortionChain::Parameters::Ptr params, ChangeBroadcaster& paramChangeSource);

@@ -17,7 +17,8 @@ class GoniometerSource;
 
 class Goniometer :
     public Component,
-    public Timer
+    public Timer,
+    public SettableTooltipClient
 {
 public:
     Goniometer();

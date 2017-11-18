@@ -16,7 +16,8 @@
 
 class SimpleLevelMeter :
     public Component,
-    public Timer
+    public Timer,
+    public SettableTooltipClient
 {
 public:
     SimpleLevelMeter()

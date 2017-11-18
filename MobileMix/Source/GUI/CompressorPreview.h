@@ -16,7 +16,8 @@
 
 class CompressorPreview :
     public Component,
-    public Timer
+    public Timer,
+    public SettableTooltipClient
 {
 public:
     CompressorPreview(Compressor::Parameters::Ptr params, WindowedMeter& meter);

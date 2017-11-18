@@ -15,7 +15,8 @@
 
 class ReverbPreview :
     public Component,
-    public ChangeListener
+    public ChangeListener,
+    public SettableTooltipClient
 {
 public:
     ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBroadcaster& paramChangeSource);
