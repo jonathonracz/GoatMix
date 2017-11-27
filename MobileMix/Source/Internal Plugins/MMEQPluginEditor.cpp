@@ -12,7 +12,8 @@
 #include "MMEQPlugin.h"
 
 MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
-    MobileMixPluginInstanceEditor(processor)
+    MobileMixPluginInstanceEditor(processor),
+    fft(processor.snapshotter)
 {
     for (size_t i = 0; i < eqs.size(); ++i)
     {
@@ -41,6 +42,8 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
 
     for (size_t i = 0; i < dividers.size(); ++i)
         addAndMakeVisible(dividers[i]);
+
+    addAndMakeVisible(fft);
 
     updateSliderOpacities();
 }
@@ -139,6 +142,8 @@ void MMEQPluginEditor::resized()
         MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderGain);
         MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
     }
+
+    fft.setBounds(getLocalBounds());
 }
 
 void MMEQPluginEditor::updateSliderOpacities()

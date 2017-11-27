@@ -105,6 +105,8 @@
             file="Source/Internal Plugins/MMReverbPluginEditor.h"/>
     </GROUP>
     <GROUP id="{B2F66E59-BD00-48F2-9564-90C467568A38}" name="GUI">
+      <FILE id="vsGn4c" name="FFTDisplay.h" compile="0" resource="0" file="Source/GUI/FFTDisplay.h"/>
+      <FILE id="WrAuZf" name="EQPreview.h" compile="0" resource="0" file="Source/GUI/EQPreview.h"/>
       <FILE id="R5XfPu" name="MMTooltipDisplay.h" compile="0" resource="0"
             file="Source/GUI/MMTooltipDisplay.h"/>
       <FILE id="a6HtXd" name="MMTooltipManager.h" compile="0" resource="0"
@@ -190,6 +192,10 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="JVNaVh" name="RefCountedAudioBuffer.h" compile="0" resource="0"
+            file="Source/DSP/RefCountedAudioBuffer.h"/>
+      <FILE id="eZuxLT" name="SignalSnapshotter.h" compile="0" resource="0"
+            file="Source/DSP/SignalSnapshotter.h"/>
       <FILE id="lG3yZn" name="WindowedMeter.h" compile="0" resource="0" file="Source/DSP/WindowedMeter.h"/>
       <FILE id="NEgaKa" name="MMIIRFilter.h" compile="0" resource="0" file="Source/DSP/MMIIRFilter.h"/>
       <FILE id="x9H6cv" name="MMStateVariableFilter.h" compile="0" resource="0"
@@ -250,7 +256,6 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
-        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
@@ -280,7 +285,6 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
-        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
@@ -309,7 +313,6 @@
         <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
-        <MODULEPATH id="juce_opengl" path="../External/JUCE/modules"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
@@ -332,7 +335,6 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>

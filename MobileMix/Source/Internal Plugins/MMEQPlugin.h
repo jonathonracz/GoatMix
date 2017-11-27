@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/MMIIRFilter.h"
+#include "../DSP/SignalSnapshotter.h"
 #include <array>
 
 class MMEQPlugin :
@@ -41,9 +42,9 @@ public:
 
     std::array<EQParams, 4> eqParams;
     const StringArray filterTypes;
-    
+    SignalSnapshotter snapshotter;
+
 private:
     std::array<MMIIRFilter, 4> filters;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MMEQPlugin)
 };

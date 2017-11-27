@@ -76,30 +76,9 @@ public:
         return allocSize;
     }
 
-    void setAllocatedCapacity(int num) noexcept
-    {
-        if (num)
-        {
-            data.realloc(num);
-            for (int i = allocSize; i < num; ++i)
-                new (data + i) Type();
-        }
-        else
-        {
-            data.free();
-        }
-
-        allocSize = num;
-    }
-
     int getAllocatedLogicalCapacity() const noexcept
     {
         return getAllocatedCapacity() - 1;
-    }
-
-    void setAllocatedLogicalCapacity(int num) noexcept
-    {
-        setAllocatedCapacity(num + 1);
     }
 
     void deallocateToCurrentCapacity() noexcept
@@ -136,6 +115,14 @@ public:
             head = (head + 1) % getCapacity();
     }
 
+    void push(const Type* src, int num) noexcept
+    {
+        // Placeholder code until I can get write something more performant also
+        // with non-overwrite behavior...
+        for (int i = 0; i < num; ++i)
+            push(src[i]);
+    }
+
     Type pop() noexcept
     {
         jassert(head != tail);
@@ -144,13 +131,21 @@ public:
         return ret;
     }
 
+    void pop(Type* dst, int num) noexcept
+    {
+        // Ditto from the batch push() function comment.
+        jassert(num <= getNumElements());
+        for (int i = 0; i < num; ++i)
+            dst[i] = pop();
+    }
+
     Type& getReference(int index) const noexcept
     {
         jassert(index < getNumElements());
         return data[(head + index) % getNumElements()];
     }
 
-    Type* getPointerToFirstHalf() noexcept
+    Type* getPointerToFirstHalf() const noexcept
     {
         return data.getData() + head;
     }
@@ -163,7 +158,7 @@ public:
             return capacity - head;
     }
 
-    Type* getPointerToSecondHalf() noexcept
+    Type* getPointerToSecondHalf() const noexcept
     {
         if (head <= tail || tail == 0)
             return nullptr;
@@ -210,6 +205,27 @@ public:
     }
 
 private:
+    void setAllocatedCapacity(int num) noexcept
+    {
+        if (num)
+        {
+            data.realloc(num);
+            for (int i = allocSize; i < num; ++i)
+                new (data + i) Type();
+                }
+        else
+        {
+            data.free();
+        }
+
+        allocSize = num;
+    }
+
+    void setAllocatedLogicalCapacity(int num) noexcept
+    {
+        setAllocatedCapacity(num + 1);
+    }
+
     HeapBlock<Type> data;
     int allocSize = 0;
     int capacity = 0;

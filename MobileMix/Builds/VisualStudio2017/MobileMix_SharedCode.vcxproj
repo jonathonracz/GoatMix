@@ -72,7 +72,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\Source\External;..\..\Source\External\juce-toys;..\..\..\external\JUCE\modules;..\..\..\External\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\Source\External;..\..\Source\External\juce-toys;..\..\..\external\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -113,7 +113,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\Source\External;..\..\Source\External\juce-toys;..\..\..\external\JUCE\modules;..\..\..\External\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\Source\External;..\..\Source\External\juce-toys;..\..\..\external\JUCE\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2017_78A5024=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -1869,36 +1869,6 @@
     <ClCompile Include="..\..\..\external\JUCE\modules\juce_gui_extra\juce_gui_extra.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLContext.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLHelpers.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLImage.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLTexture.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\utils\juce_OpenGLAppComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\..\External\JUCE\modules\juce_opengl\juce_opengl.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_ff_meters_LevelMeter.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_jcf_debug.cpp"/>
@@ -1915,7 +1885,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_graphics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_gui_extra.cpp"/>
-    <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\External\SimpleComp\SimpleComp.h"/>
@@ -1941,6 +1910,8 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\FFTDisplay.h"/>
+    <ClInclude Include="..\..\Source\GUI\EQPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTooltipDisplay.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTooltipManager.h"/>
     <ClInclude Include="..\..\Source\GUI\SharedTooltips.h"/>
@@ -1969,6 +1940,8 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h"/>
+    <ClInclude Include="..\..\Source\DSP\SignalSnapshotter.h"/>
     <ClInclude Include="..\..\Source\DSP\WindowedMeter.h"/>
     <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h"/>
     <ClInclude Include="..\..\Source\DSP\MMStateVariableFilter.h"/>
@@ -2649,28 +2622,6 @@
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h"/>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h"/>
     <ClInclude Include="..\..\..\external\JUCE\modules\juce_gui_extra\juce_gui_extra.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\geometry\juce_Draggable3DOrientation.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\geometry\juce_Matrix3D.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\geometry\juce_Quaternion.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\geometry\juce_Vector3D.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_MissingGLDefinitions.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGL_android.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGL_ios.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGL_linux_X11.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGL_osx.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGL_win32.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\native\juce_OpenGLExtensions.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLContext.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLHelpers.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLImage.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLPixelFormat.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLRenderer.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\opengl\juce_OpenGLTexture.h"/>
-    <ClInclude Include="..\..\..\External\JUCE\modules\juce_opengl\utils\juce_OpenGLAppComponent.h"/>
-    <ClInclude Include="..\..\..\external\JUCE\modules\juce_opengl\juce_opengl.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>

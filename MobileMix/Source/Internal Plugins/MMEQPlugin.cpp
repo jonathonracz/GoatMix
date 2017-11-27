@@ -78,6 +78,8 @@ void MMEQPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSamp
 
     for (size_t i = 0; i < filters.size(); ++i)
         filters[i].prepare(spec);
+
+    snapshotter.prepare(spec);
 }
 
 void MMEQPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
@@ -96,4 +98,6 @@ void MMEQPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& mid
         filters[i].params->q = getUnnormalizedValue(eqParams[i].paramQ);
         filters[i].process(context);
     }
+
+    snapshotter.process(context);
 }

@@ -13,6 +13,9 @@
 #include "MMEQPlugin.h"
 #include "../Core/MobileMixPluginInstanceEditor.h"
 #include "../GUI/Divider.h"
+#include "../GUI/EQPreview.h"
+#include "../GUI/FFTDisplay.h"
+#include "../DSP/SignalSnapshotter.h"
 
 class MMEQPluginEditor :
     public MobileMixPluginInstanceEditor,
@@ -28,6 +31,8 @@ protected:
 private:
     void updateSliderOpacities();
     void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
+
+    FFTDisplay fft;
 
     struct EQControls
     {
