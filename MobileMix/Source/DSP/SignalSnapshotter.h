@@ -51,7 +51,7 @@ public:
     {
         float snapshotTimeDeltaSeconds = 1.0f / 30.0f; // Time delta
         int snapshotSampleSize = 1024; // Samples to snapshot
-        int numSnapshotBuffers = 16;
+        int numSnapshotBuffers = 8;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
@@ -177,9 +177,9 @@ private:
     {
         RefCountedAudioBuffer<float>::Ptr buffer = nullptr;
         writeBuffers.try_dequeue(buffer);
-        jcf::BufferDebugger::capture("Snapshotter (copied buffer)", buffer->getReadPointer(0), buffer->getNumSamples(), -1.0f, 1.0f);
         if (buffer)
         {
+            jcf::BufferDebugger::capture("Snapshotter (copied buffer)", buffer->getReadPointer(0), buffer->getNumSamples(), -1.0f, 1.0f);
             jassert(buffer->getNumChannels() == static_cast<int>(snapshotBuffers.size()));
             for (int channel = 0; channel < buffer->getNumChannels(); ++channel)
             {

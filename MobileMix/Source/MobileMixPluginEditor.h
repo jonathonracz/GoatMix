@@ -59,7 +59,6 @@ private:
     AboutDataManager aboutData;
     LongDialogPopup aboutMessage;
     MMTooltipDisplay tooltipDisplay;
-    jcf::BufferDebugger bufferDebug;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MobileMixAudioProcessorEditor)
 };

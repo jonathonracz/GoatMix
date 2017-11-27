@@ -30,17 +30,18 @@ private:
     void paint(Graphics& g) override
     {
         // Draw the contents of fftBuffer, which at this point will have the
-        // real-only frequency data.
-        float pathDelta = getWidth() / static_cast<float>(fftBuffer.getNumSamples());
+        // real-only frequency data in the first quarter of the buffer.
+        int numFFTSamples = fftBuffer.getNumSamples() / 4;
+        float pathDelta = getWidth() / static_cast<float>(numFFTSamples);
         for (int channel = 0; channel < fftBuffer.getNumChannels(); ++channel)
         {
             Path fftPath;
             fftPath.preallocateSpace(fftBuffer.getNumSamples());
-            for (int i = 0; i < fftBuffer.getNumSamples(); ++i)
+            for (int i = 0; i < numFFTSamples; ++i)
             {
                 const float* channelPtr = fftBuffer.getReadPointer(channel);
                 float x = i * pathDelta;
-                float y = channelPtr[i] * static_cast<float>(getWidth());
+                float y = (1.0f - channelPtr[i]) * static_cast<float>(getWidth());
                 if (i == 0)
                     fftPath.startNewSubPath(x, y);
                 else
@@ -70,7 +71,6 @@ private:
                 jassert(fftBuffer.getNumSamples() / 2 == fft->getSize());
                 fft->performFrequencyOnlyForwardTransform(fftBuffer.getWritePointer(channel));
             }
-            jcf::BufferDebugger::capture("Snapshot", fftBuffer.getReadPointer(0), fftBuffer.getNumSamples(), -1.0f, 1.0f);
         }
 
         if (shouldRepaint)
