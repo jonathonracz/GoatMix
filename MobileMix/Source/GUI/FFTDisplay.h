@@ -33,6 +33,9 @@ private:
         // real-only frequency data in the first quarter of the buffer.
         int numFFTSamples = fftBuffer.getNumSamples() / 4;
         float pathDelta = getWidth() / static_cast<float>(numFFTSamples);
+        // This is a for loop in case I can somehow squeeze drawing in multiple
+        // channels - for now I'm not even going to bother trying and instead
+        // draw a single summed frequency curve.
         for (int channel = 0; channel < fftBuffer.getNumChannels(); ++channel)
         {
             Path fftPath;
@@ -41,7 +44,7 @@ private:
             {
                 const float* channelPtr = fftBuffer.getReadPointer(channel);
                 float x = i * pathDelta;
-                float y = (1.0f - channelPtr[i]) * static_cast<float>(getWidth());
+                float y = (1.0f - channelPtr[i]) * static_cast<float>(getHeight());
                 if (i == 0)
                     fftPath.startNewSubPath(x, y);
                 else
@@ -62,19 +65,24 @@ private:
         // update for painting from whatever thread the paint code is running
         // on.
         SignalSnapshotter::Snapshot::Ptr currentSnapshot = source.getLatestSnapshot();
-        bool shouldRepaint = currentSnapshot->isValid();
-        if (shouldRepaint)
+        if (currentSnapshot->isValid() && currentSnapshot->getSignal()->getNumChannels() > 0)
         {
-            fftBuffer.makeCopyOf(*currentSnapshot->getSignal(), true);
+            const RefCountedAudioBuffer<float>::Ptr bufferSnap = currentSnapshot->getSignal();
+            fftBuffer.setSize(1, bufferSnap->getNumSamples() * 2);
+
+            // Sum all channels into fftBuffer.
             for (int channel = 0; channel < fftBuffer.getNumChannels(); ++channel)
             {
-                jassert(fftBuffer.getNumSamples() / 2 == fft->getSize());
-                fft->performFrequencyOnlyForwardTransform(fftBuffer.getWritePointer(channel));
+                if (channel == 0)
+                    fftBuffer.copyFrom(0, 0, bufferSnap->getReadPointer(channel), bufferSnap->getNumSamples());
+                else
+                    fftBuffer.addFrom(0, 0, bufferSnap->getReadPointer(channel), bufferSnap->getNumSamples());
             }
-        }
 
-        if (shouldRepaint)
+            // Perform FFT on the sum of all channels.
+            fft->performFrequencyOnlyForwardTransform(fftBuffer.getWritePointer(channel));
             repaint();
+        }
 
         // If our snapshot rate changed, change our refresh rate to match.
         int paramDeltaMs = static_cast<int>(source.getActiveSnapshotTimeDeltaSeconds() * 1000.0f);
@@ -84,7 +92,7 @@ private:
 
     void initializeFFTIfNeeded() noexcept
     {
-        int expectedFFTSize = source.getActiveSnapshotSampleSize() / 2;
+        int expectedFFTSize = source.getActiveSnapshotSampleSize();
         if (!fft || fft->getSize() != expectedFFTSize)
         {
             jassert(isPowerOfTwo(expectedFFTSize));
