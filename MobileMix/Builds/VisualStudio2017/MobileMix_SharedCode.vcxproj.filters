@@ -2532,6 +2532,12 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DecibelDecay.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\LogMap.h">
+      <Filter>MobileMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h">
       <Filter>MobileMix\DSP</Filter>
     </ClInclude>

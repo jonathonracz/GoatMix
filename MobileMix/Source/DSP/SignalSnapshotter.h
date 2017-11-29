@@ -50,7 +50,7 @@ public:
         dsp::ProcessorState
     {
         float snapshotTimeDeltaSeconds = 1.0f / 30.0f; // Time delta
-        int snapshotSampleSize = 1024; // Samples to snapshot
+        int snapshotSampleSize = 512; // Samples to snapshot
         int numSnapshotBuffers = 8;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
@@ -58,6 +58,7 @@ public:
     SignalSnapshotter() = default;
     ~SignalSnapshotter() = default;
 
+    double getActiveSampleRate() const noexcept { return activeSampleRate; }
     float getActiveSnapshotTimeDeltaSeconds() const noexcept { return activeSnapshotTimeDeltaSeconds; }
     int getActiveSnapshotSampleSize() const noexcept { return activeSnapshotSampleSize; }
     int getActiveNumSnapshotBuffers() const noexcept { return activeNumSnapshotBuffers; }
@@ -95,11 +96,12 @@ public:
     void prepare(const dsp::ProcessSpec& spec) noexcept override
     {
         masterReference.clear(); // Prevent any snapshots from getting re-queued.
+        activeSampleRate = spec.sampleRate;
         activeSnapshotTimeDeltaSeconds = params->snapshotTimeDeltaSeconds;
         activeSnapshotSampleSize = params->snapshotSampleSize;
         activeNumSnapshotBuffers = params->numSnapshotBuffers;
 
-        samplesBetweenSnapshots = static_cast<int>(spec.sampleRate * activeSnapshotTimeDeltaSeconds);
+        samplesBetweenSnapshots = static_cast<int>(activeSampleRate * activeSnapshotTimeDeltaSeconds);
         snapshotBuffers.resize(spec.numChannels);
         for (RingBuffer<float>& snapshotBuffer : snapshotBuffers)
         {
@@ -216,6 +218,7 @@ private:
     int samplesBetweenSnapshots = 0;
     int samplesUntilSnapshot = 0;
 
+    double activeSampleRate = 0.0;
     float activeSnapshotTimeDeltaSeconds = params->snapshotTimeDeltaSeconds;
     int activeSnapshotSampleSize = params->snapshotSampleSize;
     int activeNumSnapshotBuffers = params->numSnapshotBuffers;

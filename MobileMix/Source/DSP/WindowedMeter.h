@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "RingBuffer.h"
+#include "DecibelDecay.h"
 #include <atomic>
 
 class WindowedMeter :
@@ -21,7 +22,8 @@ public:
     struct Parameters :
         dsp::ProcessorState
     {
-        size_t windowSamples = 8;
+        float msIntegrationTime = 25.0f;
+        //float dBPerSecondDecay = DecibelDecay::DecaydBFactors::ppmType1;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
@@ -31,6 +33,7 @@ public:
     void prepare(const dsp::ProcessSpec& spec) noexcept override
     {
         channelStates.resize(spec.numChannels);
+        activeSampleRate = spec.sampleRate;
         updateParameters();
     }
 
@@ -150,7 +153,7 @@ private:
     {
         for (int channel = 0; channel < static_cast<int>(channelStates.size()); ++channel)
         {
-            size_t currWindowSize = params->windowSamples;
+            size_t currWindowSize = (params->msIntegrationTime / 1000.0f) * activeSampleRate;
             if (currWindowSize != channelStates[channel].buffer.getLogicalCapacity())
             {
                 if (currWindowSize > channelStates[channel].buffer.getLogicalCapacity())
@@ -216,6 +219,7 @@ private:
     };
 
     std::vector<ChannelState> channelStates;
+    double activeSampleRate;
 
     JUCE_DECLARE_WEAK_REFERENCEABLE(WindowedMeter)
 };

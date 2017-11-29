@@ -192,6 +192,8 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="kYTWOj" name="DecibelDecay.h" compile="0" resource="0" file="Source/DSP/DecibelDecay.h"/>
+      <FILE id="S1cvZs" name="LogMap.h" compile="0" resource="0" file="Source/DSP/LogMap.h"/>
       <FILE id="JVNaVh" name="RefCountedAudioBuffer.h" compile="0" resource="0"
             file="Source/DSP/RefCountedAudioBuffer.h"/>
       <FILE id="eZuxLT" name="SignalSnapshotter.h" compile="0" resource="0"

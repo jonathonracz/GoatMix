@@ -1940,6 +1940,8 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\DecibelDecay.h"/>
+    <ClInclude Include="..\..\Source\DSP\LogMap.h"/>
     <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h"/>
     <ClInclude Include="..\..\Source\DSP\SignalSnapshotter.h"/>
     <ClInclude Include="..\..\Source\DSP\WindowedMeter.h"/>

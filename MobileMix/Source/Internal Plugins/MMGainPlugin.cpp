@@ -115,7 +115,6 @@ void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSa
     delayR.params->maxDelay = static_cast<size_t>(sampleRate / 10.0);
 
     meter.prepare(stereoSpec);
-    meter.params->windowSamples = sampleRate * 0.05f;
     gainL.prepare(monoSpec);
     gainR.prepare(monoSpec);
     gainCenter.prepare(stereoSpec);

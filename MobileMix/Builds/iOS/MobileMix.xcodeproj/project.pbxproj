@@ -86,6 +86,7 @@
 		0A0D281D5168281F4FCD9A1C = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMEQPluginEditor.h; path = "../../Source/Internal Plugins/MMEQPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		0A6998F171576D1CA7279872 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MobileMixPluginProcessor.cpp; path = ../../Source/MobileMixPluginProcessor.cpp; sourceTree = "SOURCE_ROOT"; };
 		0E612246CB98589478B4A1FC = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMGainPluginEditor.h; path = "../../Source/Internal Plugins/MMGainPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
+		10ECD4C7054BDA33F4BE85CE = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LogMap.h; path = ../../Source/DSP/LogMap.h; sourceTree = "SOURCE_ROOT"; };
 		110E13F653409326D004D8F1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMTopBar.cpp; path = ../../Source/GUI/MMTopBar.cpp; sourceTree = "SOURCE_ROOT"; };
 		111FE89A75418912EF569350 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTabBarButton.h; path = ../../Source/GUI/MMTabBarButton.h; sourceTree = "SOURCE_ROOT"; };
 		1338D22AE82635D06B82FB26 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -176,7 +177,7 @@
 		9489C365CC70F0E520482FAE = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_core.mm"; path = "../../JuceLibraryCode/include_juce_core.mm"; sourceTree = "SOURCE_ROOT"; };
 		94F14ECF4920362D5DD2CAE2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DraggableTabBarButton.h; path = ../../Source/GUI/DraggableTabBarButton.h; sourceTree = "SOURCE_ROOT"; };
 		968CA8A47527D04288D87440 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		97E7103D1902B3A27A5528A2 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_basics"; path = "../../../external/JUCE/modules/juce_audio_basics"; sourceTree = "SOURCE_ROOT"; };
+		9926F006D3C142F3E6EF5365 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DecibelDecay.h; path = ../../Source/DSP/DecibelDecay.h; sourceTree = "SOURCE_ROOT"; };
 		9DD1BF9CDD790BEA65E8F917 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleMultiLevelMeter.h; path = ../../Source/GUI/SimpleMultiLevelMeter.h; sourceTree = "SOURCE_ROOT"; };
 		9F6A2B1BB06150A3B7417B09 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DistortionChain.h; path = ../../Source/DSP/DistortionChain.h; sourceTree = "SOURCE_ROOT"; };
 		A3121FDD816FC9F6E8319559 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MMGainPlugin.cpp; path = "../../Source/Internal Plugins/MMGainPlugin.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -187,6 +188,7 @@
 		8B5DFB9ABB75C63AC5F9665F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMReverbPluginEditor.h; path = "../../Source/Internal Plugins/MMReverbPluginEditor.h"; sourceTree = "SOURCE_ROOT"; };
 		915309F4853D9D7372E71614 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = lopass.svg; path = ../../Source/Resources/lopass.svg; sourceTree = "SOURCE_ROOT"; };
 		9765DD2F891D48B28E0D4DA1 = {isa = PBXFileReference; lastKnownFileType = file.svg; name = redo.svg; path = ../../Source/Resources/redo.svg; sourceTree = "SOURCE_ROOT"; };
+		97E7103D1902B3A27A5528A2 = {isa = PBXFileReference; lastKnownFileType = file; name = "juce_audio_basics"; path = "../../../external/JUCE/modules/juce_audio_basics"; sourceTree = "SOURCE_ROOT"; };
 		99A1E06AB96B59C211D41F38 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "include_juce_audio_formats.mm"; path = "../../JuceLibraryCode/include_juce_audio_formats.mm"; sourceTree = "SOURCE_ROOT"; };
 		9F6237F10AB2787B0CFECB94 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleLimit.h; path = ../../Source/External/SimpleComp/SimpleLimit.h; sourceTree = "SOURCE_ROOT"; };
 		A6FF0434539558F11D44D51E = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SimpleCompProcess.inl; path = ../../Source/External/SimpleComp/SimpleCompProcess.inl; sourceTree = "SOURCE_ROOT"; };
@@ -365,6 +367,8 @@
 					AE6C5854DE71A92A43C92341,
 					744DD89013408294BC7D6E3A, ); name = Core; sourceTree = "<group>"; };
 		084466A2BBDF7EF667263E6B = {isa = PBXGroup; children = (
+					9926F006D3C142F3E6EF5365,
+					10ECD4C7054BDA33F4BE85CE,
 					60628AD7BABDB5180C4A1CB1,
 					DFC292B0BE7F1AEBA9E95FF8,
 					B16C38256BEB1414CEC8BE68,
