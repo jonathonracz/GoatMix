@@ -56,6 +56,11 @@ public:
         iir.reset();
     }
 
+    dsp::IIR::Coefficients<float>::Ptr getActiveCoefficients() const noexcept
+    {
+        return iir.state;
+    }
+
     Parameters::Ptr params = new Parameters;
 
 private:
@@ -71,27 +76,27 @@ private:
             {
                 case Parameters::FilterMode::highPass:
                 {
-                    *iir.state = *dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, params->cutoff, params->q);
+                    iir.state = dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, params->cutoff, params->q);
                     break;
                 }
                 case Parameters::FilterMode::highShelf:
                 {
-                    *iir.state = *dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, params->cutoff, params->q, params->gain);
+                    iir.state = dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, params->cutoff, params->q, params->gain);
                     break;
                 }
                 case Parameters::FilterMode::peak:
                 {
-                    *iir.state = *dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, params->cutoff, params->q, params->gain);
+                    iir.state = dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, params->cutoff, params->q, params->gain);
                     break;
                 }
                 case Parameters::FilterMode::lowShelf:
                 {
-                    *iir.state = *dsp::IIR::Coefficients<float>::makeLowShelf(sampleRate, params->cutoff, params->q, params->gain);
+                    iir.state = dsp::IIR::Coefficients<float>::makeLowShelf(sampleRate, params->cutoff, params->q, params->gain);
                     break;
                 }
                 case Parameters::FilterMode::lowPass:
                 {
-                    *iir.state = *dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, params->cutoff, params->q);
+                    iir.state = dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, params->cutoff, params->q);
                     break;
                 }
                 default: jassertfalse;
