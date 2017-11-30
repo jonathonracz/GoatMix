@@ -11,7 +11,6 @@
 #include "MobileMixPluginProcessor.h"
 #include "MobileMixPluginEditor.h"
 #include "GUI/ScreenResolutionConstants.h"
-#include "GUI/LongDialogPopup.h"
 
 MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProcessor& p) :
     AudioProcessorEditor(&p),

@@ -75,6 +75,9 @@ private:
             Component* componentUnderCursor = parent.getComponentAt(parent.getMouseXYRelative());
             if (TooltipClient* component = dynamic_cast<TooltipClient*>(componentUnderCursor))
             {
+                if (component->getTooltip().isEmpty())
+                    return;
+
                 listeners.call(&Listener::displayTooltipForComponent, this, componentUnderCursor, component->getTooltip());
                 tooltipShown = true;
             }

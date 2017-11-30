@@ -2442,6 +2442,9 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>MobileMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\FilterCurve.h">
+      <Filter>MobileMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\FFTDisplay.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
@@ -2454,7 +2457,7 @@
     <ClInclude Include="..\..\Source\GUI\MMTooltipManager.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\SharedTooltips.h">
+    <ClInclude Include="..\..\Source\GUI\UIStrings.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\AboutDataManager.h">

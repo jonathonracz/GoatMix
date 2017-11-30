@@ -33,6 +33,11 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
         eqControl->text.setBorderSize(BorderSize<int>::BorderSize());
         eqControl->text.setJustificationType(Justification::centred);
 
+        eqControl->sliderCutoff.setTooltip(UIStrings::EQ::cutoff);
+        eqControl->sliderGain.setTooltip(UIStrings::Shared::gain);
+        eqControl->sliderQ.setTooltip(UIStrings::EQ::q);
+        eqControl->boxType.setTooltip(UIStrings::EQ::type);
+
         addAndMakeVisible(eqControl->sliderCutoff);
         addAndMakeVisible(eqControl->sliderGain);
         addAndMakeVisible(eqControl->sliderQ);
@@ -44,6 +49,7 @@ MMEQPluginEditor::MMEQPluginEditor(MMEQPlugin& processor) :
         addAndMakeVisible(dividers[i]);
 
     addAndMakeVisible(fft);
+    //addAndMakeVisible(filterCurve);
 
     updateSliderOpacities();
 }
@@ -144,6 +150,7 @@ void MMEQPluginEditor::resized()
     }
 
     fft.setBounds(getLocalBounds());
+    //filterCurve.setBounds(getLocalBounds());
 }
 
 void MMEQPluginEditor::updateSliderOpacities()

@@ -9,7 +9,6 @@
 */
 
 #include "MMCompressorPluginEditor.h"
-#include "../GUI/SharedTooltips.h"
 
 MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
@@ -22,13 +21,20 @@ MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor
     attachMakeupGain = createSliderAttachment(processor.paramMakeupGain, sliderMakeupGain);
     attachDryWet = createSliderAttachment(processor.paramDryWet, sliderDryWet);
 
-    sliderAttack.setTooltip(NEEDS_TRANS("The amount of time it takes for the compressor to \"catch up\" to the input signal."));
-    sliderAttack.setTooltip(NEEDS_TRANS("The amount of time it takes for the compressor to \"catch up\" to the input signal."));
+    sliderAttack.setTooltip(UIStrings::Compressor::attack);
+    sliderRelease.setTooltip(UIStrings::Compressor::release);
+    sliderRatio.setTooltip(UIStrings::Compressor::ratio);
+    sliderThreshold.setTooltip(UIStrings::Compressor::threshold);
+    sliderMakeupGain.setTooltip(UIStrings::Shared::gain);
+    sliderDryWet.setTooltip(UIStrings::Shared::dryWet);
+    preview.setTooltip(UIStrings::Compressor::preview);
 
     addAndMakeVisible(sliderAttack);
     addAndMakeVisible(sliderRelease);
     addAndMakeVisible(sliderRatio);
     addAndMakeVisible(sliderThreshold);
+    addAndMakeVisible(sliderMakeupGain);
+    addAndMakeVisible(sliderDryWet);
 
     addAndMakeVisible(preview);
     addAndMakeVisible(meterLGainReduc);
@@ -49,10 +55,6 @@ MMCompressorPluginEditor::MMCompressorPluginEditor(MMCompressorPlugin& processor
     addAndMakeVisible(textGR);
     addAndMakeVisible(textLGainReduc);
     addAndMakeVisible(textRGainReduc);
-
-    addAndMakeVisible(sliderMakeupGain);
-
-    addAndMakeVisible(sliderDryWet);
 }
 
 MMCompressorPluginEditor::~MMCompressorPluginEditor()

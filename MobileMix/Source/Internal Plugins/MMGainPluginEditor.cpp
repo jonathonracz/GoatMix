@@ -24,6 +24,19 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     attachPhaseInvertL = createButtonAttachment(processor.paramPhaseInvertL, buttonPhaseInvertL);
     attachPhaseInvertR = createButtonAttachment(processor.paramPhaseInvertR, buttonPhaseInvertR);
 
+    sliderGain.setTooltip(UIStrings::Shared::gain);
+    sliderGainL.setTooltip(UIStrings::Shared::gain);
+    sliderGainR.setTooltip(UIStrings::Shared::gain);
+    sliderPan.setTooltip(UIStrings::Gain::pan);
+    sliderPhaseDelayL.setTooltip(UIStrings::Gain::phaseDelay);
+    sliderPhaseDelayR.setTooltip(UIStrings::Gain::phaseDelay);
+    buttonPhaseInvertL.setTooltip(UIStrings::Gain::phaseInvert);
+    buttonPhaseInvertR.setTooltip(UIStrings::Gain::phaseInvert);
+    goniometer.setTooltip(UIStrings::Gain::goniometer);
+    leftdBLabel.setTooltip(UIStrings::Gain::meterValue);
+    maxdBLabel.setTooltip(UIStrings::Gain::meterValue);
+    rightdBLabel.setTooltip(UIStrings::Gain::meterValue);
+
     addAndMakeVisible(sliderGain);
     addAndMakeVisible(sliderGainL);
     addAndMakeVisible(sliderGainR);
@@ -66,9 +79,9 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(meterPosL);
     addAndMakeVisible(meterNegR);
     addAndMakeVisible(meterPosR);
-    
+
     addAndMakeVisible(div);
-    
+
     //meterLabels here
     meterLabels[0].setText("+6", dontSendNotification);
     meterLabels[0].setJustificationType(Justification::centredTop);
@@ -87,7 +100,7 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     meterLabels[7].setText("-inf", dontSendNotification);
     meterLabels[7].setJustificationType(Justification::bottomRight);
     meterLabels[8].setText("0", dontSendNotification);
-    meterLabels[8].setJustificationType(Justification::topLeft);
+    meterLabels[8].setJustificationType(Justification::centred);
     meterLabels[9].setText("-6", dontSendNotification);
     meterLabels[9].setJustificationType(Justification::centredLeft);
     meterLabels[10].setText("-12", dontSendNotification);
@@ -97,12 +110,12 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     meterLabels[12].setText("-inf", dontSendNotification);
     meterLabels[12].setJustificationType(Justification::bottomLeft);
     meterLabels[13].setText("+6", dontSendNotification);
-    meterLabels[13].setJustificationType(Justification::topLeft);
+    meterLabels[13].setJustificationType(Justification::centredTop);
     meterLabels[14].setText("+3", dontSendNotification);
-    meterLabels[14].setJustificationType(Justification::centredLeft);
+    meterLabels[14].setJustificationType(Justification::centred);
     meterLabels[15].setText("0", dontSendNotification);
-    meterLabels[15].setJustificationType(Justification::bottomLeft);
-    
+    meterLabels[15].setJustificationType(Justification::centredBottom);
+
     for (int i = 0; i < 16; ++i) {
         meterLabels[i].setBorderSize(BorderSize<int>::BorderSize());
         addAndMakeVisible(meterLabels[i]);

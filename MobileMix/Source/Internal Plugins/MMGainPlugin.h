@@ -32,7 +32,7 @@ public:
 
     MobileMixPluginInstanceEditor* createMobileMixEditor() override;
     const String getName() const override { return "Gain"; }
-    const String getDisplayName() const override { return NEEDS_TRANS("Gain"); }
+    const String getDisplayName() const override { return UIStrings::Gain::displayName; }
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;

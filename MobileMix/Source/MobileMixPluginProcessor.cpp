@@ -12,7 +12,6 @@
 #include "MobileMixPluginEditor.h"
 
 #include "Core/MobileMixPluginFormat.h"
-#include "Internal Plugins/MMGainPlugin.h"
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
     AudioProcessor(BusesProperties()

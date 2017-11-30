@@ -11,6 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "../GUI/UIStrings.h"
 
 class MobileMixPluginInstanceEditor;
 

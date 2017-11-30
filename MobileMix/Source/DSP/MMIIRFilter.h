@@ -117,4 +117,6 @@ private:
     float currentQ;
     float currentGain;
     double sampleRate = 0.0;
+
+    JUCE_DECLARE_WEAK_REFERENCEABLE(MMIIRFilter)
 };

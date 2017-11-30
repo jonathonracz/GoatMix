@@ -10,6 +10,7 @@
 
 #include "MMTopBar.h"
 #include "MMLookAndFeel.h"
+#include "UIStrings.h"
 
 MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     processor(_processor),
@@ -25,6 +26,10 @@ MMTopBar::MMTopBar(MobileMixAudioProcessor& _processor) :
     redoButton.addListener(this);
     infoButton.addListener(this);
     processor.undoManager.addChangeListener(this);
+
+    undoButton.setTooltip(UIStrings::Meta::undo);
+    redoButton.setTooltip(UIStrings::Meta::redo);
+    infoButton.setTooltip(UIStrings::Meta::info);
 
     addAndMakeVisible(undoButton);
     addAndMakeVisible(redoButton);

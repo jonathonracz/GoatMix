@@ -10,6 +10,7 @@
 
 #include "MMTabBarButton.h"
 #include "MMLookAndFeel.h"
+#include "UIStrings.h"
 
 MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPluginInstance& _representedPlugin) :
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
@@ -30,6 +31,10 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     meter.setMaxGainDisplayValue(1.1f);
     meter.setSource(&representedPlugin.meterSource);
     meter.addMouseListener(this, true);
+
+    setTooltip(UIStrings::Meta::tab);
+    bypassButton.setTooltip(UIStrings::Meta::mute);
+
     addAndMakeVisible(shadow.get());
     addAndMakeVisible(bypassButton);
     addAndMakeVisible(meter);

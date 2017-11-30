@@ -1910,11 +1910,12 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\FilterCurve.h"/>
     <ClInclude Include="..\..\Source\GUI\FFTDisplay.h"/>
     <ClInclude Include="..\..\Source\GUI\EQPreview.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTooltipDisplay.h"/>
     <ClInclude Include="..\..\Source\GUI\MMTooltipManager.h"/>
-    <ClInclude Include="..\..\Source\GUI\SharedTooltips.h"/>
+    <ClInclude Include="..\..\Source\GUI\UIStrings.h"/>
     <ClInclude Include="..\..\Source\GUI\AboutDataManager.h"/>
     <ClInclude Include="..\..\Source\GUI\Divider.h"/>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h"/>

@@ -29,6 +29,14 @@ MMDistortionPluginEditor::MMDistortionPluginEditor(MMDistortionPlugin& processor
     sliderOverdrive.addListener(this);
     sliderGain.addListener(this);
 
+    sliderDownsample.setTooltip(UIStrings::Distortion::downsample);
+    sliderBitDepth.setTooltip(UIStrings::Distortion::bitDepth);
+    sliderOverdrive.setTooltip(UIStrings::Distortion::overdrive);
+    sliderGain.setTooltip(UIStrings::Shared::gain);
+    preview.setTooltip(UIStrings::Distortion::preview);
+    sliderLowPass.setTooltip(UIStrings::Shared::filterControl);
+    buttonLowPassEnable.setTooltip(UIStrings::Shared::filterEnable);
+
     addAndMakeVisible(sliderDownsample);
     addAndMakeVisible(sliderBitDepth);
     addAndMakeVisible(sliderOverdrive);

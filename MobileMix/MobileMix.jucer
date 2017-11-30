@@ -105,14 +105,14 @@
             file="Source/Internal Plugins/MMReverbPluginEditor.h"/>
     </GROUP>
     <GROUP id="{B2F66E59-BD00-48F2-9564-90C467568A38}" name="GUI">
+      <FILE id="NXrNDX" name="FilterCurve.h" compile="0" resource="0" file="Source/GUI/FilterCurve.h"/>
       <FILE id="vsGn4c" name="FFTDisplay.h" compile="0" resource="0" file="Source/GUI/FFTDisplay.h"/>
       <FILE id="WrAuZf" name="EQPreview.h" compile="0" resource="0" file="Source/GUI/EQPreview.h"/>
       <FILE id="R5XfPu" name="MMTooltipDisplay.h" compile="0" resource="0"
             file="Source/GUI/MMTooltipDisplay.h"/>
       <FILE id="a6HtXd" name="MMTooltipManager.h" compile="0" resource="0"
             file="Source/GUI/MMTooltipManager.h"/>
-      <FILE id="fKqcQy" name="SharedTooltips.h" compile="0" resource="0"
-            file="Source/GUI/SharedTooltips.h"/>
+      <FILE id="fKqcQy" name="UIStrings.h" compile="0" resource="0" file="Source/GUI/UIStrings.h"/>
       <FILE id="OIKD83" name="AboutDataManager.h" compile="0" resource="0"
             file="Source/GUI/AboutDataManager.h"/>
       <FILE id="hk63gM" name="Divider.h" compile="0" resource="0" file="Source/GUI/Divider.h"/>

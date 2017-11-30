@@ -36,7 +36,7 @@ void MMShapeButton::paintButton(Graphics& g, bool isMouseOverButton, bool isButt
 {
     MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
-    if (isButtonDown || getToggleState())
+    if (getToggleState())
     {
         if (hasBackground)
             lf.drawButtonBackground(g, *this, lf.findColour(MMLookAndFeel::ColourIds::sliderForeground), isMouseOverButton, isButtonDown);

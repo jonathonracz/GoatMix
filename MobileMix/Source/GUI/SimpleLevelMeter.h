@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "MMLookAndFeel.h"
 #include "../DSP/WindowedMeter.h"
+#include "UIStrings.h"
 
 class SimpleLevelMeter :
     public Component,
@@ -24,6 +25,7 @@ public:
     {
         startTimerHz(30);
         setOpaque(true);
+        setTooltip(UIStrings::Shared::meter);
     }
 
     ~SimpleLevelMeter() {}

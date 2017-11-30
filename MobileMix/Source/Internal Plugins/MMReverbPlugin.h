@@ -28,7 +28,7 @@ public:
 
     MobileMixPluginInstanceEditor* createMobileMixEditor() override;
     const String getName() const override { return "Reverb"; }
-    const String getDisplayName() const override { return NEEDS_TRANS("Reverb"); }
+    const String getDisplayName() const override { return UIStrings::Reverb::displayName; }
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;

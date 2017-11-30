@@ -16,6 +16,7 @@
 #include "../GUI/EQPreview.h"
 #include "../GUI/FFTDisplay.h"
 #include "../DSP/SignalSnapshotter.h"
+#include "../GUI/FilterCurve.h"
 
 class MMEQPluginEditor :
     public MobileMixPluginInstanceEditor,
@@ -33,6 +34,7 @@ private:
     void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
 
     FFTDisplay fft;
+    //FilterCurve filterCurve;
 
     struct EQControls
     {

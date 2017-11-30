@@ -48,9 +48,10 @@ private:
             bufferPainter.setColour(Colours::white);
             bufferPainter.drawFittedText(
                 tooltipText,
-                getLocalBounds().withSizeKeepingCentre(static_cast<int>(getWidth() * 0.9f), static_cast<int>(getHeight() * 0.9f)),
+                getLocalBounds().withSizeKeepingCentre(static_cast<int>(getWidth() * 0.95f), static_cast<int>(getHeight() * 0.95f)),
                 Justification::Flags::centredTop,
-                32);
+                32,
+                1.0f);
             isDirty = false;
         }
 
