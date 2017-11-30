@@ -188,7 +188,6 @@ private:
         writeBuffers.try_dequeue(buffer);
         if (buffer)
         {
-            jcf::BufferDebugger::capture("Snapshotter (copied buffer)", buffer->getReadPointer(0), buffer->getNumSamples(), -1.0f, 1.0f);
             jassert(buffer->getNumChannels() == static_cast<int>(snapshotBuffers.size()));
             for (int channel = 0; channel < buffer->getNumChannels(); ++channel)
             {
