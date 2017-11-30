@@ -28,7 +28,7 @@ public:
         ~Snapshot()
         {
             // Return the referenced buffer to the pool if applicable.
-            if (owner && signal && getReferenceCount() == 0)
+            if (owner && owner->getActiveSnapshotGroup() == group && signal && getReferenceCount() == 0)
                 owner->returnReadBuffer(signal);
         }
 
@@ -40,10 +40,12 @@ public:
         using Ptr = ReferenceCountedObjectPtr<Snapshot>;
     private:
         friend SignalSnapshotter;
-        explicit Snapshot(SignalSnapshotter* _owner, RefCountedAudioBuffer<float>::Ptr _signal) :
-            signal(_signal), owner(_owner) {}
-        RefCountedAudioBuffer<float>::Ptr signal = nullptr;
-        WeakReference<SignalSnapshotter> owner = nullptr;
+        explicit Snapshot(RefCountedAudioBuffer<float>::Ptr _signal, SignalSnapshotter* _owner) :
+            signal(_signal), owner(_owner), group(owner->getActiveSnapshotGroup()) {}
+
+        RefCountedAudioBuffer<float>::Ptr signal;
+        WeakReference<SignalSnapshotter> owner;
+        std::uint32_t group = 0;
     };
 
     struct Parameters :
@@ -68,14 +70,14 @@ public:
     {
         RefCountedAudioBuffer<float>::Ptr nextBuffer = nullptr;
         readBuffers.try_dequeue(nextBuffer);
-        return new Snapshot(this, nextBuffer);
+        return new Snapshot(nextBuffer, this);
     }
 
     Snapshot::Ptr getLatestSnapshot() noexcept
     {
         RefCountedAudioBuffer<float>::Ptr latestBuffer = nullptr;
         if (!readBuffers.try_dequeue(latestBuffer))
-            return new Snapshot(this, latestBuffer);
+            return new Snapshot();
 
         for (size_t i = 0; i < snapshots.size() - 1; ++i)
         {
@@ -90,12 +92,17 @@ public:
 
         // Explicity prevent copying (so we don't call the destructor more than
         // once, returning the snapshot buffer to the pool more than once).
-        return new Snapshot(this, latestBuffer);
+        return new Snapshot(latestBuffer, this);
+    }
+
+    std::uint32_t getActiveSnapshotGroup() const noexcept
+    {
+        return snapshotGroup.load(std::memory_order_consume);
     }
 
     void prepare(const dsp::ProcessSpec& spec) noexcept override
     {
-        masterReference.clear(); // Prevent any snapshots from getting re-queued.
+        snapshotGroup++;
         activeSampleRate = spec.sampleRate;
         activeSnapshotTimeDeltaSeconds = params->snapshotTimeDeltaSeconds;
         activeSnapshotSampleSize = params->snapshotSampleSize;
@@ -222,6 +229,8 @@ private:
     float activeSnapshotTimeDeltaSeconds = params->snapshotTimeDeltaSeconds;
     int activeSnapshotSampleSize = params->snapshotSampleSize;
     int activeNumSnapshotBuffers = params->numSnapshotBuffers;
+
+    std::atomic<std::uint32_t> snapshotGroup = 0;
 
     JUCE_DECLARE_WEAK_REFERENCEABLE(SignalSnapshotter)
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SignalSnapshotter)
