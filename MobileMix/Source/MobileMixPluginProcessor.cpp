@@ -10,7 +10,6 @@
 
 #include "MobileMixPluginProcessor.h"
 #include "MobileMixPluginEditor.h"
-
 #include "Core/MobileMixPluginFormat.h"
 
 MobileMixAudioProcessor::MobileMixAudioProcessor() :
@@ -18,11 +17,9 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         .withInput("Input", AudioChannelSet::stereo(), true)
         .withOutput("Output", AudioChannelSet::stereo(), true)),
     chainTree("CHAIN"),
-    params(*this, &undoManager)
+    params(*this, &undoManager),
+    presetManager(16, { {"Init", BinaryData::Init, BinaryData::InitSize} })
 {
-    // Set up presets.
-    //presets = 
-
     // Add top-level parameters here (currently none).
 
     // We only need the format manager to create the plugins once at load time.
@@ -122,7 +119,7 @@ double MobileMixAudioProcessor::getTailLengthSeconds() const
 
 int MobileMixAudioProcessor::getNumPrograms()
 {
-    return static_cast<int>(presets.size());
+    return presetManager.enumeratePresetNames().size();
 }
 
 int MobileMixAudioProcessor::getCurrentProgram()
@@ -132,17 +129,29 @@ int MobileMixAudioProcessor::getCurrentProgram()
 
 void MobileMixAudioProcessor::setCurrentProgram(int index)
 {
-    setStateInformation(presets[getCurrentProgram()].data, presets[getCurrentProgram()].size);
+    currentPresetIndex = index;
+    File currentPreset = presetManager.enumeratePresetFiles()[index];
+    if (!currentPreset.getFullPathName().isEmpty())
+    {
+        FileInputSource presetRead(currentPreset);
+        std::unique_ptr<InputStream> presetStream(presetRead.createInputStream());
+        if (presetStream)
+        {
+            MemoryBlock preset;
+            presetStream->readIntoMemoryBlock(preset);
+            setStateInformation(preset.getData(), static_cast<int>(preset.getSize()));
+        }
+    }
 }
 
 const String MobileMixAudioProcessor::getProgramName(int index)
 {
-    return presets[getCurrentProgram()].name;
+    return presetManager.enumeratePresetNames()[index];
 }
 
 void MobileMixAudioProcessor::changeProgramName(int index, const String& newName)
 {
-    jassertfalse; // Not sure how to best do this just yet, but is it even used?
+    presetManager.setPresetName(index, newName);
 }
 
 void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
@@ -156,11 +165,16 @@ void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)
 void MobileMixAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
     suspendProcessing(true);
-    std::unique_ptr<XmlElement> xml(AudioProcessor::getXmlFromBinary(data, sizeInBytes));
-    ValueTree newState = ValueTree::fromXml(*xml);
-    if (newState.isValid())
-        params.state = newState;
-    undoManager.clearUndoHistory();
+
+    if (sizeInBytes > 0)
+    {
+        std::unique_ptr<XmlElement> xml(AudioProcessor::getXmlFromBinary(data, sizeInBytes));
+        ValueTree newState = ValueTree::fromXml(*xml);
+        if (newState.isValid())
+            params.state = newState;
+        undoManager.clearUndoHistory();
+    }
+
     suspendProcessing(false);
 }
 

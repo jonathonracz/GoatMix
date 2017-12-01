@@ -2523,6 +2523,9 @@
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Core\PresetManager.h">
+      <Filter>MobileMix\Core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
