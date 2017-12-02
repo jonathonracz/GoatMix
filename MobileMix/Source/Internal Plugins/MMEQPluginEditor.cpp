@@ -72,7 +72,7 @@ void MMEQPluginEditor::resized()
     
     FlexBox main;
     main.flexDirection = FlexBox::Direction::column;
-    main.items.add(FlexItem(fft).withMargin(FlexItem::Margin::Margin(15.0f, 15.0f, 15.0f, 15.0f)).withFlex(1.0f));
+    main.items.add(FlexItem(fft).withMargin(FlexItem::Margin::Margin(15.0f, 15.0f, 0.0f, 15.0f)).withFlex(1.0f));
     
     // 0
     FlexBox fb0;
@@ -154,7 +154,7 @@ void MMEQPluginEditor::resized()
         MobileMixPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
     }
 
-    fft.setBounds(getLocalBounds());
+    //fft.setBounds(getLocalBounds());
     //filterCurve.setBounds(getLocalBounds());
 }
 

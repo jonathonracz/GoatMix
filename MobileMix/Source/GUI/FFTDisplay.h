@@ -21,7 +21,7 @@ class FFTDisplay :
 {
 public:
     FFTDisplay(SignalSnapshotter& _source) :
-        verticalScale(0.0f, 4.0f), // Hardcode -INF to +12 dB.
+        verticalScale(0.0f, 100.0f), // Hardcode -INF to +40 dB.
         source(_source)
     {
         verticalScale.setSkewForCentre(1.0f); // Hardcode 0 dBFS at center.
@@ -35,13 +35,6 @@ private:
     void paint(Graphics& g) override
     {
         MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
-
-        {
-            Path border;
-            border.addRectangle(getLocalBounds());
-            g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
-            g.strokePath(border, PathStrokeType(lf.borderThickness));
-        }
 
         // Draw the contents of fftBuffer, which at this point will have the
         // real-only frequency data in the first quarter of the buffer.
@@ -97,6 +90,13 @@ private:
 
             g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
             g.fillPath(fftPath);
+        }
+
+        {
+            Path border;
+            border.addRectangle(getLocalBounds());
+            g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+            g.strokePath(border, PathStrokeType(lf.borderThickness));
         }
     }
 
