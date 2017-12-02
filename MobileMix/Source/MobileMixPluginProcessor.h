@@ -77,13 +77,13 @@ private:
         const int& dataSize;
     };
 
-    std::array<FactoryPreset, 1> presets = {
+    std::array<FactoryPreset, 5> presets = { {
         {"Init", BinaryData::Init, BinaryData::InitSize},
         {"Club Backroom", BinaryData::ClubBackroom, BinaryData::ClubBackroomSize},
         {"80s Gaming", BinaryData::_80sGaming, BinaryData::_80sGamingSize},
         {"First Amplifier", BinaryData::FirstAmplifier, BinaryData::FirstAmplifierSize},
         {"Mixifier", BinaryData::Mixifier, BinaryData::MixifierSize}
-    };
+    } };
     int currentPresetIndex = 0;
     std::atomic<int> editorCount = 0;
 

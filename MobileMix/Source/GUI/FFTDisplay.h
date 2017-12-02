@@ -13,6 +13,7 @@
 #include "JuceHeader.h"
 #include "../DSP/SignalSnapshotter.h"
 #include "../DSP/LogMap.h"
+#include "MMLookAndFeel.h"
 
 class FFTDisplay :
     public Component,
@@ -33,6 +34,15 @@ public:
 private:
     void paint(Graphics& g) override
     {
+        MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+
+        {
+            Path border;
+            border.addRectangle(getLocalBounds());
+            g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+            g.strokePath(border, PathStrokeType(lf.borderThickness));
+        }
+
         // Draw the contents of fftBuffer, which at this point will have the
         // real-only frequency data in the first quarter of the buffer.
         int numFFTSamples = getNumBins();
@@ -85,7 +95,7 @@ private:
             fftPath.lineTo(0.0f, static_cast<float>(getHeight()));
             fftPath.closeSubPath();
 
-            g.setColour(Colours::black);
+            g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
             g.fillPath(fftPath);
         }
     }
