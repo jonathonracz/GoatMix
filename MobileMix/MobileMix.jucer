@@ -47,6 +47,10 @@
     </GROUP>
     <GROUP id="{2FD42DF6-C4A3-24FF-E86F-71E5AF05CE73}" name="Resources">
       <GROUP id="{155F1093-B264-B54E-5353-709C81438DD9}" name="Presets">
+        <FILE id="Vat9Qu" name="80sGaming" compile="0" resource="1" file="Source/Resources/Presets/80sGaming"/>
+        <FILE id="eAMTQA" name="ClubBackroom" compile="0" resource="1" file="Source/Resources/Presets/ClubBackroom"/>
+        <FILE id="CsjvTS" name="FirstAmplifier" compile="0" resource="1" file="Source/Resources/Presets/FirstAmplifier"/>
+        <FILE id="W8VRq9" name="Mixifier" compile="0" resource="1" file="Source/Resources/Presets/Mixifier"/>
         <FILE id="WiBjgr" name="Init" compile="0" resource="1" file="Source/Resources/Presets/Init"/>
       </GROUP>
       <FILE id="BcWm5j" name="Icon-60.svg" compile="0" resource="1" file="Source/Resources/Icon-60.svg"/>
@@ -174,7 +178,6 @@
             file="Source/GUI/ValueStringFuncs.h"/>
     </GROUP>
     <GROUP id="{0226A05B-70E0-43F5-B036-B7F91CE23E2C}" name="Core">
-      <FILE id="QK5Roj" name="PresetManager.h" compile="0" resource="0" file="Source/Core/PresetManager.h"/>
       <FILE id="VJ12Rh" name="AudioProcessorChain.cpp" compile="1" resource="0"
             file="Source/Core/AudioProcessorChain.cpp"/>
       <FILE id="VrIKhm" name="AudioProcessorChain.h" compile="0" resource="0"
@@ -193,6 +196,7 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="XWS311" name="SPSCAtomic.h" compile="0" resource="0" file="Source/DSP/SPSCAtomic.h"/>
       <FILE id="kYTWOj" name="DecibelDecay.h" compile="0" resource="0" file="Source/DSP/DecibelDecay.h"/>
       <FILE id="S1cvZs" name="LogMap.h" compile="0" resource="0" file="Source/DSP/LogMap.h"/>
       <FILE id="JVNaVh" name="RefCountedAudioBuffer.h" compile="0" resource="0"

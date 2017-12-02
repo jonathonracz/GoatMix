@@ -11,6 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "SPSCAtomic.h"
 
 class MMIIRFilter :
     dsp::ProcessorBase
@@ -56,55 +57,89 @@ public:
         iir.reset();
     }
 
-    dsp::IIR::Coefficients<float>::Ptr getActiveCoefficients() const noexcept
+    dsp::IIR::Coefficients<float>::Ptr getCoefficients() const noexcept
     {
-        return iir.state;
+        return currentCoefficients.get().getCoefficients();
     }
 
     Parameters::Ptr params = new Parameters;
 
 private:
+    class ThreadSafeCoefficients
+    {
+    public:
+        // Call from audio thread.
+        ThreadSafeCoefficients(dsp::IIR::Coefficients<float>::Ptr coefficients) noexcept
+        {
+            jassert(static_cast<size_t>(coefficients->coefficients.size()) <= coeffs.size());
+            numCoeffs = std::min(static_cast<size_t>(coefficients->coefficients.size()), coeffs.size());
+            std::memcpy(coeffs.data(), coefficients->getRawCoefficients(), numCoeffs);
+        }
+
+        // Call from UI thread.
+        dsp::IIR::Coefficients<float>::Ptr getCoefficients() const noexcept
+        {
+            dsp::IIR::Coefficients<float>::Ptr ret(new dsp::IIR::Coefficients<float>);
+            ret->coefficients = Array<float>(coeffs.data(), static_cast<int>(numCoeffs));
+            return ret;
+        }
+
+    private:
+        std::array<float, 5> coeffs;
+        size_t numCoeffs;
+    };
+
     void updateParameters()
     {
+        Parameters::FilterMode newMode = params->mode;
+        float newCutoff = params->cutoff;
+        float newQ = params->q;
+        float newGain = params->gain;
+
         // If a param changed, regenerate coefficients.
-        if (params->mode != currentMode ||
-            params->cutoff != currentCutoff ||
-            params->q != currentQ ||
-            params->gain != currentGain)
+        if (newMode != currentMode ||
+            newCutoff != currentCutoff ||
+            newQ != currentQ ||
+            newGain != currentGain)
         {
-            switch(params->mode)
+            switch(newMode)
             {
                 case Parameters::FilterMode::highPass:
                 {
-                    iir.state = dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, params->cutoff, params->q);
+                    *iir.state = *dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, newCutoff, newQ);
                     break;
                 }
                 case Parameters::FilterMode::highShelf:
                 {
-                    iir.state = dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, params->cutoff, params->q, params->gain);
+                    *iir.state = *dsp::IIR::Coefficients<float>::makeHighShelf(sampleRate, newCutoff, newQ, newGain);
                     break;
                 }
                 case Parameters::FilterMode::peak:
                 {
-                    iir.state = dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, params->cutoff, params->q, params->gain);
+                    *iir.state = *dsp::IIR::Coefficients<float>::makePeakFilter(sampleRate, newCutoff, newQ, newGain);
                     break;
                 }
                 case Parameters::FilterMode::lowShelf:
                 {
-                    iir.state = dsp::IIR::Coefficients<float>::makeLowShelf(sampleRate, params->cutoff, params->q, params->gain);
+                    *iir.state = *dsp::IIR::Coefficients<float>::makeLowShelf(sampleRate, newCutoff, newQ, newGain);
                     break;
                 }
                 case Parameters::FilterMode::lowPass:
                 {
-                    iir.state = dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, params->cutoff, params->q);
+                    *iir.state = *dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, newCutoff, newQ);
                     break;
                 }
                 default: jassertfalse;
-            }
 
-            currentMode = params->mode;
-            currentCutoff = params->cutoff;
-            currentQ = params->q;
+                currentMode = newMode;
+                currentCutoff = newCutoff;
+                currentQ = newQ;
+                currentGain = newGain;
+
+                // Copy coefficients to a location accessible by the GUI in a
+                // threadsafe way.
+                currentCoefficients = ThreadSafeCoefficients(iir.state);
+            }
         }
     }
 
@@ -117,6 +152,8 @@ private:
     float currentQ;
     float currentGain;
     double sampleRate = 0.0;
+
+    SPSCAtomic<ThreadSafeCoefficients> currentCoefficients;
 
     JUCE_DECLARE_WEAK_REFERENCEABLE(MMIIRFilter)
 };

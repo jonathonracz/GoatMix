@@ -7,8 +7,70 @@
 namespace BinaryData
 {
 
-//================== Init ==================
+//================== 80sGaming ==================
 static const unsigned char temp_binary_data_0[] =
+"VC2!\xd0\x08\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"1\"/><PARAM id=\"Gain: Gain\" value=\"1\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" value=\"1\"/><PARAM id=\""
+"Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"0\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"0\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Gain/><Reverb/><EQ/><Compressor/><Distortion"
+"/></CHAIN><PARAM id=\"Gain: Gain L\" value=\"1\"/><PARAM id=\"Gain: Gain R\" value=\"1\"/><PARAM id=\"Gain: Pan\" value=\"0\"/><PARAM id=\"Gain: Phase Delay L\" value=\"0\"/><PARAM id=\"Gain: Phase Delay R\" value=\"0\"/><PARAM id=\"Gain: Phase Inver"
+"t L\" value=\"0\"/><PARAM id=\"Gain: Phase Invert R\" value=\"0\"/><PARAM id=\"Compressor: Attack\" value=\"5\"/><PARAM id=\"Compressor: Release\" value=\"5\"/><PARAM id=\"Compressor: Ratio\" value=\"6\"/><PARAM id=\"Compressor: Threshold\" value=\"0"
+".25\"/><PARAM id=\"Compressor: Makeup Gain\" value=\"1.25\"/><PARAM id=\"Compressor: Dry/Wet\" value=\"100\"/><PARAM id=\"Reverb: Room Size\" value=\"50\"/><PARAM id=\"Reverb: Damping\" value=\"50\"/><PARAM id=\"Reverb: Width\" value=\"50\"/><PARAM i"
+"d=\"Reverb: Freeze\" value=\"0\"/><PARAM id=\"Reverb: High Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: High Pass\" value=\"1000\"/><PARAM id=\"Reverb: Low Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: LowPass\" value=\"1000\"/><PARAM id=\"Reverb:"
+" Dry/Wet\" value=\"0\"/><PARAM id=\"Distortion: Downsample\" value=\"8\"/><PARAM id=\"Distortion: Bit Depth\" value=\"4\"/><PARAM id=\"Distortion: Overdrive\" value=\"1.3199999332427978516\"/><PARAM id=\"Distortion: Gain\" value=\"1\"/><PARAM id=\"Di"
+"stortion: Low Pass\" value=\"20000\"/><PARAM id=\"Distortion: Low Pass Enable\" value=\"0\"/><PARAM id=\"EQ: Cutoff 0\" value=\"10000\"/><PARAM id=\"EQ: Gain 0\" value=\"0.40999999642372131348\"/><PARAM id=\"EQ: Q 0\" value=\"1\"/><PARAM id=\"EQ: Typ"
+"e 0\" value=\"2\"/><PARAM id=\"EQ: Cutoff 1\" value=\"1000\"/><PARAM id=\"EQ: Gain 1\" value=\"1\"/><PARAM id=\"EQ: Q 1\" value=\"1\"/><PARAM id=\"EQ: Type 1\" value=\"0\"/><PARAM id=\"EQ: Cutoff 2\" value=\"1000\"/><PARAM id=\"EQ: Gain 2\" value=\"1"
+"\"/><PARAM id=\"EQ: Q 2\" value=\"1\"/><PARAM id=\"EQ: Type 2\" value=\"0\"/><PARAM id=\"EQ: Cutoff 3\" value=\"1000\"/><PARAM id=\"EQ: Gain 3\" value=\"1\"/><PARAM id=\"EQ: Q 3\" value=\"1\"/><PARAM id=\"EQ: Type 3\" value=\"0\"/></ROOT>\0";
+
+const char* _80sGaming = (const char*) temp_binary_data_0;
+
+//================== ClubBackroom ==================
+static const unsigned char temp_binary_data_1[] =
+"VC2!\xdd\x08\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"0\"/><PARAM id=\"Gain: Gain\" value=\"1.2099999189376831055\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" value"
+"=\"0\"/><PARAM id=\"Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"1\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"0\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Distortion/><Compressor/"
+"><EQ/><Reverb/><Gain/></CHAIN><PARAM id=\"Gain: Gain L\" value=\"1\"/><PARAM id=\"Gain: Gain R\" value=\"1\"/><PARAM id=\"Gain: Pan\" value=\"0\"/><PARAM id=\"Gain: Phase Delay L\" value=\"0\"/><PARAM id=\"Gain: Phase Delay R\" value=\"770\"/><PARAM "
+"id=\"Gain: Phase Invert L\" value=\"0\"/><PARAM id=\"Gain: Phase Invert R\" value=\"0\"/><PARAM id=\"Compressor: Attack\" value=\"5\"/><PARAM id=\"Compressor: Release\" value=\"5\"/><PARAM id=\"Compressor: Ratio\" value=\"2\"/><PARAM id=\"Compressor:"
+" Threshold\" value=\"0.56000000238418579102\"/><PARAM id=\"Compressor: Makeup Gain\" value=\"0.74000000953674316406\"/><PARAM id=\"Compressor: Dry/Wet\" value=\"100\"/><PARAM id=\"Reverb: Room Size\" value=\"13\"/><PARAM id=\"Reverb: Damping\" value="
+"\"100\"/><PARAM id=\"Reverb: Width\" value=\"50\"/><PARAM id=\"Reverb: Freeze\" value=\"0\"/><PARAM id=\"Reverb: High Pass Enable\" value=\"1\"/><PARAM id=\"Reverb: High Pass\" value=\"24\"/><PARAM id=\"Reverb: Low Pass Enable\" value=\"0\"/><PARAM i"
+"d=\"Reverb: LowPass\" value=\"1000\"/><PARAM id=\"Reverb: Dry/Wet\" value=\"76\"/><PARAM id=\"Distortion: Downsample\" value=\"0\"/><PARAM id=\"Distortion: Bit Depth\" value=\"16\"/><PARAM id=\"Distortion: Overdrive\" value=\"1\"/><PARAM id=\"Distort"
+"ion: Gain\" value=\"1\"/><PARAM id=\"Distortion: Low Pass\" value=\"1000\"/><PARAM id=\"Distortion: Low Pass Enable\" value=\"0\"/><PARAM id=\"EQ: Cutoff 0\" value=\"860\"/><PARAM id=\"EQ: Gain 0\" value=\"1\"/><PARAM id=\"EQ: Q 0\" value=\"1\"/><PAR"
+"AM id=\"EQ: Type 0\" value=\"5\"/><PARAM id=\"EQ: Cutoff 1\" value=\"51\"/><PARAM id=\"EQ: Gain 1\" value=\"1\"/><PARAM id=\"EQ: Q 1\" value=\"1\"/><PARAM id=\"EQ: Type 1\" value=\"1\"/><PARAM id=\"EQ: Cutoff 2\" value=\"1000\"/><PARAM id=\"EQ: Gain "
+"2\" value=\"1\"/><PARAM id=\"EQ: Q 2\" value=\"1\"/><PARAM id=\"EQ: Type 2\" value=\"0\"/><PARAM id=\"EQ: Cutoff 3\" value=\"1000\"/><PARAM id=\"EQ: Gain 3\" value=\"1\"/><PARAM id=\"EQ: Q 3\" value=\"1\"/><PARAM id=\"EQ: Type 3\" value=\"0\"/></ROOT"
+">\0";
+
+const char* ClubBackroom = (const char*) temp_binary_data_1;
+
+//================== FirstAmplifier ==================
+static const unsigned char temp_binary_data_2[] =
+"VC2!\xcc\x08\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"1\"/><PARAM id=\"Gain: Gain\" value=\"1\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" value=\"0\"/><PARAM id=\""
+"Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"0\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"1\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Gain/><Distortion/><Reverb/><Compressor/><EQ"
+"/></CHAIN><PARAM id=\"Gain: Gain L\" value=\"1\"/><PARAM id=\"Gain: Gain R\" value=\"1\"/><PARAM id=\"Gain: Pan\" value=\"0\"/><PARAM id=\"Gain: Phase Delay L\" value=\"0\"/><PARAM id=\"Gain: Phase Delay R\" value=\"0\"/><PARAM id=\"Gain: Phase Inver"
+"t L\" value=\"0\"/><PARAM id=\"Gain: Phase Invert R\" value=\"0\"/><PARAM id=\"Compressor: Attack\" value=\"5\"/><PARAM id=\"Compressor: Release\" value=\"5\"/><PARAM id=\"Compressor: Ratio\" value=\"6\"/><PARAM id=\"Compressor: Threshold\" value=\"0"
+".25\"/><PARAM id=\"Compressor: Makeup Gain\" value=\"1\"/><PARAM id=\"Compressor: Dry/Wet\" value=\"40\"/><PARAM id=\"Reverb: Room Size\" value=\"62\"/><PARAM id=\"Reverb: Damping\" value=\"50\"/><PARAM id=\"Reverb: Width\" value=\"50\"/><PARAM id=\""
+"Reverb: Freeze\" value=\"0\"/><PARAM id=\"Reverb: High Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: High Pass\" value=\"1000\"/><PARAM id=\"Reverb: Low Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: LowPass\" value=\"1000\"/><PARAM id=\"Reverb: Dry"
+"/Wet\" value=\"36\"/><PARAM id=\"Distortion: Downsample\" value=\"2\"/><PARAM id=\"Distortion: Bit Depth\" value=\"16\"/><PARAM id=\"Distortion: Overdrive\" value=\"3.0199999809265136719\"/><PARAM id=\"Distortion: Gain\" value=\"1.0299999713897705078"
+"\"/><PARAM id=\"Distortion: Low Pass\" value=\"15672\"/><PARAM id=\"Distortion: Low Pass Enable\" value=\"1\"/><PARAM id=\"EQ: Cutoff 0\" value=\"1000\"/><PARAM id=\"EQ: Gain 0\" value=\"1\"/><PARAM id=\"EQ: Q 0\" value=\"1\"/><PARAM id=\"EQ: Type 0\""
+" value=\"0\"/><PARAM id=\"EQ: Cutoff 1\" value=\"1000\"/><PARAM id=\"EQ: Gain 1\" value=\"1\"/><PARAM id=\"EQ: Q 1\" value=\"1\"/><PARAM id=\"EQ: Type 1\" value=\"0\"/><PARAM id=\"EQ: Cutoff 2\" value=\"1000\"/><PARAM id=\"EQ: Gain 2\" value=\"1\"/><"
+"PARAM id=\"EQ: Q 2\" value=\"1\"/><PARAM id=\"EQ: Type 2\" value=\"0\"/><PARAM id=\"EQ: Cutoff 3\" value=\"1000\"/><PARAM id=\"EQ: Gain 3\" value=\"1\"/><PARAM id=\"EQ: Q 3\" value=\"1\"/><PARAM id=\"EQ: Type 3\" value=\"0\"/></ROOT>\0";
+
+const char* FirstAmplifier = (const char*) temp_binary_data_2;
+
+//================== Mixifier ==================
+static const unsigned char temp_binary_data_3[] =
+"VC2!\xef\x08\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"1\"/><PARAM id=\"Gain: Gain\" value=\"0.38999998569488525391\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" valu"
+"e=\"0\"/><PARAM id=\"Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"1\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"0\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Gain/><Distortion/><Com"
+"pressor/><Reverb/><EQ/></CHAIN><PARAM id=\"Gain: Gain L\" value=\"1\"/><PARAM id=\"Gain: Gain R\" value=\"1\"/><PARAM id=\"Gain: Pan\" value=\"0\"/><PARAM id=\"Gain: Phase Delay L\" value=\"0\"/><PARAM id=\"Gain: Phase Delay R\" value=\"0\"/><PARAM i"
+"d=\"Gain: Phase Invert L\" value=\"0\"/><PARAM id=\"Gain: Phase Invert R\" value=\"0\"/><PARAM id=\"Compressor: Attack\" value=\"5\"/><PARAM id=\"Compressor: Release\" value=\"5\"/><PARAM id=\"Compressor: Ratio\" value=\"3\"/><PARAM id=\"Compressor: "
+"Threshold\" value=\"0.25\"/><PARAM id=\"Compressor: Makeup Gain\" value=\"1\"/><PARAM id=\"Compressor: Dry/Wet\" value=\"50\"/><PARAM id=\"Reverb: Room Size\" value=\"73\"/><PARAM id=\"Reverb: Damping\" value=\"0\"/><PARAM id=\"Reverb: Width\" value="
+"\"60\"/><PARAM id=\"Reverb: Freeze\" value=\"0\"/><PARAM id=\"Reverb: High Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: High Pass\" value=\"1000\"/><PARAM id=\"Reverb: Low Pass Enable\" value=\"0\"/><PARAM id=\"Reverb: LowPass\" value=\"1000\"/><PA"
+"RAM id=\"Reverb: Dry/Wet\" value=\"30\"/><PARAM id=\"Distortion: Downsample\" value=\"0\"/><PARAM id=\"Distortion: Bit Depth\" value=\"16\"/><PARAM id=\"Distortion: Overdrive\" value=\"1\"/><PARAM id=\"Distortion: Gain\" value=\"1\"/><PARAM id=\"Dist"
+"ortion: Low Pass\" value=\"1000\"/><PARAM id=\"Distortion: Low Pass Enable\" value=\"0\"/><PARAM id=\"EQ: Cutoff 0\" value=\"500\"/><PARAM id=\"EQ: Gain 0\" value=\"1.120000004768371582\"/><PARAM id=\"EQ: Q 0\" value=\"0.69999998807907104492\"/><PARA"
+"M id=\"EQ: Type 0\" value=\"3\"/><PARAM id=\"EQ: Cutoff 1\" value=\"1000\"/><PARAM id=\"EQ: Gain 1\" value=\"1.120000004768371582\"/><PARAM id=\"EQ: Q 1\" value=\"1\"/><PARAM id=\"EQ: Type 1\" value=\"3\"/><PARAM id=\"EQ: Cutoff 2\" value=\"30\"/><PA"
+"RAM id=\"EQ: Gain 2\" value=\"1\"/><PARAM id=\"EQ: Q 2\" value=\"1\"/><PARAM id=\"EQ: Type 2\" value=\"1\"/><PARAM id=\"EQ: Cutoff 3\" value=\"1000\"/><PARAM id=\"EQ: Gain 3\" value=\"1\"/><PARAM id=\"EQ: Q 3\" value=\"1\"/><PARAM id=\"EQ: Type 3\" v"
+"alue=\"0\"/></ROOT>\0";
+
+const char* Mixifier = (const char*) temp_binary_data_3;
+
+//================== Init ==================
+static const unsigned char temp_binary_data_4[] =
 "VC2!\xcd\x06\0\0<ROOT><PARAM id=\"Gain: Bypass\" value=\"0\"/><PARAM id=\"Gain: Gain\" value=\"1\"/><PARAM id=\"Compressor: Bypass\" value=\"0\"/><PARAM id=\"Compressor: Compressor\" value=\"1\"/><PARAM id=\"Reverb: Bypass\" value=\"0\"/><PARAM id=\""
 "Reverb: Reverb\" value=\"1\"/><PARAM id=\"Distortion: Bypass\" value=\"0\"/><PARAM id=\"Distortion: Distortion\" value=\"1\"/><PARAM id=\"EQ: Bypass\" value=\"0\"/><PARAM id=\"EQ: EQ\" value=\"1\"/><CHAIN><Gain/><Compressor/><Reverb/><Distortion/><EQ"
 "/></CHAIN><PARAM id=\"Gain: Gain L\"/><PARAM id=\"Gain: Gain R\"/><PARAM id=\"Gain: Pan\"/><PARAM id=\"Gain: Phase Delay L\"/><PARAM id=\"Gain: Phase Delay R\"/><PARAM id=\"Gain: Phase Invert L\"/><PARAM id=\"Gain: Phase Invert R\"/><PARAM id=\"Compr"
@@ -18,10 +80,10 @@ static const unsigned char temp_binary_data_0[] =
 " id=\"EQ: Gain 0\"/><PARAM id=\"EQ: Q 0\"/><PARAM id=\"EQ: Type 0\"/><PARAM id=\"EQ: Cutoff 1\"/><PARAM id=\"EQ: Gain 1\"/><PARAM id=\"EQ: Q 1\"/><PARAM id=\"EQ: Type 1\"/><PARAM id=\"EQ: Cutoff 2\"/><PARAM id=\"EQ: Gain 2\"/><PARAM id=\"EQ: Q 2\"/><"
 "PARAM id=\"EQ: Type 2\"/><PARAM id=\"EQ: Cutoff 3\"/><PARAM id=\"EQ: Gain 3\"/><PARAM id=\"EQ: Q 3\"/><PARAM id=\"EQ: Type 3\"/></ROOT>\0";
 
-const char* Init = (const char*) temp_binary_data_0;
+const char* Init = (const char*) temp_binary_data_4;
 
 //================== Icon-60.svg ==================
-static const unsigned char temp_binary_data_1[] =
+static const unsigned char temp_binary_data_5[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -71,10 +133,10 @@ static const unsigned char temp_binary_data_1[] =
 "    </g>\n"
 "</svg>";
 
-const char* Icon60_svg = (const char*) temp_binary_data_1;
+const char* Icon60_svg = (const char*) temp_binary_data_5;
 
 //================== MobileMixAcknowledgements.pdf ==================
-static const unsigned char temp_binary_data_2[] =
+static const unsigned char temp_binary_data_6[] =
 { 37,80,68,70,45,49,46,53,10,37,191,247,162,254,10,50,48,32,48,32,111,98,106,10,60,60,32,47,76,105,110,101,97,114,105,122,101,100,32,49,32,47,76,32,50,51,48,54,50,48,32,47,72,32,91,32,55,56,50,32,49,56,57,32,93,32,47,79,32,50,52,32,47,69,32,53,49,50,54,
 54,32,47,78,32,49,48,32,47,84,32,50,51,48,50,51,49,32,62,62,10,101,110,100,111,98,106,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,10,50,49,32,48,32,111,98,106,10,60,60,32,47,84,121,112,101,32,47,88,82,101,102,32,47,76,
@@ -3355,10 +3417,10 @@ static const unsigned char temp_binary_data_2[] =
 25,19,86,34,196,237,118,48,0,0,239,63,18,8,10,101,110,100,115,116,114,101,97,109,10,101,110,100,111,98,106,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,10,115,116,97,114,116,120,114,101,102,10,50,49,54,10,37,37,69,79,70,10,0,0 };
 
-const char* MobileMixAcknowledgements_pdf = (const char*) temp_binary_data_2;
+const char* MobileMixAcknowledgements_pdf = (const char*) temp_binary_data_6;
 
 //================== hipass.svg ==================
-static const unsigned char temp_binary_data_3[] =
+static const unsigned char temp_binary_data_7[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3372,10 +3434,10 @@ static const unsigned char temp_binary_data_3[] =
 "    </g>\n"
 "</svg>";
 
-const char* hipass_svg = (const char*) temp_binary_data_3;
+const char* hipass_svg = (const char*) temp_binary_data_7;
 
 //================== lopass.svg ==================
-static const unsigned char temp_binary_data_4[] =
+static const unsigned char temp_binary_data_8[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3389,10 +3451,10 @@ static const unsigned char temp_binary_data_4[] =
 "    </g>\n"
 "</svg>";
 
-const char* lopass_svg = (const char*) temp_binary_data_4;
+const char* lopass_svg = (const char*) temp_binary_data_8;
 
 //================== phaseinvert.svg ==================
-static const unsigned char temp_binary_data_5[] =
+static const unsigned char temp_binary_data_9[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3408,10 +3470,10 @@ static const unsigned char temp_binary_data_5[] =
 "    </g>\n"
 "</svg>";
 
-const char* phaseinvert_svg = (const char*) temp_binary_data_5;
+const char* phaseinvert_svg = (const char*) temp_binary_data_9;
 
 //================== info.svg ==================
-static const unsigned char temp_binary_data_6[] =
+static const unsigned char temp_binary_data_10[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3429,10 +3491,10 @@ static const unsigned char temp_binary_data_6[] =
 "    </g>\n"
 "</svg>";
 
-const char* info_svg = (const char*) temp_binary_data_6;
+const char* info_svg = (const char*) temp_binary_data_10;
 
 //================== mutebuttonbg.svg ==================
-static const unsigned char temp_binary_data_7[] =
+static const unsigned char temp_binary_data_11[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3446,10 +3508,10 @@ static const unsigned char temp_binary_data_7[] =
 "    </g>\n"
 "</svg>";
 
-const char* mutebuttonbg_svg = (const char*) temp_binary_data_7;
+const char* mutebuttonbg_svg = (const char*) temp_binary_data_11;
 
 //================== tabshadow.svg ==================
-static const unsigned char temp_binary_data_8[] =
+static const unsigned char temp_binary_data_12[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"64px\" height=\"64px\" viewBox=\"0 0 64 64\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3468,10 +3530,10 @@ static const unsigned char temp_binary_data_8[] =
 "    </g>\n"
 "</svg>";
 
-const char* tabshadow_svg = (const char*) temp_binary_data_8;
+const char* tabshadow_svg = (const char*) temp_binary_data_12;
 
 //================== redo.svg ==================
-static const unsigned char temp_binary_data_9[] =
+static const unsigned char temp_binary_data_13[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3487,10 +3549,10 @@ static const unsigned char temp_binary_data_9[] =
 "    </g>\n"
 "</svg>";
 
-const char* redo_svg = (const char*) temp_binary_data_9;
+const char* redo_svg = (const char*) temp_binary_data_13;
 
 //================== undo.svg ==================
-static const unsigned char temp_binary_data_10[] =
+static const unsigned char temp_binary_data_14[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3506,10 +3568,10 @@ static const unsigned char temp_binary_data_10[] =
 "    </g>\n"
 "</svg>";
 
-const char* undo_svg = (const char*) temp_binary_data_10;
+const char* undo_svg = (const char*) temp_binary_data_14;
 
 //================== goataudio.svg ==================
-static const unsigned char temp_binary_data_11[] =
+static const unsigned char temp_binary_data_15[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n"
 "<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 1428 188\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" style=\"fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;st"
@@ -3556,10 +3618,10 @@ static const unsigned char temp_binary_data_11[] =
 "    </g>\n"
 "</svg>\n";
 
-const char* goataudio_svg = (const char*) temp_binary_data_11;
+const char* goataudio_svg = (const char*) temp_binary_data_15;
 
 //================== power.svg ==================
-static const unsigned char temp_binary_data_12[] =
+static const unsigned char temp_binary_data_16[] =
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 "<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
 "    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->\n"
@@ -3575,7 +3637,7 @@ static const unsigned char temp_binary_data_12[] =
 "    </g>\n"
 "</svg>";
 
-const char* power_svg = (const char*) temp_binary_data_12;
+const char* power_svg = (const char*) temp_binary_data_16;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -3588,6 +3650,10 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
     switch (hash)
     {
+        case 0xd2906b0b:  numBytes = 2265; return _80sGaming;
+        case 0xbe100138:  numBytes = 2278; return ClubBackroom;
+        case 0x5abf31c1:  numBytes = 2261; return FirstAmplifier;
+        case 0xc3e5efdd:  numBytes = 2296; return Mixifier;
         case 0x0022d930:  numBytes = 1750; return Init;
         case 0x23ef2138:  numBytes = 3384; return Icon60_svg;
         case 0x317a86c6:  numBytes = 230620; return MobileMixAcknowledgements_pdf;
@@ -3610,6 +3676,10 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 
 const char* namedResourceList[] =
 {
+    "_80sGaming",
+    "ClubBackroom",
+    "FirstAmplifier",
+    "Mixifier",
     "Init",
     "Icon60_svg",
     "MobileMixAcknowledgements_pdf",

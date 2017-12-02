@@ -1937,11 +1937,11 @@
     <ClInclude Include="..\..\Source\GUI\SimpleLevelMeter.h"/>
     <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h"/>
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h"/>
-    <ClInclude Include="..\..\Source\Core\PresetManager.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h"/>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\DSP\SPSCAtomic.h"/>
     <ClInclude Include="..\..\Source\DSP\DecibelDecay.h"/>
     <ClInclude Include="..\..\Source\DSP\LogMap.h"/>
     <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h"/>
@@ -2631,6 +2631,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\Presets\80sGaming"/>
+    <None Include="..\..\Source\Resources\Presets\ClubBackroom"/>
+    <None Include="..\..\Source\Resources\Presets\FirstAmplifier"/>
+    <None Include="..\..\Source\Resources\Presets\Mixifier"/>
     <None Include="..\..\Source\Resources\Presets\Init"/>
     <None Include="..\..\Source\Resources\Icon-60.svg"/>
     <None Include="..\..\Source\Resources\MobileMixAcknowledgements.pdf"/>

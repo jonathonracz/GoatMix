@@ -17,8 +17,7 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         .withInput("Input", AudioChannelSet::stereo(), true)
         .withOutput("Output", AudioChannelSet::stereo(), true)),
     chainTree("CHAIN"),
-    params(*this, &undoManager),
-    presetManager(16, { {"Init", BinaryData::Init, BinaryData::InitSize} })
+    params(*this, &undoManager)
 {
     // Add top-level parameters here (currently none).
 
@@ -119,39 +118,27 @@ double MobileMixAudioProcessor::getTailLengthSeconds() const
 
 int MobileMixAudioProcessor::getNumPrograms()
 {
-    return presetManager.enumeratePresetNames().size();
+    return static_cast<int>(presets.size());
 }
 
 int MobileMixAudioProcessor::getCurrentProgram()
 {
-    return static_cast<int>(currentPresetIndex);
+    return currentPresetIndex;
 }
 
 void MobileMixAudioProcessor::setCurrentProgram(int index)
 {
     currentPresetIndex = index;
-    File currentPreset = presetManager.enumeratePresetFiles()[index];
-    if (!currentPreset.getFullPathName().isEmpty())
-    {
-        FileInputSource presetRead(currentPreset);
-        std::unique_ptr<InputStream> presetStream(presetRead.createInputStream());
-        if (presetStream)
-        {
-            MemoryBlock preset;
-            presetStream->readIntoMemoryBlock(preset);
-            setStateInformation(preset.getData(), static_cast<int>(preset.getSize()));
-        }
-    }
+    setStateInformation(presets[index].data, presets[index].dataSize);
 }
 
 const String MobileMixAudioProcessor::getProgramName(int index)
 {
-    return presetManager.enumeratePresetNames()[index];
+    return presets[index].name;
 }
 
 void MobileMixAudioProcessor::changeProgramName(int index, const String& newName)
 {
-    presetManager.setPresetName(index, newName);
 }
 
 void MobileMixAudioProcessor::getStateInformation(MemoryBlock& destData)

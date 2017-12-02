@@ -13,7 +13,6 @@
 #include "JuceHeader.h"
 #include "Core/AudioProcessorChain.h"
 #include "Core/MobileMixPluginFormat.h"
-#include "Core/PresetManager.h"
 
 /**
 */
@@ -71,7 +70,20 @@ private:
     void audioProcessorParameterChangeGestureBegin(AudioProcessor* processor, int parameterIndex) override;
     void audioProcessorParameterChangeGestureEnd(AudioProcessor* processor, int parameterIndex) override;
 
-    PresetManager presetManager;
+    struct FactoryPreset
+    {
+        String name;
+        const char*& data;
+        const int& dataSize;
+    };
+
+    std::array<FactoryPreset, 1> presets = {
+        {"Init", BinaryData::Init, BinaryData::InitSize},
+        {"Club Backroom", BinaryData::ClubBackroom, BinaryData::ClubBackroomSize},
+        {"80s Gaming", BinaryData::_80sGaming, BinaryData::_80sGamingSize},
+        {"First Amplifier", BinaryData::FirstAmplifier, BinaryData::FirstAmplifierSize},
+        {"Mixifier", BinaryData::Mixifier, BinaryData::MixifierSize}
+    };
     int currentPresetIndex = 0;
     std::atomic<int> editorCount = 0;
 

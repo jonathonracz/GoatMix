@@ -8,6 +8,18 @@
 
 namespace BinaryData
 {
+    extern const char*   _80sGaming;
+    const int            _80sGamingSize = 2265;
+
+    extern const char*   ClubBackroom;
+    const int            ClubBackroomSize = 2278;
+
+    extern const char*   FirstAmplifier;
+    const int            FirstAmplifierSize = 2261;
+
+    extern const char*   Mixifier;
+    const int            MixifierSize = 2296;
+
     extern const char*   Init;
     const int            InitSize = 1750;
 
@@ -51,7 +63,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 13;
+    const int namedResourceListSize = 17;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

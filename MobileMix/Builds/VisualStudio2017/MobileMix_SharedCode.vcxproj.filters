@@ -2523,9 +2523,6 @@
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h">
       <Filter>MobileMix\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\PresetManager.h">
-      <Filter>MobileMix\Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>MobileMix\Core</Filter>
     </ClInclude>
@@ -2537,6 +2534,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>MobileMix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\SPSCAtomic.h">
+      <Filter>MobileMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\DecibelDecay.h">
       <Filter>MobileMix\DSP</Filter>
@@ -4601,6 +4601,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Resources\Presets\80sGaming">
+      <Filter>MobileMix\Resources\Presets</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Presets\ClubBackroom">
+      <Filter>MobileMix\Resources\Presets</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Presets\FirstAmplifier">
+      <Filter>MobileMix\Resources\Presets</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\Presets\Mixifier">
+      <Filter>MobileMix\Resources\Presets</Filter>
+    </None>
     <None Include="..\..\Source\Resources\Presets\Init">
       <Filter>MobileMix\Resources\Presets</Filter>
     </None>
