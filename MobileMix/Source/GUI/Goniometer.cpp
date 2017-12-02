@@ -16,7 +16,7 @@ Goniometer::Goniometer() :
     paths(Image::PixelFormat::ARGB, 1, 1, false),
     pathCoordsForDrawing(256)
 {
-    startTimerHz(30);
+    startTimerHz(24);
 }
 
 void Goniometer::setSource(GoniometerSource* _source)
@@ -64,37 +64,8 @@ void Goniometer::paint(Graphics& g)
         wasResized = false;
     }
 
-    // Pull as many samples as we can from the intermediate buffer and turn them
-    // into normalized x/y coordinates rotated 45 degrees.
-    Point<float> newPoint;
-    while (source && source->getNextPoint(newPoint))
-        pathCoordsForDrawing.push(newPoint);
-
-    Path drawPath;
-    drawPath.preallocateSpace(pathCoordsForDrawing.getNumElements());
-    Point<float> componentSpacePoint;
-    for (int i = 0; i < pathCoordsForDrawing.getNumElements(); ++i)
-    {
-        componentSpacePoint.x = pathCoordsForDrawing[i].x * getWidth() / 2.0f;
-        componentSpacePoint.y = pathCoordsForDrawing[i].y * getHeight() / 2.0f;
-        componentSpacePoint = componentSpacePoint.rotatedAboutOrigin((7.0f * MathConstants<float>::pi) / 4.0f);
-        componentSpacePoint.x += (getWidth() / 2.0f);
-        componentSpacePoint.y += (getHeight() / 2.0f);
-        if (i == 0)
-            drawPath.startNewSubPath(componentSpacePoint);
-        else
-            drawPath.lineTo(componentSpacePoint);
-    }
-
-    // Render paths.
-    {
-        paths.multiplyAllAlphas(0.94f);
-        Graphics pathRender(paths);
-        pathRender.setColour(findColour(MMLookAndFeel::ColourIds::outline));
-        pathRender.strokePath(drawPath, PathStrokeType(lf.borderThickness / 2.0f));
-    }
-
     g.drawImageAt(background, 0, 0);
+    g.reduceClipRegion(paths, AffineTransform());
     g.drawImageAt(paths, 0, 0);
 }
 
@@ -105,5 +76,46 @@ void Goniometer::resized()
 
 void Goniometer::timerCallback()
 {
-    repaint();
+    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+
+    {
+        // Pull as many samples as we can from the intermediate buffer and turn them
+        // into normalized x/y coordinates rotated 45 degrees.
+        Point<float> newPoint;
+        while (source && source->getNextPoint(newPoint))
+            pathCoordsForDrawing.push(newPoint);
+    }
+
+    Path drawPath;
+
+    {
+        drawPath.preallocateSpace(pathCoordsForDrawing.getNumElements());
+        Point<float> componentSpacePoint;
+        for (int i = 0; i < pathCoordsForDrawing.getNumElements(); ++i)
+        {
+            componentSpacePoint.x = pathCoordsForDrawing[i].x * getWidth() / 2.0f;
+            componentSpacePoint.y = pathCoordsForDrawing[i].y * getHeight() / 2.0f;
+            componentSpacePoint = componentSpacePoint.rotatedAboutOrigin((7.0f * MathConstants<float>::pi) / 4.0f);
+            componentSpacePoint.x += (getWidth() / 2.0f);
+            componentSpacePoint.y += (getHeight() / 2.0f);
+            if (i == 0)
+                drawPath.startNewSubPath(componentSpacePoint);
+            else
+                drawPath.lineTo(componentSpacePoint);
+        }
+    }
+
+    // Render paths to the cached display buffer.
+    paths.multiplyAllAlphas(0.94f);
+    Graphics pathRender(paths);
+    {
+        Graphics::ScopedSaveState state(pathRender);
+        pathRender.reduceClipRegion(drawPath);
+        pathRender.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        pathRender.strokePath(drawPath, PathStrokeType(lf.borderThickness));
+    }
+    pathRender.reduceClipRegion(paths, AffineTransform());
+
+    // Repaint only what actually needs repainting.
+    repaint(pathRender.getClipBounds());
 }

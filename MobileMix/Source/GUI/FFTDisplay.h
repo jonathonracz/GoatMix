@@ -89,6 +89,8 @@ private:
             fftPath.closeSubPath();
 
             g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
+            Graphics::ScopedSaveState state(g);
+            g.reduceClipRegion(fftPath);
             g.fillPath(fftPath);
         }
 

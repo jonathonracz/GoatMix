@@ -23,7 +23,7 @@ class SimpleLevelMeter :
 public:
     SimpleLevelMeter()
     {
-        startTimerHz(30);
+        startTimerHz(24);
         setOpaque(true);
         setTooltip(UIStrings::Shared::meter);
     }
@@ -138,7 +138,13 @@ private:
     }
 
     WeakReference<FFAU::LevelMeterSource> ffauSource;
+    float ffauLastRMSLevel = 0.0f;
+    float ffauLastPeakLevel = 0.0f;
+
     WeakReference<WindowedMeter> gaSource;
+    float gaLastRMSLevel = 0.0f;
+    float gaLastPeakLevel = 0.0f;
+
     int channel = 0;
     float minGainDisplayValue = 0.0f;
     float maxGainDisplayValue = 1.0f;
