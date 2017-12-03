@@ -17,10 +17,11 @@ class RingBuffer
 {
 public:
     RingBuffer() {}
-    RingBuffer(int logicalAllocatedCapacity) noexcept
+    RingBuffer(int logicalAllocatedCapacity, bool _fill = false, const Type& fillValue = Type()) noexcept
     {
-        setAllocatedLogicalCapacity(logicalAllocatedCapacity);
         setLogicalCapacity(logicalAllocatedCapacity);
+        if (_fill)
+            fill(fillValue);
     }
 
     RingBuffer(const RingBuffer& other)
@@ -145,6 +146,16 @@ public:
         return data[(head + index) % getNumElements()];
     }
 
+    Type getFirst() const noexcept
+    {
+        return data[head];
+    }
+
+    Type getLast() const noexcept
+    {
+        return (*this)[getNumElements() - 1];
+    }
+
     Type* getPointerToFirstHalf() const noexcept
     {
         return data.getData() + head;
@@ -212,7 +223,7 @@ private:
             data.realloc(num);
             for (int i = allocSize; i < num; ++i)
                 new (data + i) Type();
-                }
+        }
         else
         {
             data.free();

@@ -65,7 +65,6 @@ void Goniometer::paint(Graphics& g)
     }
 
     g.drawImageAt(background, 0, 0);
-    g.reduceClipRegion(paths, AffineTransform());
     g.drawImageAt(paths, 0, 0);
 }
 
@@ -117,5 +116,6 @@ void Goniometer::timerCallback()
     pathRender.reduceClipRegion(paths, AffineTransform());
 
     // Repaint only what actually needs repainting.
-    repaint(pathRender.getClipBounds());
+    //repaint(pathRender.getClipBounds());
+    repaint();
 }

@@ -46,7 +46,7 @@ void MMEQPlugin::registerParameters()
             addPrefixToParameterName("Q ") + String(i),
             addPrefixToParameterName("Q ") + String(i),
             "",
-            NormalisableRange<float>(0.0f, 1.0f, 0.1f),
+            NormalisableRange<float>(0.01f, 1.0f, 0.01f),
             1.0f,
             nullptr,
             nullptr);
