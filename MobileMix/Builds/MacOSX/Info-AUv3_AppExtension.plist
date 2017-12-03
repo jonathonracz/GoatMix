@@ -10,9 +10,9 @@
     <key>CFBundleIdentifier</key>
     <string>com.goataudio.MobileMix.MobileMixAUv3</string>
     <key>CFBundleName</key>
-    <string>MobileMix</string>
+    <string>GoatMix</string>
     <key>CFBundleDisplayName</key>
-    <string>MobileMix</string>
+    <string>GoatMix</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>CFBundleSignature</key>
@@ -37,9 +37,9 @@
         <array>
           <dict>
             <key>name</key>
-            <string>GoatAudio: MobileMix</string>
+            <string>GoatAudio: GoatMix</string>
             <key>description</key>
-            <string>MobileMix</string>
+            <string>GoatMix</string>
             <key>factoryFunction</key>
             <string>MobileMixAUFactoryAUv3</string>
             <key>manufacturer</key>
@@ -47,7 +47,7 @@
             <key>type</key>
             <string>aufx</string>
             <key>subtype</key>
-            <string>Gomm</string>
+            <string>Gomx</string>
             <key>version</key>
             <integer>65536</integer>
             <key>sandboxSafe</key>

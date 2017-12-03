@@ -308,10 +308,10 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "MobileMix"
+ #define JucePlugin_Name                   "GoatMix"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "MobileMix"
+ #define JucePlugin_Desc                   "GoatMix"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "GoatAudio"
@@ -326,7 +326,7 @@
  #define JucePlugin_ManufacturerCode       0x476f6174 // 'Goat'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x476f6d6d // 'Gomm'
+ #define JucePlugin_PluginCode             0x476f6d78 // 'Gomx'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -392,7 +392,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.goataudio.MobileMix
+ #define JucePlugin_AAXIdentifier          com.goataudio.GoatMix
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -416,5 +416,5 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "GoatAudio: MobileMix"
+ #define JucePlugin_IAAName                "GoatAudio: GoatMix"
 #endif

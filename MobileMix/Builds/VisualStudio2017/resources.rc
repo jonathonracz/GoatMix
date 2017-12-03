@@ -13,9 +13,9 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
     BEGIN
-      VALUE "FileDescription",  "MobileMix\0"
+      VALUE "FileDescription",  "GoatMix\0"
       VALUE "FileVersion",  "1.0.0\0"
-      VALUE "ProductName",  "MobileMix\0"
+      VALUE "ProductName",  "GoatMix\0"
       VALUE "ProductVersion",  "1.0.0\0"
     END
   END

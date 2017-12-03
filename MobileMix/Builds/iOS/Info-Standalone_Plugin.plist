@@ -14,9 +14,9 @@
     <key>CFBundleIdentifier</key>
     <string>com.goataudio.MobileMix</string>
     <key>CFBundleName</key>
-    <string>MobileMix</string>
+    <string>GoatMix</string>
     <key>CFBundleDisplayName</key>
-    <string>MobileMix</string>
+    <string>GoatMix</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>
