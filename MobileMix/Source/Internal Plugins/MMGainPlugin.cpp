@@ -15,6 +15,7 @@
 MMGainPlugin::MMGainPlugin(AudioProcessorValueTreeState& state) :
     MobileMixPluginInstance(state)
 {
+    meterSource.allocateMeters(getMainBusNumInputChannels());
 }
 
 void MMGainPlugin::registerParameters()
@@ -114,7 +115,7 @@ void MMGainPlugin::prepareToPlayDerived(double sampleRate, int maximumExpectedSa
     delayL.params->maxDelay = static_cast<size_t>(sampleRate / 10.0); // 100 ms max delay
     delayR.params->maxDelay = static_cast<size_t>(sampleRate / 10.0);
 
-    meter.prepare(stereoSpec);
+    meterSource.prepare(stereoSpec);
     gainL.prepare(monoSpec);
     gainR.prepare(monoSpec);
     gainCenter.prepare(stereoSpec);
@@ -157,5 +158,5 @@ void MMGainPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& m
     delayR.process(contextR);
     invertPhaseR.process(contextR);
     goniometerSource.process(buffer);
-    meter.process(contextStereo);
+    meterSource.process(contextStereo);
 }

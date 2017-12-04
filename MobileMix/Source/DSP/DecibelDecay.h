@@ -37,7 +37,7 @@ public:
     void setLinearSnapToZero(float _linearSnapToZero) noexcept { linearSnapToZero = _linearSnapToZero; dBSnapToZero = Decibels::gainToDecibels(_linearSnapToZero); }
 
     float getdBSnapToZero() const noexcept { return dBSnapToZero; }
-    void setsBSnapToZero(float _dBSnapToZero) noexcept { dBSnapToZero = _dBSnapToZero; linearSnapToZero = Decibels::decibelsToGain(_dBSnapToZero); }
+    void setdBSnapToZero(float _dBSnapToZero) noexcept { dBSnapToZero = _dBSnapToZero; linearSnapToZero = Decibels::decibelsToGain(_dBSnapToZero); }
 
     inline float decayLinear(float linearValue, float deltaSeconds)
     {

@@ -16,23 +16,27 @@
 #include <atomic>
 
 class WindowedMeter :
-    public dsp::ProcessorBase
+    public dsp::ProcessorBase,
+    public AsyncUpdater,
+    public Timer
 {
 public:
     struct Parameters :
         dsp::ProcessorState
     {
         float msIntegrationTime = 25.0f;
-        //float dBPerSecondDecay = DecibelDecay::DecaydBFactors::ppmType1;
+        float msPeakHoldTime = 1000.0f;
+        float dBPerSecondDecay = DecibelDecay::DecaydBFactors::ppmType1;
+        float msMeterResetTimeout = 3000.0f;
         using Ptr = ReferenceCountedObjectPtr<Parameters>;
     };
 
-    WindowedMeter() = default;
+    WindowedMeter() { reset(); }
+    WindowedMeter(Parameters::Ptr parameters) : params(parameters) { reset(); }
     ~WindowedMeter() = default;
 
     void prepare(const dsp::ProcessSpec& spec) noexcept override
     {
-        channelStates.resize(spec.numChannels);
         activeSampleRate = spec.sampleRate;
         updateParameters();
     }
@@ -40,186 +44,165 @@ public:
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
         updateParameters();
-        for (size_t channel = 0; channel < context.getInputBlock().getNumChannels(); ++channel)
-        {
-            const float* sampleRead = context.getInputBlock().getChannelPointer(channel);
-            for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
-                pushSample(sampleRead[i], static_cast<int>(channel));
+        activeBlockSize = context.getInputBlock().getNumSamples();
+        const float* sampleRead = context.getInputBlock().getChannelPointer(0);
+        for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
+            pushSample(sampleRead[i]);
 
-            ChannelState* ch = &channelStates[channel];
-            float currentPeak = std::max(
-                FloatVectorOperations::findMaximum(ch->buffer.getPointerToFirstHalf(), ch->buffer.getSizeOfFirstHalf()),
-                FloatVectorOperations::findMaximum(ch->buffer.getPointerToSecondHalf(), ch->buffer.getSizeOfSecondHalf()));
-
-             ch->currentPeak.store(currentPeak, std::memory_order_relaxed);
-        }
+        calculateValues();
     }
 
     void reset() noexcept override
     {
+        std::atomic_thread_fence(std::memory_order_release);
+        peakInstant.store(0.0f, std::memory_order_relaxed);
+        peakWindowed.store(0.0f, std::memory_order_relaxed);
+        rms.store(0.0f, std::memory_order_relaxed);
+        peakOverall.store(0.0f, std::memory_order_relaxed);
+        peakHold.store(0.0f, std::memory_order_relaxed);
     }
 
-    int getNumChannels() const noexcept
+    float getPeakInstant() const noexcept
     {
-        return static_cast<int>(channelStates.size());
+        return peakInstant.load(std::memory_order_acquire);
     }
 
-    float getCurrentPeak(int channel) const noexcept
+    float getPeakWindowed() const noexcept
     {
-        return channelStates[channel].currentPeak.load(std::memory_order_relaxed);
+        return peakWindowed.load(std::memory_order_acquire);
     }
 
-    float getAverageCurrentPeak() const noexcept
+    float getRMS() const noexcept
     {
-        float currentPeak = 0.0f;
-        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
-            currentPeak += getCurrentPeak(i);
-        currentPeak /= channelStates.size();
-        return currentPeak;
+        return rms.load(std::memory_order_acquire);
     }
 
-    float getWindowedPeak(int channel) const noexcept
+    float getPeakHold() const noexcept
     {
-        return channelStates[channel].windowedPeakSum.load(std::memory_order_relaxed) / channelStates[channel].bufferSize.load(std::memory_order_relaxed);
+        return peakHold.load(std::memory_order_acquire);
     }
 
-    float getAverageWindowedPeak() const noexcept
+    float getPeakOverall() const noexcept
     {
-        float windowedPeakSum = 0.0f;
-        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
-            windowedPeakSum += getWindowedPeak(i);
-        windowedPeakSum /= channelStates.size();
-        return windowedPeakSum;
+        return peakOverall.load(std::memory_order_acquire);
     }
 
-    float getRMS(int channel) const noexcept
+    void resetPeakOverall() noexcept
     {
-        return std::sqrt(channelStates[channel].rmsSum.load(std::memory_order_relaxed) / channelStates[channel].bufferSize.load(std::memory_order_relaxed));
+        peakOverall.store(0.0f, std::memory_order_release);
     }
 
-    float getAverageRMS() const noexcept
+    bool getClippingStatus() const noexcept
     {
-        float rmsSum = 0.0f;
-        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
-            rmsSum += getRMS(i);
-        rmsSum /= channelStates.size();
-        return rmsSum;
-    }
-
-    float getOverallPeak(int channel) const noexcept
-    {
-        return channelStates[channel].overallPeak.load(std::memory_order_relaxed);
-    }
-
-    float getAverageOverallPeak() const noexcept
-    {
-        float overallSum = 0.0f;
-        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
-            overallSum += getOverallPeak(i);
-        overallSum /= channelStates.size();
-        return overallSum;
-    }
-
-    void resetOverallPeak(int channel) noexcept
-    {
-        channelStates[channel].overallPeak.store(0.0f, std::memory_order_relaxed);
-    }
-
-    void resetOverallPeak() noexcept
-    {
-        for (int i = 0; i < static_cast<int>(channelStates.size()); ++i)
-            resetOverallPeak(i);
-    }
-
-    bool getClippingStatus(int channel) const noexcept
-    {
-        return getOverallPeak(channel) > 1.0f;
-    }
-
-    void resetClippingStatus(int channel) noexcept
-    {
-        resetOverallPeak(channel);
+        return getPeakOverall() > 1.0f;
     }
 
     void resetClippingStatus() noexcept
     {
-        resetOverallPeak();
+        resetPeakOverall();
     }
 
     Parameters::Ptr params = new Parameters;
 
 private:
+    friend class MultiWindowedMeter;
+
     void updateParameters() noexcept
     {
-        for (int channel = 0; channel < static_cast<int>(channelStates.size()); ++channel)
+        int newWindowSize = (params->msIntegrationTime / 1000.0f) * activeSampleRate;
+        if (newWindowSize != buffer.getLogicalCapacity())
         {
-            size_t currWindowSize = (params->msIntegrationTime / 1000.0f) * activeSampleRate;
-            if (currWindowSize != channelStates[channel].buffer.getLogicalCapacity())
-            {
-                if (currWindowSize > channelStates[channel].buffer.getLogicalCapacity())
-                    while (channelStates[channel].buffer.getNumElements() > currWindowSize)
-                        popSample(channel);
+            if (newWindowSize > buffer.getLogicalCapacity())
+                while (buffer.getNumElements() > newWindowSize)
+                    popSample();
 
-                channelStates[channel].buffer.setLogicalCapacity(static_cast<int>(currWindowSize));
-                channelStates[channel].bufferSize.store(static_cast<int>(currWindowSize), std::memory_order_relaxed);
-            }
+            buffer.setLogicalCapacity(newWindowSize);
         }
+
+        decay.setdBPerSecondDecay(params->dBPerSecondDecay);
+        activeSamplesToHold = (params->msPeakHoldTime / 1000.0f) * activeSampleRate;
+        msMeterResetTimeout.store(params->msMeterResetTimeout, std::memory_order_release);
     }
 
-    void pushSample(float newSample, int channel) noexcept
+    void pushSample(float newSample) noexcept
     {
-        ChannelState* ch = &channelStates[channel];
         newSample = std::fabs(newSample);
-        if (ch->buffer.isFull())
-            popSample(channel);
+        if (buffer.isFull())
+            popSample();
 
-        ch->buffer.push(newSample);
+        buffer.push(newSample);
 
-        float newPeakSum = ch->windowedPeakSum.load(std::memory_order_relaxed) + newSample;
-        float newRMSSum = ch->rmsSum.load(std::memory_order_relaxed) + (newSample * newSample);
-        ch->windowedPeakSum.store(newPeakSum, std::memory_order_relaxed);
-        ch->rmsSum.store(newRMSSum, std::memory_order_relaxed);
-
-        if (newSample > ch->overallPeak.load(std::memory_order_relaxed))
-            ch->overallPeak.store(newSample, std::memory_order_relaxed);
+        peakSum += newSample;
+        rmsSum += square(newSample);
     }
 
-    void popSample(int channel) noexcept
+    void popSample() noexcept
     {
-        ChannelState* ch = &channelStates[channel];
-        float poppedSample = ch->buffer.pop();
-
-        float newPeakSum = ch->windowedPeakSum.load(std::memory_order_relaxed) - poppedSample;
-        float newRMSSum = ch->rmsSum.load(std::memory_order_relaxed) - (poppedSample * poppedSample);
-        ch->windowedPeakSum.store(newPeakSum, std::memory_order_relaxed);
-        ch->rmsSum.store(newRMSSum, std::memory_order_relaxed);
+        float poppedSample = buffer.pop();
+        peakSum -= poppedSample;
+        rmsSum -= square(poppedSample);
     }
 
-    struct ChannelState
+    void calculateValues() noexcept
     {
-        ChannelState() {}
-        explicit ChannelState(const ChannelState& other) :
-            buffer(other.buffer),
-            bufferSize(other.bufferSize.load()),
-            currentPeak(other.currentPeak.load()),
-            windowedPeakSum(other.windowedPeakSum.load()),
-            rmsSum(other.rmsSum.load()),
-            overallPeak(other.overallPeak.load())
+        float deltaTime = activeBlockSize / static_cast<float>(activeSampleRate);
+        float bufferMax = std::max(FloatVectorOperations::findMaximum(buffer.getPointerToFirstHalf(), buffer.getSizeOfFirstHalf()),
+                                   FloatVectorOperations::findMaximum(buffer.getPointerToSecondHalf(), buffer.getSizeOfSecondHalf()));
+        float newPeakWindowed = std::max(peakSum / buffer.getLogicalCapacity(), decay.decayLinear(peakWindowed.load(std::memory_order_relaxed), deltaTime));
+        float newRMS = std::max(std::sqrt(rmsSum / buffer.getLogicalCapacity()), decay.decayLinear(rms.load(std::memory_order_relaxed), deltaTime));
+
+        std::atomic_thread_fence(std::memory_order_release);
+        peakInstant.store(bufferMax, std::memory_order_relaxed);
+        peakWindowed.store(newPeakWindowed, std::memory_order_relaxed);
+        rms.store(newRMS, std::memory_order_relaxed);
+
+        if (bufferMax > peakOverall.load(std::memory_order_relaxed))
+            peakOverall.store(bufferMax, std::memory_order_relaxed);
+
+        bool shouldSetPeakHold = false;
+        if (bufferMax > peakHold.load(std::memory_order_relaxed))
         {
+            shouldSetPeakHold = true;
+            samplesHeld = 0;
         }
 
-        ~ChannelState() {}
+        if (samplesHeld > activeSamplesToHold)
+        {
+            shouldSetPeakHold = true;
+            samplesHeld %= activeSamplesToHold;
+        }
 
-        RingBuffer<float> buffer;
-        std::atomic<int> bufferSize = 0;
-        std::atomic<float> currentPeak = 0.0f;
-        std::atomic<float> windowedPeakSum = 0.0f;
-        std::atomic<float> rmsSum = 0.0f;
-        std::atomic<float> overallPeak = 0.0f;
-    };
+        if (shouldSetPeakHold)
+            peakHold.store(bufferMax, std::memory_order_relaxed);
+    }
 
-    std::vector<ChannelState> channelStates;
+    void handleAsyncUpdate() noexcept override
+    {
+        startTimer(static_cast<int>(msMeterResetTimeout.load(std::memory_order_acquire)));
+    }
+
+    void timerCallback() noexcept override
+    {
+        reset();
+    }
+
+    std::atomic<float> peakInstant;
+    std::atomic<float> peakWindowed;
+    std::atomic<float> peakOverall;
+    std::atomic<float> peakHold;
+    std::atomic<float> rms;
+
+    std::atomic<float> msMeterResetTimeout;
+
+    RingBuffer<float> buffer;
+    float peakSum;
+    float rmsSum;
+    DecibelDecay decay;
+    size_t samplesHeld;
+
     double activeSampleRate;
+    size_t activeBlockSize;
+    size_t activeSamplesToHold;
 
     JUCE_DECLARE_WEAK_REFERENCEABLE(WindowedMeter)
 };

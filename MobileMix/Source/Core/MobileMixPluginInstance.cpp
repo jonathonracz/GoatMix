@@ -10,6 +10,7 @@
 
 #include "MobileMixPluginInstance.h"
 #include "../GUI/ValueStringFuncs.h"
+#include "MobileMixPluginInstanceEditor.h"
 
 MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessorValueTreeState& _state) :
     AudioPluginInstance(BusesProperties()
@@ -17,7 +18,7 @@ MobileMixPluginInstance::MobileMixPluginInstance(AudioProcessorValueTreeState& _
                         .withOutput("Output", AudioChannelSet::stereo())),
     state(_state)
 {
-    meterSource.resize(getMainBusNumOutputChannels(), 8);
+    meterSource.allocateMeters(getMainBusNumInputChannels());
 }
 
 MobileMixPluginInstance::~MobileMixPluginInstance()
@@ -76,6 +77,11 @@ void MobileMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpect
 {
     preparedSampleRate = sampleRate;
     preparedBlockSize = maximumExpectedSamplesPerBlock;
+    meterSource.prepare(dsp::ProcessSpec{
+        sampleRate,
+        static_cast<uint32>(maximumExpectedSamplesPerBlock),
+        static_cast<uint32>(getMainBusNumInputChannels())
+    });
     prepareToPlayDerived(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
@@ -88,7 +94,10 @@ void MobileMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffe
 {
     if (paramBypass->getValue() != 1.0f)
         processBlockDerived(buffer, midiMessages);
-    meterSource.measureBlock(buffer);
+
+    dsp::AudioBlock<float> block(buffer);
+    dsp::ProcessContextReplacing<float> context(block);
+    meterSource.process(context);
 }
 
 bool MobileMixPluginInstance::isBusesLayoutSupported(const BusesLayout& layouts) const
@@ -125,25 +134,4 @@ int MobileMixPluginInstance::getNumPrograms()
 int MobileMixPluginInstance::getCurrentProgram()
 {
     return 0;
-}
-
-void MobileMixPluginInstance::setCurrentProgram(int index)
-{
-}
-
-const String MobileMixPluginInstance::getProgramName(int index)
-{
-    return {};
-}
-
-void MobileMixPluginInstance::changeProgramName(int index, const String& newName)
-{
-}
-
-void MobileMixPluginInstance::getStateInformation(MemoryBlock& destData)
-{
-}
-
-void MobileMixPluginInstance::setStateInformation(const void* data, int sizeInBytes)
-{
 }

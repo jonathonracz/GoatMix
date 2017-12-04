@@ -21,6 +21,12 @@ class SimpleLevelMeter :
     public SettableTooltipClient
 {
 public:
+    enum Style
+    {
+        peakRMS,
+        peakHoldRMS,
+    };
+
     SimpleLevelMeter()
     {
         startTimerHz(24);
@@ -30,64 +36,66 @@ public:
 
     ~SimpleLevelMeter() {}
 
-    void setSource(FFAU::LevelMeterSource* _source)
+    void setStyle(Style _style) noexcept
     {
-        jassert(_source && !gaSource);
-        ffauSource = _source;
+        style = _style;
     }
 
-    void setSource(WindowedMeter* _source)
+    WindowedMeter* getSource() const noexcept
     {
-        jassert(_source && !ffauSource);
-        gaSource = _source;
+        return source;
     }
 
-    float getChannel() const { return channel; }
-    void setChannel(int _channel) { channel = _channel; }
-    float getMinGainDisplayValue() const { return minGainDisplayValue; }
-    void setMinGainDisplayValue(float value) { minGainDisplayValue = value; needsGradientRegen = true; }
-    float getMaxGainDisplayValue() const { return maxGainDisplayValue; }
-    void setMaxGainDisplayValue(float value) { maxGainDisplayValue = value; needsGradientRegen = true; }
+    void setSource(WindowedMeter* _source) noexcept
+    {
+        jassert(_source);
+        source = _source;
+    }
+
+    float getMinGainDisplayValue() const noexcept { return minGainDisplayValue; }
+    void setMinGainDisplayValue(float value) noexcept { minGainDisplayValue = value; needsGradientRegen = true; }
+    float getMaxGainDisplayValue() const noexcept { return maxGainDisplayValue; }
+    void setMaxGainDisplayValue(float value) noexcept { maxGainDisplayValue = value; needsGradientRegen = true; }
 
 private:
-    void paint(Graphics& g) override
+    void paint(Graphics& g) noexcept override
     {
         regenerateGradientIfNeeded();
         g.fillAll(Colours::black);
-        if (ffauSource && channel < ffauSource->getNumChannels())
+        if (source)
         {
-            drawMeterFilledToLevel(g, ffauSource->getRMSLevel(channel));
-
+            if (style == peakHoldRMS)
             {
-                float proportionOfMaxMeterFilled = getProportionOfMeterFilledForLevel(ffauSource->getMaxLevel(channel));
-                int maxMeterStartPos = getHeight() * (1.0 - proportionOfMaxMeterFilled);
-                Rectangle<int> activeMaxMeterArea = Rectangle<int>(0,
-                                                                   maxMeterStartPos,
-                                                                   getWidth(),
-                                                                   1);
-                g.drawImage(gradient.getClippedImage(activeMaxMeterArea), activeMaxMeterArea.toFloat());
+                drawMeterFilledToLevel(g, source->getRMS());
+
+                {
+                    float proportionOfMaxMeterFilled = getProportionOfMeterFilledForLevel(source->getPeakHold());
+                    int maxMeterStartPos = getHeight() * (1.0 - proportionOfMaxMeterFilled);
+                    Rectangle<int> activeMaxMeterArea = Rectangle<int>(0,
+                                                                       maxMeterStartPos,
+                                                                       getWidth(),
+                                                                       1);
+                    g.drawImage(gradient.getClippedImage(activeMaxMeterArea), activeMaxMeterArea.toFloat());
+                }
             }
-        }
-        else if (gaSource && channel < gaSource->getNumChannels())
-        {
-            float peakLevel = gaSource->getCurrentPeak(channel);
-            float rmsLevel = gaSource->getRMS(channel);
-            g.setOpacity(0.5f);
-            drawMeterFilledToLevel(g, peakLevel, rmsLevel);
-            g.setOpacity(1.0f);
-            drawMeterFilledToLevel(g, rmsLevel);
+            else if (style == peakRMS)
+            {
+                float peakLevel = source->getPeakInstant();
+                float rmsLevel = source->getRMS();
+                g.setOpacity(0.5f);
+                drawMeterFilledToLevel(g, peakLevel, rmsLevel);
+                g.setOpacity(1.0f);
+                drawMeterFilledToLevel(g, rmsLevel);
+            }
         }
     }
 
-    void timerCallback() override
+    void timerCallback() noexcept override
     {
-        if (ffauSource)
-            ffauSource->decayIfNeeded();
-
         repaint();
     }
 
-    void regenerateGradientIfNeeded()
+    void regenerateGradientIfNeeded() noexcept
     {
         if (needsGradientRegen)
         {
@@ -137,15 +145,11 @@ private:
         g.drawImage(gradient.getClippedImage(activeMeterArea), activeMeterArea.toFloat());
     }
 
-    WeakReference<FFAU::LevelMeterSource> ffauSource;
-    float ffauLastRMSLevel = 0.0f;
-    float ffauLastPeakLevel = 0.0f;
+    Style style = peakRMS;
+    WeakReference<WindowedMeter> source;
+    float lastRMSLevel = 0.0f;
+    float lastPeakLevel = 0.0f;
 
-    WeakReference<WindowedMeter> gaSource;
-    float gaLastRMSLevel = 0.0f;
-    float gaLastPeakLevel = 0.0f;
-
-    int channel = 0;
     float minGainDisplayValue = 0.0f;
     float maxGainDisplayValue = 1.0f;
     bool needsGradientRegen = true;

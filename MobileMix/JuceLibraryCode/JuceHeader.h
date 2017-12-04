@@ -14,7 +14,6 @@
 
 #include "AppConfig.h"
 
-#include <ff_meters/ff_meters.h>
 #include <jcf_advanced_leak_detector/jcf_advanced_leak_detector.h>
 #include <jcf_debug/jcf_debug.h>
 #include <juce_audio_basics/juce_audio_basics.h>

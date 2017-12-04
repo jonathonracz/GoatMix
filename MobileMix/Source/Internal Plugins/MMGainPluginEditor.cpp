@@ -50,30 +50,25 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     addAndMakeVisible(goniometer);
 
     //MaxdBLabels here -- probably need to change the source channel
-    leftdBLabel.setSource(&processor.meterSource, 0);
+    leftdBLabel.setSource(processor.meterSource.meters[0]);
     addAndMakeVisible(leftdBLabel);
-    
-    maxdBLabel.setSource(&processor.meterSource, 0);
+
+    maxdBLabel.setSource(processor.meterSource.meters[0]);
     addAndMakeVisible(maxdBLabel);
-    
-    rightdBLabel.setSource(&processor.meterSource, 0);
+
+    rightdBLabel.setSource(processor.meterSource.meters[1]);
     addAndMakeVisible(rightdBLabel);
-    
+
     //Meters here
-    meterNegL.setSource(&processor.meter);
-    meterPosL.setSource(&processor.meter);
-    meterNegR.setSource(&processor.meter);
-    meterPosR.setSource(&processor.meter);
+    meterNegL.setSource(processor.meterSource.meters[0]);
+    meterPosL.setSource(processor.meterSource.meters[0]);
+    meterNegR.setSource(processor.meterSource.meters[1]);
+    meterPosR.setSource(processor.meterSource.meters[1]);
 
     meterPosL.setMinGainDisplayValue(1.0f);
     meterPosL.setMaxGainDisplayValue(2.0f);
     meterPosR.setMinGainDisplayValue(1.0f);
     meterPosR.setMaxGainDisplayValue(2.0f);
-
-    meterNegL.setChannel(0);
-    meterPosL.setChannel(0);
-    meterNegR.setChannel(1);
-    meterPosR.setChannel(1);
 
     addAndMakeVisible(meterNegL);
     addAndMakeVisible(meterPosL);
@@ -114,7 +109,7 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     meterLabels[14].setText("+3", dontSendNotification);
     meterLabels[14].setJustificationType(Justification::centred);
     meterLabels[15].setText("0", dontSendNotification);
-    meterLabels[15].setJustificationType(Justification::centredBottom);
+    meterLabels[15].setJustificationType(Justification::centred);
 
     for (int i = 0; i < 16; ++i) {
         meterLabels[i].setBorderSize(BorderSize<int>::BorderSize());

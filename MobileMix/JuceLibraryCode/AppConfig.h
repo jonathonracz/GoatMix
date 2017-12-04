@@ -48,7 +48,6 @@
 #define JUCE_USE_DARK_SPLASH_SCREEN 0
 
 //==============================================================================
-#define JUCE_MODULE_AVAILABLE_ff_meters                       1
 #define JUCE_MODULE_AVAILABLE_jcf_advanced_leak_detector      1
 #define JUCE_MODULE_AVAILABLE_jcf_debug                       1
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics               1

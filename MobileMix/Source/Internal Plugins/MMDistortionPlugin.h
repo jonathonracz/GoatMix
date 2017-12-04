@@ -14,6 +14,7 @@
 #include "../Core/MobileMixPluginInstance.h"
 #include "../DSP/DistortionChain.h"
 #include "../DSP/MMStateVariableFilter.h"
+#include "../DSP/MultiWindowedMeter.h"
 
 class MMDistortionPlugin :
     public MobileMixPluginInstance
@@ -38,7 +39,7 @@ public:
     AudioProcessorParameterWithID* paramLowPass;
     AudioProcessorParameterWithID* paramLowPassEnable;
 
-    FFAU::LevelMeterSource meterSource;
+    MultiWindowedMeter meterSource;
 
     DistortionChain distortion;
 

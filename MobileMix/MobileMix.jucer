@@ -195,6 +195,8 @@
             file="Source/Core/MobileMixPluginInstance.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
+      <FILE id="STyoBW" name="MultiWindowedMeter.h" compile="0" resource="0"
+            file="Source/DSP/MultiWindowedMeter.h"/>
       <FILE id="XWS311" name="SPSCAtomic.h" compile="0" resource="0" file="Source/DSP/SPSCAtomic.h"/>
       <FILE id="kYTWOj" name="DecibelDecay.h" compile="0" resource="0" file="Source/DSP/DecibelDecay.h"/>
       <FILE id="S1cvZs" name="LogMap.h" compile="0" resource="0" file="Source/DSP/LogMap.h"/>
@@ -259,7 +261,6 @@
         <MODULEPATH id="juce_audio_plugin_client" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
-        <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
@@ -288,7 +289,6 @@
         <MODULEPATH id="juce_audio_plugin_client" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../external/JUCE/modules"/>
-        <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
@@ -316,14 +316,12 @@
         <MODULEPATH id="juce_audio_formats" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../external/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../external/JUCE/modules"/>
-        <MODULEPATH id="ff_meters" path="Source/External"/>
         <MODULEPATH id="jcf_debug" path="Source/External/juce-toys"/>
         <MODULEPATH id="jcf_advanced_leak_detector" path="Source/External/juce-toys"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="ff_meters" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="jcf_advanced_leak_detector" showAllCode="1" useLocalCopy="0"
             useGlobalPath="0"/>
     <MODULE id="jcf_debug" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>

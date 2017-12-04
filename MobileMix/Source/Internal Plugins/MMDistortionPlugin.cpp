@@ -15,7 +15,7 @@
 MMDistortionPlugin::MMDistortionPlugin(AudioProcessorValueTreeState& state) :
     MobileMixPluginInstance(state)
 {
-    meterSource.resize(getMainBusNumInputChannels(), 8);
+    meterSource.allocateMeters(getMainBusNumInputChannels());
 }
 
 void MMDistortionPlugin::registerParameters()
@@ -92,6 +92,7 @@ void MMDistortionPlugin::prepareToPlayDerived(double sampleRate, int maximumExpe
         static_cast<uint32>(getMainBusNumInputChannels())
     };
 
+    meterSource.prepare(spec);
     distortion.prepare(spec);
     lowPass.prepare(spec);
 }
@@ -108,7 +109,7 @@ void MMDistortionPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuf
     dsp::ProcessContextReplacing<float> context(block);
 
     distortion.process(context);
-    meterSource.measureBlock(buffer);
+    meterSource.process(context);
     if (getUnnormalizedValue(paramLowPassEnable) >= 0.5f)
         lowPass.process(context);
 }

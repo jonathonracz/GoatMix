@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "../GUI/UIStrings.h"
+#include "../DSP/MultiWindowedMeter.h"
 
 class MobileMixPluginInstanceEditor;
 
@@ -50,9 +51,11 @@ public:
 
     AudioProcessorValueTreeState& state;
     AudioProcessorParameterWithID* paramBypass;
-    FFAU::LevelMeterSource meterSource;
+    MultiWindowedMeter meterSource;
 
 private:
+    friend class MobileMixPluginInstanceEditor;
+
     void fillInPluginDescription(PluginDescription &description) const override;
 
     void releaseResources() override;
@@ -67,11 +70,11 @@ private:
     double getTailLengthSeconds() const override;
     int getNumPrograms() override;
     int getCurrentProgram() override;
-    void setCurrentProgram(int index) override;
-    const String getProgramName(int index) override;
-    void changeProgramName(int index, const String& newName) override;
-    void getStateInformation(MemoryBlock& destData) override;
-    void setStateInformation(const void* data, int sizeInBytes) override;
+    void setCurrentProgram(int index) override {}
+    const String getProgramName(int index) override { return {}; }
+    void changeProgramName(int index, const String& newName) override {}
+    void getStateInformation(MemoryBlock& destData) override {}
+    void setStateInformation(const void* data, int sizeInBytes) override {}
 
     double preparedSampleRate = 0.0;
     int preparedBlockSize = 0;

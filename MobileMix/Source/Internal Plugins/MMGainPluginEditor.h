@@ -25,17 +25,16 @@ public:
     MMGainPluginEditor(MMGainPlugin& processor);
     ~MMGainPluginEditor();
 
-protected:
+private:
     void resized() override;
 
-private:
     Goniometer goniometer;
     MaxdBLabel maxdBLabel;
     MaxdBLabel leftdBLabel;
     MaxdBLabel rightdBLabel;
-    
+
     Label meterLabels[16];
-    
+
     SimpleLevelMeter meterNegL;
     SimpleLevelMeter meterPosL;
     SimpleLevelMeter meterNegR;

@@ -10,9 +10,6 @@
 [submodule "External/vst3sdk"]
 	path = External/vst3sdk
 	url = https://github.com/steinbergmedia/vst3sdk.git
-[submodule "MobileMix/Source/External/ff_meters"]
-	path = MobileMix/Source/External/ff_meters
-	url = https://github.com/ffAudio/ff_meters.git
 [submodule "MobileMix/Source/External/juce-toys"]
 	path = MobileMix/Source/External/juce-toys
 	url = https://github.com/jonathonracz/juce-toys.git

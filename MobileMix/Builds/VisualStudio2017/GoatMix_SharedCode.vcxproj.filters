@@ -35,9 +35,6 @@
     <Filter Include="GoatMix">
       <UniqueIdentifier>{0E2CACF3-C113-7CE9-617A-BE46C94E6E84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Juce Modules\ff_meters">
-      <UniqueIdentifier>{91A9611E-CDAA-E38E-BD54-A491802C8971}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules\jcf_advanced_leak_detector">
       <UniqueIdentifier>{932B21C8-88D9-833B-5E76-3D22BD78C642}</UniqueIdentifier>
     </Filter>
@@ -513,9 +510,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\MobileMixPluginEditor.cpp">
       <Filter>GoatMix</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.cpp">
-      <Filter>Juce Modules\ff_meters</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.cpp">
       <Filter>Juce Modules\jcf_debug\source</Filter>
@@ -2326,9 +2320,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\include_ff_meters_LevelMeter.cpp">
-      <Filter>Juce Library Code</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_jcf_debug.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2535,6 +2526,9 @@
     <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\MultiWindowedMeter.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\SPSCAtomic.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
@@ -2609,24 +2603,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\MobileMixPluginEditor.h">
       <Filter>GoatMix</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LevelMeter.h">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LevelMeterSource.h">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LookAndFeel.h">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_LookAndFeelMethods.h">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters_OutlineBuffer.h">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\External\ff_meters\ff_meters.h">
-      <Filter>Juce Modules\ff_meters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_advanced_leak_detector\jcf_advanced_leak_detector.h">
       <Filter>Juce Modules\jcf_advanced_leak_detector</Filter>
@@ -4651,12 +4627,6 @@
     </None>
     <None Include="..\..\Source\Resources\power.svg">
       <Filter>GoatMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\External\ff_meters\LICENSE.md">
-      <Filter>Juce Modules\ff_meters</Filter>
-    </None>
-    <None Include="..\..\Source\External\ff_meters\README.md">
-      <Filter>Juce Modules\ff_meters</Filter>
     </None>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>

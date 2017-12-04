@@ -19,7 +19,7 @@
 #include "../DSP/Gain.h"
 #include "../DSP/InvertPhase.h"
 #include "../DSP/Pan.h"
-#include "../DSP/WindowedMeter.h"
+#include "../DSP/MultiWindowedMeter.h"
 
 class MMGainPlugin :
     public MobileMixPluginInstance
@@ -38,7 +38,7 @@ public:
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;
 
     GoniometerSource goniometerSource;
-    WindowedMeter meter;
+    MultiWindowedMeter meterSource;
 
     AudioProcessorParameterWithID* paramGain;
     AudioProcessorParameterWithID* paramGainL;

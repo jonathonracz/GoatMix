@@ -12,6 +12,7 @@
 
 #include "JuceHeader.h"
 #include "MMLookAndFeel.h"
+#include "../DSP/WindowedMeter.h"
 
 class MaxdBLabel :
     public Label,
@@ -24,24 +25,23 @@ public:
         startTimerHz(5);
     }
 
-    void setSource(FFAU::LevelMeterSource* _source, int _channel)
+    void setSource(WindowedMeter* _source)
     {
         jassert(_source);
         source = _source;
-        channel = _channel;
     }
 
 private:
     void mouseUp(const MouseEvent& e) override
     {
         setText(Decibels::toString(0.0f), NotificationType::dontSendNotification);
-        source->clearAllMaxNums();
+        source->resetPeakOverall();
         Label::mouseUp(e);
     }
 
     void paint(Graphics& g) override
     {
-        if (source && source->getMaxOverallLevel(channel) > 1.0f)
+        if (source && source->getClippingStatus())
             g.fillAll(findColour(MMLookAndFeel::ColourIds::meterClip));
         Label::paint(g);
     }
@@ -50,7 +50,7 @@ private:
     {
         String newText;
         if (source)
-            newText = Decibels::toString(source->getMaxOverallLevel(channel));
+            newText = Decibels::toString(source->getPeakOverall());
         else
             newText = "NO SOURCE";
 
@@ -61,6 +61,5 @@ private:
         }
     }
 
-    WeakReference<FFAU::LevelMeterSource> source;
-    int channel = 0;
+    WeakReference<WindowedMeter> source;
 };

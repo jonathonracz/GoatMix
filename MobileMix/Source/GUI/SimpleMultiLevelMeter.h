@@ -12,8 +12,7 @@
 
 #include "JuceHeader.h"
 #include "SimpleLevelMeter.h"
-#include "../DSP/WindowedMeter.h"
-#include <list>
+#include "../DSP/MultiWindowedMeter.h"
 
 class SimpleMultiLevelMeter :
     public Component
@@ -22,69 +21,56 @@ public:
     SimpleMultiLevelMeter() {}
     ~SimpleMultiLevelMeter() {}
 
-    void setSource(FFAU::LevelMeterSource* source)
+    void setSource(MultiWindowedMeter* source)
     {
-        setSourceInternal(source);
-    }
-
-    void setSource(WindowedMeter* source)
-    {
-        setSourceInternal(source);
+        jassert(source);
+        meters.clear();
+        for (int i = 0; i < source->meters.size(); ++i)
+        {
+            meters.add(new SimpleLevelMeter);
+            meters.getLast()->setMinGainDisplayValue(minGainDisplay);
+            meters.getLast()->setMaxGainDisplayValue(maxGainDisplay);
+            meters.getLast()->setSource(source->meters[i]);
+            addAndMakeVisible(meters.getLast());
+        }
     }
 
     void setMinGainDisplayValue(float value)
     {
         minGainDisplay = value;
-        for (SimpleLevelMeter& meter : meters)
-            meter.setMinGainDisplayValue(value);
+        for (auto& meter : meters)
+            meter->setMinGainDisplayValue(value);
     }
 
     void setMaxGainDisplayValue(float value)
     {
         maxGainDisplay = value;
-        for (SimpleLevelMeter& meter : meters)
-            meter.setMaxGainDisplayValue(value);
+        for (auto& meter : meters)
+            meter->setMaxGainDisplayValue(value);
     }
 
     void startAnimating(int hz)
     {
-        for (SimpleLevelMeter& meter : meters)
-            meter.startTimerHz(hz);
+        for (auto& meter : meters)
+            meter->startTimerHz(hz);
     }
 
     void stopAnimating()
     {
-        for (SimpleLevelMeter& meter : meters)
-            meter.stopTimer();
+        for (auto& meter : meters)
+            meter->stopTimer();
     }
 
 private:
     void resized() override
     {
         FlexBox flex;
-        for (SimpleLevelMeter& meter : meters)
-            flex.items.add(FlexItem(meter).withFlex(1.0f));
+        for (auto& meter : meters)
+            flex.items.add(FlexItem(*meter).withFlex(1.0f));
         flex.performLayout(getLocalBounds());
     }
 
-    template<class SourceType>
-    void setSourceInternal(SourceType source)
-    {
-        jassert(source);
-        meters.resize(source->getNumChannels());
-        int index = 0;
-        for (auto meter = meters.begin(); meter != meters.end(); ++meter)
-        {
-            meter->setSource(source);
-            meter->setChannel(index);
-            meter->setMinGainDisplayValue(minGainDisplay);
-            meter->setMaxGainDisplayValue(maxGainDisplay);
-            addAndMakeVisible(*meter);
-            index++;
-        }
-    }
-
-    std::list<SimpleLevelMeter> meters;
+    OwnedArray<SimpleLevelMeter> meters;
     float minGainDisplay = 0.0f;
     float maxGainDisplay = 1.0f;
 

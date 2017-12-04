@@ -44,7 +44,7 @@ void CompressorPreview::paint(Graphics& g)
             g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
             g.strokePath(compressionPathLine, PathStrokeType(lf.borderThickness * 2.0f));
 
-            float pathPos = meter.getAverageWindowedPeak() * compressionPathLine.getLength();
+            float pathPos = meter.getPeakWindowed() * compressionPathLine.getLength();
             meterPoint = compressionPathLine.getPointAlongPath(pathPos);
         }
 
