@@ -131,6 +131,7 @@ private:
                 {
                     topPaintLevel = std::max(peakHold, lastPaintedMaxLevel);
                     bottomPaintLevel = std::min(rms, lastPaintedMinLevel);
+                    break;
                 }
             }
 
