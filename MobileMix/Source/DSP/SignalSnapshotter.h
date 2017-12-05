@@ -86,6 +86,7 @@ public:
                 break;
 
             bool result = writeBuffers.try_enqueue(latestBuffer);
+            ignoreUnused(result);
             jassert(result);
             latestBuffer = newBuffer;
         }
@@ -172,6 +173,7 @@ private:
     {
         jassert(buffer);
         bool result = writeBuffers.try_enqueue(buffer);
+        ignoreUnused(result);
         jassert(result);
     }
 
@@ -199,6 +201,7 @@ private:
             }
 
             bool result = readBuffers.try_enqueue(buffer);
+            ignoreUnused(result);
             jassert(result);
         }
     }
