@@ -59,12 +59,12 @@ private:
         if (!aboutPDF.exists())
         {
         #if JUCE_IOS
-            aboutPDF = File::getSpecialLocation(File::SpecialLocationType::userDocumentsDirectory).getChildFile("MobileMixAcknowledgements.pdf");
+            aboutPDF = File::getSpecialLocation(File::SpecialLocationType::userDocumentsDirectory).getChildFile("GoatMixAcknowledgements.pdf");
         #else
             aboutPDF = File::createTempFile(".pdf");
         #endif
             std::unique_ptr<FileOutputStream> output(aboutPDF.createOutputStream());
-            output->write(BinaryData::MobileMixAcknowledgements_pdf, BinaryData::MobileMixAcknowledgements_pdfSize);
+            output->write(BinaryData::GoatMixAcknowledgements_pdf, BinaryData::GoatMixAcknowledgements_pdfSize);
             jassert(aboutPDF.exists());
         }
     }

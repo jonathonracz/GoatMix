@@ -21,17 +21,26 @@ public:
     SimpleMultiLevelMeter() {}
     ~SimpleMultiLevelMeter() {}
 
+    void setStyle(SimpleLevelMeter::Style _style) noexcept
+    {
+        style = _style;
+        for (auto& meter : meters)
+            meter->setStyle(_style);
+    }
+
     void setSource(MultiWindowedMeter* source)
     {
         jassert(source);
         meters.clear();
         for (int i = 0; i < source->meters.size(); ++i)
         {
-            meters.add(new SimpleLevelMeter);
-            meters.getLast()->setMinGainDisplayValue(minGainDisplay);
-            meters.getLast()->setMaxGainDisplayValue(maxGainDisplay);
-            meters.getLast()->setSource(source->meters[i]);
-            addAndMakeVisible(meters.getLast());
+            SimpleLevelMeter* newMeter = new SimpleLevelMeter;
+            newMeter->setMinGainDisplayValue(minGainDisplay);
+            newMeter->setMaxGainDisplayValue(maxGainDisplay);
+            newMeter->setStyle(style);
+            newMeter->setSource(source->meters[i]);
+            addAndMakeVisible(newMeter);
+            meters.add(newMeter);
         }
     }
 
@@ -73,6 +82,7 @@ private:
     OwnedArray<SimpleLevelMeter> meters;
     float minGainDisplay = 0.0f;
     float maxGainDisplay = 1.0f;
+    SimpleLevelMeter::Style style = SimpleLevelMeter::Style::peakRMS;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SimpleMultiLevelMeter)
 };

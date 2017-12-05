@@ -52,20 +52,20 @@
         <FILE id="W8VRq9" name="Mixifier" compile="0" resource="1" file="Source/Resources/Presets/Mixifier"/>
         <FILE id="WiBjgr" name="Init" compile="0" resource="1" file="Source/Resources/Presets/Init"/>
       </GROUP>
-      <FILE id="BcWm5j" name="Icon-60.svg" compile="0" resource="1" file="Source/Resources/Icon-60.svg"/>
-      <FILE id="AdaT8z" name="MobileMixAcknowledgements.pdf" compile="0"
-            resource="1" file="Source/Resources/MobileMixAcknowledgements.pdf"/>
+      <FILE id="abZZmF" name="goataudio.svg" compile="0" resource="1" file="Source/Resources/goataudio.svg"/>
+      <FILE id="pvtae5" name="GoatMixAcknowledgements.pdf" compile="0" resource="1"
+            file="Source/Resources/GoatMixAcknowledgements.pdf"/>
       <FILE id="WL0l57" name="hipass.svg" compile="0" resource="1" file="Source/Resources/hipass.svg"/>
-      <FILE id="a1mLQp" name="lopass.svg" compile="0" resource="1" file="Source/Resources/lopass.svg"/>
-      <FILE id="r0l0iz" name="phaseinvert.svg" compile="0" resource="1" file="Source/Resources/phaseinvert.svg"/>
+      <FILE id="BcWm5j" name="Icon-60.svg" compile="0" resource="1" file="Source/Resources/Icon-60.svg"/>
       <FILE id="mXelQp" name="info.svg" compile="0" resource="1" file="Source/Resources/info.svg"/>
+      <FILE id="a1mLQp" name="lopass.svg" compile="0" resource="1" file="Source/Resources/lopass.svg"/>
       <FILE id="Dn2IgD" name="mutebuttonbg.svg" compile="0" resource="1"
             file="Source/Resources/mutebuttonbg.svg"/>
-      <FILE id="h6vFP7" name="tabshadow.svg" compile="0" resource="1" file="Source/Resources/tabshadow.svg"/>
-      <FILE id="nDrTbu" name="redo.svg" compile="0" resource="1" file="Source/Resources/redo.svg"/>
-      <FILE id="kl2zHn" name="undo.svg" compile="0" resource="1" file="Source/Resources/undo.svg"/>
-      <FILE id="abZZmF" name="goataudio.svg" compile="0" resource="1" file="Source/Resources/goataudio.svg"/>
+      <FILE id="r0l0iz" name="phaseinvert.svg" compile="0" resource="1" file="Source/Resources/phaseinvert.svg"/>
       <FILE id="zJWfQV" name="power.svg" compile="0" resource="1" file="Source/Resources/power.svg"/>
+      <FILE id="nDrTbu" name="redo.svg" compile="0" resource="1" file="Source/Resources/redo.svg"/>
+      <FILE id="h6vFP7" name="tabshadow.svg" compile="0" resource="1" file="Source/Resources/tabshadow.svg"/>
+      <FILE id="kl2zHn" name="undo.svg" compile="0" resource="1" file="Source/Resources/undo.svg"/>
     </GROUP>
     <GROUP id="{1AF3964E-6248-F78E-70BD-E857B85AF851}" name="Internal Plugins">
       <FILE id="lZvetz" name="MMCompressorPlugin.cpp" compile="1" resource="0"

@@ -4592,40 +4592,40 @@
     <None Include="..\..\Source\Resources\Presets\Init">
       <Filter>GoatMix\Resources\Presets</Filter>
     </None>
-    <None Include="..\..\Source\Resources\Icon-60.svg">
+    <None Include="..\..\Source\Resources\goataudio.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
-    <None Include="..\..\Source\Resources\MobileMixAcknowledgements.pdf">
+    <None Include="..\..\Source\Resources\GoatMixAcknowledgements.pdf">
       <Filter>GoatMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\hipass.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
-    <None Include="..\..\Source\Resources\lopass.svg">
-      <Filter>GoatMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\phaseinvert.svg">
+    <None Include="..\..\Source\Resources\Icon-60.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\info.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
+    <None Include="..\..\Source\Resources\lopass.svg">
+      <Filter>GoatMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\mutebuttonbg.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
-    <None Include="..\..\Source\Resources\tabshadow.svg">
+    <None Include="..\..\Source\Resources\phaseinvert.svg">
+      <Filter>GoatMix\Resources</Filter>
+    </None>
+    <None Include="..\..\Source\Resources\power.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
     <None Include="..\..\Source\Resources\redo.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
+    <None Include="..\..\Source\Resources\tabshadow.svg">
+      <Filter>GoatMix\Resources</Filter>
+    </None>
     <None Include="..\..\Source\Resources\undo.svg">
-      <Filter>GoatMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\goataudio.svg">
-      <Filter>GoatMix\Resources</Filter>
-    </None>
-    <None Include="..\..\Source\Resources\power.svg">
       <Filter>GoatMix\Resources</Filter>
     </None>
     <None Include="..\..\..\external\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">

@@ -41,6 +41,7 @@ MobileMixAudioProcessorEditor::MobileMixAudioProcessorEditor(MobileMixAudioProce
     LookAndFeel::setDefaultLookAndFeel(&lookAndFeel);
     setBufferedToImage(true);
     addChildComponent(aboutMessage);
+    processor.undoManager.clearUndoHistory();
 }
 
 MobileMixAudioProcessorEditor::~MobileMixAudioProcessorEditor()

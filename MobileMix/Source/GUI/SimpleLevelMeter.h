@@ -52,10 +52,10 @@ public:
         source = _source;
     }
 
-    float getMinGainDisplayValue() const noexcept { return minGainDisplayValue; }
-    void setMinGainDisplayValue(float value) noexcept { minGainDisplayValue = value; needsGradientRegen = true; }
-    float getMaxGainDisplayValue() const noexcept { return maxGainDisplayValue; }
-    void setMaxGainDisplayValue(float value) noexcept { maxGainDisplayValue = value; needsGradientRegen = true; }
+    float getMinGainDisplayValue() const noexcept { return gainRange.start; }
+    void setMinGainDisplayValue(float value) noexcept { gainRange.start = value; needsGradientRegen = true; }
+    float getMaxGainDisplayValue() const noexcept { return gainRange.end; }
+    void setMaxGainDisplayValue(float value) noexcept { gainRange.end = value; needsGradientRegen = true; }
 
 private:
     void paint(Graphics& g) noexcept override
@@ -110,8 +110,8 @@ private:
                                        0.0f,
                                        1.0f,
                                        false);
-            float maxGainPos = maxGainDisplayValue - 1.0f;
-            float minGainPos = 1.0f - minGainDisplayValue;
+            float maxGainPos = gainRange.end - 1.0f;
+            float minGainPos = 1.0f - gainRange.start;
             gradientGen.setGradientFill(ColourGradient(barGradient.getColourAtPosition(0.0),
                                                        0.0f,
                                                        getHeight() * maxGainPos,
@@ -127,15 +127,11 @@ private:
 
     float getProportionOfMeterFilledForLevel(float level) const noexcept
     {
-        float gainBoundsDelta = ((maxGainDisplayValue - minGainDisplayValue) > 0) ? (maxGainDisplayValue - minGainDisplayValue) : 0;
-        return (level - minGainDisplayValue) / gainBoundsDelta;
+        return gainRange.convertTo0to1(gainRange.snapToLegalValue(level));
     }
 
     void drawMeterFilledToLevel(Graphics& g, float level, float bottomLevel = 0.0f) noexcept
     {
-        if (bottomLevel >= level)
-            return;
-
         float proportionOfMeterFilled = getProportionOfMeterFilledForLevel(level);
         float bottomProportionOfMeterFilled = getProportionOfMeterFilledForLevel(bottomLevel);
         Rectangle<int> activeMeterArea = Rectangle<int>(0,
@@ -150,8 +146,7 @@ private:
     float lastRMSLevel = 0.0f;
     float lastPeakLevel = 0.0f;
 
-    float minGainDisplayValue = 0.0f;
-    float maxGainDisplayValue = 1.0f;
+    NormalisableRange<float> gainRange = { 0.0f, 1.0f };
     bool needsGradientRegen = true;
     Image gradient;
 

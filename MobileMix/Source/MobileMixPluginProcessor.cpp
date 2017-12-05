@@ -43,9 +43,10 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         chainTree.getOrCreateChildWithName(instance->getName(), nullptr);
     }
 
-    params.state = ValueTree("ROOT");
-    params.state.addChild(chainTree, -1, nullptr);
-    params.state.addListener(this);
+    ValueTree rootState("ROOT");
+    rootState.addChild(chainTree, -1, nullptr);
+    rootState.addListener(this);
+    params.state = rootState;
     addListener(this);
 }
 
@@ -68,9 +69,7 @@ bool MobileMixAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts)
 {
     // We're assuming EVERYTHING in this plugin will ALWAYS be stereo.
     return ((layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
-        (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())) /*||
-        ((layouts.getMainInputChannelSet() == AudioChannelSet::mono()) &&
-         (layouts.getMainOutputChannelSet() == AudioChannelSet::mono())*/;
+        (layouts.getMainOutputChannelSet() == AudioChannelSet::stereo()));
 }
 
 void MobileMixAudioProcessor::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
