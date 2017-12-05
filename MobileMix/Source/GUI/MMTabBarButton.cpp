@@ -31,6 +31,7 @@ MMTabBarButton::MMTabBarButton(DraggableTabbedComponent& _owner, MobileMixPlugin
     meter.setMaxGainDisplayValue(1.1f);
     meter.setSource(&representedPlugin.meterSource);
     meter.addMouseListener(this, true);
+    meter.setStyle(SimpleLevelMeter::Style::peakHoldRMS);
 
     setTooltip(UIStrings::Meta::tab);
     bypassButton.setTooltip(UIStrings::Meta::mute);

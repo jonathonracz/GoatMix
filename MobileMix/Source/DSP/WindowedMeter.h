@@ -44,12 +44,41 @@ public:
     void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
     {
         updateParameters();
-        activeBlockSize = context.getInputBlock().getNumSamples();
         const float* sampleRead = context.getInputBlock().getChannelPointer(0);
         for (size_t i = 0; i < context.getInputBlock().getNumSamples(); ++i)
             pushSample(sampleRead[i]);
 
-        calculateValues();
+        // Calculate our new values.
+        samplesHeld += context.getInputBlock().getNumSamples();
+        float deltaTime = context.getInputBlock().getNumSamples() / static_cast<float>(activeSampleRate);
+        float bufferMax = std::max(FloatVectorOperations::findMaximum(buffer.getPointerToFirstHalf(), buffer.getSizeOfFirstHalf()),
+                                   FloatVectorOperations::findMaximum(buffer.getPointerToSecondHalf(), buffer.getSizeOfSecondHalf()));
+        float newPeakWindowed = std::max(peakSum / buffer.getLogicalCapacity(), decay.decayLinear(peakWindowed.load(std::memory_order_relaxed), deltaTime));
+        float newRMS = std::max(std::sqrt(rmsSum / buffer.getLogicalCapacity()), decay.decayLinear(rms.load(std::memory_order_relaxed), deltaTime));
+
+        std::atomic_thread_fence(std::memory_order_release);
+        peakInstant.store(bufferMax, std::memory_order_relaxed);
+        peakWindowed.store(newPeakWindowed, std::memory_order_relaxed);
+        rms.store(newRMS, std::memory_order_relaxed);
+
+        if (bufferMax > peakOverall.load(std::memory_order_relaxed))
+            peakOverall.store(bufferMax, std::memory_order_relaxed);
+
+        bool shouldSetPeakHold = false;
+        if (bufferMax > peakHold.load(std::memory_order_relaxed))
+        {
+            shouldSetPeakHold = true;
+            samplesHeld = 0;
+        }
+
+        if (samplesHeld > activeSamplesToHold)
+        {
+            shouldSetPeakHold = true;
+            samplesHeld %= activeSamplesToHold;
+        }
+
+        if (shouldSetPeakHold)
+            peakHold.store(bufferMax, std::memory_order_relaxed);
     }
 
     void reset() noexcept override
@@ -143,39 +172,6 @@ private:
         rmsSum -= square(poppedSample);
     }
 
-    void calculateValues() noexcept
-    {
-        float deltaTime = activeBlockSize / static_cast<float>(activeSampleRate);
-        float bufferMax = std::max(FloatVectorOperations::findMaximum(buffer.getPointerToFirstHalf(), buffer.getSizeOfFirstHalf()),
-                                   FloatVectorOperations::findMaximum(buffer.getPointerToSecondHalf(), buffer.getSizeOfSecondHalf()));
-        float newPeakWindowed = std::max(peakSum / buffer.getLogicalCapacity(), decay.decayLinear(peakWindowed.load(std::memory_order_relaxed), deltaTime));
-        float newRMS = std::max(std::sqrt(rmsSum / buffer.getLogicalCapacity()), decay.decayLinear(rms.load(std::memory_order_relaxed), deltaTime));
-
-        std::atomic_thread_fence(std::memory_order_release);
-        peakInstant.store(bufferMax, std::memory_order_relaxed);
-        peakWindowed.store(newPeakWindowed, std::memory_order_relaxed);
-        rms.store(newRMS, std::memory_order_relaxed);
-
-        if (bufferMax > peakOverall.load(std::memory_order_relaxed))
-            peakOverall.store(bufferMax, std::memory_order_relaxed);
-
-        bool shouldSetPeakHold = false;
-        if (bufferMax > peakHold.load(std::memory_order_relaxed))
-        {
-            shouldSetPeakHold = true;
-            samplesHeld = 0;
-        }
-
-        if (samplesHeld > activeSamplesToHold)
-        {
-            shouldSetPeakHold = true;
-            samplesHeld %= activeSamplesToHold;
-        }
-
-        if (shouldSetPeakHold)
-            peakHold.store(bufferMax, std::memory_order_relaxed);
-    }
-
     void handleAsyncUpdate() noexcept override
     {
         startTimer(static_cast<int>(msMeterResetTimeout.load(std::memory_order_acquire)));
@@ -201,7 +197,6 @@ private:
     size_t samplesHeld;
 
     double activeSampleRate;
-    size_t activeBlockSize;
     size_t activeSamplesToHold;
 
     JUCE_DECLARE_WEAK_REFERENCEABLE(WindowedMeter)
