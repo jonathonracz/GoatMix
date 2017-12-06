@@ -48,6 +48,11 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
     rootState.addListener(this);
     params.state = rootState;
     addListener(this);
+
+    // Hack necessary because of bugs in AudioProcessorValueTreeState.
+    // See https://forum.juce.com/t/possible-bug-clearing-audioprocessorvaluetreestate-undo-history-after-setting-state/25449
+    // and https://forum.juce.com/t/audioprocessorvaluetreestate-undomanager-usage/16179/12
+    Timer::callAfterDelay(100, [&]{ undoManager.clearUndoHistory(); });
 }
 
 MobileMixAudioProcessor::~MobileMixAudioProcessor()

@@ -59,61 +59,46 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     rightdBLabel.setSource(processor.meterSource.meters[1]);
     addAndMakeVisible(rightdBLabel);
 
-    //Meters here
-    meterNegL.setSource(processor.meterSource.meters[0]);
-    meterPosL.setSource(processor.meterSource.meters[0]);
-    meterNegR.setSource(processor.meterSource.meters[1]);
-    meterPosR.setSource(processor.meterSource.meters[1]);
+    // Meters here
+    std::array<SimpleLevelMeter*, 4> meters = { &meterPosL, &meterPosR, &meterNegL, &meterNegR };
+    for (size_t i = 0; i < meters.size(); ++i)
+    {
+        meters[i]->setSource(processor.meterSource.meters[i % 2]);
 
-    meterPosL.setMinGainDisplayValue(1.0f);
-    meterPosL.setMaxGainDisplayValue(2.0f);
-    meterPosR.setMinGainDisplayValue(1.0f);
-    meterPosR.setMaxGainDisplayValue(2.0f);
+        if (i < 2)
+        {
+            meters[i]->setMinGainDisplayValue(1.0f);
+            meters[i]->setMaxGainDisplayValue(2.0f);
+        }
 
-    addAndMakeVisible(meterNegL);
-    addAndMakeVisible(meterPosL);
-    addAndMakeVisible(meterNegR);
-    addAndMakeVisible(meterPosR);
+        addAndMakeVisible(meters[i]);
+    }
 
     addAndMakeVisible(div);
 
-    //meterLabels here
-    meterLabels[0].setText("+6", dontSendNotification);
-    meterLabels[0].setJustificationType(Justification::centredTop);
-    meterLabels[1].setText("+3", dontSendNotification);
-    meterLabels[1].setJustificationType(Justification::centred);
-    meterLabels[2].setText("0", dontSendNotification);
-    meterLabels[2].setJustificationType(Justification::centredBottom);
-    meterLabels[3].setText("0", dontSendNotification);
-    meterLabels[3].setJustificationType(Justification::centredTop);
-    meterLabels[4].setText("-6", dontSendNotification);
-    meterLabels[4].setJustificationType(Justification::centred);
-    meterLabels[5].setText("-12", dontSendNotification);
-    meterLabels[5].setJustificationType(Justification::centred);
-    meterLabels[6].setText("-24", dontSendNotification);
-    meterLabels[6].setJustificationType(Justification::centred);
-    meterLabels[7].setText("-inf", dontSendNotification);
-    meterLabels[7].setJustificationType(Justification::centredBottom);
-    meterLabels[8].setText("0", dontSendNotification);
-    meterLabels[8].setJustificationType(Justification::centred);
-    meterLabels[9].setText("-6", dontSendNotification);
-    meterLabels[9].setJustificationType(Justification::centred);
-    meterLabels[10].setText("-12", dontSendNotification);
-    meterLabels[10].setJustificationType(Justification::centred);
-    meterLabels[11].setText("-24", dontSendNotification);
-    meterLabels[11].setJustificationType(Justification::centred);
-    meterLabels[12].setText("-inf", dontSendNotification);
-    meterLabels[12].setJustificationType(Justification::centredBottom);
-    meterLabels[13].setText("+6", dontSendNotification);
-    meterLabels[13].setJustificationType(Justification::centredTop);
-    meterLabels[14].setText("+3", dontSendNotification);
-    meterLabels[14].setJustificationType(Justification::centred);
-    meterLabels[15].setText("0", dontSendNotification);
-    meterLabels[15].setJustificationType(Justification::centred);
+    // Labels here
+    std::array<SpanningLabel*, 4> labels = { &labelPosL, &labelPosR, &labelNegL, &labelNegR };
+    for (size_t i = 0; i < labels.size(); ++i)
+    {
+        labels[i]->setLayoutDirection(SpanningLabel::LayoutDirection::verticalCenter);
+        labels[i]->setValueToTextFunction([](float value) -> String {
+            // Round all dB values to the nearest 0.5, snap anything < 0.1 to 0
+            // (for rounding errors when doing proportion conversions)
+            if (value < 0.1f)
+                return "-INF";
 
-    for (int i = 0; i < 16; ++i) {
-        meterLabels[i].setBorderSize(BorderSize<int>::BorderSize());
-        addAndMakeVisible(meterLabels[i]);
+            float dBValue = std::llround(Decibels::gainToDecibels(value) * 2.0f) / 2.0f;
+            return (std::floor(dBValue) == dBValue) ? String(static_cast<int>(dBValue)) : String(dBValue, 1);
+        });
+        labels[i]->setRange(NormalisableRange<float>(meters[i]->getMinGainDisplayValue(), meters[i]->getMaxGainDisplayValue()));
+        labels[i]->setReversedOrder(true);
+
+        if (i < 2)
+            labels[i]->setNumIntermediatePoints(1);
+        else
+            labels[i]->setNumIntermediatePoints(3);
+
+        addAndMakeVisible(labels[i]);
     }
 }
 
@@ -126,84 +111,59 @@ void MMGainPluginEditor::resized()
     //MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
 
     FlexBox layout;
-    
+
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
     float vertDynamicSpace = this->getHeight() * 0.02f;
-    float labelsFlex = 0.6f;
+    float labelsFlex = 0.8f;
     float metersFlex = 0.75f;
-    FlexItem::Margin labelsMargin = FlexItem::Margin::Margin(10.0f, 0.0f, 10.0f, 0.0f);
+    FlexItem::Margin labelsMargin = FlexItem::Margin::Margin(10.0f, 2.0f, 10.0f, 2.0f);
     FlexItem::Margin meterMargin = FlexItem::Margin::Margin(15.0f, 0.0f, 15.0f, 0.0f);
     FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
-    
-    //Amplitude (left side)
+
+    // Amplitude (left side)
     FlexBox ampBox;
     ampBox.flexDirection = FlexBox::Direction::column;
-    
+
     FlexBox ampTop;
     ampTop.flexDirection = FlexBox::Direction::row;
     ampTop.items.add(FlexItem(leftdBLabel).withFlex(2.0f));
     ampTop.items.add(FlexItem(maxdBLabel).withFlex(1.0f));
     ampTop.items.add(FlexItem(rightdBLabel).withFlex(2.0f));
     ampBox.items.add(FlexItem(ampTop).withMargin(FlexItem::Margin::Margin(0, dynamicSpace * 2, 0, 15.0f)).withFlex(1.0f));
-    
+
     FlexBox ampBottom;
     ampBottom.flexDirection = FlexBox::Direction::row;
     ampBottom.items.add(FlexItem(sliderGainL).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(1.0f));
-    
-    //L meters
-    FlexBox lPosLabels;
-    lPosLabels.flexDirection = FlexBox::Direction::column;
-    lPosLabels.items.add(FlexItem(meterLabels[0]).withFlex(1.0f));
-    lPosLabels.items.add(FlexItem(meterLabels[1]).withFlex(1.0f));
-    lPosLabels.items.add(FlexItem(meterLabels[2]).withFlex(1.0f));
-    ampBottom.items.add(FlexItem(lPosLabels).withMargin(labelsMargin).withFlex(labelsFlex));
+
+    // L meters
+    ampBottom.items.add(FlexItem(labelPosL).withMargin(labelsMargin).withFlex(labelsFlex));
     ampBottom.items.add(FlexItem(meterPosL).withMargin(meterMargin).withFlex(metersFlex));
-    
-    
-    FlexBox lNegLabels;
-    lNegLabels.flexDirection = FlexBox::Direction::column;
-    lNegLabels.items.add(FlexItem(meterLabels[3]).withFlex(0.5f));
-    lNegLabels.items.add(FlexItem(meterLabels[4]).withFlex(1.0f));
-    lNegLabels.items.add(FlexItem(meterLabels[5]).withFlex(1.0f));
-    lNegLabels.items.add(FlexItem(meterLabels[6]).withFlex(1.0f));
-    lNegLabels.items.add(FlexItem(meterLabels[7]).withFlex(0.5f));
-    ampBottom.items.add(FlexItem(lNegLabels).withMargin(FlexItem::Margin::Margin(10.0f, 0.0f, 10.0f, dynamicSpace)).withFlex(labelsFlex));
+
+    ampBottom.items.add(FlexItem(labelNegL).withMargin(labelsMargin).withFlex(labelsFlex));
     ampBottom.items.add(FlexItem(meterNegL).withMargin(meterMargin).withFlex(metersFlex));
-    
+
     ampBottom.items.add(FlexItem(sliderGain).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace * 2, 15.0f, dynamicSpace * 2)).withFlex(1.0f));
-    
-    //R meters
+
+    // R meters
     ampBottom.items.add(FlexItem(meterNegR).withMargin(meterMargin).withFlex(metersFlex));
-    FlexBox rNegLabels;
-    rNegLabels.flexDirection = FlexBox::Direction::column;
-    rNegLabels.items.add(FlexItem(meterLabels[8]).withFlex(0.5f));
-    rNegLabels.items.add(FlexItem(meterLabels[9]).withFlex(1.0f));
-    rNegLabels.items.add(FlexItem(meterLabels[10]).withFlex(1.0f));
-    rNegLabels.items.add(FlexItem(meterLabels[11]).withFlex(1.0f));
-    rNegLabels.items.add(FlexItem(meterLabels[12]).withFlex(0.5f));
-    ampBottom.items.add(FlexItem(rNegLabels).withMargin(FlexItem::Margin::Margin(10.0f, dynamicSpace, 10.0f, 0.0f)).withFlex(labelsFlex));
-    
+    ampBottom.items.add(FlexItem(labelNegR).withMargin(labelsMargin).withFlex(labelsFlex));
+
     ampBottom.items.add(FlexItem(meterPosR).withMargin(meterMargin).withFlex(metersFlex));
-    FlexBox rPosLabels;
-    rPosLabels.flexDirection = FlexBox::Direction::column;
-    rPosLabels.items.add(FlexItem(meterLabels[13]).withFlex(1.0f));
-    rPosLabels.items.add(FlexItem(meterLabels[14]).withFlex(1.0f));
-    rPosLabels.items.add(FlexItem(meterLabels[15]).withFlex(1.0f));
-    ampBottom.items.add(FlexItem(rPosLabels).withMargin(labelsMargin).withFlex(labelsFlex));
-    
+    ampBottom.items.add(FlexItem(labelPosR).withMargin(labelsMargin).withFlex(labelsFlex));
+
     ampBottom.items.add(FlexItem(sliderGainR).withMargin(standardMargin).withFlex(1.0f));
     ampBox.items.add(FlexItem(ampBottom).withFlex(8.0f));
-    
+
     layout.items.add(FlexItem(ampBox).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 0.0f, vertSpace)).withFlex(1.0f));
-    
+
     layout.items.add(FlexItem(div).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
-    
-    //Phase (right side)
+
+    // Phase (right side)
     float phaseWidth = (this->getWidth() * 0.405f);
     float phaseHeight = this->getHeight() - vertSpace * 2;
     float phaseSliderWidth = phaseWidth / 6;
-    
+
     FlexBox phaseBox;
     phaseBox.flexDirection = FlexBox::Direction::column;
     float panHeight = phaseHeight * (1.0f/6.0f);
@@ -211,31 +171,36 @@ void MMGainPluginEditor::resized()
 
     FlexBox phaseBottom;
     phaseBottom.flexDirection = FlexBox::Direction::row;
-    
+
     FlexBox lPhase;
     lPhase.flexDirection = FlexBox::Direction::column;
     lPhase.items.add(FlexItem(sliderPhaseDelayL).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
     lPhase.items.add(FlexItem(buttonPhaseInvertL).withWidth(phaseSliderWidth).withFlex(1.0f));
     phaseBottom.items.add(FlexItem(lPhase).withFlex(1.0f));
-    
-    //Goniometer
+
+    // Goniometer
     float gonVertSpace = phaseHeight - panHeight;
     float gonHorSpace = phaseWidth - phaseSliderWidth * 2;
     float calcWidth = gonHorSpace;
     float calcHeight = gonVertSpace;
-    if (calcWidth > calcHeight) {
+    if (calcWidth > calcHeight)
+    {
         calcWidth = calcHeight;
-    } else {
+    }
+    else
+    {
         calcHeight = calcWidth;
     }
     float horMargin = (gonHorSpace - calcWidth) / 2;
     float vertMargin = (gonVertSpace - calcHeight) / 2;
-    if (horMargin < dynamicSpace * 2) {
+    if (horMargin < dynamicSpace * 2)
+    {
         horMargin = dynamicSpace * 2;
         calcWidth = gonHorSpace - horMargin * 2;
         calcHeight = calcWidth;
     }
-    else if (vertMargin < vertDynamicSpace * 2) {
+    else if (vertMargin < vertDynamicSpace * 2)
+    {
         vertMargin = vertDynamicSpace * 2;
         calcHeight = gonVertSpace - vertMargin * 2;
         calcWidth = calcHeight;
@@ -243,14 +208,14 @@ void MMGainPluginEditor::resized()
     FlexItem gonItem = FlexItem(goniometer).withWidth(calcWidth).withHeight(calcHeight);
     gonItem.margin = FlexItem::Margin::Margin(vertMargin, horMargin, vertMargin, horMargin);
     phaseBottom.items.add(gonItem);
-    
+
     FlexBox rPhase;
     rPhase.flexDirection = FlexBox::Direction::column;
     rPhase.items.add(FlexItem(sliderPhaseDelayR).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
     rPhase.items.add(FlexItem(buttonPhaseInvertR).withWidth(phaseSliderWidth).withFlex(1.0f));
     phaseBottom.items.add(FlexItem(rPhase).withFlex(1.0f));
     phaseBox.items.add(FlexItem(phaseBottom).withFlex(6.0f));
-    
+
     layout.items.add(FlexItem(phaseBox).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace * 2)).withWidth(phaseWidth));
 
     layout.performLayout(getLocalBounds());

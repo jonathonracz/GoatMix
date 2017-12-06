@@ -29,15 +29,20 @@ public:
     SpanningLabel() {}
     ~SpanningLabel() {}
 
+    NormalisableRange<float> getRange() const noexcept
+    {
+        return range;
+    }
+
     void setRange(NormalisableRange<float> _range) noexcept
     {
         range = _range;
         repaint();
     }
 
-    NormalisableRange<float> getRange() const noexcept
+    int getNumIntermediatePoints() const noexcept
     {
-        return range;
+        return numIntermediatePoints;
     }
 
     void setNumIntermediatePoints(int _numIntermediatePoints) noexcept
@@ -45,11 +50,6 @@ public:
         jassert(_numIntermediatePoints >= 0);
         numIntermediatePoints = _numIntermediatePoints;
         repaint();
-    }
-
-    int getNumIntermediatePoints() const noexcept
-    {
-        return numIntermediatePoints;
     }
 
     void setValueToTextFunction(const std::function<String(float)>& function) noexcept
@@ -66,6 +66,16 @@ public:
     {
         layoutDirection = direction;
         repaint();
+    }
+
+    bool getReversedOrder() const noexcept
+    {
+        return reversedOrder;
+    }
+
+    void setReversedOrder(bool reversed) noexcept
+    {
+        reversedOrder = reversed;
     }
 
 private:
@@ -85,10 +95,20 @@ private:
             default: jassertfalse;
         }
 
+        float firstValueHalfSize;
+        float lastValueHalfSize;
+        float spanDimensionSize;
+        bool isVertical;
+
         if (layoutDirection == horizontalTop ||
             layoutDirection == horizontalCenter ||
             layoutDirection == horizontalBottom)
         {
+            firstValueHalfSize = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(0.0f)));
+            lastValueHalfSize = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(1.0f)));
+            spanDimensionSize = static_cast<float>(getWidth());
+            isVertical = false;
+
             float firstValueWidth = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(0.0f)));
             float lastValueWidth = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(1.0f)));
             float symmetricEdgeWidth = std::max(firstValueWidth, lastValueWidth) / 2.0f;
@@ -113,29 +133,48 @@ private:
         }
         else // Vertical
         {
-            Array<float> yCenterPoints;
-            yCenterPoints.ensureStorageAllocated(numIntermediatePoints + 2);
-            float halfFontHeight = font.getHeight() / 2.0f;
-            yCenterPoints.add(halfFontHeight);
-            float centerPointDelta = (getHeight() - (halfFontHeight * 2.0f)) / numIntermediatePoints;
-            for (int i = 0; i < numIntermediatePoints; ++i)
-            {
-                yCenterPoints.add(halfFontHeight + (i * centerPointDelta));
-            }
-            yCenterPoints.add(getHeight() - halfFontHeight);
+            firstValueHalfSize = lastValueHalfSize = font.getHeight() / 2.0f;
+            spanDimensionSize = static_cast<float>(getHeight());
+            isVertical = true;
+        }
 
-            for (int i = 0; i < yCenterPoints.size(); ++i)
+        Array<float> centerPoints;
+        centerPoints.ensureStorageAllocated(numIntermediatePoints + 2);
+        centerPoints.add(firstValueHalfSize);
+        float centerPointDelta = spanDimensionSize / (numIntermediatePoints + 1);
+        for (int i = 1; i < (numIntermediatePoints + 1); ++i)
+        {
+            centerPoints.add(i * centerPointDelta);
+        }
+        centerPoints.add(spanDimensionSize - lastValueHalfSize);
+
+        for (int i = 0; i < centerPoints.size(); ++i)
+        {
+            float proportionAlongCenterPoints = (i * centerPointDelta) / spanDimensionSize;
+
+            if (reversedOrder)
+                proportionAlongCenterPoints = 1.0f - proportionAlongCenterPoints;
+
+            String valueString = valueToTextFunction(range.convertFrom0to1(proportionAlongCenterPoints));
+            Rectangle<float> textBounds;
+            if (isVertical)
             {
-                float proportionAlongCenterPoints = (yCenterPoints[i] - yCenterPoints.getFirst()) / (yCenterPoints.getLast() - yCenterPoints.getFirst());
-                String valueString = valueToTextFunction(range.convertFrom0to1(proportionAlongCenterPoints));
-                Rectangle<float> textBounds = Rectangle<float>(static_cast<float>(getWidth()), font.getHeight()).withCentre({ getWidth() / 2.0f, yCenterPoints[i] });
-                g.drawText(valueString, textBounds, justification);
+                textBounds = Rectangle<float>(static_cast<float>(getWidth()), firstValueHalfSize * 2.0f).withCentre({ getWidth() / 2.0f, centerPoints[i] });
             }
+            else
+            {
+                textBounds = Rectangle<float>(font.getStringWidthFloat(valueString), static_cast<float>(getHeight())).withCentre({ centerPoints[i], getHeight() / 2.0f });
+            }
+
+            g.drawText(valueString, textBounds, justification);
         }
     }
 
-    NormalisableRange<float> range;
+    NormalisableRange<float> range = { 0.0f, 1.0f };
     int numIntermediatePoints = 0;
     std::function<String(float)> valueToTextFunction = [](float value){ return String(value); };
     LayoutDirection layoutDirection = horizontalCenter;
+    bool reversedOrder = false;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SpanningLabel)
 };

@@ -34,7 +34,10 @@ private:
     MaxdBLabel leftdBLabel;
     MaxdBLabel rightdBLabel;
 
-    Label meterLabels[16];
+    SpanningLabel labelNegL;
+    SpanningLabel labelPosL;
+    SpanningLabel labelNegR;
+    SpanningLabel labelPosR;
 
     SimpleLevelMeter meterNegL;
     SimpleLevelMeter meterPosL;
