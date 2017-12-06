@@ -56,6 +56,8 @@ String MMParameterSlider::getTextFromValue(double value)
 
 void MMParameterSlider::editorShown(Label* label, TextEditor& editor)
 {
+    // We use a text keyboard so we can access the negative symbol.
+    editor.setKeyboardType(TextInputTarget::VirtualKeyboardType::textKeyboard);
     editor.setText(String(
         MobileMixPluginInstance::stripPrefixFromParameterName(
             label->getText(false)).getFloatValue()));

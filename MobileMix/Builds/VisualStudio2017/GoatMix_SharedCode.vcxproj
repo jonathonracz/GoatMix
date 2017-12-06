@@ -1906,6 +1906,7 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h"/>
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h"/>
+    <ClInclude Include="..\..\Source\GUI\SpanningLabel.h"/>
     <ClInclude Include="..\..\Source\GUI\FilterCurve.h"/>
     <ClInclude Include="..\..\Source\GUI\FFTDisplay.h"/>
     <ClInclude Include="..\..\Source\GUI\EQPreview.h"/>

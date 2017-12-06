@@ -17,6 +17,7 @@
 #include "../GUI/SimpleLevelMeter.h"
 #include "../GUI/Goniometer.h"
 #include "../GUI/Divider.h"
+#include "../GUI/SpanningLabel.h"
 
 class MMGainPluginEditor :
     public MobileMixPluginInstanceEditor

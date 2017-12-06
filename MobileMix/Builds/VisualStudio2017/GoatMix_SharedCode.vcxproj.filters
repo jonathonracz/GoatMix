@@ -2433,6 +2433,9 @@
     <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SpanningLabel.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\FilterCurve.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
