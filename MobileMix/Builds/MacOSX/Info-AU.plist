@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string>Icon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.goataudio.MobileMix</string>
+    <string>com.goataudio.GoatMix</string>
     <key>CFBundleName</key>
     <string>GoatMix</string>
     <key>CFBundleDisplayName</key>
@@ -33,7 +33,7 @@
         <key>description</key>
         <string>GoatMix</string>
         <key>factoryFunction</key>
-        <string>MobileMixAUFactory</string>
+        <string>GoatMixAUFactory</string>
         <key>manufacturer</key>
         <string>Goat</string>
         <key>type</key>

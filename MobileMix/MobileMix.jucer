@@ -2,13 +2,13 @@
 
 <JUCERPROJECT id="KOUI21" name="GoatMix" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Light" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="com.goataudio.MobileMix" includeBinaryInAppConfig="1"
+              bundleIdentifier="com.goataudio.GoatMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
               enableIAA="0" pluginName="GoatMix" pluginDesc="GoatMix" pluginManufacturer="GoatAudio"
               pluginManufacturerCode="Goat" pluginCode="Gomx" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
-              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="MobileMixAU"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="GoatMixAU"
               pluginRTASCategory="" aaxIdentifier="com.goataudio.GoatMix" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
               jucerVersion="5.2.0" companyCopyright="">
   <MAINGROUP id="AIgys5" name="GoatMix">
@@ -243,9 +243,9 @@
     <XCODE_MAC targetFolder="Builds/MacOSX" extraFrameworks="" vst3Folder=""
                smallIcon="BcWm5j" bigIcon="BcWm5j">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="GoatMix"
                        enablePluginBinaryCopyStep="1"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="GoatMix"
                        enablePluginBinaryCopyStep="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -271,9 +271,9 @@
                   smallIcon="BcWm5j" bigIcon="BcWm5j" microphonePermissionNeeded="1"
                   UIFileSharingEnabled="1" iosAppGroups="1">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="MobileMix"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="GoatMix"
                        enablePluginBinaryCopyStep="1" iosCompatibility="10.0"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="MobileMix"
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="GoatMix"
                        enablePluginBinaryCopyStep="1" iosCompatibility="11.0" linkTimeOptimisation="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -297,10 +297,10 @@
     <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="MobileMix" debugInformationFormat="ProgramDatabase"
+                       isDebug="1" optimisation="1" targetName="GoatMix" debugInformationFormat="ProgramDatabase"
                        enablePluginBinaryCopyStep="0"/>
         <CONFIGURATION name="Release" winWarningLevel="3" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="3" targetName="MobileMix" debugInformationFormat="ProgramDatabase"
+                       isDebug="0" optimisation="3" targetName="GoatMix" debugInformationFormat="ProgramDatabase"
                        enablePluginBinaryCopyStep="0" linkTimeOptimisation="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

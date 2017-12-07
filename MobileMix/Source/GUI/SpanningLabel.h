@@ -144,7 +144,7 @@ private:
                 textBounds = Rectangle<float>(font.getStringWidthFloat(valueString), static_cast<float>(getHeight())).withCentre({ centerPoints[i], getHeight() / 2.0f });
             }
 
-            g.drawFittedText(valueString, textBounds, justification, 1);
+            g.drawFittedText(valueString, textBounds.toNearestInt(), justification, 1);
         }
     }
 

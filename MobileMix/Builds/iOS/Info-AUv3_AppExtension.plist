@@ -10,7 +10,7 @@
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIdentifier</key>
-    <string>com.goataudio.MobileMix.MobileMixAUv3</string>
+    <string>com.goataudio.GoatMix.GoatMixAUv3</string>
     <key>CFBundleName</key>
     <string>GoatMix</string>
     <key>CFBundleDisplayName</key>
@@ -30,7 +30,7 @@
     <key>NSExtension</key>
     <dict>
       <key>NSExtensionPrincipalClass</key>
-      <string>MobileMixAUFactoryAUv3</string>
+      <string>GoatMixAUFactoryAUv3</string>
       <key>NSExtensionPointIdentifier</key>
       <string>com.apple.AudioUnit-UI</string>
       <key>NSExtensionAttributes</key>
@@ -43,7 +43,7 @@
             <key>description</key>
             <string>GoatMix</string>
             <key>factoryFunction</key>
-            <string>MobileMixAUFactoryAUv3</string>
+            <string>GoatMixAUFactoryAUv3</string>
             <key>manufacturer</key>
             <string>Goat</string>
             <key>type</key>

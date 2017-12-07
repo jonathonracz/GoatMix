@@ -29,7 +29,7 @@ public:
             lowPass,
         };
 
-        FilterMode mode;
+        FilterMode mode = lowPass;
         float cutoff = 1000.0f;
         float q = 1.0f;
         float gain = 1.0f; // Has no effect for low and high pass filters!
