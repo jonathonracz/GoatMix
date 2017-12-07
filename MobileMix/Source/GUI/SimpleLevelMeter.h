@@ -68,8 +68,8 @@ private:
         {
             if (style == peakHoldRMS)
             {
-                Rectangle<float> rmsBounds = getMeterRegionForLevel(rms);
-                Rectangle<float> blackBounds = getMeterRegionForLevel(gainRange.end, rms);
+                Rectangle<float> rmsBounds = getMeterRegionForLevelFromBottom(rms);
+                Rectangle<float> blackBounds = getMeterRegionForLevelFromTop(rms);
 
                 lastPaintedMinLevel = rms;
                 lastPaintedMaxLevel = peakHold;
@@ -88,16 +88,15 @@ private:
             }
             else if (style == peakRMS)
             {
-                Rectangle<float> rmsBounds = getMeterRegionForLevel(rms);
+                Rectangle<float> rmsBounds = getMeterRegionForLevelFromBottom(rms);
                 Rectangle<float> peakBounds = getMeterRegionForLevel(peak, rms);
-                Rectangle<float> blackBounds = getMeterRegionForLevel(gainRange.end, peak);
+                Rectangle<float> blackBounds = getMeterRegionForLevelFromTop(rms);
 
-                g.setOpacity(0.5f);
-                g.drawImage(gradient.getClippedImage(peakBounds.toNearestInt()), peakBounds);
-                g.setOpacity(1.0f);
-                g.drawImage(gradient.getClippedImage(rmsBounds.toNearestInt()), rmsBounds);
                 g.setColour(Colours::black);
                 g.fillRect(blackBounds);
+                g.drawImage(gradient.getClippedImage(rmsBounds.toNearestInt()), rmsBounds);
+                g.setOpacity(0.5f);
+                g.drawImage(gradient.getClippedImage(peakBounds.toNearestInt()), peakBounds);
 
                 lastPaintedMinLevel = rms;
                 lastPaintedMaxLevel = peak;
@@ -135,9 +134,8 @@ private:
                 }
             }
 
-            float proportionOfMeterFilled = getProportionOfMeterFilledForLevel(topPaintLevel);
-            float bottomProportionOfMeterFilled = getProportionOfMeterFilledForLevel(bottomPaintLevel);
-            repaint(0, getHeight() * (1.0 - proportionOfMeterFilled), getWidth(), getHeight() * (1.0f - bottomProportionOfMeterFilled));
+            //repaint(getMeterRegionForLevel(topPaintLevel, bottomPaintLevel).toNearestInt());
+            repaint();
         }
     }
 
@@ -176,14 +174,25 @@ private:
         return gainRange.convertTo0to1(gainRange.snapToLegalValue(level));
     }
 
-    Rectangle<float> getMeterRegionForLevel(float level, float bottomLevel = 0.0f) noexcept
+    Rectangle<float> getMeterRegionForLevel(float topLevel, float bottomLevel) const noexcept
     {
-        float proportionOfMeterFilled = getProportionOfMeterFilledForLevel(level);
+        float topProportionOfMeterFilled = getProportionOfMeterFilledForLevel(topLevel);
         float bottomProportionOfMeterFilled = getProportionOfMeterFilledForLevel(bottomLevel);
-        return Rectangle<int>(0,
-                              getHeight() * (1.0 - proportionOfMeterFilled),
-                              getWidth(),
-                              getHeight() * (1.0f - bottomProportionOfMeterFilled)).toFloat();
+
+        float topLevelPixelPosition = getHeight() * (1.0 - topProportionOfMeterFilled);
+        float bottomLevelPixelPosition = getHeight() * (1.0f - bottomProportionOfMeterFilled);
+
+        return Rectangle<float>(Point<float>(0.0f, topLevelPixelPosition), Point<float>(static_cast<float>(getWidth()), bottomLevelPixelPosition));
+    }
+
+    Rectangle<float> getMeterRegionForLevelFromBottom(float level) const noexcept
+    {
+        return getMeterRegionForLevel(level, gainRange.start);
+    }
+
+    Rectangle<float> getMeterRegionForLevelFromTop(float level) const noexcept
+    {
+        return getMeterRegionForLevel(gainRange.end, level);
     }
 
     Style style = peakRMS;
