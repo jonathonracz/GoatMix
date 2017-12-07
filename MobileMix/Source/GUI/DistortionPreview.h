@@ -23,6 +23,7 @@ public:
     ~DistortionPreview() {}
 
 private:
+    void performDistortion();
     void paint(Graphics& g) override;
     void changeListenerCallback(ChangeBroadcaster* source) override;
 

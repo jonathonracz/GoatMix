@@ -53,8 +53,8 @@ MMGainPluginEditor::MMGainPluginEditor(MMGainPlugin& processor) :
     leftdBLabel.setSource(processor.meterSource.meters[0]);
     addAndMakeVisible(leftdBLabel);
 
-    maxdBLabel.setSource(processor.meterSource.meters[0]);
-    addAndMakeVisible(maxdBLabel);
+    //maxdBLabel.setSource(processor.meterSource.meters[0]);
+    //addAndMakeVisible(maxdBLabel);
 
     rightdBLabel.setSource(processor.meterSource.meters[1]);
     addAndMakeVisible(rightdBLabel);

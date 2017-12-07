@@ -32,7 +32,16 @@ DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr params, Ch
         freshSignalWrite[i] = std::sin((2.0f * MathConstants<float>::pi) * (i / static_cast<float>(freshSignal.getNumSamples())));
     }
 
+    performDistortion();
     paramChangeSource.addChangeListener(this);
+}
+
+void DistortionPreview::performDistortion()
+{
+    processedSignal.makeCopyOf(freshSignal);
+    dsp::AudioBlock<float> block(processedSignal);
+    dsp::ProcessContextReplacing<float> context(block);
+    distortion.process(context);
 }
 
 void DistortionPreview::paint(Graphics& g)
@@ -58,12 +67,7 @@ void DistortionPreview::paint(Graphics& g)
     }
 
     // Run distortion DSP
-    {
-        processedSignal.makeCopyOf(freshSignal, true);
-        dsp::AudioBlock<float> block(processedSignal);
-        dsp::ProcessContextReplacing<float> context(block);
-        distortion.process(context);
-    }
+    performDistortion();
 
     // Draw preview wave
     {

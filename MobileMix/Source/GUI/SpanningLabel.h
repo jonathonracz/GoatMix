@@ -108,28 +108,6 @@ private:
             lastValueHalfSize = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(1.0f)));
             spanDimensionSize = static_cast<float>(getWidth());
             isVertical = false;
-
-            float firstValueWidth = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(0.0f)));
-            float lastValueWidth = font.getStringWidthFloat(valueToTextFunction(range.convertFrom0to1(1.0f)));
-            float symmetricEdgeWidth = std::max(firstValueWidth, lastValueWidth) / 2.0f;
-
-            Array<float> xCenterPoints;
-            xCenterPoints.ensureStorageAllocated(numIntermediatePoints + 2);
-            xCenterPoints.add(symmetricEdgeWidth);
-            float centerPointDelta = (getWidth() - (symmetricEdgeWidth * 2.0f)) / numIntermediatePoints;
-            for (int i = 0; i < numIntermediatePoints; ++i)
-            {
-                xCenterPoints.add(symmetricEdgeWidth + (i * centerPointDelta));
-            }
-            xCenterPoints.add(getWidth() - symmetricEdgeWidth);
-
-            for (int i = 0; i < xCenterPoints.size(); ++i)
-            {
-                float proportionAlongCenterPoints = (xCenterPoints[i] - xCenterPoints.getFirst()) / (xCenterPoints.getLast() - xCenterPoints.getFirst());
-                String valueString = valueToTextFunction(range.convertFrom0to1(proportionAlongCenterPoints));
-                Rectangle<float> textBounds = Rectangle<float>(font.getStringWidthFloat(valueString), static_cast<float>(getHeight())).withCentre({ xCenterPoints[i], getHeight() / 2.0f });
-                g.drawText(valueString, textBounds, justification);
-            }
         }
         else // Vertical
         {
@@ -166,7 +144,7 @@ private:
                 textBounds = Rectangle<float>(font.getStringWidthFloat(valueString), static_cast<float>(getHeight())).withCentre({ centerPoints[i], getHeight() / 2.0f });
             }
 
-            g.drawText(valueString, textBounds, justification);
+            g.drawFittedText(valueString, textBounds, justification, 1);
         }
     }
 

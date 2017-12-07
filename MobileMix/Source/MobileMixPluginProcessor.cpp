@@ -43,10 +43,9 @@ MobileMixAudioProcessor::MobileMixAudioProcessor() :
         chainTree.getOrCreateChildWithName(instance->getName(), nullptr);
     }
 
-    ValueTree rootState("ROOT");
-    rootState.addChild(chainTree, -1, nullptr);
-    rootState.addListener(this);
-    params.state = rootState;
+    params.state = ValueTree("ROOT");
+    params.state.addChild(chainTree, -1, nullptr);
+    params.state.addListener(this);
     addListener(this);
 
     // Hack necessary because of bugs in AudioProcessorValueTreeState.
