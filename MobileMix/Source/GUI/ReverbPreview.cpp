@@ -21,12 +21,18 @@ ReverbPreview::ReverbPreview(AudioProcessorValueTreeState& _state, String _roomS
     cache(1),
     thumbnail(1, formatManager, cache)
 {
+    state.addParameterListener(roomSizeID, this);
+    state.addParameterListener(dampingID, this);
+    state.addParameterListener(widthID, this);
+    state.addParameterListener(freezeID, this);
+
     spec.numChannels = 1;
     spec.sampleRate = 4410;
     spec.maximumBlockSize = 1024;
     buffer.setSize(spec.numChannels, spec.maximumBlockSize);
     reverb.prepare(spec);
     thumbnail.addChangeListener(this);
+    processPreviewSignal();
 }
 
 void ReverbPreview::paint(Graphics& g)
@@ -65,7 +71,10 @@ void ReverbPreview::parameterChanged(const String& parameterID, float newValue)
 void ReverbPreview::processPreviewSignal()
 {
     if (reverb.params->freeze)
+    {
+        repaint();
         return;
+    }
 
     thumbnail.reset(spec.numChannels, spec.sampleRate);
     cache.clear();

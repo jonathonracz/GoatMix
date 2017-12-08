@@ -113,7 +113,8 @@ namespace ValueStringFuncs
     namespace Percent
     {
         const StringRef unit = "%";
-        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 100.0f, 1.0f);
-        const auto valueToText = [](float value){ return ValueStringFuncs::Generic::valueToText(value, ValueStringFuncs::Percent::unit, 0); };
+        const NormalisableRange<float> range = NormalisableRange<float>(0.0f, 1.0f, 0.01f);
+        const auto valueToText = [](float value){ return ValueStringFuncs::Generic::valueToText(value * 100.0f, ValueStringFuncs::Percent::unit, 0); };
+        const auto textToValue = [](const String& text){ return ValueStringFuncs::Generic::textToValue(text) / 100.0f; };
     }
 }

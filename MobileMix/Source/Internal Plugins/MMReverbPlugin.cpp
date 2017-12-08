@@ -27,27 +27,27 @@ void MMReverbPlugin::registerParameters()
         addPrefixToParameterName("Room Size"),
         ValueStringFuncs::Percent::unit,
         ValueStringFuncs::Percent::range,
-        50.0f,
+        0.5f,
         ValueStringFuncs::Percent::valueToText,
-        ValueStringFuncs::Generic::textToValue);
+        ValueStringFuncs::Percent::textToValue);
 
     paramDamping = state.createAndAddParameter(
         addPrefixToParameterName("Damping"),
         addPrefixToParameterName("Damping"),
         ValueStringFuncs::Percent::unit,
         ValueStringFuncs::Percent::range,
-        50.0f,
+        0.5f,
         ValueStringFuncs::Percent::valueToText,
-        ValueStringFuncs::Generic::textToValue);
+        ValueStringFuncs::Percent::textToValue);
 
     paramWidth = state.createAndAddParameter(
         addPrefixToParameterName("Width"),
         addPrefixToParameterName("Width"),
         ValueStringFuncs::Percent::unit,
         ValueStringFuncs::Percent::range,
-        50.0f,
+        0.5f,
         ValueStringFuncs::Percent::valueToText,
-        ValueStringFuncs::Generic::textToValue);
+        ValueStringFuncs::Percent::textToValue);
 
     paramFreeze = state.createAndAddParameter(
         addPrefixToParameterName("Freeze"),
@@ -74,7 +74,7 @@ void MMReverbPlugin::registerParameters()
         ValueStringFuncs::Filter::range,
         ValueStringFuncs::Filter::defaultValue,
         ValueStringFuncs::Filter::valueToText,
-        ValueStringFuncs::Generic::textToValue);
+        ValueStringFuncs::Percent::textToValue);
 
     paramLowPassEnable = state.createAndAddParameter(
         addPrefixToParameterName("Low Pass Enable"),
@@ -100,7 +100,7 @@ void MMReverbPlugin::registerParameters()
         ValueStringFuncs::Percent::range,
         0.0f,
         ValueStringFuncs::Percent::valueToText,
-        ValueStringFuncs::Generic::textToValue);
+        ValueStringFuncs::Percent::textToValue);
 }
 
 MobileMixPluginInstanceEditor* MMReverbPlugin::createMobileMixEditor()
@@ -125,10 +125,10 @@ void MMReverbPlugin::prepareToPlayDerived(double sampleRate, int maximumExpected
 
 void MMReverbPlugin::processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    dryWet.params->wetDry = getUnnormalizedValue(paramDryWet) / 100.0f;
-    reverb.params->roomSize = getUnnormalizedValue(paramRoomSize) / 100.0f;
-    reverb.params->damping = getUnnormalizedValue(paramDamping) / 100.0f;
-    reverb.params->width = getUnnormalizedValue(paramWidth) / 100.0f;
+    dryWet.params->wetDry = getUnnormalizedValue(paramDryWet);
+    reverb.params->roomSize = getUnnormalizedValue(paramRoomSize);
+    reverb.params->damping = getUnnormalizedValue(paramDamping);
+    reverb.params->width = getUnnormalizedValue(paramWidth);
     reverb.params->freeze = static_cast<bool>(getUnnormalizedValue(paramFreeze));
     lowPass.params->cutoff = getUnnormalizedValue(paramLowPass);
     highPass.params->cutoff = getUnnormalizedValue(paramHighPass);
