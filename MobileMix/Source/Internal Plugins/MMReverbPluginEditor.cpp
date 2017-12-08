@@ -12,7 +12,7 @@
 
 MMReverbPluginEditor::MMReverbPluginEditor(MMReverbPlugin& processor) :
     MobileMixPluginInstanceEditor(processor),
-    preview(processor.reverb.params, *this),
+    preview(processor.state, processor.paramRoomSize->paramID, processor.paramDamping->paramID, processor.paramWidth->paramID, processor.paramFreeze->paramID),
     buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize),
     buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize),
     tbFreeze("Freeze")

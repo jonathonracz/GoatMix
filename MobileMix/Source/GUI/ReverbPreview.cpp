@@ -11,8 +11,13 @@
 #include "ReverbPreview.h"
 #include "MMLookAndFeel.h"
 
-ReverbPreview::ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBroadcaster& _paramChangeSource) :
-    paramChangeSource(_paramChangeSource),
+ReverbPreview::ReverbPreview(AudioProcessorValueTreeState& _state, String _roomSizeID,
+    String _dampingID, String _widthID, String _freezeID) :
+    state(_state),
+    roomSizeID(_roomSizeID),
+    dampingID(_dampingID),
+    widthID(_widthID),
+    freezeID(_freezeID),
     cache(1),
     thumbnail(1, formatManager, cache)
 {
@@ -20,10 +25,8 @@ ReverbPreview::ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBro
     spec.sampleRate = 4410;
     spec.maximumBlockSize = 1024;
     buffer.setSize(spec.numChannels, spec.maximumBlockSize);
-    reverb.params = paramsToFollow;
     reverb.prepare(spec);
     thumbnail.addChangeListener(this);
-    paramChangeSource.addChangeListener(this);
 }
 
 void ReverbPreview::paint(Graphics& g)
@@ -40,17 +43,30 @@ void ReverbPreview::paint(Graphics& g)
     }
 
     if (reverb.params->freeze)
-    {
         g.drawFittedText(NEEDS_TRANS("Freeze enabled\n(Feedback loop is infinite)"), getLocalBounds(), Justification::Flags::centred, 1, 1.0f);
-    }
     else
-    {
         thumbnail.drawChannel(g, getLocalBounds(), 0.0, thumbnail.getTotalLength(), 0, 1.0f);
-    }
+}
+
+void ReverbPreview::parameterChanged(const String& parameterID, float newValue)
+{
+    if (parameterID == roomSizeID)
+        reverb.params->roomSize = newValue;
+    else if (parameterID == dampingID)
+        reverb.params->damping = newValue;
+    else if (parameterID == widthID)
+        reverb.params->width = newValue;
+    else if (parameterID == freezeID)
+        reverb.params->freeze = static_cast<bool>(newValue);
+
+    processPreviewSignal();
 }
 
 void ReverbPreview::processPreviewSignal()
 {
+    if (reverb.params->freeze)
+        return;
+
     thumbnail.reset(spec.numChannels, spec.sampleRate);
     cache.clear();
     reverb.reset();
@@ -79,15 +95,6 @@ void ReverbPreview::processPreviewSignal()
 
 void ReverbPreview::changeListenerCallback(ChangeBroadcaster* source)
 {
-    if (source == &thumbnail)
-    {
-        repaint();
-    }
-    else if (source == &paramChangeSource)
-    {
-        if (reverb.params->freeze)
-            repaint();
-        else
-            processPreviewSignal();
-    }
+    jassert(source == &thumbnail);
+    repaint();
 }

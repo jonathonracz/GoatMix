@@ -68,7 +68,7 @@ Label* MMLookAndFeel::createSliderTextBox(Slider& slider)
 
         // Duplicate behavior from LookAndFeel_V2 through gross copy/paste...
         l->setJustificationType(Justification::centred);
-        l->setKeyboardType(TextInputTarget::decimalKeyboard);
+        l->setKeyboardType(TextInputTarget::textKeyboard);
 
         l->setColour(Label::textColourId, slider.findColour(Slider::textBoxTextColourId));
         l->setColour(Label::backgroundColourId,

@@ -15,21 +15,29 @@
 
 class ReverbPreview :
     public Component,
+    public SettableTooltipClient,
     public ChangeListener,
-    public SettableTooltipClient
+    public AudioProcessorValueTreeState::Listener
 {
 public:
-    ReverbPreview(MMReverb::Parameters::Ptr paramsToFollow, ChangeBroadcaster& paramChangeSource);
+    ReverbPreview(AudioProcessorValueTreeState& state, String roomSizeID,
+        String dampingID, String widthID, String freezeID);
     ~ReverbPreview() {}
 
 private:
     void paint(Graphics& g) override;
+    void parameterChanged(const String& parameterID, float newValue) override;
     void changeListenerCallback(ChangeBroadcaster* source) override;
     void processPreviewSignal();
 
+    AudioProcessorValueTreeState& state;
+    String roomSizeID;
+    String dampingID;
+    String widthID;
+    String freezeID;
+
     dsp::ProcessSpec spec;
     MMReverb reverb;
-    ChangeBroadcaster& paramChangeSource;
     AudioFormatManager formatManager;
     AudioThumbnailCache cache;
     AudioThumbnail thumbnail;
