@@ -1,0 +1,10 @@
+Finish your mix on the go with GoatAudio's GoatMix! GoatMix is a fully featured semi-modular mixing suite featuring all the essential tools necessary to polish your mixes on the go in any AUv3 supporting DAW.
+
+GoatMix's submodules include:
+- Gain: amplitude and phase adjustment with visualizations.
+- Compressor: hard-knee compression with adjustable dry/wet mixing for parallel compression.
+- Reverb: variable-size room reverb.
+- Distortion: bit-crusher distortion with soft clipping overdrive.
+- EQ: four configurable bands of equalization as high pass, low pass, high shelf, low shelf, and peak filters.
+
+The effect chain order is configurable by bypassing/muting each effect tab, or rearranging them for a different order!
