@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="KOUI21" name="GoatMix" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Light" projectType="audioplug" version="1.0.0"
+              splashScreenColour="Light" projectType="audioplug" version="1.0.3"
               bundleIdentifier="com.goataudio.GoatMix" includeBinaryInAppConfig="1"
               cppLanguageStandard="latest" buildVST="1" buildVST3="0" buildAU="1"
               buildAUv3="1" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="0" pluginName="GoatMix" pluginDesc="GoatMix" pluginManufacturer="GoatAudio"
+              enableIAA="1" pluginName="GoatMix" pluginDesc="GoatMix" pluginManufacturer="GoatAudio"
               pluginManufacturerCode="Goat" pluginCode="Gomx" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="GoatMixAU"
@@ -269,7 +269,7 @@
     <XCODE_IPHONE targetFolder="Builds/iOS" iosScreenOrientation="landscape" extraFrameworks=""
                   vst3Folder="" iPadScreenOrientation="landscape" iosDeviceFamily="1,2"
                   smallIcon="BcWm5j" bigIcon="BcWm5j" microphonePermissionNeeded="1"
-                  UIFileSharingEnabled="1" iosAppGroups="1">
+                  UIFileSharingEnabled="1" iosAppGroups="1" iosBackgroundAudio="1">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="GoatMix"
                        enablePluginBinaryCopyStep="1" iosCompatibility="10.0"/>

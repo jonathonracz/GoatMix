@@ -22,9 +22,9 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.0</string>
+    <string>1.0.3</string>
     <key>CFBundleVersion</key>
-    <string>1.0.0</string>
+    <string>1.0.3</string>
     <key>NSHumanReadableCopyright</key>
     <string></string>
     <key>NSHighResolutionCapable</key>
@@ -41,6 +41,23 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>UIBackgroundModes</key>
-    <array/>
+    <array>
+      <string>audio</string>
+    </array>
+    <key>AudioComponents</key>
+    <array>
+      <dict>
+        <key>name</key>
+        <string>GoatAudio: GoatMix</string>
+        <key>manufacturer</key>
+        <string>Goat</string>
+        <key>type</key>
+        <string>aurx</string>
+        <key>subtype</key>
+        <string>Gomx</string>
+        <key>version</key>
+        <integer>65539</integer>
+      </dict>
+    </array>
   </dict>
 </plist>

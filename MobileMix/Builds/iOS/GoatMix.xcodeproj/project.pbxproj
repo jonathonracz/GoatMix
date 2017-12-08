@@ -35,18 +35,18 @@
 		240F8EBC67572874AF6DC240 /* DistortionPreview.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18D20D0540194B8F3D02C45 /* DistortionPreview.cpp */; };
 		259EB5A2627027A3D83ED2A2 /* SimpleComp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65A17CB1123D1131FCE4AD71 /* SimpleComp.cpp */; };
 		2730CEEEA9C32E6D9847A404 /* include_juce_audio_formats.mm in Sources */ = {isa = PBXBuildFile; fileRef = 99A1E06AB96B59C211D41F38 /* include_juce_audio_formats.mm */; };
-		288CEB6B1FDA3A1400A7133C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
-		288CEB6C1FDA3A1400A7133C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349D44D286DC25B7AB0EEF9 /* AudioToolbox.framework */; };
-		288CEB6D1FDA3A1400A7133C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF76DD1351DB2DFC5B7C60 /* AVFoundation.framework */; };
-		288CEB6E1FDA3A1400A7133C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B201A5323E9007D535521 /* CoreAudio.framework */; };
-		288CEB6F1FDA3A1400A7133C /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F68137C08CD8CF6650CF51 /* CoreAudioKit.framework */; };
-		288CEB701FDA3A1400A7133C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00E10573277B3703A82E052 /* CoreGraphics.framework */; };
-		288CEB711FDA3A1400A7133C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7573461C793F1FD8BCBDCE8C /* CoreImage.framework */; };
-		288CEB721FDA3A1400A7133C /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445578FBC03104A8A41A2FC9 /* CoreMIDI.framework */; };
-		288CEB731FDA3A1400A7133C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA9203723DCCC46FB62A1B0 /* CoreText.framework */; };
-		288CEB741FDA3A1400A7133C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968CA8A47527D04288D87440 /* Foundation.framework */; };
-		288CEB751FDA3A1400A7133C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1374D090C1A97FB22C91EC /* QuartzCore.framework */; };
-		288CEB761FDA3A1400A7133C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A70057675E8ACEC230116B7 /* UIKit.framework */; };
+		285601FE1FDB1159000DB86A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
+		285601FF1FDB1159000DB86A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349D44D286DC25B7AB0EEF9 /* AudioToolbox.framework */; };
+		285602001FDB1159000DB86A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF76DD1351DB2DFC5B7C60 /* AVFoundation.framework */; };
+		285602011FDB1159000DB86A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6B201A5323E9007D535521 /* CoreAudio.framework */; };
+		285602021FDB1159000DB86A /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F68137C08CD8CF6650CF51 /* CoreAudioKit.framework */; };
+		285602031FDB1159000DB86A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00E10573277B3703A82E052 /* CoreGraphics.framework */; };
+		285602041FDB1159000DB86A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7573461C793F1FD8BCBDCE8C /* CoreImage.framework */; };
+		285602051FDB1159000DB86A /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445578FBC03104A8A41A2FC9 /* CoreMIDI.framework */; };
+		285602061FDB1159000DB86A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA9203723DCCC46FB62A1B0 /* CoreText.framework */; };
+		285602071FDB1159000DB86A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968CA8A47527D04288D87440 /* Foundation.framework */; };
+		285602081FDB1159000DB86A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1374D090C1A97FB22C91EC /* QuartzCore.framework */; };
+		285602091FDB1159000DB86A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A70057675E8ACEC230116B7 /* UIKit.framework */; };
 		2A871480000FF0A4FBA8003B /* include_juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9489C365CC70F0E520482FAE /* include_juce_core.mm */; };
 		2F82228913A3B5881ACB109E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338D22AE82635D06B82FB26 /* Accelerate.framework */; };
 		304B30C1E15F6E112CFAACE1 /* include_juce_gui_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6E7112FB38EBC5CA706C36C2 /* include_juce_gui_basics.mm */; };
@@ -104,21 +104,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		288CEB771FDA3A1500A7133C /* PBXContainerItemProxy */ = {
+		2856020A1FDB115A000DB86A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0DE56796EF92E40B478A62FF;
 			remoteInfo = "GoatMix - AUv3 AppExtension";
 		};
-		288CEB781FDA3A1500A7133C /* PBXContainerItemProxy */ = {
+		2856020B1FDB115A000DB86A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 447A566CF8339B49CC1DCC8D;
 			remoteInfo = "GoatMix - Shared Code";
 		};
-		288CEB791FDA3A1600A7133C /* PBXContainerItemProxy */ = {
+		2856020C1FDB115B000DB86A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AE8AAA7416DFC342125B3073 /* Project object */;
 			proxyType = 1;
@@ -336,18 +336,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288CEB6B1FDA3A1400A7133C /* Accelerate.framework in Frameworks */,
-				288CEB6C1FDA3A1400A7133C /* AudioToolbox.framework in Frameworks */,
-				288CEB6D1FDA3A1400A7133C /* AVFoundation.framework in Frameworks */,
-				288CEB6E1FDA3A1400A7133C /* CoreAudio.framework in Frameworks */,
-				288CEB6F1FDA3A1400A7133C /* CoreAudioKit.framework in Frameworks */,
-				288CEB701FDA3A1400A7133C /* CoreGraphics.framework in Frameworks */,
-				288CEB711FDA3A1400A7133C /* CoreImage.framework in Frameworks */,
-				288CEB721FDA3A1400A7133C /* CoreMIDI.framework in Frameworks */,
-				288CEB731FDA3A1400A7133C /* CoreText.framework in Frameworks */,
-				288CEB741FDA3A1400A7133C /* Foundation.framework in Frameworks */,
-				288CEB751FDA3A1400A7133C /* QuartzCore.framework in Frameworks */,
-				288CEB761FDA3A1400A7133C /* UIKit.framework in Frameworks */,
+				285601FE1FDB1159000DB86A /* Accelerate.framework in Frameworks */,
+				285601FF1FDB1159000DB86A /* AudioToolbox.framework in Frameworks */,
+				285602001FDB1159000DB86A /* AVFoundation.framework in Frameworks */,
+				285602011FDB1159000DB86A /* CoreAudio.framework in Frameworks */,
+				285602021FDB1159000DB86A /* CoreAudioKit.framework in Frameworks */,
+				285602031FDB1159000DB86A /* CoreGraphics.framework in Frameworks */,
+				285602041FDB1159000DB86A /* CoreImage.framework in Frameworks */,
+				285602051FDB1159000DB86A /* CoreMIDI.framework in Frameworks */,
+				285602061FDB1159000DB86A /* CoreText.framework in Frameworks */,
+				285602071FDB1159000DB86A /* Foundation.framework in Frameworks */,
+				285602081FDB1159000DB86A /* QuartzCore.framework in Frameworks */,
+				285602091FDB1159000DB86A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +807,7 @@
 								enabled = 0;
 							};
 							com.apple.InterAppAudio = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 0;
@@ -948,17 +948,17 @@
 		2A023F9701DAB4A07E0D90D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 447A566CF8339B49CC1DCC8D /* GoatMix - Shared Code */;
-			targetProxy = 288CEB781FDA3A1500A7133C /* PBXContainerItemProxy */;
+			targetProxy = 2856020B1FDB115A000DB86A /* PBXContainerItemProxy */;
 		};
 		389773303B503EF984D5030A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D0DA684FC754851392B6D75 /* GoatMix - Standalone Plugin */;
-			targetProxy = 288CEB791FDA3A1600A7133C /* PBXContainerItemProxy */;
+			targetProxy = 2856020C1FDB115B000DB86A /* PBXContainerItemProxy */;
 		};
 		C709DF1DAEFC7B1E825DF846 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0DE56796EF92E40B478A62FF /* GoatMix - AUv3 AppExtension */;
-			targetProxy = 288CEB771FDA3A1500A7133C /* PBXContainerItemProxy */;
+			targetProxy = 2856020A1FDB115A000DB86A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -981,8 +981,8 @@
 					"_DEBUG=1",
 					"DEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1024,8 +1024,8 @@
 					"_DEBUG=1",
 					"DEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1112,8 +1112,8 @@
 					"_NDEBUG=1",
 					"NDEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1156,8 +1156,8 @@
 					"_NDEBUG=1",
 					"NDEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1246,8 +1246,8 @@
 					"_NDEBUG=1",
 					"NDEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1291,8 +1291,8 @@
 					"_DEBUG=1",
 					"DEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1334,8 +1334,8 @@
 					"_DEBUG=1",
 					"DEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
@@ -1377,8 +1377,8 @@
 					"_NDEBUG=1",
 					"NDEBUG=1",
 					"JUCER_XCODE_IPHONE_5BC26AE3=1",
-					"JUCE_APP_VERSION=1.0.0",
-					"JUCE_APP_VERSION_HEX=0x10000",
+					"JUCE_APP_VERSION=1.0.3",
+					"JUCE_APP_VERSION_HEX=0x10003",
 					"JucePlugin_Build_VST=0",
 					"JucePlugin_Build_VST3=0",
 					"JucePlugin_Build_AU=0",
