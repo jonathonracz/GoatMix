@@ -12,8 +12,8 @@
 
 #include "DraggableTabbedComponent.h"
 
-class GoatMixPluginInstance;
-class GoatMixPluginInstanceEditor;
+class GMPluginInstance;
+class GMPluginInstanceEditor;
 
 class GMTabbedComponent :
     public DraggableTabbedComponent
@@ -21,11 +21,11 @@ class GMTabbedComponent :
 public:
     GMTabbedComponent(TabbedButtonBar::Orientation orientation);
     ~GMTabbedComponent() {}
-    void addTabForPlugin(GoatMixPluginInstance* plugin);
+    void addTabForPlugin(GMPluginInstance* plugin);
     TabBarButton* createTabButton(const String& tabName, int tabIndex) override;
 
 private:
-    GoatMixPluginInstance* lastPluginTabAddedFor = nullptr;
+    GMPluginInstance* lastPluginTabAddedFor = nullptr;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GMTabbedComponent)
 };

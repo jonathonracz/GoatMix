@@ -11,13 +11,13 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "../DSP/GMIIRFilter.h"
 #include "../DSP/SignalSnapshotter.h"
 #include <array>
 
 class GMEQPlugin :
-    public GoatMixPluginInstance
+    public GMPluginInstance
 {
 public:
     GMEQPlugin(AudioProcessorValueTreeState& state);
@@ -25,7 +25,7 @@ public:
 
     void registerParameters() override;
 
-    GoatMixPluginInstanceEditor* createGoatMixEditor() override;
+    GMPluginInstanceEditor* createGoatMixEditor() override;
     const String getName() const override { return "EQ"; }
     const String getDisplayName() const override { return UIStrings::EQ::displayName; }
 

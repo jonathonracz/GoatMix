@@ -1,18 +1,18 @@
 /*
   ==============================================================================
 
-    GoatMixPluginFormat.cpp
+    GMPluginFormat.cpp
     Created: 25 Sep 2017 12:34:59am
     Author:  Jonathon Racz
 
   ==============================================================================
 */
 
-#include "GoatMixPluginFormat.h"
+#include "GMPluginFormat.h"
 
 #include "../Internal Plugins/GMPlugins.h"
 
-GoatMixPluginFormat::GoatMixPluginFormat(AudioProcessorValueTreeState& _state) :
+GMPluginFormat::GMPluginFormat(AudioProcessorValueTreeState& _state) :
     state(_state)
 {
     gainDesc = GMGainPlugin(state).getPluginDescription();
@@ -22,7 +22,7 @@ GoatMixPluginFormat::GoatMixPluginFormat(AudioProcessorValueTreeState& _state) :
     eqDesc = GMEQPlugin(state).getPluginDescription();
 }
 
-void GoatMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array)
+void GMPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<PluginDescription>& array)
 {
     array.add(new PluginDescription(gainDesc));
     array.add(new PluginDescription(compressorDesc));
@@ -31,7 +31,7 @@ void GoatMixPluginFormat::getAllPluginsInExpectedParameterOrder(OwnedArray<Plugi
     array.add(new PluginDescription(eqDesc));
 }
 
-void GoatMixPluginFormat::createPluginInstance(const PluginDescription& desc,
+void GMPluginFormat::createPluginInstance(const PluginDescription& desc,
                                                  double initialSampleRate,
                                                  int initialBufferSize,
                                                  void* userData,

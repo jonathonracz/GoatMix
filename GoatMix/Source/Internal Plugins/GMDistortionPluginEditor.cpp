@@ -11,7 +11,7 @@
 #include "GMDistortionPluginEditor.h"
 
 GMDistortionPluginEditor::GMDistortionPluginEditor(GMDistortionPlugin& processor) :
-    GoatMixPluginInstanceEditor(processor),
+    GMPluginInstanceEditor(processor),
     preview(processor.distortion.params, *this),
     buttonLowPassEnable(BinaryData::lopass_svg, BinaryData::lopass_svgSize)
 {
@@ -89,11 +89,11 @@ void GMDistortionPluginEditor::resized()
     Rectangle<int> lpBounds = buttonLowPassEnable.getLocalBounds().reduced(buttonLowPassEnable.getWidth() * 0.15f, buttonLowPassEnable.getHeight() * 0.15f);
     buttonLowPassEnable.setInternalShapeBounds(lpBounds);
 
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderDownsample);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderBitDepth);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderOverdrive);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderDownsample);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderBitDepth);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderOverdrive);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderGain);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
 }
 
 void GMDistortionPluginEditor::sliderValueChanged(Slider* slider)

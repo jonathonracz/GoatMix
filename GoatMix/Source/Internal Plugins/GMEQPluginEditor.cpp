@@ -12,7 +12,7 @@
 #include "GMEQPlugin.h"
 
 GMEQPluginEditor::GMEQPluginEditor(GMEQPlugin& processor) :
-    GoatMixPluginInstanceEditor(processor),
+    GMPluginInstanceEditor(processor),
     fft(processor.snapshotter)
 {
     for (size_t i = 0; i < eqs.size(); ++i)
@@ -149,9 +149,9 @@ void GMEQPluginEditor::resized()
     for (size_t i = 0; i < eqs.size(); ++i)
     {
         EQControls* eq = &eqs[i];
-        GoatMixPluginInstanceEditor::setVerticalRotated(&eq->sliderCutoff);
-        GoatMixPluginInstanceEditor::setVerticalRotated(&eq->sliderGain);
-        GoatMixPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
+        GMPluginInstanceEditor::setVerticalRotated(&eq->sliderCutoff);
+        GMPluginInstanceEditor::setVerticalRotated(&eq->sliderGain);
+        GMPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
     }
 
     //fft.setBounds(getLocalBounds());

@@ -16,7 +16,7 @@
 #include "GUI/GMTopBar.h"
 #include "GUI/GMLookAndFeel.h"
 #include "GUI/LongDialogPopup.h"
-#include "Core/GoatMixPluginInstanceEditor.h"
+#include "Core/GMPluginInstanceEditor.h"
 #include "GUI/AboutDataManager.h"
 #include "GUI/GMTooltipDisplay.h"
 

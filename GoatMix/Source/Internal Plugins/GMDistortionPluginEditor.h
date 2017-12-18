@@ -11,13 +11,13 @@
 #pragma once
 
 #include "GMDistortionPlugin.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstanceEditor.h"
 #include "../GUI/DistortionPreview.h"
 #include "../GUI/SimpleMultiLevelMeter.h"
 #include "../GUI/GMShapeButton.h"
 
 class GMDistortionPluginEditor :
-    public GoatMixPluginInstanceEditor,
+    public GMPluginInstanceEditor,
     public Slider::Listener,
     public ChangeBroadcaster
 {

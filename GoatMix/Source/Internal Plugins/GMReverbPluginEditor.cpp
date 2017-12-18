@@ -11,7 +11,7 @@
 #include "GMReverbPluginEditor.h"
 
 GMReverbPluginEditor::GMReverbPluginEditor(GMReverbPlugin& processor) :
-    GoatMixPluginInstanceEditor(processor),
+    GMPluginInstanceEditor(processor),
     preview(processor.state, processor.paramRoomSize->paramID, processor.paramDamping->paramID, processor.paramWidth->paramID, processor.paramFreeze->paramID),
     buttonHighPass(BinaryData::hipass_svg, BinaryData::hipass_svgSize),
     buttonLowPass(BinaryData::lopass_svg, BinaryData::lopass_svgSize),
@@ -114,12 +114,12 @@ void GMReverbPluginEditor::resized()
     Rectangle<int> lpBounds = buttonLowPass.getLocalBounds().reduced(buttonLowPass.getWidth() * 0.15f, buttonLowPass.getHeight() * 0.15f);
     buttonLowPass.setInternalShapeBounds(lpBounds);
 
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderRoomSize);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderDamping);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderWidth);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderHighPass);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderDryWet);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderRoomSize);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderDamping);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderWidth);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderHighPass);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderLowPass);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderDryWet);
 }
 
 void GMReverbPluginEditor::sliderValueChanged(Slider* slider)

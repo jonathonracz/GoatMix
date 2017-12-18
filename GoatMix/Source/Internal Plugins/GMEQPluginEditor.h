@@ -11,7 +11,7 @@
 #pragma once
 
 #include "GMEQPlugin.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstanceEditor.h"
 #include "../GUI/Divider.h"
 #include "../GUI/EQPreview.h"
 #include "../GUI/FFTDisplay.h"
@@ -19,7 +19,7 @@
 #include "../GUI/FilterCurve.h"
 
 class GMEQPluginEditor :
-    public GoatMixPluginInstanceEditor,
+    public GMPluginInstanceEditor,
     public ComboBox::Listener
 {
 public:

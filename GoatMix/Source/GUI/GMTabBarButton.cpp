@@ -12,7 +12,7 @@
 #include "GMLookAndFeel.h"
 #include "UIStrings.h"
 
-GMTabBarButton::GMTabBarButton(DraggableTabbedComponent& _owner, GoatMixPluginInstance& _representedPlugin) :
+GMTabBarButton::GMTabBarButton(DraggableTabbedComponent& _owner, GMPluginInstance& _representedPlugin) :
     DraggableTabBarButton(_representedPlugin.getName(), _owner),
     shadow(Drawable::createFromImageData(BinaryData::tabshadow_svg, BinaryData::tabshadow_svgSize)),
     muteButtonBg(Drawable::createFromImageData(BinaryData::mutebuttonbg_svg, BinaryData::mutebuttonbg_svgSize)),

@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "../GUI/GoniometerSource.h"
 #include "../GUI/MaxdBLabel.h"
 #include "../DSP/VariableDelayLineResampling.h"
@@ -22,7 +22,7 @@
 #include "../DSP/MultiWindowedMeter.h"
 
 class GMGainPlugin :
-    public GoatMixPluginInstance
+    public GMPluginInstance
 {
 public:
     GMGainPlugin(AudioProcessorValueTreeState& state);
@@ -30,7 +30,7 @@ public:
 
     void registerParameters() override;
 
-    GoatMixPluginInstanceEditor* createGoatMixEditor() override;
+    GMPluginInstanceEditor* createGoatMixEditor() override;
     const String getName() const override { return "Gain"; }
     const String getDisplayName() const override { return UIStrings::Gain::displayName; }
 

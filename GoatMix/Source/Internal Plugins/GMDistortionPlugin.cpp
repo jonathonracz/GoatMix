@@ -13,7 +13,7 @@
 #include "../GUI/ValueStringFuncs.h"
 
 GMDistortionPlugin::GMDistortionPlugin(AudioProcessorValueTreeState& state) :
-    GoatMixPluginInstance(state)
+    GMPluginInstance(state)
 {
     meterSource.allocateMeters(getMainBusNumInputChannels());
 }
@@ -78,7 +78,7 @@ void GMDistortionPlugin::registerParameters()
         ValueStringFuncs::OnOff::textToValue);
 }
 
-GoatMixPluginInstanceEditor* GMDistortionPlugin::createGoatMixEditor()
+GMPluginInstanceEditor* GMDistortionPlugin::createGoatMixEditor()
 {
     return new GMDistortionPluginEditor(*this);
 }

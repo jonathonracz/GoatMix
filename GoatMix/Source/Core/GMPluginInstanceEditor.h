@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    GoatMixPluginInstanceEditor.h
+    GMPluginInstanceEditor.h
     Created: 7 Oct 2017 5:17:49pm
     Author:  Jonathon Racz
 
@@ -10,17 +10,17 @@
 
 #pragma once
 
-#include "GoatMixPluginInstance.h"
+#include "GMPluginInstance.h"
 #include "../GUI/GMParameterSlider.h"
 
-class GoatMixPluginInstanceEditor :
+class GMPluginInstanceEditor :
     public Component
 {
 public:
-    virtual ~GoatMixPluginInstanceEditor() {}
+    virtual ~GMPluginInstanceEditor() {}
 
 protected:
-    GoatMixPluginInstanceEditor(GoatMixPluginInstance& processor);
+    GMPluginInstanceEditor(GMPluginInstance& processor);
 
     /** Convenience methods + definitions for creating attachment points for
         editor UI elements.
@@ -36,11 +36,11 @@ protected:
     static void setVerticalRotated(Component* component, bool clockwise = false);
     static void setUpsideDownRotated(Component* component);
 
-    GoatMixPluginInstance& processor;
+    GMPluginInstance& processor;
 
 private:
     GMButtonAttachment bypassButtonAttachment;
     ToggleButton bypassButton;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GoatMixPluginInstanceEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GMPluginInstanceEditor)
 };

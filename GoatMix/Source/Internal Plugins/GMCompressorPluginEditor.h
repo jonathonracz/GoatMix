@@ -11,12 +11,12 @@
 #pragma once
 
 #include "GMCompressorPlugin.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstanceEditor.h"
 #include "../GUI/CompressorPreview.h"
 #include "../GUI/SimpleLevelMeter.h"
 
 class GMCompressorPluginEditor :
-    public GoatMixPluginInstanceEditor
+    public GMPluginInstanceEditor
 {
 public:
     GMCompressorPluginEditor(GMCompressorPlugin& processor);

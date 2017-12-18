@@ -11,13 +11,13 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "../DSP/DistortionChain.h"
 #include "../DSP/GMStateVariableFilter.h"
 #include "../DSP/MultiWindowedMeter.h"
 
 class GMDistortionPlugin :
-    public GoatMixPluginInstance
+    public GMPluginInstance
 {
 public:
     GMDistortionPlugin(AudioProcessorValueTreeState& state);
@@ -25,9 +25,9 @@ public:
 
     void registerParameters() override;
 
-    GoatMixPluginInstanceEditor* createGoatMixEditor() override;
+    GMPluginInstanceEditor* createGoatMixEditor() override;
     const String getName() const override { return "Distortion"; }
-    const String getDisplayName() const override { return NEEDS_TRANS("Distort"); }
+    const String getDisplayName() const override { return UIStrings::Distortion::displayName; }
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;

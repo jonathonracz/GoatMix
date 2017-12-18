@@ -10,7 +10,7 @@
 
 #include "GoatMixPluginProcessor.h"
 #include "GoatMixPluginEditor.h"
-#include "Core/GoatMixPluginFormat.h"
+#include "Core/GMPluginFormat.h"
 
 GoatMixAudioProcessor::GoatMixAudioProcessor() :
     AudioProcessor(BusesProperties()
@@ -25,7 +25,7 @@ GoatMixAudioProcessor::GoatMixAudioProcessor() :
     // They will remain until unload, so we can free them afterward (as opposed
     // to keeping them around as members).
     AudioPluginFormatManager formatManager;
-    GoatMixPluginFormat* pluginFormat = new GoatMixPluginFormat(params);
+    GMPluginFormat* pluginFormat = new GMPluginFormat(params);
     formatManager.addFormat(pluginFormat);
 
     OwnedArray<PluginDescription> mobileMixPluginList;
@@ -35,9 +35,9 @@ GoatMixAudioProcessor::GoatMixAudioProcessor() :
         String errorMessage;
         // We only have one plugin type registered, so we can be guaranteed this
         // static cast will succeed.
-        GoatMixPluginInstance* instance = static_cast<GoatMixPluginInstance*>(formatManager.createPluginInstance(*mobileMixPluginList[i], 0, 0, errorMessage));
+        GMPluginInstance* instance = static_cast<GMPluginInstance*>(formatManager.createPluginInstance(*mobileMixPluginList[i], 0, 0, errorMessage));
         jassert(instance && errorMessage.isEmpty());
-        instance->GoatMixPluginInstance::registerParameters();
+        instance->GMPluginInstance::registerParameters();
         instance->registerParameters();
         chain.addNode(instance);
         chainTree.getOrCreateChildWithName(instance->getName(), nullptr);

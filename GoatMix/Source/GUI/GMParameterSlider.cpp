@@ -9,7 +9,7 @@
 */
 
 #include "GMParameterSlider.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 
 GMParameterSlider::GMParameterSlider() :
     Slider(Slider::SliderStyle::LinearBar, Slider::TextEntryBoxPosition::TextBoxAbove)
@@ -47,7 +47,7 @@ String GMParameterSlider::getTextFromValue(double value)
 {
     if (representedParameter)
     {
-        return GoatMixPluginInstance::stripPrefixFromParameterName(representedParameter->name)
+        return GMPluginInstance::stripPrefixFromParameterName(representedParameter->name)
             + ": " + representedParameter->getText(representedRange.convertTo0to1(static_cast<float>(value)), 0);
     }
 
@@ -58,6 +58,6 @@ void GMParameterSlider::editorShown(Label* label, TextEditor& editor)
 {
     // We use a text keyboard so we can access the negative symbol.
     editor.setText(String(
-        GoatMixPluginInstance::stripPrefixFromParameterName(
+        GMPluginInstance::stripPrefixFromParameterName(
             label->getText(false)).getFloatValue()));
 }

@@ -11,7 +11,7 @@
 #include "GMGainPluginEditor.h"
 
 GMGainPluginEditor::GMGainPluginEditor(GMGainPlugin& processor) :
-    GoatMixPluginInstanceEditor(processor),
+    GMPluginInstanceEditor(processor),
     buttonPhaseInvertL(BinaryData::phaseinvert_svg, BinaryData::phaseinvert_svgSize),
     buttonPhaseInvertR(BinaryData::phaseinvert_svg, BinaryData::phaseinvert_svgSize)
 {
@@ -224,9 +224,9 @@ void GMGainPluginEditor::resized()
     buttonPhaseInvertL.setInternalShapeBounds(shapeBounds);
     buttonPhaseInvertR.setInternalShapeBounds(shapeBounds);
 
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderGainL);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderGain);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderGainR);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayL);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayR);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderGainL);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderGain);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderGainR);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayL);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderPhaseDelayR);
 }

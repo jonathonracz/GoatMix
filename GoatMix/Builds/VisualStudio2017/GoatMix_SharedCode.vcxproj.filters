@@ -496,13 +496,13 @@
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginFormat.cpp">
+    <ClCompile Include="..\..\Source\Core\GMPluginFormat.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstance.cpp">
+    <ClCompile Include="..\..\Source\Core\GMPluginInstance.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstanceEditor.cpp">
+    <ClCompile Include="..\..\Source\Core\GMPluginInstanceEditor.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GoatMixPluginProcessor.cpp">
@@ -2520,13 +2520,13 @@
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginFormat.h">
+    <ClInclude Include="..\..\Source\Core\GMPluginFormat.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstance.h">
+    <ClInclude Include="..\..\Source\Core\GMPluginInstance.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstanceEditor.h">
+    <ClInclude Include="..\..\Source\Core\GMPluginInstanceEditor.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h">

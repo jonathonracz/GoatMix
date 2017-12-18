@@ -13,7 +13,7 @@
 #include "../GUI/ValueStringFuncs.h"
 
 GMEQPlugin::GMEQPlugin(AudioProcessorValueTreeState& state) :
-    GoatMixPluginInstance(state),
+    GMPluginInstance(state),
     filterTypes("Bypass", "High Pass", "High Shelf", "Peak", "Low Shelf", "Low Pass")
 {
 }
@@ -62,7 +62,7 @@ void GMEQPlugin::registerParameters()
     }
 }
 
-GoatMixPluginInstanceEditor* GMEQPlugin::createGoatMixEditor()
+GMPluginInstanceEditor* GMEQPlugin::createGoatMixEditor()
 {
     return new GMEQPluginEditor(*this);
 }

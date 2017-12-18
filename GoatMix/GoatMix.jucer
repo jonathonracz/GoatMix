@@ -182,18 +182,18 @@
             file="Source/Core/AudioProcessorChain.cpp"/>
       <FILE id="VrIKhm" name="AudioProcessorChain.h" compile="0" resource="0"
             file="Source/Core/AudioProcessorChain.h"/>
-      <FILE id="qtCbyB" name="GoatMixPluginFormat.cpp" compile="1" resource="0"
-            file="Source/Core/GoatMixPluginFormat.cpp"/>
-      <FILE id="ZEkRSG" name="GoatMixPluginFormat.h" compile="0" resource="0"
-            file="Source/Core/GoatMixPluginFormat.h"/>
-      <FILE id="wTRfeO" name="GoatMixPluginInstance.cpp" compile="1" resource="0"
-            file="Source/Core/GoatMixPluginInstance.cpp"/>
-      <FILE id="ObviYh" name="GoatMixPluginInstance.h" compile="0" resource="0"
-            file="Source/Core/GoatMixPluginInstance.h"/>
-      <FILE id="ryocJ2" name="GoatMixPluginInstanceEditor.cpp" compile="1"
-            resource="0" file="Source/Core/GoatMixPluginInstanceEditor.cpp"/>
-      <FILE id="Cx2VV4" name="GoatMixPluginInstanceEditor.h" compile="0"
-            resource="0" file="Source/Core/GoatMixPluginInstanceEditor.h"/>
+      <FILE id="qtCbyB" name="GMPluginFormat.cpp" compile="1" resource="0"
+            file="Source/Core/GMPluginFormat.cpp"/>
+      <FILE id="ZEkRSG" name="GMPluginFormat.h" compile="0" resource="0"
+            file="Source/Core/GMPluginFormat.h"/>
+      <FILE id="wTRfeO" name="GMPluginInstance.cpp" compile="1" resource="0"
+            file="Source/Core/GMPluginInstance.cpp"/>
+      <FILE id="ObviYh" name="GMPluginInstance.h" compile="0" resource="0"
+            file="Source/Core/GMPluginInstance.h"/>
+      <FILE id="ryocJ2" name="GMPluginInstanceEditor.cpp" compile="1" resource="0"
+            file="Source/Core/GMPluginInstanceEditor.cpp"/>
+      <FILE id="Cx2VV4" name="GMPluginInstanceEditor.h" compile="0" resource="0"
+            file="Source/Core/GMPluginInstanceEditor.h"/>
     </GROUP>
     <GROUP id="{543157D0-073C-4F08-73E1-02859D0A3AC9}" name="DSP">
       <FILE id="bnxzap" name="AmplitudeQuantize.h" compile="0" resource="0"

@@ -11,7 +11,7 @@
 #pragma once
 
 #include "GMGainPlugin.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstanceEditor.h"
 #include "../GUI/GMParameterSlider.h"
 #include "../GUI/GMShapeButton.h"
 #include "../GUI/SimpleLevelMeter.h"
@@ -20,7 +20,7 @@
 #include "../GUI/SpanningLabel.h"
 
 class GMGainPluginEditor :
-    public GoatMixPluginInstanceEditor
+    public GMPluginInstanceEditor
 {
 public:
     GMGainPluginEditor(GMGainPlugin& processor);

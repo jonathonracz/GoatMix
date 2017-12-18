@@ -30,7 +30,7 @@ GoatMixAudioProcessorEditor::GoatMixAudioProcessorEditor(GoatMixAudioProcessor& 
     for (int i = 0; i < processor.chain.getNumNodes(); ++i)
     {
         jassert(processor.chainTree.getChild(i).getType() == Identifier(processor.chain.getNode(i)->getProcessor()->getName()));
-        GoatMixPluginInstance* currentProcessor = static_cast<GoatMixPluginInstance*>(processor.chain.getNode(i)->getProcessor());
+        GMPluginInstance* currentProcessor = static_cast<GMPluginInstance*>(processor.chain.getNode(i)->getProcessor());
         tabs.addTabForPlugin(currentProcessor);
     }
 

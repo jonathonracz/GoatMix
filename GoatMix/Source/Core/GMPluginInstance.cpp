@@ -1,18 +1,18 @@
 /*
   ==============================================================================
 
-    GoatMixPluginInstance.cpp
+    GMPluginInstance.cpp
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
   ==============================================================================
 */
 
-#include "GoatMixPluginInstance.h"
+#include "GMPluginInstance.h"
 #include "../GUI/ValueStringFuncs.h"
-#include "GoatMixPluginInstanceEditor.h"
+#include "GMPluginInstanceEditor.h"
 
-GoatMixPluginInstance::GoatMixPluginInstance(AudioProcessorValueTreeState& _state) :
+GMPluginInstance::GMPluginInstance(AudioProcessorValueTreeState& _state) :
     AudioPluginInstance(BusesProperties()
                         .withInput("Input",  AudioChannelSet::stereo())
                         .withOutput("Output", AudioChannelSet::stereo())),
@@ -21,11 +21,11 @@ GoatMixPluginInstance::GoatMixPluginInstance(AudioProcessorValueTreeState& _stat
     meterSource.allocateMeters(getMainBusNumInputChannels());
 }
 
-GoatMixPluginInstance::~GoatMixPluginInstance()
+GMPluginInstance::~GMPluginInstance()
 {
 }
 
-void GoatMixPluginInstance::registerParameters()
+void GMPluginInstance::registerParameters()
 {
     paramBypass = state.createAndAddParameter(
         addPrefixToParameterName("Bypass"),
@@ -37,33 +37,33 @@ void GoatMixPluginInstance::registerParameters()
         ValueStringFuncs::OnOff::textToValue);
 }
 
-bool GoatMixPluginInstance::isBypassed() const
+bool GMPluginInstance::isBypassed() const
 {
     jassert(paramBypass->getValue() == 0.0f || paramBypass->getValue() == 1.0f);
     return static_cast<bool>(paramBypass->getValue());
 }
 
-float GoatMixPluginInstance::getUnnormalizedValue(AudioProcessorParameterWithID* param) const
+float GMPluginInstance::getUnnormalizedValue(AudioProcessorParameterWithID* param) const
 {
     return *state.getRawParameterValue(param->paramID);
 }
 
-float GoatMixPluginInstance::getNormalizedValue(AudioProcessorParameterWithID* param) const
+float GMPluginInstance::getNormalizedValue(AudioProcessorParameterWithID* param) const
 {
     return state.getParameterRange(param->paramID).convertFrom0to1(*state.getRawParameterValue(param->paramID));
 }
 
-const String GoatMixPluginInstance::addPrefixToParameterName(StringRef name) const
+const String GMPluginInstance::addPrefixToParameterName(StringRef name) const
 {
     return getName() + ": " + name;
 }
 
-const String GoatMixPluginInstance::stripPrefixFromParameterName(const String& name)
+const String GMPluginInstance::stripPrefixFromParameterName(const String& name)
 {
     return name.substring(name.indexOf(": ") + 2);
 }
 
-void GoatMixPluginInstance::fillInPluginDescription(PluginDescription &description) const
+void GMPluginInstance::fillInPluginDescription(PluginDescription &description) const
 {
     description.name = getName();
     description.uid = description.name.hashCode();
@@ -73,7 +73,7 @@ void GoatMixPluginInstance::fillInPluginDescription(PluginDescription &descripti
     description.isInstrument = false;
 }
 
-void GoatMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
+void GMPluginInstance::prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock)
 {
     preparedSampleRate = sampleRate;
     preparedBlockSize = maximumExpectedSamplesPerBlock;
@@ -85,12 +85,12 @@ void GoatMixPluginInstance::prepareToPlay(double sampleRate, int maximumExpected
     prepareToPlayDerived(sampleRate, maximumExpectedSamplesPerBlock);
 }
 
-void GoatMixPluginInstance::releaseResources()
+void GMPluginInstance::releaseResources()
 {
     releaseResourcesDerived();
 }
 
-void GoatMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void GMPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
     if (paramBypass->getValue() != 1.0f)
         processBlockDerived(buffer, midiMessages);
@@ -100,38 +100,38 @@ void GoatMixPluginInstance::processBlock(AudioBuffer<float>& buffer, MidiBuffer&
     meterSource.process(context);
 }
 
-bool GoatMixPluginInstance::isBusesLayoutSupported(const BusesLayout& layouts) const
+bool GMPluginInstance::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     return (layouts.getMainInputChannelSet() == getBusesLayout().getMainInputChannelSet()) &&
         (layouts.getMainOutputChannelSet() == getBusesLayout().getMainOutputChannelSet());
 }
 
-bool GoatMixPluginInstance::hasEditor() const
+bool GMPluginInstance::hasEditor() const
 {
     return true;
 }
 
-bool GoatMixPluginInstance::acceptsMidi() const
+bool GMPluginInstance::acceptsMidi() const
 {
     return false;
 }
 
-bool GoatMixPluginInstance::producesMidi() const
+bool GMPluginInstance::producesMidi() const
 {
     return false;
 }
 
-double GoatMixPluginInstance::getTailLengthSeconds() const
+double GMPluginInstance::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int GoatMixPluginInstance::getNumPrograms()
+int GMPluginInstance::getNumPrograms()
 {
     return 1; // Required by some hosts (as opposed to 0)
 }
 
-int GoatMixPluginInstance::getCurrentProgram()
+int GMPluginInstance::getCurrentProgram()
 {
     return 0;
 }

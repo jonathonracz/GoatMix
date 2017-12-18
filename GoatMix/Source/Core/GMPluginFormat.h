@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    GoatMixPluginFormat.h
+    GMPluginFormat.h
     Created: 25 Sep 2017 12:34:59am
     Author:  Jonathon Racz
 
@@ -12,12 +12,12 @@
 
 #include "JuceHeader.h"
 
-class GoatMixPluginFormat :
+class GMPluginFormat :
     public AudioPluginFormat
 {
 public:
-    GoatMixPluginFormat(AudioProcessorValueTreeState& state);
-    ~GoatMixPluginFormat() {}
+    GMPluginFormat(AudioProcessorValueTreeState& state);
+    ~GMPluginFormat() {}
 
     String getName() const override                                                     { return "Internal"; }
     bool fileMightContainThisPluginType(const String&) override                         { return true; }
@@ -43,5 +43,5 @@ private:
 
     AudioProcessorValueTreeState& state;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GoatMixPluginFormat)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GMPluginFormat)
 };

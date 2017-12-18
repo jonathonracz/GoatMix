@@ -11,14 +11,14 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "../DSP/DryWet.h"
 #include "../DSP/GMReverb.h"
 #include "../DSP/GMStateVariableFilter.h"
 #include "../GUI/GoniometerSource.h"
 
 class GMReverbPlugin :
-    public GoatMixPluginInstance
+    public GMPluginInstance
 {
 public:
     GMReverbPlugin(AudioProcessorValueTreeState& state);
@@ -26,7 +26,7 @@ public:
 
     void registerParameters() override;
 
-    GoatMixPluginInstanceEditor* createGoatMixEditor() override;
+    GMPluginInstanceEditor* createGoatMixEditor() override;
     const String getName() const override { return "Reverb"; }
     const String getDisplayName() const override { return UIStrings::Reverb::displayName; }
 

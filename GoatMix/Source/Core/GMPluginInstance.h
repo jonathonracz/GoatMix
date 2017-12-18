@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    GoatMixPluginInstance.h
+    GMPluginInstance.h
     Created: 15 Sep 2017 11:04:56am
     Author:  Jonathon Racz
 
@@ -14,14 +14,14 @@
 #include "../GUI/UIStrings.h"
 #include "../DSP/MultiWindowedMeter.h"
 
-class GoatMixPluginInstanceEditor;
+class GMPluginInstanceEditor;
 
-class GoatMixPluginInstance :
+class GMPluginInstance :
     public AudioPluginInstance
 {
 public:
-    GoatMixPluginInstance(AudioProcessorValueTreeState& state);
-    virtual ~GoatMixPluginInstance();
+    GMPluginInstance(AudioProcessorValueTreeState& state);
+    virtual ~GMPluginInstance();
 
     /** Override this to add your own parameters to the state tree. You do NOT
         need to call this base class implementation.
@@ -39,7 +39,7 @@ public:
     virtual void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) = 0;
     virtual void releaseResourcesDerived() {}
 
-    virtual GoatMixPluginInstanceEditor* createGoatMixEditor() = 0;
+    virtual GMPluginInstanceEditor* createGoatMixEditor() = 0;
 
     double getPreparedSampleRate() const { return preparedSampleRate; }
     int getPreparedBlockSize() const { return preparedBlockSize; }
@@ -54,7 +54,7 @@ public:
     MultiWindowedMeter meterSource;
 
 private:
-    friend class GoatMixPluginInstanceEditor;
+    friend class GMPluginInstanceEditor;
 
     void fillInPluginDescription(PluginDescription &description) const override;
 
@@ -79,5 +79,5 @@ private:
     double preparedSampleRate = 0.0;
     int preparedBlockSize = 0;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GoatMixPluginInstance)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(GMPluginInstance)
 };

@@ -13,7 +13,7 @@
 #include "../GUI/ValueStringFuncs.h"
 
 GMReverbPlugin::GMReverbPlugin(AudioProcessorValueTreeState& state) :
-    GoatMixPluginInstance(state)
+    GMPluginInstance(state)
 {
     lowPass.params->type = dsp::StateVariableFilter::Parameters<float>::Type::lowPass;
     highPass.params->type = dsp::StateVariableFilter::Parameters<float>::Type::highPass;
@@ -103,7 +103,7 @@ void GMReverbPlugin::registerParameters()
         ValueStringFuncs::Percent::textToValue);
 }
 
-GoatMixPluginInstanceEditor* GMReverbPlugin::createGoatMixEditor()
+GMPluginInstanceEditor* GMReverbPlugin::createGoatMixEditor()
 {
     return new GMReverbPluginEditor(*this);
 }

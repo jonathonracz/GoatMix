@@ -175,9 +175,9 @@
     <ClCompile Include="..\..\Source\GUI\GoniometerSource.cpp"/>
     <ClCompile Include="..\..\Source\GUI\ReverbPreview.cpp"/>
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp"/>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginFormat.cpp"/>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstance.cpp"/>
-    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstanceEditor.cpp"/>
+    <ClCompile Include="..\..\Source\Core\GMPluginFormat.cpp"/>
+    <ClCompile Include="..\..\Source\Core\GMPluginInstance.cpp"/>
+    <ClCompile Include="..\..\Source\Core\GMPluginInstanceEditor.cpp"/>
     <ClCompile Include="..\..\Source\GoatMixPluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\GoatMixPluginEditor.cpp"/>
     <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.cpp">
@@ -1935,9 +1935,9 @@
     <ClInclude Include="..\..\Source\GUI\UIStrings.h"/>
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h"/>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h"/>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginFormat.h"/>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstance.h"/>
-    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstanceEditor.h"/>
+    <ClInclude Include="..\..\Source\Core\GMPluginFormat.h"/>
+    <ClInclude Include="..\..\Source\Core\GMPluginInstance.h"/>
+    <ClInclude Include="..\..\Source\Core\GMPluginInstanceEditor.h"/>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h"/>
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h"/>
     <ClInclude Include="..\..\Source\DSP\Compressor.h"/>

@@ -10,8 +10,8 @@
 
 #include "GMTabbedComponent.h"
 #include "GMTabBarButton.h"
-#include "../Core/GoatMixPluginInstance.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstance.h"
+#include "../Core/GMPluginInstanceEditor.h"
 
 GMTabbedComponent::GMTabbedComponent(TabbedButtonBar::Orientation orientation) :
     DraggableTabbedComponent(orientation)
@@ -21,7 +21,7 @@ GMTabbedComponent::GMTabbedComponent(TabbedButtonBar::Orientation orientation) :
     setOpaque(false);
 }
 
-void GMTabbedComponent::addTabForPlugin(GoatMixPluginInstance* plugin)
+void GMTabbedComponent::addTabForPlugin(GMPluginInstance* plugin)
 {
     lastPluginTabAddedFor = plugin;
     addTab(plugin->getDisplayName(), Colours::transparentWhite, plugin->createGoatMixEditor(), true);

@@ -11,7 +11,7 @@
 #include "GMCompressorPluginEditor.h"
 
 GMCompressorPluginEditor::GMCompressorPluginEditor(GMCompressorPlugin& processor) :
-    GoatMixPluginInstanceEditor(processor),
+    GMPluginInstanceEditor(processor),
     preview(processor.compressor.params, processor.meter)
 {
     attachAttack = createSliderAttachment(processor.paramAttack, sliderAttack);
@@ -114,12 +114,12 @@ void GMCompressorPluginEditor::resized()
 
     layout.performLayout(getLocalBounds());
 
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderAttack);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderRelease);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderRatio);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderThreshold);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&meterLGainReduc);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&meterRGainReduc);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderMakeupGain);
-    GoatMixPluginInstanceEditor::setVerticalRotated(&sliderDryWet);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderAttack);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderRelease);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderRatio);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderThreshold);
+    GMPluginInstanceEditor::setVerticalRotated(&meterLGainReduc);
+    GMPluginInstanceEditor::setVerticalRotated(&meterRGainReduc);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderMakeupGain);
+    GMPluginInstanceEditor::setVerticalRotated(&sliderDryWet);
 }

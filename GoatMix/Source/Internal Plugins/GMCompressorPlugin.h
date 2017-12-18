@@ -11,14 +11,14 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "../DSP/Compressor.h"
 #include "../DSP/DryWet.h"
 #include "../DSP/Gain.h"
 #include "../DSP/WindowedMeter.h"
 
 class GMCompressorPlugin :
-    public GoatMixPluginInstance
+    public GMPluginInstance
 {
 public:
     GMCompressorPlugin(AudioProcessorValueTreeState& state);
@@ -26,9 +26,9 @@ public:
 
     void registerParameters() override;
 
-    GoatMixPluginInstanceEditor* createGoatMixEditor() override;
+    GMPluginInstanceEditor* createGoatMixEditor() override;
     const String getName() const override { return "Compressor"; }
-    const String getDisplayName() const override { return NEEDS_TRANS("Compress"); }
+    const String getDisplayName() const override { return UIStrings::Compressor::displayName; }
 
     void prepareToPlayDerived(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void processBlockDerived(AudioBuffer<float>& buffer, MidiBuffer& midiMessages) override;

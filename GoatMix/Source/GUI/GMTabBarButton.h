@@ -11,7 +11,7 @@
 #pragma once
 
 #include "DraggableTabBarButton.h"
-#include "../Core/GoatMixPluginInstance.h"
+#include "../Core/GMPluginInstance.h"
 #include "GMShapeButton.h"
 #include "SimpleMultiLevelMeter.h"
 
@@ -20,7 +20,7 @@ class GMTabBarButton :
     public DraggableTabbedComponent::Listener
 {
 public:
-    GMTabBarButton(DraggableTabbedComponent& owner, GoatMixPluginInstance& representedPlugin);
+    GMTabBarButton(DraggableTabbedComponent& owner, GMPluginInstance& representedPlugin);
     ~GMTabBarButton();
 
 protected:
@@ -36,7 +36,7 @@ private:
     std::unique_ptr<Drawable> muteButtonBg;
     GMShapeButton bypassButton;
     AudioProcessorValueTreeState::ButtonAttachment bypassButtonAttachment;
-    GoatMixPluginInstance& representedPlugin;
+    GMPluginInstance& representedPlugin;
     SimpleMultiLevelMeter meter;
     Image freezeSnapshot;
 

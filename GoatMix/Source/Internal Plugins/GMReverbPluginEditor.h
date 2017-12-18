@@ -13,10 +13,10 @@
 #include "GMReverbPlugin.h"
 #include "../GUI/GMShapeButton.h"
 #include "../GUI/ReverbPreview.h"
-#include "../Core/GoatMixPluginInstanceEditor.h"
+#include "../Core/GMPluginInstanceEditor.h"
 
 class GMReverbPluginEditor :
-    public GoatMixPluginInstanceEditor,
+    public GMPluginInstanceEditor,
     public Slider::Listener,
     public Button::Listener,
     public ChangeBroadcaster

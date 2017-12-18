@@ -12,7 +12,7 @@
 
 #include "JuceHeader.h"
 #include "Core/AudioProcessorChain.h"
-#include "Core/GoatMixPluginFormat.h"
+#include "Core/GMPluginFormat.h"
 
 /**
 */

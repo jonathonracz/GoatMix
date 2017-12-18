@@ -13,7 +13,7 @@
 #include "../GUI/ValueStringFuncs.h"
 
 GMCompressorPlugin::GMCompressorPlugin(AudioProcessorValueTreeState& state) :
-    GoatMixPluginInstance(state)
+    GMPluginInstance(state)
 {
 }
 
@@ -78,7 +78,7 @@ void GMCompressorPlugin::registerParameters()
         ValueStringFuncs::Percent::textToValue);
 }
 
-GoatMixPluginInstanceEditor* GMCompressorPlugin::createGoatMixEditor()
+GMPluginInstanceEditor* GMCompressorPlugin::createGoatMixEditor()
 {
     return new GMCompressorPluginEditor(*this);
 }
