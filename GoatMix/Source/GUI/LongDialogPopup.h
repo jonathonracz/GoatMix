@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 
 class LongDialogPopup :
     public Component

@@ -9,7 +9,7 @@
 */
 
 #include "ReverbPreview.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 
 ReverbPreview::ReverbPreview(AudioProcessorValueTreeState& _state, String _roomSizeID,
     String _dampingID, String _widthID, String _freezeID) :
@@ -37,9 +37,9 @@ ReverbPreview::ReverbPreview(AudioProcessorValueTreeState& _state, String _roomS
 
 void ReverbPreview::paint(Graphics& g)
 {
-    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+    GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
-    g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+    g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
 
     // Outer border
     {

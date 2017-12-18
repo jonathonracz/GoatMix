@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 #include "../DSP/WindowedMeter.h"
 
 class MaxdBLabel :
@@ -42,7 +42,7 @@ private:
     void paint(Graphics& g) override
     {
         if (source && source->getClippingStatus())
-            g.fillAll(findColour(MMLookAndFeel::ColourIds::meterClip));
+            g.fillAll(findColour(GMLookAndFeel::ColourIds::meterClip));
         Label::paint(g);
     }
 

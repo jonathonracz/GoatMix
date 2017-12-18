@@ -9,7 +9,7 @@
 */
 
 #include "DistortionPreview.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 
 DistortionPreview::DistortionPreview(DistortionChain::Parameters::Ptr params, ChangeBroadcaster& _paramChangeSource) :
     paramChangeSource(_paramChangeSource),
@@ -46,18 +46,18 @@ void DistortionPreview::performDistortion()
 
 void DistortionPreview::paint(Graphics& g)
 {
-    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+    GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
     // Center line
     {
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
+        g.setColour(findColour(GMLookAndFeel::ColourIds::outlineLight));
         g.fillRect(Rectangle<int>(0,
                                   (getHeight() / 2) - lf.borderThickness / 2,
                                   getWidth(),
                                   lf.borderThickness));
     }
 
-    g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+    g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
 
     // Outer border
     {

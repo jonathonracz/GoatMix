@@ -424,34 +424,34 @@
     <ClCompile Include="..\..\Source\External\SimpleComp\SimpleLimit.cpp">
       <Filter>GoatMix\External\SimpleComp</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPlugin.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMCompressorPlugin.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMCompressorPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMCompressorPluginEditor.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMDistortionPlugin.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMDistortionPlugin.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMDistortionPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMDistortionPluginEditor.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMEQPlugin.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMEQPlugin.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMEQPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMEQPluginEditor.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMGainPlugin.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMGainPlugin.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMGainPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMGainPluginEditor.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPlugin.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMReverbPlugin.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\Internal Plugins\GMReverbPluginEditor.cpp">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GUI\CompressorPreview.cpp">
@@ -466,28 +466,28 @@
     <ClCompile Include="..\..\Source\GUI\DraggableTabbedComponent.cpp">
       <Filter>GoatMix\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMLookAndFeel.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMParameterSlider.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMShapeButton.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMTabBarButton.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMTabbedComponent.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GUI\GMTopBar.cpp">
+      <Filter>GoatMix\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\GUI\Goniometer.cpp">
       <Filter>GoatMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GUI\GoniometerSource.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMLookAndFeel.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMParameterSlider.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMShapeButton.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMTabBarButton.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMTabbedComponent.cpp">
-      <Filter>GoatMix\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\GUI\MMTopBar.cpp">
       <Filter>GoatMix\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\GUI\ReverbPreview.cpp">
@@ -496,19 +496,19 @@
     <ClCompile Include="..\..\Source\Core\AudioProcessorChain.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\MobileMixPluginInstanceEditor.cpp">
+    <ClCompile Include="..\..\Source\Core\GoatMixPluginFormat.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\MobileMixPluginFormat.cpp">
+    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstance.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Core\MobileMixPluginInstance.cpp">
+    <ClCompile Include="..\..\Source\Core\GoatMixPluginInstanceEditor.cpp">
       <Filter>GoatMix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MobileMixPluginProcessor.cpp">
+    <ClCompile Include="..\..\Source\GoatMixPluginProcessor.cpp">
       <Filter>GoatMix</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MobileMixPluginEditor.cpp">
+    <ClCompile Include="..\..\Source\GoatMixPluginEditor.cpp">
       <Filter>GoatMix</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\External\juce-toys\jcf_debug\source\buffer_debugger.cpp">
@@ -2400,64 +2400,40 @@
     <ClInclude Include="..\..\Source\External\CenteredEditableLabel\CenteredTextEditor.h">
       <Filter>GoatMix\External\CenteredEditableLabel</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMCompressorPlugin.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMCompressorPlugin.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMCompressorPluginEditor.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMCompressorPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMDistortionPlugin.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMDistortionPlugin.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMDistortionPluginEditor.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMDistortionPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMEQPlugin.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMEQPlugin.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMEQPluginEditor.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMEQPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMGainPlugin.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMGainPlugin.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMGainPluginEditor.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMGainPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMPlugins.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMPlugins.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPlugin.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMReverbPlugin.h">
       <Filter>GoatMix\Internal Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Internal Plugins\MMReverbPluginEditor.h">
+    <ClInclude Include="..\..\Source\Internal Plugins\GMReverbPluginEditor.h">
       <Filter>GoatMix\Internal Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\SpanningLabel.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\FilterCurve.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\FFTDisplay.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\EQPreview.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMTooltipDisplay.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMTooltipManager.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\UIStrings.h">
-      <Filter>GoatMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\AboutDataManager.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\Divider.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\CompressorPreview.h">
@@ -2466,10 +2442,46 @@
     <ClInclude Include="..\..\Source\GUI\DistortionPreview.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\Divider.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabBarButton.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\DraggableTabbedComponent.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\EQPreview.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\FFTDisplay.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\FilterCurve.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMLookAndFeel.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMParameterSlider.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMShapeButton.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMTabBarButton.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMTabbedComponent.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMTooltipDisplay.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMTooltipManager.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\GMTopBar.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\GUI\Goniometer.h">
@@ -2484,24 +2496,6 @@
     <ClInclude Include="..\..\Source\GUI\MaxdBLabel.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMLookAndFeel.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMParameterSlider.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMShapeButton.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMTabBarButton.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMTabbedComponent.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GUI\MMTopBar.h">
-      <Filter>GoatMix\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\ReverbPreview.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
@@ -2514,74 +2508,26 @@
     <ClInclude Include="..\..\Source\GUI\SimpleMultiLevelMeter.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\SpanningLabel.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GUI\UIStrings.h">
+      <Filter>GoatMix\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\GUI\ValueStringFuncs.h">
       <Filter>GoatMix\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Core\AudioProcessorChain.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\MobileMixPluginInstanceEditor.h">
+    <ClInclude Include="..\..\Source\Core\GoatMixPluginFormat.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\MobileMixPluginFormat.h">
+    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstance.h">
       <Filter>GoatMix\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Core\MobileMixPluginInstance.h">
+    <ClInclude Include="..\..\Source\Core\GoatMixPluginInstanceEditor.h">
       <Filter>GoatMix\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\MultiWindowedMeter.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\SPSCAtomic.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\DecibelDecay.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\LogMap.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\SignalSnapshotter.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\WindowedMeter.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\MMIIRFilter.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\MMStateVariableFilter.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\DistortionChain.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\MMReverb.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\Overdrive.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\Compressor.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\DryWet.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\Pan.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\Gain.h">
-      <Filter>GoatMix\DSP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\RingBuffer.h">
-      <Filter>GoatMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\AmplitudeQuantize.h">
       <Filter>GoatMix\DSP</Filter>
@@ -2589,22 +2535,76 @@
     <ClInclude Include="..\..\Source\DSP\BufferSizeAdaptor.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DSP\VariableDelayLinePSOLA.h">
+    <ClInclude Include="..\..\Source\DSP\Compressor.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DecibelDecay.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DistortionChain.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\DryWet.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\Gain.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\GMIIRFilter.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\GMReverb.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\GMStateVariableFilter.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\InvertPhase.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\LogMap.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DSP\Math.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\MultiWindowedMeter.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\Overdrive.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\Pan.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\RefCountedAudioBuffer.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\RingBuffer.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DSP\SampleRepeat.h">
       <Filter>GoatMix\DSP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MobileMixPluginProcessor.h">
+    <ClInclude Include="..\..\Source\DSP\SignalSnapshotter.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\SPSCAtomic.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLinePSOLA.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\VariableDelayLineResampling.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DSP\WindowedMeter.h">
+      <Filter>GoatMix\DSP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GoatMixPluginProcessor.h">
       <Filter>GoatMix</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MobileMixPluginEditor.h">
+    <ClInclude Include="..\..\Source\GoatMixPluginEditor.h">
       <Filter>GoatMix</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\External\juce-toys\jcf_advanced_leak_detector\jcf_advanced_leak_detector.h">

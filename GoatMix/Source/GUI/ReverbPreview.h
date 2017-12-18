@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "../DSP/MMReverb.h"
+#include "../DSP/GMReverb.h"
 
 class ReverbPreview :
     public Component,
@@ -37,7 +37,7 @@ private:
     String freezeID;
 
     dsp::ProcessSpec spec;
-    MMReverb reverb;
+    GMReverb reverb;
     AudioFormatManager formatManager;
     AudioThumbnailCache cache;
     AudioThumbnail thumbnail;

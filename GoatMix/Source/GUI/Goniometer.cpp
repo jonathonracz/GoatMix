@@ -9,7 +9,7 @@
 */
 
 #include "Goniometer.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 #include "GoniometerSource.h"
 
 Goniometer::Goniometer() :
@@ -32,7 +32,7 @@ void Goniometer::setNumPointsInPath(int numPoints)
 
 void Goniometer::paint(Graphics& g)
 {
-    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+    GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
     if (wasResized)
     {
@@ -50,14 +50,14 @@ void Goniometer::paint(Graphics& g)
             guidelines.addEllipse(innerGuide);
             guidelines.addLineSegment(Line<float>(0.0f, 0.0f, static_cast<float>(getWidth()), static_cast<float>(getHeight())), lf.borderThickness);
             guidelines.addLineSegment(Line<float>(static_cast<float>(getWidth()), 0.0f, 0.0f, static_cast<float>(getHeight())), lf.borderThickness);
-            bgPainter.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
+            bgPainter.setColour(findColour(GMLookAndFeel::ColourIds::outlineLight));
             bgPainter.strokePath(guidelines, PathStrokeType(lf.borderThickness));
         }
 
         {
             Path border;
             border.addRectangle(getLocalBounds());
-            bgPainter.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+            bgPainter.setColour(findColour(GMLookAndFeel::ColourIds::outline));
             bgPainter.strokePath(border, PathStrokeType(lf.borderThickness * 2.0f));
         }
 
@@ -75,7 +75,7 @@ void Goniometer::resized()
 
 void Goniometer::timerCallback()
 {
-    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+    GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
     {
         // Pull as many samples as we can from the intermediate buffer and turn them
@@ -110,7 +110,7 @@ void Goniometer::timerCallback()
     {
         Graphics::ScopedSaveState state(pathRender);
         pathRender.reduceClipRegion(drawPath);
-        pathRender.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        pathRender.setColour(findColour(GMLookAndFeel::ColourIds::outline));
         pathRender.strokePath(drawPath, PathStrokeType(lf.borderThickness));
     }
     pathRender.reduceClipRegion(paths, AffineTransform());

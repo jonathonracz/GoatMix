@@ -9,7 +9,7 @@
 */
 
 #include "CompressorPreview.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 
 CompressorPreview::CompressorPreview(Compressor::Parameters::Ptr _params, WindowedMeter& _meter) :
     params(_params),
@@ -20,9 +20,9 @@ CompressorPreview::CompressorPreview(Compressor::Parameters::Ptr _params, Window
 
 void CompressorPreview::paint(Graphics& g)
 {
-    MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+    GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
-    g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+    g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
 
     if (params)
     {
@@ -41,7 +41,7 @@ void CompressorPreview::paint(Graphics& g)
             compressionPathLine.startNewSubPath(curveStart);
             compressionPathLine.lineTo(knee);
             compressionPathLine.lineTo(ratio);
-            g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+            g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
             g.strokePath(compressionPathLine, PathStrokeType(lf.borderThickness * 2.0f));
 
             float pathPos = meter.getPeakWindowed() * compressionPathLine.getLength();
@@ -55,7 +55,7 @@ void CompressorPreview::paint(Graphics& g)
             compressionFillNormal.lineTo(knee);
             compressionFillNormal.lineTo(knee.x, getHeight());
             compressionFillNormal.closeSubPath();
-            g.setColour(findColour(MMLookAndFeel::ColourIds::outlineLight));
+            g.setColour(findColour(GMLookAndFeel::ColourIds::outlineLight));
             g.setOpacity(0.25f);
             g.fillPath(compressionFillNormal);
         }
@@ -68,13 +68,13 @@ void CompressorPreview::paint(Graphics& g)
             compressionFillCompressed.lineTo(getWidth(), getHeight());
             compressionFillCompressed.lineTo(knee.getX(), getHeight());
             compressionFillCompressed.closeSubPath();
-            g.setColour(findColour(MMLookAndFeel::ColourIds::meterClip));
+            g.setColour(findColour(GMLookAndFeel::ColourIds::meterClip));
             g.setOpacity(0.25f);
             g.fillPath(compressionFillCompressed);
         }
         g.setOpacity(1.0f);
 
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
         g.drawEllipse(Rectangle<float>(getWidth() / 20.0f, getWidth() / 20.0f).withCentre(meterPoint), lf.borderThickness);
     }
 
@@ -82,7 +82,7 @@ void CompressorPreview::paint(Graphics& g)
     {
         Path outline;
         outline.addRectangle(getLocalBounds());
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
         g.strokePath(outline, PathStrokeType(lf.borderThickness));
     }
 }

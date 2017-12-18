@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 
 class Divider :
     public Component
@@ -23,7 +23,7 @@ public:
 private:
     void paint(Graphics& g) override
     {
-        g.setColour(findColour(MMLookAndFeel::ColourIds::outline));
+        g.setColour(findColour(GMLookAndFeel::ColourIds::outline));
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 };

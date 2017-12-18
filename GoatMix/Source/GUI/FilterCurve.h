@@ -12,7 +12,7 @@
 
 /*
 #include "JuceHeader.h"
-#include "../DSP/MMIIRFilter.h"
+#include "../DSP/GMIIRFilter.h"
 #include "../DSP/LogMap.h"
 #include <unordered_map>
 #include <vector>
@@ -26,7 +26,7 @@ public:
         frequencyRange(_frequencyRange) {}
     ~FilterCurve() = default;
 
-    void addFilter(MMIIRFilter* filter) noexcept
+    void addFilter(GMIIRFilter* filter) noexcept
     {
         for (auto& _filter : filters)
             if (_filter == filter)
@@ -87,7 +87,7 @@ private:
     }
 
     std::vector<float> displayFrequencies;
-    std::vector<WeakReference<MMIIRFilter>> filters;
+    std::vector<WeakReference<GMIIRFilter>> filters;
     std::unordered_map<dsp::IIR::Coefficients<float>::Ptr, std::vector<float>> filterCache;
     Range<float> frequencyRange;
     int numPoints;

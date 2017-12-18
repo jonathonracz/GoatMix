@@ -11,7 +11,7 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "MMLookAndFeel.h"
+#include "GMLookAndFeel.h"
 #include "../DSP/WindowedMeter.h"
 #include "UIStrings.h"
 #include "../DSP/RingBuffer.h"
@@ -145,12 +145,12 @@ private:
         {
             gradient = Image(Image::PixelFormat::RGB, getWidth(), getHeight(), false);
             Graphics gradientGen(gradient);
-            MMLookAndFeel& lf = static_cast<MMLookAndFeel&>(getLookAndFeel());
+            GMLookAndFeel& lf = static_cast<GMLookAndFeel&>(getLookAndFeel());
 
-            ColourGradient barGradient(lf.findColour(MMLookAndFeel::ColourIds::meterGradientTop),
+            ColourGradient barGradient(lf.findColour(GMLookAndFeel::ColourIds::meterGradientTop),
                                        0.0f,
                                        0.0f,
-                                       lf.findColour(MMLookAndFeel::ColourIds::meterGradientBottom),
+                                       lf.findColour(GMLookAndFeel::ColourIds::meterGradientBottom),
                                        0.0f,
                                        1.0f,
                                        false);
@@ -164,7 +164,7 @@ private:
                                                        getHeight() * minGainPos,
                                                        false));
             gradientGen.fillAll();
-            gradientGen.setColour(lf.findColour(MMLookAndFeel::ColourIds::meterClip));
+            gradientGen.setColour(lf.findColour(GMLookAndFeel::ColourIds::meterClip));
             gradientGen.fillRect(0, 0, getWidth(), static_cast<int>(std::ceil(getHeight() * maxGainPos)));
         }
     }
