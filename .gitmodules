@@ -1,6 +1,6 @@
 [submodule "GoatMix/Source/External/readerwriterqueue"]
 	path = GoatMix/Source/External/readerwriterqueue
-	url = https://github.com/cameron314/readerwriterqueue
+	url = https://github.com/cameron314/readerwriterqueue.git
 [submodule "External/JUCE"]
 	path = External/JUCE
 	url = https://github.com/WeAreROLI/JUCE.git
