@@ -69,9 +69,12 @@ void GMDistortionPluginEditor::resized()
     layout.items.add(FlexItem(meter).withMargin(standardMargin).withFlex(1.0f));
 
     FlexItem prevItem = FlexItem(preview).withMargin(standardMargin).withWidth(this->getWidth() * 0.35f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
-    if (prevItem.width > prevItem.height) {
+    if (prevItem.width > prevItem.height)
+    {
         prevItem.width = prevItem.height;
-    } else {
+    }
+    else
+    {
         prevItem.height = prevItem.width;
         float topBottomSpace = (this->getHeight() - vertSpace * 2 - prevItem.height) / 2;
         prevItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);

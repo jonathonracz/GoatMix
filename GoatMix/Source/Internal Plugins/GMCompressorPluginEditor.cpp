@@ -76,38 +76,18 @@ void GMCompressorPluginEditor::resized()
     layout.items.add(FlexItem(sliderThreshold).withMargin(standardMargin).withFlex(1.0f));
 
     FlexItem graphItem = FlexItem(preview).withMargin(standardMargin).withWidth(this->getWidth() * 0.4f).withHeight(this->getHeight() - vertSpace * 2).withMargin(standardMargin);
-    if (graphItem.width > graphItem.height) {
+    if (graphItem.width > graphItem.height)
+    {
         graphItem.width = graphItem.height;
-    } else {
+    }
+    else
+    {
         graphItem.height = graphItem.width;
         float topBottomSpace = (this->getHeight() - vertSpace * 2 - graphItem.height) / 2;
         graphItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
     }
+
     layout.items.add(graphItem);
-
-    /*
-    FlexBox meterBox;
-    meterBox.flexDirection = FlexBox::Direction::column;
-    meterBox.items.add(FlexItem(textGR).withFlex(1.0f));
-
-    FlexBox meters;
-    meters.flexDirection = FlexBox::Direction::row;
-
-    FlexBox lMeter;
-    lMeter.flexDirection = FlexBox::Direction::column;
-    lMeter.items.add(FlexItem(textLGainReduc).withFlex(1.0f));
-    lMeter.items.add(FlexItem(meterLGainReduc).withFlex(10.0f));
-
-    FlexBox rMeter;
-    rMeter.flexDirection = FlexBox::Direction::column;
-    rMeter.items.add(FlexItem(textRGainReduc).withFlex(1.0f));
-    rMeter.items.add(FlexItem(meterRGainReduc).withFlex(10.0f));
-
-    meters.items.add(FlexItem(lMeter).withMargin(FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f)).withFlex(1.0f));
-    meters.items.add(FlexItem(rMeter).withFlex(1.0f));
-    meterBox.items.add(FlexItem(meters).withFlex(10.0f));
-    layout.items.add(FlexItem(meterBox).withMargin(standardMargin).withFlex(1.0f));
-     */
 
     layout.items.add(FlexItem(sliderMakeupGain).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));

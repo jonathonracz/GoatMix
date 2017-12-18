@@ -69,11 +69,11 @@ void GMEQPluginEditor::resized()
     FlexItem::Margin leftMargin = FlexItem::Margin::Margin(0.0f, 0.0f, 0.0f, dynamicSpace);
     FlexItem::Margin rightLeftMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace);
     FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, dynamicSpace);
-    
+
     FlexBox main;
     main.flexDirection = FlexBox::Direction::column;
     main.items.add(FlexItem(fft).withMargin(FlexItem::Margin::Margin(15.0f, 15.0f, 0.0f, 15.0f)).withFlex(1.0f));
-    
+
     // 0
     FlexBox fb0;
     fb0.flexDirection = FlexBox::Direction::row;
@@ -153,9 +153,6 @@ void GMEQPluginEditor::resized()
         GMPluginInstanceEditor::setVerticalRotated(&eq->sliderGain);
         GMPluginInstanceEditor::setVerticalRotated(&eq->sliderQ);
     }
-
-    //fft.setBounds(getLocalBounds());
-    //filterCurve.setBounds(getLocalBounds());
 }
 
 void GMEQPluginEditor::updateSliderOpacities()
