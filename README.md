@@ -38,3 +38,15 @@ I've lumped the macOS build instructions into one category because they're almos
 ## Appendix
 
 The "actual" source code, i.e. all the app's code, can be found in `/GoatMix/Source`. External meta-project dependencies for the project are in `/External`. Statically linked dependencies are in `/GoatMix/Source/External`.
+
+Some screenshots:
+
+<img src="https://github.com/jonathonracz/GoatMix/blob/master/Design/Screenshots/Gain.png?raw=true">
+
+<img src="https://github.com/jonathonracz/GoatMix/blob/master/Design/Screenshots/Compressor.png?raw=true">
+
+<img src="https://github.com/jonathonracz/GoatMix/blob/master/Design/Screenshots/Reverb.png?raw=true">
+
+<img src="https://github.com/jonathonracz/GoatMix/blob/master/Design/Screenshots/Distortion.png?raw=true">
+
+<img src="https://github.com/jonathonracz/GoatMix/blob/master/Design/Screenshots/EQ.png?raw=true">
