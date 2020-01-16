@@ -117,9 +117,9 @@ void GMGainPluginEditor::resized()
     float vertDynamicSpace = this->getHeight() * 0.02f;
     float labelsFlex = 0.8f;
     float metersFlex = 0.75f;
-    FlexItem::Margin labelsMargin = FlexItem::Margin::Margin(10.0f, 2.0f, 10.0f, 2.0f);
-    FlexItem::Margin meterMargin = FlexItem::Margin::Margin(15.0f, 0.0f, 15.0f, 0.0f);
-    FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
+    FlexItem::Margin labelsMargin = FlexItem::Margin(10.0f, 2.0f, 10.0f, 2.0f);
+    FlexItem::Margin meterMargin = FlexItem::Margin(15.0f, 0.0f, 15.0f, 0.0f);
+    FlexItem::Margin standardMargin = FlexItem::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
 
     // Amplitude (left side)
     FlexBox ampBox;
@@ -130,11 +130,11 @@ void GMGainPluginEditor::resized()
     ampTop.items.add(FlexItem(leftdBLabel).withFlex(2.0f));
     ampTop.items.add(FlexItem(maxdBLabel).withFlex(1.0f));
     ampTop.items.add(FlexItem(rightdBLabel).withFlex(2.0f));
-    ampBox.items.add(FlexItem(ampTop).withMargin(FlexItem::Margin::Margin(0, dynamicSpace * 2, 0, 15.0f)).withFlex(1.0f));
+    ampBox.items.add(FlexItem(ampTop).withMargin(FlexItem::Margin(0, dynamicSpace * 2, 0, 15.0f)).withFlex(1.0f));
 
     FlexBox ampBottom;
     ampBottom.flexDirection = FlexBox::Direction::row;
-    ampBottom.items.add(FlexItem(sliderGainL).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(1.0f));
+    ampBottom.items.add(FlexItem(sliderGainL).withMargin(FlexItem::Margin(15.0f, dynamicSpace, 15.0f, 0.0f)).withFlex(1.0f));
 
     // L meters
     ampBottom.items.add(FlexItem(labelPosL).withMargin(labelsMargin).withFlex(labelsFlex));
@@ -143,7 +143,7 @@ void GMGainPluginEditor::resized()
     ampBottom.items.add(FlexItem(labelNegL).withMargin(labelsMargin).withFlex(labelsFlex));
     ampBottom.items.add(FlexItem(meterNegL).withMargin(meterMargin).withFlex(metersFlex));
 
-    ampBottom.items.add(FlexItem(sliderGain).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace * 2, 15.0f, dynamicSpace * 2)).withFlex(1.0f));
+    ampBottom.items.add(FlexItem(sliderGain).withMargin(FlexItem::Margin(15.0f, dynamicSpace * 2, 15.0f, dynamicSpace * 2)).withFlex(1.0f));
 
     // R meters
     ampBottom.items.add(FlexItem(meterNegR).withMargin(meterMargin).withFlex(metersFlex));
@@ -155,9 +155,9 @@ void GMGainPluginEditor::resized()
     ampBottom.items.add(FlexItem(sliderGainR).withMargin(standardMargin).withFlex(1.0f));
     ampBox.items.add(FlexItem(ampBottom).withFlex(8.0f));
 
-    layout.items.add(FlexItem(ampBox).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 0.0f, vertSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(ampBox).withMargin(FlexItem::Margin(15.0f, dynamicSpace, 0.0f, vertSpace)).withFlex(1.0f));
 
-    layout.items.add(FlexItem(div).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
+    layout.items.add(FlexItem(div).withWidth(2.0f).withMargin(FlexItem::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
 
     // Phase (right side)
     float phaseWidth = (this->getWidth() * 0.405f);
@@ -167,14 +167,14 @@ void GMGainPluginEditor::resized()
     FlexBox phaseBox;
     phaseBox.flexDirection = FlexBox::Direction::column;
     float panHeight = phaseHeight * (1.0f/6.0f);
-    phaseBox.items.add(FlexItem(sliderPan).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withHeight(panHeight));
+    phaseBox.items.add(FlexItem(sliderPan).withMargin(FlexItem::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withHeight(panHeight));
 
     FlexBox phaseBottom;
     phaseBottom.flexDirection = FlexBox::Direction::row;
 
     FlexBox lPhase;
     lPhase.flexDirection = FlexBox::Direction::column;
-    lPhase.items.add(FlexItem(sliderPhaseDelayL).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
+    lPhase.items.add(FlexItem(sliderPhaseDelayL).withMargin(FlexItem::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
     lPhase.items.add(FlexItem(buttonPhaseInvertL).withWidth(phaseSliderWidth).withFlex(1.0f));
     phaseBottom.items.add(FlexItem(lPhase).withFlex(1.0f));
 
@@ -206,17 +206,17 @@ void GMGainPluginEditor::resized()
         calcWidth = calcHeight;
     }
     FlexItem gonItem = FlexItem(goniometer).withWidth(calcWidth).withHeight(calcHeight);
-    gonItem.margin = FlexItem::Margin::Margin(vertMargin, horMargin, vertMargin, horMargin);
+    gonItem.margin = FlexItem::Margin(vertMargin, horMargin, vertMargin, horMargin);
     phaseBottom.items.add(gonItem);
 
     FlexBox rPhase;
     rPhase.flexDirection = FlexBox::Direction::column;
-    rPhase.items.add(FlexItem(sliderPhaseDelayR).withMargin(FlexItem::Margin::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
+    rPhase.items.add(FlexItem(sliderPhaseDelayR).withMargin(FlexItem::Margin(0.0f, 0.0f, vertDynamicSpace * 2, 0.0f)).withWidth(phaseSliderWidth).withFlex(5.0f));
     rPhase.items.add(FlexItem(buttonPhaseInvertR).withWidth(phaseSliderWidth).withFlex(1.0f));
     phaseBottom.items.add(FlexItem(rPhase).withFlex(1.0f));
     phaseBox.items.add(FlexItem(phaseBottom).withFlex(6.0f));
 
-    layout.items.add(FlexItem(phaseBox).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace * 2)).withWidth(phaseWidth));
+    layout.items.add(FlexItem(phaseBox).withMargin(FlexItem::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace * 2)).withWidth(phaseWidth));
 
     layout.performLayout(getLocalBounds());
 

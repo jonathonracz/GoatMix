@@ -41,15 +41,15 @@ GMCompressorPluginEditor::GMCompressorPluginEditor(GMCompressorPlugin& processor
     addAndMakeVisible(meterRGainReduc);
 
     textLGainReduc.setText("L", dontSendNotification);
-    textLGainReduc.setBorderSize(BorderSize<int>::BorderSize());
+    textLGainReduc.setBorderSize(BorderSize<int>());
     textLGainReduc.setJustificationType(Justification::centred);
 
     textRGainReduc.setText("R", dontSendNotification);
-    textRGainReduc.setBorderSize(BorderSize<int>::BorderSize());
+    textRGainReduc.setBorderSize(BorderSize<int>());
     textRGainReduc.setJustificationType(Justification::centred);
 
     textGR.setText("GR", dontSendNotification);
-    textGR.setBorderSize(BorderSize<int>::BorderSize());
+    textGR.setBorderSize(BorderSize<int>());
     textGR.setJustificationType(Justification::centred);
 
     addAndMakeVisible(textGR);
@@ -68,9 +68,9 @@ void GMCompressorPluginEditor::resized()
 
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
-    FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
+    FlexItem::Margin standardMargin = FlexItem::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
 
-    layout.items.add(FlexItem(sliderAttack).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(sliderAttack).withMargin(FlexItem::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(1.0f));
     layout.items.add(FlexItem(sliderRelease).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderRatio).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderThreshold).withMargin(standardMargin).withFlex(1.0f));
@@ -84,13 +84,13 @@ void GMCompressorPluginEditor::resized()
     {
         graphItem.height = graphItem.width;
         float topBottomSpace = (this->getHeight() - vertSpace * 2 - graphItem.height) / 2;
-        graphItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
+        graphItem.margin = FlexItem::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
     }
 
     layout.items.add(graphItem);
 
     layout.items.add(FlexItem(sliderMakeupGain).withMargin(standardMargin).withFlex(1.0f));
-    layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(sliderDryWet).withMargin(FlexItem::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
 
     layout.performLayout(getLocalBounds());
 

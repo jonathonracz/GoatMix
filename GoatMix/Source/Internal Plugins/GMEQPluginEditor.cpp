@@ -30,7 +30,7 @@ GMEQPluginEditor::GMEQPluginEditor(GMEQPlugin& processor) :
         eqControl->attachType = createComboBoxAttachment(eqParam->paramType, eqControl->boxType);
 
         eqControl->text.setText(String(i), dontSendNotification);
-        eqControl->text.setBorderSize(BorderSize<int>::BorderSize());
+        eqControl->text.setBorderSize(BorderSize<int>());
         eqControl->text.setJustificationType(Justification::centred);
 
         eqControl->sliderCutoff.setTooltip(UIStrings::EQ::cutoff);
@@ -65,14 +65,14 @@ void GMEQPluginEditor::resized()
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
     float vertDynamicSpace = this->getHeight() * 0.02f;
-    FlexItem::Margin rightMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, 0.0f);
-    FlexItem::Margin leftMargin = FlexItem::Margin::Margin(0.0f, 0.0f, 0.0f, dynamicSpace);
-    FlexItem::Margin rightLeftMargin = FlexItem::Margin::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace);
-    FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 10.0f, dynamicSpace);
+    FlexItem::Margin rightMargin = FlexItem::Margin(0.0f, dynamicSpace, 0.0f, 0.0f);
+    FlexItem::Margin leftMargin = FlexItem::Margin(0.0f, 0.0f, 0.0f, dynamicSpace);
+    FlexItem::Margin rightLeftMargin = FlexItem::Margin(0.0f, dynamicSpace, 0.0f, dynamicSpace);
+    FlexItem::Margin standardMargin = FlexItem::Margin(15.0f, dynamicSpace, 10.0f, dynamicSpace);
 
     FlexBox main;
     main.flexDirection = FlexBox::Direction::column;
-    main.items.add(FlexItem(fft).withMargin(FlexItem::Margin::Margin(15.0f, 15.0f, 0.0f, 15.0f)).withFlex(1.0f));
+    main.items.add(FlexItem(fft).withMargin(FlexItem::Margin(15.0f, 15.0f, 0.0f, 15.0f)).withFlex(1.0f));
 
     // 0
     FlexBox fb0;
@@ -85,11 +85,11 @@ void GMEQPluginEditor::resized()
     cb0.items.add(FlexItem(fb0).withFlex(6.0f));
     FlexBox rb0;
     rb0.flexDirection = FlexBox::Direction::row;
-    rb0.items.add(FlexItem(eqs[0].boxType).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
-    rb0.items.add(FlexItem(eqs[0].text).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
+    rb0.items.add(FlexItem(eqs[0].boxType).withMargin(FlexItem::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
+    rb0.items.add(FlexItem(eqs[0].text).withMargin(FlexItem::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
     cb0.items.add(FlexItem(rb0).withFlex(1.0f));
-    layout.items.add(FlexItem(cb0).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(1.0f));
-    layout.items.add(FlexItem(dividers[0]).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
+    layout.items.add(FlexItem(cb0).withMargin(FlexItem::Margin(vertSpace, dynamicSpace, vertSpace, vertSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(dividers[0]).withWidth(2.0f).withMargin(FlexItem::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
 
     // 1
     FlexBox fb1;
@@ -102,11 +102,11 @@ void GMEQPluginEditor::resized()
     cb1.items.add(FlexItem(fb1).withFlex(6.0f));
     FlexBox rb1;
     rb1.flexDirection = FlexBox::Direction::row;
-    rb1.items.add(FlexItem(eqs[1].boxType).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
-    rb1.items.add(FlexItem(eqs[1].text).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
+    rb1.items.add(FlexItem(eqs[1].boxType).withMargin(FlexItem::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
+    rb1.items.add(FlexItem(eqs[1].text).withMargin(FlexItem::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
     cb1.items.add(FlexItem(rb1).withFlex(1.0f));
-    layout.items.add(FlexItem(cb1).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
-    layout.items.add(FlexItem(dividers[1]).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
+    layout.items.add(FlexItem(cb1).withMargin(FlexItem::Margin(vertSpace, dynamicSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(dividers[1]).withWidth(2.0f).withMargin(FlexItem::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
 
     // 2
     FlexBox fb2;
@@ -119,11 +119,11 @@ void GMEQPluginEditor::resized()
     cb2.items.add(FlexItem(fb2).withFlex(6.0f));
     FlexBox rb2;
     rb2.flexDirection = FlexBox::Direction::row;
-    rb2.items.add(FlexItem(eqs[2].boxType).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
-    rb2.items.add(FlexItem(eqs[2].text).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
+    rb2.items.add(FlexItem(eqs[2].boxType).withMargin(FlexItem::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
+    rb2.items.add(FlexItem(eqs[2].text).withMargin(FlexItem::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
     cb2.items.add(FlexItem(rb2).withFlex(1.0f));
-    layout.items.add(FlexItem(cb2).withMargin(FlexItem::Margin::Margin(vertSpace, dynamicSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
-    layout.items.add(FlexItem(dividers[2]).withWidth(2.0f).withMargin(FlexItem::Margin::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
+    layout.items.add(FlexItem(cb2).withMargin(FlexItem::Margin(vertSpace, dynamicSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(dividers[2]).withWidth(2.0f).withMargin(FlexItem::Margin(vertSpace, 0.0f, vertSpace, 0.0f)));
 
     // 3
     FlexBox fb3;
@@ -136,10 +136,10 @@ void GMEQPluginEditor::resized()
     cb3.items.add(FlexItem(fb3).withFlex(6.0f));
     FlexBox rb3;
     rb3.flexDirection = FlexBox::Direction::row;
-    rb3.items.add(FlexItem(eqs[3].boxType).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
-    rb3.items.add(FlexItem(eqs[3].text).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
+    rb3.items.add(FlexItem(eqs[3].boxType).withMargin(FlexItem::Margin(vertDynamicSpace, dynamicSpace, 0.0f, 0.0f)).withFlex(2.0f));
+    rb3.items.add(FlexItem(eqs[3].text).withMargin(FlexItem::Margin(vertDynamicSpace, -dynamicSpace / 2, 0.0f, dynamicSpace / 2)).withFlex(1.0f));
     cb3.items.add(FlexItem(rb3).withFlex(1.0f));
-    layout.items.add(FlexItem(cb3).withMargin(FlexItem::Margin::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(cb3).withMargin(FlexItem::Margin(vertSpace, vertSpace, vertSpace, dynamicSpace)).withFlex(1.0f));
 
     // Final
     main.items.add(FlexItem(layout).withFlex(6.0f));

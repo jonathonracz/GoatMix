@@ -60,9 +60,9 @@ void GMDistortionPluginEditor::resized()
     float vertDynamicSpace = this->getHeight() * 0.02f;
     float vertSpace = 15.0f;
     float dynamicSpace = this->getWidth() * 0.01f;
-    FlexItem::Margin standardMargin = FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
+    FlexItem::Margin standardMargin = FlexItem::Margin(15.0f, dynamicSpace, 15.0f, dynamicSpace);
 
-    layout.items.add(FlexItem(sliderDownsample).withMargin(FlexItem::Margin::Margin(15.0f, dynamicSpace, 15.0f, vertSpace)).withFlex(1.0f));
+    layout.items.add(FlexItem(sliderDownsample).withMargin(FlexItem::Margin(15.0f, dynamicSpace, 15.0f, vertSpace)).withFlex(1.0f));
     layout.items.add(FlexItem(sliderBitDepth).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderOverdrive).withMargin(standardMargin).withFlex(1.0f));
     layout.items.add(FlexItem(sliderGain).withMargin(standardMargin).withFlex(1.0f));
@@ -77,14 +77,14 @@ void GMDistortionPluginEditor::resized()
     {
         prevItem.height = prevItem.width;
         float topBottomSpace = (this->getHeight() - vertSpace * 2 - prevItem.height) / 2;
-        prevItem.margin = FlexItem::Margin::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
+        prevItem.margin = FlexItem::Margin(vertSpace + topBottomSpace, dynamicSpace, vertSpace + topBottomSpace, dynamicSpace);
     }
     layout.items.add(prevItem);
 
     FlexBox lpass;
     lpass.flexDirection = FlexBox::Direction::column;
     lpass.items.add(FlexItem(sliderLowPass).withFlex(6.0f));
-    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin::Margin(vertDynamicSpace, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
+    lpass.items.add(FlexItem(buttonLowPassEnable).withMargin(FlexItem::Margin(vertDynamicSpace, 0.0f, 0.0f, 0.0f)).withFlex(1.0f));
     layout.items.add(FlexItem(lpass).withMargin(standardMargin).withFlex(1.0f));
 
     layout.performLayout(getLocalBounds());
